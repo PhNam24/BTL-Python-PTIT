@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" package="com.chumteam.chumvideocall" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.chumteam.chumvideocall.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT"/>
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
+    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE"/>
+    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT"/>
+    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_APP_BADGE"/>
+    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <permission android:name="com.chumteam.chumvideocall.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <queries>
+        <package android:name="net.one97.paytm"/>
+        <package android:name="com.phonepe.app"/>
+        <package android:name="com.google.android.apps.nbu.paisa.user"/>
+    </queries>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:fullBackupContent="@xml/backup_descriptor" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:isSplitRequired="true" android:label="@string/app_name" android:largeHeap="true" android:name="com.chumteam.chumvideocall.app.Application" android:networkSecurityConfig="@xml/network_security_config" android:supportsRtl="true" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
+        <activity android:name="com.chumteam.chumvideocall.home.All_User.LiveSupportActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.chumteam.chumvideocall.home.All_User.WalleteActivity_uv"/>
+        <activity android:alwaysRetainTaskState="true" android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.chumteam.chumvideocall.app.SplashScreen" android:noHistory="true" android:theme="@style/ThemeApp.NoWindowPreview" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <provider android:authorities="com.chumteam.chumvideocall.provider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <service android:exported="false" android:name="com.chumteam.chumvideocall.modules.merlin.MerlinService"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <receiver android:exported="false" android:name="com.chumteam.chumvideocall.pushNotifications.CustomPushReceiver">
+            <intent-filter>
+                <action android:name="com.parse.push.intent.RECEIVE"/>
+                <action android:name="com.parse.push.intent.DELETE"/>
+                <action android:name="com.parse.push.intent.OPEN"/>
+            </intent-filter>
+        </receiver>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.chumteam.chumvideocall.authUtils.chummah_LoginActivity">
+            <meta-data android:name="AngopapoLogin.APP_LOGO" android:resource="@mipmap/ic_launcher"/>
+            <meta-data android:name="AngopapoLogin.PARSE_LOGIN_ENABLED" android:value="true"/>
+            <meta-data android:name="AngopapoLogin.PARSE_LOGIN_EMAIL_AS_USERNAME" android:value="true"/>
+            <meta-data android:name="AngopapoLogin.PARSE_LOGIN_HELP_TEXT" android:value="@string/password_reset_text"/>
+            <meta-data android:name="AngopapoLogin.MIN_PASSWORD_LENGTH" android:value="6"/>
+            <meta-data android:name="AngopapoLogin.FACEBOOK_LOGIN_ENABLED" android:value="true"/>
+            <meta-data android:name="AngopapoLogin.TWITTER_LOGIN_ENABLED" android:value="false"/>
+            <meta-data android:name="AngopapoLogin.FACEBOOK_LOGIN_PERMISSIONS" android:resource="@array/my_facebook_permissions"/>
+        </activity>
+        <activity android:name="com.chumteam.chumvideocall.auth.WelcomeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.chumteam.chumvideocall.home.All_User.UserDataActivity_uv" android:screenOrientation="portrait"/>
+        <activity android:name="com.chumteam.chumvideocall.home.All_User.Videocalllayout_uv" android:screenOrientation="portrait"/>
+        <activity android:name="com.chumteam.chumvideocall.home.All_User.FirstCallActivity_uv" android:screenOrientation="portrait"/>
+        <activity android:name="com.chumteam.chumvideocall.home.Profiles.OurPrivacyActivity_uv" android:screenOrientation="portrait"/>
+        <activity android:name="com.chumteam.chumvideocall.home.All_User.MakeDummyVideoCallActivity_uv" android:screenOrientation="portrait"/>
+        <activity android:name="com.chumteam.chumvideocall.home.All_User.PaymentActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.chumteam.chumvideocall.home.Chat.TempereryMsgActivity_chummah" android:screenOrientation="portrait"/>
+        <activity android:name="com.chumteam.chumvideocall.home.All_User.LiveIncomingCallActiviy_uv" android:screenOrientation="portrait"/>
+        <activity android:name="com.chumteam.chumvideocall.home.All_User.HelpCenterActivity_uv" android:screenOrientation="portrait"/>
+        <activity android:name="com.chumteam.chumvideocall.home.All_User.VisitedActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.chumteam.chumvideocall.home.All_User.AppSplashAvtivity_uv" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.chumteam.chumvideocall.home.All_User.LoginsActivity_uv"/>
+        <activity android:name="com.chumteam.chumvideocall.authUtils.chummah_SignupActivity"/>
+        <activity android:name="com.chumteam.chumvideocall.auth.FacebookLink"/>
+        <activity android:name="com.chumteam.chumvideocall.app.BaseActivity"/>
+        <activity android:name="com.chumteam.chumvideocall.app.DispatchActivity" android:noHistory="true"/>
+        <activity android:name="com.chumteam.chumvideocall.home.Chummah_HomeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.chumteam.chumvideocall.home.uploads.data_Uploads_chummah"/>
+        <activity android:name="com.chumteam.chumvideocall.home.nearby.ManualLocationActivity_chummah"/>
+        <activity android:name="com.chumteam.chumvideocall.home.popularity.Apps_PopularityActivity"/>
+        <activity android:name="com.chumteam.chumvideocall.home.payments.new_PaymentsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.chumteam.chumvideocall.home.settings.SettingsActivity_chummah"/>
+        <activity android:name="com.chumteam.chumvideocall.home.LiveFragment.MatchingActivity_datas"/>
+        <activity android:name="com.chumteam.chumvideocall.home.encounters.new_LikedYouActivity_chummah"/>
+        <activity android:name="com.chumteam.chumvideocall.home.encounters.MutualAttractionActivity_chummah"/>
+        <activity android:name="com.chumteam.chumvideocall.home.profile.chummah_PicViewerActivity_chummah"/>
+        <activity android:name="com.chumteam.chumvideocall.home.settings.basicInfo.BasicInfoActivity"/>
+        <activity android:name="com.chumteam.chumvideocall.home.settings.account.Account_chummah_Activity"/>
+        <activity android:name="com.chumteam.chumvideocall.home.settings.accountPreferences.AccountPreferencesActivitychummah_data"/>
+        <activity android:name="com.chumteam.chumvideocall.home.settings.accountPreferences.SettingsPrivacyActivitychummah_datas"/>
+        <activity android:name="com.chumteam.chumvideocall.home.settings.accountPreferences.SettingsInvisibleModeActivity_uv"/>
+        <activity android:name="com.chumteam.chumvideocall.home.settings.accountPreferences.SettingsNotificationsActivitychummah_"/>
+        <activity android:name="com.chumteam.chumvideocall.home.settings.chummah_WebUrlsActivity"/>
+        <activity android:name="com.chumteam.chumvideocall.home.settings.about.chummah_AboutActivity"/>
+        <activity android:name="com.chumteam.chumvideocall.home.settings.about.chummah_AboutAppActivity"/>
+        <activity android:name="com.chumteam.chumvideocall.home.settings.BlockedUsersActivity_chummah"/>
+        <activity android:name="com.chumteam.chumvideocall.home.profile.Apps_ReportBlockActivity_data"/>
+        <activity android:name="com.chumteam.chumvideocall.home.profile.chummah_EditProfileActivity"/>
+        <activity android:name="com.chumteam.chumvideocall.home.connections.FeatureActivationActivity_live_call"/>
+        <activity android:name="com.chumteam.chumvideocall.home.connections.ChatActivity_chummah_" android:screenOrientation="portrait"/>
+        <activity android:name="com.chumteam.chumvideocall.home.calls.CallActivity_chummah" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:label="@string/app_name" android:name="com.chumteam.chumvideocall.home.connections.IncomingActivity_chummahCall" android:screenOrientation="portrait" android:theme="@style/MyAppCompatDialogTheme"/>
+        <activity android:name="com.chumteam.chumvideocall.home.live.WalletActivity"/>
+        <activity android:name="com.chumteam.chumvideocall.home.live.LiveActivity_chummah" android:screenOrientation="portrait"/>
+        <activity android:name="com.chumteam.chumvideocall.home.live.chummah_LiveStreamingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.chumteam.chumvideocall.home.profile.PhotoViewerActivity_chummah" android:screenOrientation="portrait"/>
+        <activity android:name="com.chumteam.chumvideocall.home.calls.VoiceCallActivity_chummah" android:screenOrientation="portrait"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <activity android:exported="false" android:label="@string/places_autocomplete_label" android:name="com.google.android.libraries.places.widget.AutocompleteActivity" android:theme="@style/PlacesAutocompleteOverlay" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTop" android:name="com.paykun.sdk.PaykunPaymentActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service android:enabled="true" android:exported="true" android:name="net.gotev.uploadservice.UploadService"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="cct.com.chumteam.chumvideocall" android:scheme="fbconnect"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.google.android.play.billingclient.version" android:value="3.0.0"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.android.billingclient.api.ProxyBillingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <provider android:authorities="com.chumteam.chumvideocall.MarketingInitProvider" android:exported="false" android:name="com.facebook.marketing.internal.MarketingInitProvider"/>
+        <provider android:authorities="com.chumteam.chumvideocall.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.chumteam.chumvideocall.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="30"/>
+    </application>
+</manifest>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="se.illusionlabs.skate2" platformBuildVersionCode="19" platformBuildVersionName="4.4.2-1456859">
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-feature android:name="android.hardware.touchscreen.multitouch.distinct" android:required="true"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="com.android.vending.CHECK_LICENSE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <application android:allowBackup="true" android:icon="@drawable/icon" android:label="指尖滑板2" android:name="com.tencent.StubShell.TxAppEntry">
+        <meta-data android:name="TxAppEntry" android:value="android.app.Application"/>
+        <meta-data android:name="com.google.android.gms.games.APP_ID" android:value="@string/app_id"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="指尖滑板2" android:launchMode="singleTask" android:name=".MainActivity" android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="指尖滑板2" android:name="se.illusionlabs.skate2.obb.DownloaderActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
+        <service android:name="se.illusionlabs.skate2.obb.OBBDownloaderService"/>
+        <receiver android:name="se.illusionlabs.skate2.obb.OBBAlarmReceiver"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="com.baidu.mobads.AppActivity"/>
+        <activity android:name="com.kuaiyouxi.gamepad.sdk.shell.KyxShellActivity" android:screenOrientation="sensorPortrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.kuaiyouxi.gamepad.sdk.LauncherActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:name="com.kuaiyouxi.gamepad.sdk.KyxSDKActivity">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="com.baidu.mobads.appoffers.OffersActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="com.baidu.mobads.AppActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.qq.e.ads.ADActivity"/>
+        <activity android:name="com.chance.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="com.cheetah.activity.CheetahAActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|orientation" android:launchMode="standard" android:name="comalimama.mobile.sdk.shell.AlimamaDetail"/>
+        <service android:name="com.kyview.DownloadService"/>
+        <activity android:name="com.kyview.AdviewWebView"/>
+        <receiver android:name="com.kuaiyouxi.gamepad.sdk.business.receiver.DownloadCompleteReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.kuaiyouxi.gamepad.sdk.business.receiver.InstallCompleteReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="true" android:name="com.kuaiyouxi.gamepad.sdk.business.XLCommonService"/>
+        <service android:exported="false" android:name="com.qq.e.comm.DownloadService"/>
+        <service android:exported="true" android:name="com.chance.engine.AdService" android:process="com.chance.AdService">
+            <intent-filter>
+                <action android:name="com.chance.service"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.alimama.mobile.sdk.shell.DownloadingService">
+            <intent-filter>
+                <action android:name="comalimama.mobile.sdk.download.action"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.cheetah.service.CheetahAService"/>
+        <receiver android:name="com.cheetah.receiver.CheetahAReceiver">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="kyx_original" android:value="se.illusionlabs.skate2.obb.DownloaderActivity"/>
+        <meta-data android:name="kyx_dataName" android:value="main.7.se.illusionlabs.skate2.obb,patch.11.se.illusionlabs.skate2.obb"/>
+        <meta-data android:name="kyx_obbSize" android:value="163655060_,2630145_"/>
+        <meta-data android:name="kyx_channel" android:value="xiaomi_gdt_ad"/>
+    </application>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+</manifest>

@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.rednovo.weibo">
+    <application android:hardwareAccelerated="true" android:icon="@drawable/new_app_icon2" android:label="@string/app_name" android:largeHeap="true" android:name="com.rednovo.weibo.KtvApplication" android:theme="@style/Theme_Standard_SlideBack">
+        <activity android:label="@string/app_name" android:name="com.rednovo.weibo.activity.EntryActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:hardwareAccelerated="false" android:label="@string/play_plaza" android:name="com.rednovo.weibo.activity.MainActivity" android:screenOrientation="portrait" android:theme="@style/Theme_Standard">
+            <intent-filter>
+                <action android:name="com.rednovo.weibo.main"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="com.rednovo.weibo.activity.LiveActivity" android:parentActivityName="com.rednovo.weibo.activity.MainActivity" android:screenOrientation="portrait" android:theme="@style/Theme_Standard_Live_Activity" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="com.rednovo.weibo.exportedAction"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="微播"/>
+            </intent-filter>
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.rednovo.weibo.activity.MainActivity"/>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.welcome.WelcomeActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:hardwareAccelerated="false" android:label="@string/login" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.LoginActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/register" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.RegisterActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.IndexActivity" android:screenOrientation="portrait" android:theme="@style/IndividualPlayTheme" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/find_password" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.LookForPasswordActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/find_password" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.LookForSetPasswordActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/find_password" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.BoundMobileActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/modify_nickname" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.SetNickNameActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/advise" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.AdviceActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.StarZoneActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.StarInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.NewOtherUserZoneActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.AccountCenterActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.PersonalitySignatureActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/recharge_record" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.PayRecordActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/label_cost_log" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.SpendRecordActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/lottery_record" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.LotteryRecordActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/vip_center" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.NewPayActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="微播支付"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/vip_center" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.RechargeSuccessActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/vip_center" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.MountMallActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/vip_center" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.BuyMountActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/setting" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.SettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/setting" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.MessagePushRemindActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/setting" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.MessageRemindSettingActivity" android:screenOrientation="portrait" android:theme="@style/IndividualPlayTheme"/>
+        <activity android:label="@string/setting" android:launchMode="singleTop" android:name="com.rednovo.weibo.push.PushWebViewActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="jpush.pushWebViewAction"/>
+                <category android:name="jpush.pushWebViewCategory"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/setting" android:launchMode="singleTop" android:name="com.rednovo.weibo.push.PushLiveActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="jpush.pushLiveAction"/>
+                <category android:name="jpush.pushLiveCategory"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/setting" android:launchMode="singleTop" android:name="com.rednovo.weibo.push.PushPopupActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="jpush.pushPopupAction"/>
+                <category android:name="jpush.pushPopupCategory"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/ktv_about" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.AboutActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.BannerActivity" android:screenOrientation="portrait" android:theme="@style/IndividualPlayTheme">
+            <intent-filter>
+                <action android:name="com.remote.open.banner"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/vip" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.BuyVipActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/vip" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.NewBuyVipActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.RankItemActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="orientation|screenSize" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.IndividualWorkActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.MicroShowActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.IndividualPlayerActivity" android:screenOrientation="portrait" android:theme="@style/IndividualPlayTheme"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/vip" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.MallVipActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.SearchActivity" android:screenOrientation="portrait" android:theme="@style/Theme_Standard_Window_Overlay"/>
+        <activity android:label="@string/save_image" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.ImageShowerActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleInstance" android:name="com.rednovo.weibo.activity.PhotoAlbumActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.rednovo.weibo.activity.PhotoWallActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/recharge_star_coin" android:launchMode="singleTop" android:name="com.rednovo.weibo.pay.PayActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/alipay" android:launchMode="singleTop" android:name="com.rednovo.weibo.pay.AlipayActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/wechat_pay" android:launchMode="singleTop" android:name="com.rednovo.weibo.pay.WeChatPayActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/bank_card" android:launchMode="singleTop" android:name="com.rednovo.weibo.pay.UPPayActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/handset_card" android:launchMode="singleTop" android:name="com.rednovo.weibo.pay.HandsetCardPayActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/sms_pay" android:launchMode="singleTop" android:name="com.rednovo.weibo.pay.SmsPayActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/redact_info" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.RedactInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/redact_info" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.RedactUserInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/myself_label" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.MyLabelActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/my_fav_star" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.MyFavStarActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/my_recently_star" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.MyRecentlyStarActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.ClipPictureActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/mall" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.MallActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/buy_mount" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.OpenSuperFansActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".MediaPlayerDemo_Audio"/>
+        <activity android:label="@string/sms_pay" android:name="com.vsofo.vpaysmszf.MActivity_vpaysmszf"/>
+        <service android:name="com.xiuba.lib.service.MainService"/>
+        <service android:name="com.xiuba.lib.download.DownService" android:process=":DownService"/>
+        <meta-data android:name="UMENG_APPKEY" android:value="53cce49556240bbd9b13e1af"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="@string/umeng_channel6000010"/>
+        <meta-data android:name="UMENG_MESSAGE_SECRET" android:value="UMENG_MESSAGE_SECRET"/>
+        <service android:name="com.umeng.update.net.DownloadingService" android:process=":DownloadingService"/>
+        <activity android:name="com.umeng.update.UpdateDialogActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:exported="false" android:name="com.umeng.message.NotificationProxyBroadcastReceiver"/>
+        <receiver android:name="com.umeng.message.SystemReceiver" android:process=":push">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.umeng.message.MessageReceiver" android:process=":push">
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.umeng.message.ElectionReceiver" android:process=":push">
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.ELECTION_RESULT_V4"/>
+                <category android:name="umeng"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.umeng.message.RegistrationReceiver">
+            <intent-filter>
+                <action android:name="com.rednovo.weibo.intent.action.COMMAND"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.umeng.message.UmengMessageBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:label="PushService" android:name="com.umeng.message.UmengService" android:process=":push">
+            <intent-filter>
+                <action android:name="com.rednovo.weibo.intent.action.START"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.rednovo.weibo.intent.action.COCKROACH"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.PING_V4"/>
+                <category android:name="umeng"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.umeng.message.UmengIntentService" android:process=":push"/>
+        <service android:exported="true" android:name="com.umeng.message.UmengMessageIntentReceiverService" android:process=":push">
+            <intent-filter>
+                <action android:name="org.android.agoo.client.MessageReceiverService"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="org.android.agoo.client.ElectionReceiverService"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.umeng.message.UmengMessageCallbackHandlerService">
+            <intent-filter>
+                <action android:name="com.umeng.messge.registercallback.action"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.umeng.message.unregistercallback.action"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.umeng.message.message.handler.action"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.umeng.message.autoupdate.handler.action"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.umeng.message.UmengDownloadResourceService"/>
+        <service android:exported="true" android:name="org.android.agoo.service.ElectionService" android:process=":umengService_v1">
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.ELECTION_V2"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.umeng.message.UmengIntentService"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="cn.jpush.android.ui.PushActivity">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.rednovo.weibo"/>
+            </intent-filter>
+        </activity>
+        <service android:enabled="true" android:exported="false" android:name="cn.jpush.android.service.DownloadService"/>
+        <service android:enabled="true" android:exported="false" android:name="cn.jpush.android.service.PushService">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER"/>
+                <action android:name="cn.jpush.android.intent.REPORT"/>
+                <action android:name="cn.jpush.android.intent.PushService"/>
+                <action android:name="cn.jpush.android.intent.PUSH_TIME"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="true" android:name="cn.jpush.android.service.DaemonService">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.DaemonService"/>
+                <category android:name="com.rednovo.weibo"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="cn.jpush.android.service.PushReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY"/>
+                <category android:name="com.rednovo.weibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="cn.jpush.android.service.AlarmReceiver"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.rednovo.weibo.push.PushReceiver">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION"/>
+                <action android:name="cn.jpush.android.intent.UNREGISTRATION"/>
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED"/>
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED"/>
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED"/>
+                <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK"/>
+                <action android:name="cn.jpush.android.intent.CONNECTION"/>
+                <category android:name="com.rednovo.weibo"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="JPUSH_CHANNEL" android:value="66666000020L"/>
+        <meta-data android:name="JPUSH_APPKEY" android:value="a9638d4f488ad045badcc7e9"/>
+        <activity android:label="@string/my_mount" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.MyMountActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/exchange_coin" android:launchMode="singleTop" android:name="com.rednovo.weibo.activity.ExchangeActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/set_password" android:launchMode="singleTask" android:name="com.rednovo.weibo.activity.SetPasswordActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.tencent.connect.common.AssistActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencent101155929"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:name="com.rednovo.weibo.wxapi.WXEntryActivity" android:theme="@android:style/Theme.NoDisplay"/>
+        <meta-data android:name="BaiduMobAd_STAT_ID" android:value="2e6683b7d1"/>
+        <receiver android:name=".PlayReciver">
+            <intent-filter>
+                <action android:name="frontSong"/>
+                <action android:name="nextSong"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:exported="false" android:name="com.alipay.sdk.app.H5PayActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize|stateHidden"/>
+    </application>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="android.webkit.permission.PLUGIN"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="com.rednovo.weibo.permission.JPUSH_MESSAGE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <permission android:name="com.rednovo.weibo.permission.JPUSH_MESSAGE" android:protectionLevel="signature"/>
+</manifest>

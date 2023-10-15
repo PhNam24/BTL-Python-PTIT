@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" package="com.biquge.reader" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_ LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="andorid.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:icon="@drawable/app_icon" android:label="@string/app_name" android:name="com.tencent.StubShell.TxAppEntry" android:networkSecurityConfig="@xml/network_security_config" android:resizeableActivity="true" android:supportsRtl="true" android:theme="@style/AppTheme.NoActionBar" android:usesCleartextTraffic="true">
+        <meta-data android:name="TxAppEntry" android:value="com.biquge.reader.ReaderApplication"/>
+        <service android:enabled="true" android:exported="true" android:name="com.biquge.reader.service.BookShelfService"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <meta-data android:name="android.max_aspect" android:value="ratio_float"/>
+        <meta-data android:name="DBVersion" android:value="1007"/>
+        <meta-data android:name="BaiduMobAd_STAT_ID" android:value="70df515904"/>
+        <meta-data android:name="BaiduMobAd_CHANNEL" android:value="huawei"/>
+        <meta-data android:name="BaiduMobAd_EXCEPTION_LOG" android:value="true"/>
+        <meta-data android:name="BaiduMobAd_SEND_STRATEGY" android:value="APP_START"/>
+        <meta-data android:name="BaiduMobAd_ONLY_WIFI" android:value="false"/>
+        <meta-data android:name="BaiduMobAd_CELL_LOCATION" android:value="true"/>
+        <meta-data android:name="BaiduMobAd_GPS_LOCATION" android:value="true"/>
+        <meta-data android:name="BaiduMobAd_WIFI_LOCATION" android:value="true"/>
+        <service android:enabled="true" android:name="com.baidu.location.f" android:process=":remote"/>
+        <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="G7lf4I6ByGWp36lpsBnveugMYokyl6cE"/>
+        <meta-data android:name="IFLYTEK_CHANNEL" android:value=""/>
+        <meta-data android:name="IFLYTEK_APPKEY" android:value="'599ef8d4'"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:exported="true" android:name="com.iflytek.autoupdate.IFlytekUpdateDialog" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <service android:enabled="true" android:name="com.iflytek.autoupdate.IFlytekDownloadService" android:process=":IFlytekDownloadService"/>
+        <activity android:name="com.biquge.reader.ui.activity.SplashActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar.FullScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.biquge.reader.ui.activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.biquge.reader.ui.activity.SearchActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.biquge.reader.ui.activity.SearchByAuthorActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.biquge.reader.ui.activity.BookDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.biquge.reader.ui.activity.BooksByTagActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:name="com.biquge.reader.ui.activity.ReadActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar.FullScreen" android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.biquge.reader.ui.activity.BookSourceActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.biquge.reader.ui.activity.ReadPDFActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="application/pdf"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.biquge.reader.ui.activity.ReadEPubActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="application/epub+zip"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.biquge.reader.ui.activity.ReadCHMActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="application/mshelp"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.biquge.reader.ui.activity.TopCategoryListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.biquge.reader.ui.activity.SubCategoryListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.biquge.reader.ui.activity.SubjectBookListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.biquge.reader.ui.activity.SubjectBookListDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.biquge.reader.ui.activity.TopRankActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.biquge.reader.ui.activity.SubRankActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.biquge.reader.ui.activity.BookCitySubRankActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.biquge.reader.ui.activity.SubOtherHomeRankActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.biquge.reader.ui.activity.BookDiscussionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.biquge.reader.ui.activity.BookReviewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.biquge.reader.ui.activity.BookHelpActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.biquge.reader.ui.activity.BookDiscussionDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.biquge.reader.ui.activity.BookReviewDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.biquge.reader.ui.activity.BookHelpDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.biquge.reader.ui.activity.BookDetailCommunityActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.biquge.reader.ui.activity.GirlBookDiscussionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.biquge.reader.ui.activity.MyBookListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.biquge.reader.ui.activity.SettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.biquge.reader.ui.activity.ScanLocalBookActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.biquge.reader.ui.activity.WifiBookActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.biquge.reader.ui.activity.FeedbackActivity" android:screenOrientation="portrait"/>
+        <service android:name="com.biquge.reader.service.DownloadBookService"/>
+        <activity android:name="com.biquge.reader.ui.activity.DownloadActivity"/>
+        <activity android:name="com.biquge.reader.ui.activity.RightActivity"/>
+        <activity android:name="com.biquge.reader.ui.activity.NewGuideHelpActiviry" android:theme="@style/NewGuideTransparent"/>
+        <activity android:name="com.biquge.reader.ui.activity.OurHomeRankActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.biquge.reader.function.login.AuthLoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.biquge.reader.function.me.ReadRecordActivity"/>
+        <activity android:name="com.biquge.reader.function.me.FavorActivity"/>
+        <activity android:name="com.biquge.reader.function.me.VipActivity"/>
+        <activity android:name="framework.com.huangduan.reader.utils.permission.PermissionsActivity"/>
+        <activity android:name="com.biquge.reader.function.me.OpenVipActivity"/>
+        <activity android:name="com.biquge.reader.ui.activity.BookReadWebviewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.biquge.reader.ui.activity.BookSearchWebviewActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.biquge.reader.ui.activity.ReadWebviewActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.huangduan.adlibrary.ui.ADWebviewActivity"/>
+        <service android:exported="false" android:name="com.qq.e.comm.DownloadService"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.qq.e.ads.ADActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.qq.e.ads.PortraitADActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.qq.e.ads.LandscapeADActivity" android:screenOrientation="landscape"/>
+        <provider android:authorities="com.biquge.reader.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <provider android:authorities="com.biquge.reader.TTFileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.bytedance.sdk.openadsdk.TTFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <provider android:authorities="com.biquge.reader.TTMultiProvider" android:exported="false" android:name="com.bytedance.sdk.openadsdk.multipro.TTMultiProvider"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.bytedance.sdk.openadsdk.activity.TTLandingPageActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.bytedance.sdk.openadsdk.activity.TTVideoLandingPageActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.bytedance.sdk.openadsdk.activity.TTRewardVideoActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.bytedance.sdk.openadsdk.activity.TTFullScreenVideoActivity"/>
+        <activity android:launchMode="singleTask" android:name="com.bytedance.sdk.openadsdk.activity.TTDelegateActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:name="com.bytedance.sdk.openadsdk.multipro.aidl.BinderPoolService"/>
+        <service android:name="com.ss.android.socialbase.downloader.notification.DownloadNotificationService"/>
+        <service android:name="com.ss.android.socialbase.downloader.downloader.DownloadService"/>
+        <service android:name="com.ss.android.socialbase.downloader.downloader.IndependentProcessDownloadService" android:process=":downloader">
+            <intent-filter>
+                <action android:name="com.ss.android.socialbase.downloader.remote"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.ss.android.socialbase.downloader.impls.DownloadHandleService"/>
+        <service android:name="com.ss.android.socialbase.appdownloader.DownloadHandlerService"/>
+        <activity android:launchMode="singleTask" android:name="com.ss.android.socialbase.appdownloader.view.DownloadSizeLimitActivity" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:launchMode="singleTask" android:name="com.ss.android.socialbase.appdownloader.view.DownloadTaskDeleteActivity" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:launchMode="singleTask" android:name="com.ss.android.downloadlib.activity.TTDelegateActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:name="com.ss.android.downloadlib.core.download.DownloadReceiver"/>
+        <activity android:label="@string/title_activity_base" android:name="com.huangduan.parser.ui.activity.ParseWebviewActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="com.alibaba.sdk.android.feedback.windvane.CustomHybirdActivity" android:screenOrientation="portrait" android:theme="@style/ali_feedback_contentoverlay" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="com.alibaba.sdk.android.feedback.impl.ErrorPageActivity" android:screenOrientation="portrait" android:theme="@style/ali_feedback_contentoverlay"/>
+        <service android:name="com.alibaba.mtl.appmonitor.AppMonitorService"/>
+        <provider android:authorities="com.biquge.reader.alifb_fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.alibaba.sdk.android.feedback.util.FBFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/alifb_provider_paths"/>
+        </provider>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:exported="false" android:label="" android:name="pub.devrel.easypermissions.AppSettingsDialogHolderActivity" android:theme="@style/EasyPermissions.Transparent"/>
+        <activity android:configChanges="keyboardHidden|locale|orientation|screenSize" android:name="com.tencent.bugly.beta.ui.BetaActivity" android:theme="@android:style/Theme.Translucent"/>
+        <provider android:authorities="com.biquge.reader.fileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.tencent.bugly.beta.utils.BuglyFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <service android:exported="false" android:name="com.tencent.bugly.beta.tinker.TinkerResultService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.biquge.reader.com.mob.MobProvider" android:exported="false" android:multiprocess="true" android:name="com.mob.MobProvider"/>
+        <meta-data android:name="Mob-AppKey" android:value="2534fad21ded4"/>
+        <meta-data android:name="Mob-AppSecret" android:value="3a9941f064c0dbc4fef7a9f807605a08"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mob.tools.MobUIShell" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="cn.sharesdk.tencent.qq.ReceiveActivity" android:noHistory="true">
+            <intent-filter>
+                <data android:scheme="tencent101490773"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:name="cn.sharesdk.wechat.utils.WechatHandlerActivity"/>
+        <activity-alias android:exported="true" android:name="com.biquge.reader.wxapi.WXEntryActivity" android:targetActivity="cn.sharesdk.wechat.utils.WechatHandlerActivity"/>
+    </application>
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+</manifest>

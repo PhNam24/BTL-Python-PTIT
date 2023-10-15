@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" package="ru.csat.key" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:icon="@mipmap/ic_launcher" android:isSplitRequired="true" android:label="@string/app_name" android:name="ru.csat.key.Application" android:requestLegacyExternalStorage="true" android:resizeableActivity="false" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="false" android:theme="@style/AppTheme">
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="@string/google_maps_key"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/ic_push_notification"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_channel_id" android:value="@string/default_notification_channel_id"/>
+        <activity android:label="@string/app_name" android:name="ru.csat.key.ui.start.StartActivity" android:noHistory="true" android:theme="@style/AppTheme.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="ru.csat.key.ui.auth.login.LoginActivity" android:theme="@style/AppTheme.Login"/>
+        <activity android:launchMode="singleTop" android:name="ru.csat.key.ui.auth.pin.PinActivity" android:theme="@style/AppTheme.Login"/>
+        <activity android:launchMode="singleTop" android:name="ru.csat.key.ui.auth.restorepassword.RestorePasswordActivity" android:theme="@style/AppTheme.Login"/>
+        <activity android:launchMode="singleTop" android:name="ru.csat.key.ui.auth.restorepassword.code.CodeActivity" android:theme="@style/AppTheme.Login"/>
+        <activity android:launchMode="singleTop" android:name="ru.csat.key.ui.intro.IntroActivity" android:theme="@style/AppTheme.Intro"/>
+        <activity android:launchMode="singleTop" android:name="ru.csat.key.ui.intro.account.ActivateAccountActivity" android:theme="@style/AppTheme.Activate"/>
+        <activity android:launchMode="singleTop" android:name="ru.csat.key.ui.intro.setpin.SetPinActivity" android:theme="@style/AppTheme.Login"/>
+        <activity android:launchMode="singleTop" android:name="ru.csat.key.ui.intro.introcomplete.IntroCompleteActivity" android:theme="@style/AppTheme.Intro"/>
+        <activity android:launchMode="singleTask" android:name="ru.csat.key.ui.intro.fingerprint.FingerprintActivity" android:theme="@style/AppTheme.Intro"/>
+        <activity android:launchMode="singleTask" android:name="ru.csat.key.ui.menu.MenuActivity" android:theme="@style/AppTheme.Menu"/>
+        <activity android:launchMode="singleTask" android:name="ru.csat.key.ui.car.CarActivity" android:theme="@style/AppTheme.New"/>
+        <activity android:launchMode="singleTop" android:name="ru.csat.key.ui.events.EventsActivity" android:theme="@style/AppTheme.Events"/>
+        <activity android:launchMode="singleTop" android:name="ru.csat.key.ui.events.history.event.TripActivity" android:theme="@style/AppTheme.Event"/>
+        <activity android:label="@string/eventsText" android:launchMode="singleTop" android:name="ru.csat.key.ui.events.system.event.SystemEventActivity" android:theme="@style/AppTheme.Event"/>
+        <activity android:label="@string/eventsText" android:launchMode="singleTop" android:name="ru.csat.key.ui.events.commands.event.CommandEventActivity" android:theme="@style/AppTheme.Event"/>
+        <activity android:label="@string/events_filter" android:launchMode="singleTop" android:name="ru.csat.key.ui.events.system.filter.SystemFilterActivity" android:theme="@style/AppTheme.Settings"/>
+        <activity android:label="@string/commands_filter" android:launchMode="singleTop" android:name="ru.csat.key.ui.events.commands.filter.CommandsFilterActivity" android:theme="@style/AppTheme.Settings"/>
+        <activity android:label="" android:launchMode="singleTop" android:name="ru.csat.key.ui.menu.profile.ProfileActivity" android:theme="@style/AppTheme.Activate"/>
+        <activity android:label="@string/settings" android:launchMode="singleTop" android:name="ru.csat.key.ui.menu.settings.SettingsActivity" android:theme="@style/AppTheme.Settings"/>
+        <activity android:launchMode="singleTop" android:name="ru.csat.key.ui.menu.settings.setpin.SetPinFromSettingsActivity" android:theme="@style/AppTheme.Login"/>
+        <activity android:label="" android:launchMode="singleTop" android:name="ru.csat.key.ui.menu.AboutActivity" android:theme="@style/AppTheme.StreamingDemo"/>
+        <activity android:label="@string/car_settings" android:launchMode="singleTop" android:name="ru.csat.key.ui.menu.car.settings.CarSettingsActivity" android:theme="@style/AppTheme.Settings.Car"/>
+        <activity android:label="@string/settings_dongle_caption" android:name="ru.csat.key.ui.menu.car.settings.unit.DongleSettingsActivity" android:theme="@style/AppTheme.Settings.Car"/>
+        <activity android:label="@string/settings_auth_title" android:name="ru.csat.key.ui.menu.car.settings.unit.AuthSettingsActivity" android:theme="@style/AppTheme.Settings.Car"/>
+        <activity android:label="@string/settings_lock_title" android:name="ru.csat.key.ui.menu.car.settings.unit.LockSettingsActivity" android:theme="@style/AppTheme.Settings.Car"/>
+        <activity android:label="@string/settings_panic_title" android:name="ru.csat.key.ui.menu.car.settings.unit.PanicSettingsActivity" android:theme="@style/AppTheme.Settings.Car"/>
+        <activity android:name="com.yalantis.ucrop.UCropActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:label="@string/auto_start_title" android:name="ru.csat.key.ui.menu.car.settings.autostart.AutoStartActivity" android:theme="@style/AppTheme.Login"/>
+        <activity android:label="" android:name="ru.csat.key.ui.menu.car.settings.autostart.addedit.AddEditAutoStartActivity" android:theme="@style/AppTheme.AddEditAutoStart"/>
+        <activity android:label="@string/commands" android:name="ru.csat.key.ui.menu.car.settings.commands.CommandSettingsActivity" android:theme="@style/AppTheme.Settings.Car.CommandSettings"/>
+        <activity android:label="@string/statuses" android:name="ru.csat.key.ui.menu.car.settings.statuses.StatusSettingsActivity" android:theme="@style/AppTheme.Settings.Car.StatusSettings"/>
+        <activity android:label="" android:launchMode="singleTop" android:name="ru.csat.key.ui.menu.histories.story.StoryActivity" android:theme="@style/AppTheme.Intro"/>
+        <activity android:label="" android:launchMode="singleTop" android:name="ru.csat.key.ui.menu.scoring.ScoringActivity" android:theme="@style/AppTheme.Activate"/>
+        <activity android:label="@string/choose_period" android:launchMode="singleTop" android:name="ru.csat.key.ui.menu.scoring.calendar.CalendarStatisticsActivity" android:theme="@style/AppTheme.Settings.Car.CommandSettings"/>
+        <activity android:label="@string/car_dealer" android:launchMode="singleTop" android:name="ru.csat.key.ui.menu.dealer.DealerActivity" android:theme="@style/AppTheme.StreamingDemo"/>
+        <activity android:label="" android:launchMode="singleTop" android:name="ru.csat.key.ui.menu.dealer.offer.DealerOfferActivity" android:theme="@style/AppTheme.StreamingDemo"/>
+        <activity android:configChanges="orientation|screenSize" android:label="" android:launchMode="singleTop" android:name="ru.csat.key.ui.video.StreamingDemoActivity" android:theme="@style/AppTheme.StreamingDemo"/>
+        <activity android:label="" android:launchMode="singleTop" android:name="ru.csat.key.ui.menu.services.OtherServicesActivity" android:theme="@style/AppTheme.StreamingDemo"/>
+        <activity android:label="" android:launchMode="singleTop" android:name="ru.csat.key.ui.menu.services.tempguard.TempguardActivity" android:theme="@style/AppTheme.StreamingDemo"/>
+        <activity android:label="" android:launchMode="singleTop" android:name="ru.csat.key.ui.pdfviewer.PdfViewerActivity" android:theme="@style/AppTheme.Login"/>
+        <activity android:label="" android:launchMode="singleTop" android:name="ru.csat.key.ui.menu.faq.faq_category.FaqActivity" android:theme="@style/AppTheme.StreamingDemo"/>
+        <activity android:label="" android:launchMode="singleTop" android:name="ru.csat.key.ui.menu.faq.faq_questions.FaqQuestionsActivity" android:theme="@style/AppTheme.StreamingDemo"/>
+        <activity android:label="" android:launchMode="singleTop" android:name="ru.csat.key.ui.sos.verification.SosVerificationActivity" android:theme="@style/AppTheme.Intro"/>
+        <activity android:label="" android:launchMode="singleTop" android:name="ru.csat.key.ui.menu.car.settings.info.CarInfoActivity" android:theme="@style/AppTheme.StreamingDemo"/>
+        <activity android:label="" android:launchMode="singleTop" android:name="ru.csat.key.ui.menu.car.settings.balance.SimBalanceActivity" android:theme="@style/AppTheme.StreamingDemo"/>
+        <activity android:label="" android:launchMode="singleTop" android:name="ru.csat.key.ui.menu.car.settings.balance.credit.SimCreditActivity" android:theme="@style/AppTheme.StreamingDemo"/>
+        <activity android:label="" android:launchMode="singleTop" android:name="ru.csat.key.ui.menu.car.settings.balance.external.ExternalSimCreditActivity" android:theme="@style/AppTheme.StreamingDemo"/>
+        <activity android:label="" android:launchMode="singleTop" android:name="ru.csat.key.ui.sos.order.SosOrderActivity" android:theme="@style/AppTheme.StreamingDemo"/>
+        <activity android:launchMode="singleTop" android:name="ru.csat.key.ui.intro.qrt.QrtActivity" android:theme="@style/AppTheme.Intro"/>
+        <activity android:launchMode="singleTop" android:name="ru.csat.key.ui.sos.status.SosStatusActivity" android:theme="@style/AppTheme.Intro"/>
+        <activity android:launchMode="singleTop" android:name="ru.csat.key.ui.auth.signup.phone.SignupPhoneActivity" android:theme="@style/AppTheme.Login"/>
+        <activity android:launchMode="singleTop" android:name="ru.csat.key.ui.auth.signup.code.SignupCodeActivity" android:theme="@style/AppTheme.Login"/>
+        <activity android:launchMode="singleTop" android:name="ru.csat.key.ui.auth.signup.vin.SignupVinActivity" android:theme="@style/AppTheme.Login"/>
+        <activity android:label="@string/new_question" android:launchMode="singleTop" android:name="ru.csat.key.ui.menu.faq.support.SupportActivity" android:theme="@style/AppTheme.Light"/>
+        <activity android:label="" android:launchMode="singleTop" android:name="ru.csat.key.ui.menu.dealer.map.DealerMapActivity" android:theme="@style/AppTheme.StreamingDemo"/>
+        <activity android:label="@string/cars_order" android:launchMode="singleTop" android:name="ru.csat.key.ui.menu.settings.cars_order.CarsOrderActivity" android:theme="@style/AppTheme.Settings"/>
+        <activity android:label="" android:launchMode="singleTop" android:name="ru.csat.key.ui.sos.info.SosInfoActivity" android:theme="@style/AppTheme.StreamingDemo"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTop" android:name="ru.csat.key.ui.news.AnnounceActivity" android:theme="@style/Theme.AppCompat.Dialog"/>
+        <activity android:launchMode="singleTop" android:name="ru.csat.key.ui.camerax.CameraXActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="ru.csat.key.ui.cropimage.CropActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:launchMode="singleTop" android:name="ru.csat.key.ui.menu.controlbluetooth.ControlBluetoothActivity" android:theme="@style/AppTheme.BleLevels"/>
+        <activity android:launchMode="singleTop" android:name="ru.csat.key.ui.menu.valet.ValetActivity" android:theme="@style/AppTheme.Valet" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:launchMode="singleTop" android:name="ru.csat.key.ui.menu.popularquestions.PopularQuestionsActivity" android:theme="@style/AppTheme.Valet"/>
+        <activity android:launchMode="singleTop" android:name="ru.csat.key.ui.menu.guardmonitoring.GuardMonitoringActivity" android:theme="@style/AppTheme.Monitoring"/>
+        <service android:exported="false" android:name="ru.csat.key.services.fcm.MessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:foregroundServiceType="location" android:name="ru.csat.key.services.ble.BleService"/>
+        <service android:name="ru.csat.key.services.ReadEventIntentService"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <provider android:authorities="ru.csat.key.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+        <provider android:authorities="ru.csat.key.materialcalendarviewinitprovider" android:enabled="true" android:exported="false" android:name="com.prolificinteractive.materialcalendarview.MaterialCalendarViewInitProvider"/>
+        <activity android:exported="true" android:name="androidx.biometric.DeviceCredentialHandlerActivity" android:theme="@style/DeviceCredentialHandlerTheme"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="ru.csat.key.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="ru.csat.key.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="2"/>
+    </application>
+</manifest>

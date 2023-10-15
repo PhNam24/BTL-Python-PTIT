@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="28" android:compileSdkVersionCodename="9" package="com.daxium.air" platformBuildVersionCode="4079" platformBuildVersionName="1.19.11">
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name=".permission.C2D_MESSAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.landscape" android:required="false"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <application android:allowBackup="false" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="com.daxium.air.DAApplication" android:supportsRtl="true" android:theme="@style/DaxiumAirDefaultTheme">
+        <activity android:label="@string/app_name" android:name="com.daxium.air.DALauncherActivity" android:theme="@style/AppTheme.Launcher">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyD29WMpkY5kK9yjNJ-78H4VuOqyz8s8wHc"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="92590e13ea93d8e61c2268a6773f3e1f44d72cc3"/>
+        <service android:name="com.daxium.air.DAFirebaseService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="firebase_analytics_collection_deactivated" android:value="true"/>
+        <meta-data android:name="google_analytics_adid_collection_enabled" android:value="false"/>
+        <activity android:name="com.daxium.core.login.DCLoginActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/app_name" android:name="com.daxium.core.customisation.DCHomeActivity" android:theme="@style/DaxiumAirDefaultTheme.NoActionBar"/>
+        <activity android:exported="true" android:label="@string/setting_screen_title" android:name="com.daxium.core.settings.SettingsActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/tasks_screen_title" android:launchMode="singleTop" android:name="com.daxium.core.submissions.tasks.MyTasksActivity" android:parentActivityName="com.daxium.core.customisation.DCHomeActivity" android:windowSoftInputMode="adjustResize">
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:launchMode="singleTop" android:name="com.daxium.core.edition.document.DocumentActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/documents_screen_title" android:launchMode="singleTop" android:name="com.daxium.core.submissions.MyDocumentsActivity" android:windowSoftInputMode="adjustResize">
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.daxium.core.edition.fields.complex.relation.positioningsupport.PositioningSupportActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.daxium.core.data.ProgressTaskActivity" android:noHistory="true"/>
+        <activity android:name="com.daxium.core.edition.fields.complex.list.SingleListActivity"/>
+        <activity android:name="com.daxium.core.edition.fields.complex.user.UserPickerActivity"/>
+        <activity android:name="com.daxium.core.edition.fields.complex.GeoLocationMapActivity"/>
+        <activity android:label="@string/richtext_editor_screen_title" android:name="com.daxium.core.edition.fields.basic.textual.MarkdownEditorActivity" android:parentActivityName="com.daxium.core.edition.document.DocumentActivity" android:windowSoftInputMode="adjustResize">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.daxium.core.edition.document.DocumentActivity"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.daxium.core.edition.fields.complex.list.MultipleListActivity"/>
+        <activity android:label="@string/autofill_screen_title" android:name="com.daxium.core.settings.AutofillActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.daxium.core.edition.fields.file.SignatureActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.daxium.core.edition.fields.image.DrawingActivity"/>
+        <activity android:label="@string/activity_select_structure_title" android:name="com.daxium.core.edition.structure.SelectStructureActivity"/>
+        <activity android:label="@string/activity_select_structure_title" android:name="com.daxium.core.edition.structure.SelectSubStructureActivity"/>
+        <activity android:name="com.daxium.core.edition.fields.image.CameraActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.daxium.core.edition.BrowsePictureActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.daxium.core.edition.fields.complex.relation.gridview.GridDetailsListActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.daxium.core.edition.fields.dependant.ListItemActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.daxium.core.submissions.jsonio.FileBrowserActivity"/>
+        <activity android:name="com.daxium.core.edition.fields.complex.relation.positioningsupport.ManageSupportActivity"/>
+        <activity android:label="@string/title_activity_export" android:name="com.daxium.core.submissions.jsonio.JSONExportActivity"/>
+        <activity android:name="net.rdrei.android.dirchooser.DirectoryChooserActivity"/>
+        <activity android:label="@string/title_activity_search" android:name="com.daxium.core.submissions.search.SearchActivity"/>
+        <activity android:label="@string/title_activity_search" android:name="com.daxium.core.edition.structure.SelectStructureSearchActivity"/>
+        <activity android:label="@string/title_activity_search_result" android:name="com.daxium.core.submissions.search.SearchResultActivity"/>
+        <activity android:name="com.daxium.core.sync.DCSyncActivity"/>
+        <activity android:label="@string/title_activity_check" android:name="com.daxium.core.submissions.DocsToCheckActivity"/>
+        <activity android:launchMode="singleTop" android:name="com.daxium.core.common.NFCCatcherActivity">
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                <action android:name="android.nfc.action.TAG_DISCOVERED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.daxium.core.settings.nfc.NFCAdminActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.daxium.core.edition.fields.complex.relation.countable.RelationCountableSearchActivity" android:parentActivityName="com.daxium.core.edition.document.DocumentActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.daxium.core.edition.document.DocumentActivity"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/title_activity_import" android:name="com.daxium.core.submissions.jsonio.JSONImportActivity"/>
+        <activity android:name="com.daxium.core.edition.SubmissionSelectionActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.daxium.core.customisation.WebviewActivity"/>
+        <activity android:name="com.daxium.core.edition.fields.complex.relation.countable.FullscreenImagesActivity"/>
+        <provider android:authorities="com.daxium.air.DCDownloadProvider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/downloaded_file_paths"/>
+        </provider>
+        <service android:name="com.daxium.core.common.BgTasksService"/>
+        <service android:name="com.daxium.core.common.BackgroundUploaderService"/>
+        <service android:name="com.daxium.core.api.service.DaxiumAuthenticatorService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@xml/authenticator"/>
+        </service>
+        <receiver android:name="com.daxium.core.common.receivers.PictBaseWakeFullReceiver"/>
+        <meta-data android:name="android.webkit.WebView.MetricsOptOut" android:value="true"/>
+        <meta-data android:name="com.sec.android.support.multiwindow" android:value="true"/>
+        <provider android:authorities="com.daxium.air.workmanager-init" android:directBootAware="false" android:exported="false" android:multiprocess="true" android:name="androidx.work.impl.WorkManagerInitializer"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.daxium.air.lifecycle-trojan" android:exported="false" android:multiprocess="true" android:name="android.arch.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <activity android:clearTaskOnLaunch="true" android:name="com.journeyapps.barcodescanner.CaptureActivity" android:screenOrientation="sensorLandscape" android:stateNotNeeded="true" android:theme="@style/zxing_CaptureTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.daxium.air.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="com.daxium.air.crashlyticsinitprovider" android:exported="false" android:initOrder="90" android:name="com.crashlytics.android.CrashlyticsInitProvider"/>
+        <meta-data android:name="string" android:value="string"/>
+    </application>
+</manifest>

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.dolap.android">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="com.dolap.android.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.dolap.android.permission.C2D_MESSAGE"/>
+    <uses-feature android:name="android.hardware.camera" android:required="true"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <meta-data android:name="android.support.VERSION" android:value="25.3.1"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="com.dolap.android.DolapApp" android:resizeableActivity="false" android:roundIcon="@mipmap/ic_launcher_2_round" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <meta-data android:name="LOCALYTICS_APP_KEY" android:value="@string/localytics_app_key"/>
+        <activity android:launchMode="singleTask" android:name="com.dolap.android.init.ui.SplashActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Translucent">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <data android:scheme="@string/localytics_app_key_test"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="@string/app_deeplink_base" android:scheme="@string/dolap_deeplink_connection_https"/>
+            </intent-filter>
+            <intent-filter>
+                <data android:scheme="@string/app_name_scheme"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+            <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts"/>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.dolap.android.deeplink.ui.DeepLinkHandlerActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/AppTheme.Simple">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="@string/dolap_deeplink_base" android:scheme="@string/dolap_deeplink_connection"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.dolap.android.deeplink.ui.DeepLinkInAppHandlerActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Translucent"/>
+        <activity android:name="com.dolap.android.member.login.ui.activity.LoginContainerActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"/>
+        <activity android:name="com.dolap.android.referral.ui.activity.ReferralInviteActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.facebook.FacebookActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <activity android:name="com.dolap.android.home.ui.activity.DolapHomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.referral.ui.activity.ReferralCouponsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"/>
+        <activity android:configChanges="orientation" android:name="com.dolap.android.submission.ui.activity.ProductSubmissionActivity" android:parentActivityName="com.dolap.android.home.ui.activity.DolapHomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".home.ui.activity.DolapHomeActivity"/>
+        </activity>
+        <activity android:configChanges="orientation" android:name="com.dolap.android.submission.ui.activity.ElasticProductSubmissionActivity" android:parentActivityName="com.dolap.android.home.ui.activity.DolapHomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".home.ui.activity.DolapHomeActivity"/>
+        </activity>
+        <activity android:name="com.dolap.android.member.password.forgot.ui.ForgotPasswordActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.member.password.renew.ui.RenewPasswordActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.webcontent.ui.activity.WebViewActivity" android:parentActivityName="com.dolap.android.home.ui.activity.DolapHomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".home.ui.activity.DolapHomeActivity"/>
+        </activity>
+        <activity android:name="com.dolap.android.payment.ui.activity.ThreeDPaymentActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <receiver android:exported="true" android:name="com.dolap.android._base.receiver.DolapInstallReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+                <data android:pathPrefix="@string/branch_path_prefix"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="io.branch.sdk.BranchKey" android:value="@string/branch_key_test"/>
+        <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="@string/branch_key_test"/>
+        <meta-data android:name="io.branch.sdk.TestMode" android:value="false"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="1c694f571102018c0fa9dc33b76e2d84a9937300"/>
+        <activity android:name="com.dolap.android.product.detail.ui.activity.ProductDetailActivity" android:parentActivityName="com.dolap.android.home.ui.activity.DolapHomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustPan">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".home.ui.activity.DolapHomeActivity"/>
+        </activity>
+        <activity android:name="com.dolap.android.payment.ui.activity.PaymentActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.dolap.android.payment.ui.activity.PaymentSuccessActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.member.closet.ui.activity.MemberClosetActivity" android:parentActivityName="com.dolap.android.home.ui.activity.DolapHomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".home.ui.activity.DolapHomeActivity"/>
+        </activity>
+        <activity android:name="com.dolap.android.search.ui.activity.SearchActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.search.ui.activity.SearchResultActivity" android:parentActivityName="com.dolap.android.home.ui.activity.DolapHomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".home.ui.activity.DolapHomeActivity"/>
+        </activity>
+        <activity android:name="com.dolap.android.search.ui.activity.SearchFilterActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.dolap.android.order.ui.activity.OrderListActivity" android:parentActivityName="com.dolap.android.home.ui.activity.DolapHomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".home.ui.activity.DolapHomeActivity"/>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.dolap.android.order.ui.activity.OrderDetailActivity" android:parentActivityName="com.dolap.android.home.ui.activity.DolapHomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustPan">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".home.ui.activity.DolapHomeActivity"/>
+        </activity>
+        <activity android:name="com.dolap.android.ui.member.closet.activity.MemberFollowListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.ui.home.product.activity.ProductLikersActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.notificationlist.ui.activity.NotificationListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.settlement.ui.activity.SettlementActivity" android:parentActivityName="com.dolap.android.home.ui.activity.DolapHomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".home.ui.activity.DolapHomeActivity"/>
+        </activity>
+        <activity android:name="com.dolap.android.common.activity.AboutActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.submission.ui.activity.GalleryImagesActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.settings.ui.activity.SettingsListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.settings.ui.activity.NotificationSettingsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.submission.ui.activity.UpdatePriceActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|locale|orientation|screenLayout|screenSize|touchscreen|uiMode" android:name="com.dolap.android.settings.ui.activity.ProfileSettingsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.onboarding.ui.activity.OnBoardingActivity" android:parentActivityName="com.dolap.android.home.ui.activity.DolapHomeActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".home.ui.activity.DolapHomeActivity"/>
+        </activity>
+        <activity android:name="com.dolap.android.common.activity.SupportActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.product.photoguide.ui.activity.PhotoGuideActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.product.detail.ui.activity.PhotoPreviewActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.home.ui.activity.InventoryDiscoverActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.bid.ui.activity.ProductBidActivity" android:parentActivityName="com.dolap.android.home.ui.activity.DolapHomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".home.ui.activity.DolapHomeActivity"/>
+        </activity>
+        <activity android:name="com.dolap.android.bid.ui.activity.BidForAllLikersActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:launchMode="singleTop" android:name="com.dolap.android.deeplink.ui.NotificationHandlerActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/AppTheme.Simple"/>
+        <activity android:name="com.dolap.android.deeplink.ui.DeeplinkRestContentSolverActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Translucent"/>
+        <activity android:name="com.dolap.android.home.ui.activity.InventoryProductSearchActivity" android:parentActivityName="com.dolap.android.home.ui.activity.DolapHomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".home.ui.activity.DolapHomeActivity"/>
+        </activity>
+        <activity android:name="com.localytics.android.PushTrackingActivity"/>
+        <activity android:name="com.dolap.android.order.ui.activity.OrderFeedbackFormActivity" android:parentActivityName="com.dolap.android.home.ui.activity.DolapHomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustPan">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".home.ui.activity.DolapHomeActivity"/>
+        </activity>
+        <activity android:name="com.dolap.android.member.report.ui.MemberReportActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.dolap.android.order.ui.activity.OrderFeedbackListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.dolap.android.couponcampaign.ui.activity.CouponCampaignActivity" android:parentActivityName="com.dolap.android.home.ui.activity.DolapHomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustPan">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".home.ui.activity.DolapHomeActivity"/>
+        </activity>
+        <activity android:name="com.dolap.android.member.mysizemybrand.ui.activity.MySizeMyBrandActivity" android:parentActivityName="com.dolap.android.home.ui.activity.DolapHomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustResize">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".home.ui.activity.DolapHomeActivity"/>
+        </activity>
+        <activity android:name="com.dolap.android.product.report.ui.activity.ProductReportActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.dolap.android.order.ui.activity.OrderClaimReasonActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.dolap.android.order.ui.activity.OrderCancelReasonActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.dolap.android.settlement.ui.activity.SettlementConfirmationActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.dolap.android.member.vacationmode.ui.activity.MemberVacationModeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.offeredcoupon.ui.activity.OfferedCouponCampaignPageActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.offeredcoupon.ui.activity.MyOfferedCouponsPageActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.member.closetsuggestion.ui.MemberClosetSuggestionListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.dolapdonation.ui.activity.DolapDonationActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.dolap.android.shoppingfest.ui.activity.ShoppingfestActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.chatbot.ui.activity.ChatbotActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.product.detail.ui.activity.ProductCommentListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.search.ui.activity.SearchAlarmListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.member.editor.ui.activity.MemberEditorActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.member.editor.ui.activity.MemberEditorDashboardActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.coupondashboard.ui.activity.CouponDashboardActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.product.purchasableproducts.ui.activity.PurchasableProductsByWalletActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.yalantis.ucrop.UCropActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <receiver android:exported="true" android:name="com.google.android.gms.gcm.GcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.dolap.android"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.dolap.android.pushnotification.PushNotificationActionReceiver"/>
+        <service android:exported="false" android:name="com.dolap.android.pushnotification.PushNotificationService">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.localytics.android.InstanceIDListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID"/>
+            </intent-filter>
+        </service>
+        <activity android:name="com.dolap.android.couponcampaign.ui.activity.SellerCampaignActivity" android:parentActivityName="com.dolap.android.home.ui.activity.DolapHomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".home.ui.activity.DolapHomeActivity"/>
+        </activity>
+        <provider android:authorities="@string/hotline_file_provider_authority" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <activity android:name="com.dolap.android.paymentsettings.ui.activity.PaymentSettingsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <receiver android:name="com.dolap.android.pushnotification.carousel.CarouselNotificationActionReceiver">
+            <intent-filter>
+                <action android:name="com.dolap.android.CAROUSALNOTIFICATIONFIRED"/>
+                <action android:name="com.dolap.android.CAROUSALNOTIFICATIONITEMCLICKED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.dolap.android.countercampaign.ui.CounterCampaignActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"/>
+        <activity android:name="com.dolap.android.ambassador.ui.activity.AmbassadorProgramInfoActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.ambassador.ui.activity.AmbassadorProgramApplicationActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.ambassador.ui.activity.AmbassadorProgramDashboardActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.ambassador.ui.activity.AmbassadorProgramReferredActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.home.ui.activity.InventoryPersonalizationActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.merchant.ui.activity.MerchantInfoActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.merchant.ui.activity.MerchantApplicationActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.dolap.android.merchant.ui.activity.MerchantAppStatusActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.collection.ui.activity.CollectionCampaignListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.collection.ui.activity.CollectionProductListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.collection.ui.activity.ParticipatedCollectionProductListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.order.ui.activity.OrderAddressActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dolap.android.couponcampaign.ui.activity.SellerPayCampaignActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <provider android:authorities="com.dolap.android.chuck.provider" android:exported="false" android:name="com.readystatesoftware.chuck.internal.data.ChuckContentProvider"/>
+        <activity android:label="@string/chuck_name" android:launchMode="singleTask" android:name="com.readystatesoftware.chuck.internal.ui.MainActivity" android:taskAffinity="com.readystatesoftware.chuck.task" android:theme="@style/Chuck.Theme"/>
+        <activity android:name="com.readystatesoftware.chuck.internal.ui.TransactionActivity" android:parentActivityName="com.readystatesoftware.chuck.internal.ui.MainActivity" android:theme="@style/Chuck.Theme"/>
+        <service android:exported="false" android:name="com.readystatesoftware.chuck.internal.support.ClearTransactionsService"/>
+        <activity android:name="com.freshdesk.hotline.activity.ChannelListActivity" android:theme="@style/Theme.Hotline.SelectedTheme"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.freshdesk.hotline.activity.ConversationDetailActivity" android:theme="@style/Theme.Hotline.SelectedTheme" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.freshdesk.hotline.activity.DeeplinkInterstitialActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Hotline.SelectedTheme"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.freshdesk.hotline.activity.PictureAttachmentActivity" android:theme="@style/Theme.Hotline.SelectedTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.freshdesk.hotline.activity.CategoryListActivity" android:theme="@style/Theme.Hotline.SelectedTheme"/>
+        <activity android:name="com.freshdesk.hotline.activity.ArticleListActivity" android:theme="@style/Theme.Hotline.SelectedTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.freshdesk.hotline.activity.ArticleDetailActivity" android:theme="@style/Theme.Hotline.SelectedTheme"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.freshdesk.hotline.activity.InterstitialActivity" android:theme="@style/Theme.AppCompat"/>
+        <service android:name="com.freshdesk.hotline.service.HotlineService"/>
+        <receiver android:name="com.freshdesk.hotline.receiver.HotlineReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.freshdesk.hotline.receiver.HotlineNetworkChangeReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.freshdesk.hotline.receiver.AppUpdateReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.dolap.android"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"/>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.dolap.android.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <receiver android:enabled="false" android:name="com.localytics.android.LocationUpdateReceiver"/>
+        <provider android:authorities="com.dolap.android.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+    </application>
+</manifest>

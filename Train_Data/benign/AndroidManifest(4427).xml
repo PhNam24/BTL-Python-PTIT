@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.responsevision.android">
+    <permission android:name="com.responsevision.android.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-feature android:name="android.hardware.CAMERA" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <compatible-screens>
+        <screen android:screenDensity="ldpi" android:screenSize="small"/>
+        <screen android:screenDensity="mdpi" android:screenSize="small"/>
+        <screen android:screenDensity="hdpi" android:screenSize="small"/>
+        <screen android:screenDensity="xhdpi" android:screenSize="small"/>
+        <screen android:screenDensity="ldpi" android:screenSize="normal"/>
+        <screen android:screenDensity="mdpi" android:screenSize="normal"/>
+        <screen android:screenDensity="hdpi" android:screenSize="normal"/>
+        <screen android:screenDensity="xhdpi" android:screenSize="normal"/>
+        <screen android:screenDensity="ldpi" android:screenSize="large"/>
+        <screen android:screenDensity="mdpi" android:screenSize="large"/>
+        <screen android:screenDensity="hdpi" android:screenSize="large"/>
+        <screen android:screenDensity="xhdpi" android:screenSize="large"/>
+        <screen android:screenDensity="ldpi" android:screenSize="xlarge"/>
+        <screen android:screenDensity="mdpi" android:screenSize="xlarge"/>
+        <screen android:screenDensity="hdpi" android:screenSize="xlarge"/>
+        <screen android:screenDensity="213" android:screenSize="large"/>
+        <screen android:screenDensity="xhdpi" android:screenSize="xlarge"/>
+        <screen android:screenDensity="xxhdpi" android:screenSize="normal"/>
+    </compatible-screens>
+    <uses-permission android:name="com.responsevision.android.permission.MAPS_RECEIVE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <application android:allowBackup="true" android:icon="@drawable/app_icon" android:label="@string/app_name" android:largeHeap="true" android:name="com.warehouse.global.WarehouseGlobal" android:theme="@style/AppTheme">
+        <receiver android:label="NetworkChangeReceiver" android:name="com.warehouse.broadcastreceiver.NetworkChangeReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:excludeFromRecents="true" android:finishOnTaskLaunch="true" android:launchMode="singleInstance" android:name="org.acra.CrashReportDialog" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:label="@string/app_name" android:name="com.warehouse.activity.SplashScreen" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.warehouse.authentication.LoginActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.warehouse.authentication.EnforcePasswordActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Transparent" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleInstance" android:name="com.warehouse.authentication.ResetPasswordActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="rv4.user.passwordsetting.aspx"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.warehouse.mainDashboard.ChooseDatabaseActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.warehouse.activity.MainTabActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/app_name" android:name="com.warehouse.fragments.FullImageFragment" android:screenOrientation="portrait" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:label="@string/app_name" android:name="com.warehouse.inventory.fragments.InventoryMultipleRecordsListActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:label="@string/app_name" android:name="com.warehouse.resource.fragment.ResMultipleLocationsListActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:label="@string/app_name" android:name="com.warehouse.resource.fragment.ResMultipleContactsListActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:label="@string/app_name" android:name="com.warehouse.resourcesTab.fragment.ResourceMultipleRecordsActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:configChanges="orientation" android:label="@string/app_name" android:name="com.warehouse.mainDashboard.CheckDatabase" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/app_name" android:name="com.warehouse.fragments.MultipleMissionsSearchListActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:label="@string/app_name" android:name="com.warehouse.fragments.MultipleMissionLocationListActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.warehouse.propertysearch.Supplier_search" android:screenOrientation="portrait" android:theme="@style/Theme.Transparent" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.warehouse.propertysearch.Supplier_search_list" android:screenOrientation="portrait" android:theme="@style/Theme.Transparent"/>
+        <activity android:label="@string/app_name" android:name="com.dm.zbar.android.scanner.ZBarScannerActivity" android:screenOrientation="landscape"/>
+        <activity android:label="@string/app_name" android:name="com.warehouse.inventory.activity.LocationSearchActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Transparent" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.warehouse.inventory.activity.LocationSearchListActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Transparent"/>
+        <activity android:label="@string/app_name" android:name="com.warehouse.inventory.activity.NoStoragePositionActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Transparent" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.warehouse.inventory.activity.StoragePositionSearchActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Transparent" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.warehouse.inventory.activity.StoragePositionSearchListActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Transparent" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.warehouse.resource.activity.ContactSearchActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Transparent" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.warehouse.resource.activity.ContactListActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Transparent" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.warehouse.propertysearch.PhyStorageSearch" android:screenOrientation="portrait" android:theme="@style/Theme.Transparent" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.warehouse.resource.activity.LocationAddOrg" android:screenOrientation="portrait" android:theme="@style/Theme.Transparent" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.warehouse.resource.activity.AddLocationTypeActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Transparent" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyBgaf0m-Malzz-IKUl1jSAcIidQC5DO37I"/>
+    </application>
+</manifest>

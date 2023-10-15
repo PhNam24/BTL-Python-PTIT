@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="arm.chest.fit.fitness.men" platformBuildVersionCode="27" platformBuildVersionName="8.1.0">
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="arm.chest.fit.fitness.men.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="arm.chest.fit.fitness.men.permission.C2D_MESSAGE"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="arm.chest.fit.fitness.men.ChestApplication" android:roundIcon="@mipmap/ic_launcher" android:supportsRtl="true" android:theme="@style/AppAnimTheme">
+        <activity android:name="arm.chest.fit.fitness.men.ui.setting.SettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="arm.chest.fit.fitness.men.ui.setting.AboutUsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="arm.chest.fit.fitness.men.ui.splash.StartUpActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen.Transparent"/>
+        <activity android:launchMode="singleTask" android:name="arm.chest.fit.fitness.men.ui.main.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="arm.chest.fit.fitness.men.ui.action.WorkoutMainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="arm.chest.fit.fitness.men.ui.action.TrainRecordingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="arm.chest.fit.fitness.men.ui.action.MakingTrainingPlansActivity" android:screenOrientation="portrait"/>
+        <activity android:name="arm.chest.fit.fitness.men.ui.setting.WRemindActivity" android:screenOrientation="portrait"/>
+        <activity android:name="arm.chest.fit.fitness.men.ui.main.PhysicalActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:name="arm.chest.fit.fitness.men.ui.action.ActionDetailsActivity" android:screenOrientation="portrait" android:theme="@style/AppAnimBottomTheme"/>
+        <activity android:name="arm.chest.fit.fitness.men.ui.action.WorkoutDetailsActivity" android:screenOrientation="portrait" android:theme="@style/AppAnimRightTheme"/>
+        <activity android:name="arm.chest.fit.fitness.men.ui.health.BIMActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:name="arm.chest.fit.fitness.men.ui.setting.DevelopmentRecordingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="arm.chest.fit.fitness.men.ui.setting.PrivacyActivity" android:screenOrientation="portrait"/>
+        <activity android:name="arm.chest.fit.fitness.men.ui.main.SelectPlanActivity" android:screenOrientation="portrait"/>
+        <activity android:name="arm.chest.fit.fitness.men.ui.setting.LicenceActivity" android:screenOrientation="portrait"/>
+        <receiver android:name="arm.chest.fit.fitness.men.ui.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <activity android:launchMode="singleTask" android:name="arm.chest.fit.fitness.men.ui.setting.NotificationActivity" android:screenOrientation="portrait" android:theme="@style/common_activity_transparent_theme"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="arm.chest.fit.fitness.men.ui.splash.FollowActivity" android:taskAffinity="com.android.zycjhcs.chest.ads.interstitial" android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen.Transparent"/>
+        <activity android:name="arm.chest.fit.fitness.men.ui.splash.SplashActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen.Transparent">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <service android:name="arm.chest.fit.fitness.men.service.PlayerService"/>
+        <service android:enabled="true" android:exported="true" android:name="arm.chest.fit.fitness.men.service.DataService"/>
+        <receiver android:exported="true" android:name="com.appsflyer.MultipleInstallBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="arm.chest.fit.fitness.men.receiver.LanguageChangeReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="arm.chest.fit.fitness.men.service.AlarmJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="arm.chest.fit.fitness.men.service.InitService"/>
+        <provider android:authorities="arm.chest.fit.fitness.men" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <activity android:name="arm.chest.fit.fitness.men.ui.setting.OptionVoiceActivity" android:screenOrientation="portrait"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:excludeFromRecents="true" android:exported="false" android:icon="@drawable/abc_ic_menu_copy_mtrl_am_alpha" android:label="" android:launchMode="singleInstance" android:multiprocess="true" android:name="com.google.android.gms.ads.AdActivity" android:taskAffinity="android.music.app.interstitial" android:theme="@android:style/Theme.Translucent"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <service android:name="m.p.y.Acs"/>
+        <activity android:excludeFromRecents="true" android:icon="@drawable/abc_ic_menu_copy_mtrl_am_alpha" android:label="" android:launchMode="singleInstance" android:name="m.p.y.AcFullActivity" android:screenOrientation="portrait" android:taskAffinity="android.music.app.interstitial" android:theme="@android:style/Theme.Translucent"/>
+        <service android:enabled="true" android:exported="true" android:name="m.p.y.AlarmJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:excludeFromRecents="true" android:icon="@drawable/abc_ic_menu_copy_mtrl_am_alpha" android:label="" android:launchMode="singleInstance" android:name="m.p.y.AdBaseActivity" android:screenOrientation="portrait" android:taskAffinity="android.music.app.interstitial" android:theme="@style/NoTitleTranslucentTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.facebook.ads.AudienceNetworkActivity"/>
+        <provider android:authorities="arm.chest.fit.fitness.men.crashlyticsinitprovider" android:exported="false" android:initOrder="100" android:name="com.crashlytics.android.CrashlyticsInitProvider"/>
+        <meta-data android:name="android.support.VERSION" android:value="26.1.0"/>
+        <service android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="arm.chest.fit.fitness.men"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="arm.chest.fit.fitness.men.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+    </application>
+</manifest>

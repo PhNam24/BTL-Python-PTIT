@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.bf.ERNiuNiu">
+    <uses-feature android:glEsVersion="0x00020000"/>
+    <application android:icon="@drawable/icon" android:label="@string/app_name" android:name="org.cocos2dx.plugin.SimpleGameApplicationBaiduPush">
+        <activity android:configChanges="orientation" android:label="@string/app_name" android:launchMode="singleTask" android:name="org.cocos2dx.simplegame.SimpleGame" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="org.cocos2dx.plugin.intent.action.OpenSimpleGame"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service android:name="com.bf.sysfunc.AlarmNotifyService"/>
+        <meta-data android:name="api_key" android:value="OHRB9My1UTqkE9McVVD7mTUd"/>
+        <meta-data android:name="TD_APP_ID" android:value="396"/>
+        <meta-data android:name="TD_CHANNEL_ID" android:value="10038"/>
+        <meta-data android:name="TD_GROUP_ID" android:value="1"/>
+        <receiver android:name="org.cocos2dx.plugin.PushBaiduMessageReceiver">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.MESSAGE"/>
+                <action android:name="com.baidu.android.pushservice.action.RECEIVE"/>
+                <action android:name="com.baidu.android.pushservice.action.notification.CLICK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.baidu.android.pushservice.PushServiceReceiver" android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.baidu.android.pushservice.action.notification.SHOW"/>
+                <action android:name="com.baidu.android.pushservice.action.media.CLICK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.baidu.android.pushservice.RegistrationReceiver" android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.METHOD"/>
+                <action android:name="com.baidu.android.pushservice.action.BIND_SYNC"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.baidu.android.pushservice.PushService" android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.PUSH_SERVICE"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="keyboardHidden|navigation|orientation|screenSize" android:launchMode="singleTop" android:name="com.iapppay.mpay.ifmgr.PayManagerActivity" android:screenOrientation="behind" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.iapppay.oneclickpay.FastPayActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.iapppay.oneclickpay.InputCardActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.iapppay.oneclickpay.LLUnbindCardActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.iapppay.oneclickpay.YPUnbindCardActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.iapppay.oneclickpay.SplashActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.iapppay.oneclickpay.AgreementActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation|screenSize" android:launchMode="singleTop" android:name="com.fastpay.sdk.activity.FastPay" android:screenOrientation="behind" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.unionpay.upomp.bypay.activity.SplashActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.unionpay.upomp.bypay.activity.CardMainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.unionpay.upomp.bypay.activity.PayMainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.unionpay.upomp.bypay.activity.PayItActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.unionpay.upomp.bypay.activity.PayResultActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.unionpay.upomp.bypay.activity.AccountMainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.unionpay.upomp.bypay.activity.ChooseBankActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.unionpay.upomp.bypay.activity.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.unionpay.upomp.bypay.activity.RegisterActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.unionpay.upomp.bypay.activity.GetpassActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.unionpay.upomp.bypay.activity.ResetpassActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.unionpay.upomp.bypay.activity.EditpassActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.unionpay.upomp.bypay.activity.EditinfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.unionpay.upomp.bypay.activity.AddCardActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.unionpay.upomp.bypay.activity.AddCardFromAuthActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.unionpay.upomp.bypay.activity.UserProtocalActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.unionpay.upomp.bypay.activity.CheckCardBalanceActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.unionpay.upomp.bypay.activity.CardInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.unionpay.upomp.bypay.activity.CardBalanceResultActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.unionpay.upomp.bypay.activity.CardBankResultActivity" android:screenOrientation="portrait"/>
+    </application>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.DEVICE_POWER"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+</manifest>

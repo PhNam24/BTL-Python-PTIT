@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.colorfulweather">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.BATTERY_STATS"/>
+    <application android:allowBackup="true" android:icon="@drawable/icon" android:label="@string/app_name" android:name="com.stub.StubApp" android:supportsRtl="true" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
+        <meta-data android:name="com.amap.api.v2.apikey" android:value="246525bd41eada479abd7010b0e57ebd"/>
+        <service android:name="com.amap.api.location.APSService"/>
+        <receiver android:name="com.colorfulweather.MessageReceiver">
+            <intent-filter>
+                <action android:name="com.tencent.android.tpush.action.PUSH_MESSAGE"/>
+                <action android:name="com.tencent.android.tpush.action.FEEDBACK"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.colorfulweather.DownloadService"/>
+        <receiver android:exported="false" android:label="@string/app_name" android:name="com.colorfulweather.DownloadReceiver">
+            <intent-filter>
+                <action android:name="com.colorfulweather.downloadClickAction"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:label="@string/app_name" android:name="com.colorfulweather.WeatherReceiver">
+            <intent-filter>
+                <action android:name="com.colorfulweather.info.changed.action"/>
+                <action android:name="com.colorfulweather.weather.refresh.action"/>
+                <action android:name="com.colorfulweather.info.index.changed.action"/>
+                <action android:name="com.colorfulweather.notification.show.action"/>
+                <action android:name="com.colorfulweather.notification.cancel.action"/>
+                <action android:name="com.colorfulweather.notification.rain.action"/>
+                <action android:name="com.colorfulweather.notification.alarm.action"/>
+                <action android:name="com.colorfulweather.notification.aqi.action"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.colorfulweather.WeatherService"/>
+        <receiver android:exported="false" android:label="@string/app_name" android:name="com.colorfulweather.WeatherAlarmReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.colorfulweather.alarm.action"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.colorfulweather.SplashActivity" android:screenOrientation="portrait" android:theme="@style/FullTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="com.colorfulweather.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.colorfulweather.InfoActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name="com.colorfulweather.CityActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.colorfulweather.AqiActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.colorfulweather.RadarActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.colorfulweather.XianHaoActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.colorfulweather.AlarmActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name="com.colorfulweather.SelectDirectoryActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name="com.colorfulweather.GameActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.colorfulweather.GameDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.colorfulweather.AppActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.colorfulweather.AppDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.colorfulweather.ForecastActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.colorfulweather.IndexesActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.colorfulweather.SettingActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.colorfulweather.SkinActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.colorfulweather.MapActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.colorfulweather.AboutActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name="com.colorfulweather.UserPasswordForgetActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.colorfulweather.WebActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:scheme="about"/>
+            </intent-filter>
+        </activity>
+        <activity android:alwaysRetainTaskState="true" android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.tencent.smtt.sdk.VideoActivity">
+            <intent-filter>
+                <action android:name="com.tencent.smtt.tbs.video.PLAY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.colorfulweather.AdvertActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name="com.colorfulweather.SelectImageFileActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name="com.colorfulweather.LoginActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name="com.colorfulweather.RegisterActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.colorfulweather.UserInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name="com.colorfulweather.UserUpdateActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.colorfulweather.UserLogoActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name="com.colorfulweather.UserPasswordActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <service android:enabled="true" android:exported="false" android:name="com.colorfulweather.WidgetTimerService" android:persistent="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APP_WIDGET_SERVICE"/>
+            </intent-filter>
+        </service>
+        <activity android:label="@string/app_name" android:name="com.colorfulweather.WeatherWidgetActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Wallpaper.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.colorfulweather.WeatherWidget1Activity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Wallpaper.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.colorfulweather.WeatherWidgetListActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Wallpaper.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <receiver android:exported="false" android:label="@string/app_name" android:name="com.colorfulweather.widget.WeatherWidget">
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/weather_widget"/>
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.colorfulweather.info.changed.action"/>
+                <action android:name="com.colorfulweather.weather.refresh.action"/>
+                <action android:name="com.colorfulweather.info.index.changed.action"/>
+                <action android:name="com.colorfulweather.widget.background.changed.action"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:label="@string/app_name" android:name="com.colorfulweather.widget.WeatherWidget1">
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/weather_widget1"/>
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.colorfulweather.info.changed.action"/>
+                <action android:name="com.colorfulweather.weather.refresh.action"/>
+                <action android:name="com.colorfulweather.info.index.changed.action"/>
+                <action android:name="com.colorfulweather.widget.background.changed.action"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:label="@string/app_name" android:name="com.colorfulweather.widget.WeatherListWidget">
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/weather_list_widget"/>
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.colorfulweather.info.changed.action"/>
+                <action android:name="com.colorfulweather.weather.refresh.action"/>
+                <action android:name="com.colorfulweather.info.index.changed.action"/>
+                <action android:name="com.colorfulweather.widget.background.changed.action"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name="com.colorfulweather.NewsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.colorfulweather.NewsDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.colorfulweather.CalendarActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.colorfulweather.PictureActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.colorfulweather.CommentActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.colorfulweather.CommentDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name="com.colorfulweather.CommentAddActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.colorfulweather.FeedbackActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name="com.colorfulweather.FeedbackAddActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.colorfulweather.CorrectionActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.yalantis.ucrop.UCropActivity" android:screenOrientation="portrait"/>
+        <provider android:authorities="com.colorfulweather.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/gdt_file_path"/>
+        </provider>
+        <service android:exported="false" android:name="com.qq.e.comm.DownloadService"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.qq.e.ads.ADActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.qq.e.ads.PortraitADActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.qq.e.ads.LandscapeADActivity" android:screenOrientation="landscape"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:name="com.colorfulweather.wxapi.WXEntryActivity" android:theme="@style/TranslucentTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="true" android:name="com.colorfulweather.yxapi.YXEntryActivity" android:theme="@style/TranslucentTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:name="com.colorfulweather.ddshare.DDShareActivity" android:theme="@style/TranslucentTheme"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencent1105455060"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.connect.common.AssistActivity" android:theme="@style/TranslucentTheme"/>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.colorfulweather.wxapi.WXPayEntryActivity"/>
+        <activity android:label="@string/app_name" android:name="com.colorfulweather.VipActivity"/>
+        <meta-data android:name="UMENG_APPKEY" android:value="57563801e0f55a9af9001515"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="AnZhi"/>
+        <meta-data android:name="AppId" android:value="6a673a8b-13af-45fe-8ecb-caf7ad204a72"/>
+        <meta-data android:name="android.max_aspect" android:value="2.4"/>
+        <meta-data android:name="android.notch_support" android:value="true"/>
+        <meta-data android:name="notch.config" android:value="portrait|landscape"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="com.umeng.socialize.media.WBShareCallBackActivity" android:theme="@style/TranslucentTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="com.sina.weibo.sdk.web.WeiboSdkWebActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTask" android:name="com.sina.weibo.sdk.share.WbShareTransActivity" android:theme="@style/TranslucentTheme">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:name="com.umeng.socialize.editorpage.ShareActivity" android:theme="@style/Theme.UMDefault"/>
+        <activity android:name="com.yanzhenjie.permission.bridge.BridgeActivity" android:theme="@style/Permission.Theme"/>
+        <provider android:authorities="com.colorfulweather.file.path.share" android:exported="false" android:grantUriPermissions="true" android:name="com.yanzhenjie.permission.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/permission_file_paths"/>
+        </provider>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:exported="false" android:name="com.tencent.android.tpush.XGPushActivity" android:theme="@android:style/Theme.Translucent"/>
+        <receiver android:name="com.tencent.android.tpush.XGPushReceiver" android:process=":xg_service_v4">
+            <intent-filter android:priority="0x7FFFFFFF">
+                <action android:name="com.tencent.android.tpush.action.SDK"/>
+                <action android:name="com.tencent.android.tpush.action.INTERNAL_PUSH_MESSAGE"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+            <intent-filter android:priority="0x7FFFFFFF">
+                <action android:name="android.intent.action.MEDIA_UNMOUNTED"/>
+                <action android:name="android.intent.action.MEDIA_REMOVED"/>
+                <action android:name="android.intent.action.MEDIA_CHECKING"/>
+                <action android:name="android.intent.action.MEDIA_EJECT"/>
+                <data android:scheme="file"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.tencent.android.tpush.rpc.XGRemoteService">
+            <intent-filter>
+                <action android:name="com.colorfulweather.PUSH_ACTION"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.tencent.android.tpush.service.XGPushServiceV4" android:persistent="true" android:process=":xg_service_v4"/>
+        <provider android:authorities="com.colorfulweather.AUTH_XGPUSH" android:exported="true" android:name="com.tencent.android.tpush.XGPushProvider"/>
+        <provider android:authorities="com.colorfulweather.TPUSH_PROVIDER" android:exported="false" android:name="com.tencent.android.tpush.SettingsContentProvider"/>
+        <meta-data android:name="XG_V2_ACCESS_ID" android:value="2100334779"/>
+        <meta-data android:name="XG_V2_ACCESS_KEY" android:value="AAMH32446YUH"/>
+        <provider android:authorities="com.colorfulweather.TENCENT.MID.V4" android:exported="true" android:name="com.tencent.mid.api.MidProvider"/>
+    </application>
+</manifest>

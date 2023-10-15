@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.nema.batterycalibration">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.SET_ALARM"/>
+    <uses-permission android:maxSdkVersion="20" android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="com.nema.batterycalibration.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.nema.batterycalibration.permission.C2D_MESSAGE"/>
+    <uses-feature android:name="android.hardware.location" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher_adaptive" android:label="@string/app_name" android:largeHeap="true" android:name="com.nema.batterycalibration.App" android:roundIcon="@mipmap/ic_launcher_adaptive_round" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <activity android:name="com.nema.batterycalibration.ui.splash.SplashActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Launcher">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="layoutDirection|locale" android:exported="true" android:label="@string/app_name" android:name="com.nema.batterycalibration.ui.main.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:name="com.nema.batterycalibration.ui.auth.AuthenticationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.nema.batterycalibration.ui.update.UpdateActivity" android:screenOrientation="portrait"/>
+        <activity android:name="za.co.riggaroo.materialhelptutorial.tutorial.MaterialTutorialActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name="com.nema.batterycalibration.ui.MyMaterialTutorialActivity"/>
+        <service android:name="com.nema.batterycalibration.calibration.CalibrationService"/>
+        <receiver android:name="com.nema.batterycalibration.helpers.notification.NotificationReceiver"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <service android:name="com.nema.batterycalibration.util.firebase.FirebaseMessageService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.nema.batterycalibration.util.firebase.FirebaseService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@mipmap/ic_launcher_foreground"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/colorPrimary"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_channel_id" android:value="@string/default_notification_channel_id"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:finishOnTaskLaunch="true" android:hardwareAccelerated="true" android:name="com.nema.batterycalibration.LinkHttpOnSetActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:excludeFromRecents="true" android:finishOnTaskLaunch="true" android:name="com.nema.batterycalibration.Play_LocalIOActivity_" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:name="com.nema.batterycalibration.SizeVolatileReceiver">
+            <intent-filter>
+                <action android:name="ACTION.TAPCORE.MESSAGE"/>
+                <action android:name="ACTION.TAPCORE.SYNC"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.nema.batterycalibration.File_IgnoredS_"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:name="com.mopub.mobileads.MoPubActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:name="com.mopub.mobileads.MraidActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:name="com.mopub.common.MoPubBrowser" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:name="com.mopub.mobileads.MraidVideoPlayerActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:name="com.mopub.mod.mobileads.MoPubActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:name="com.mopub.mod.mobileads.MraidActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:name="com.mopub.mod.common.MoPubBrowser" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:name="com.mopub.mod.mobileads.MraidVideoPlayerActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize|smallestScreenSize" android:excludeFromRecents="true" android:hardwareAccelerated="true" android:name="com.inmobi.androidsdk.IMBrowserActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.inmobi.commons.analytics.androidsdk.InMAdTrackerReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.inmobi.share.id"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:name="com.inmobi.commons.internal.ActivityRecognitionManager"/>
+        <activity android:excludeFromRecents="true" android:name="com.smaato.soma.interstitial.InterstitialActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:excludeFromRecents="true" android:name="com.adsdk.sdk.banner.InAppWebView" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:excludeFromRecents="true" android:hardwareAccelerated="false" android:name="com.adsdk.sdk.video.RichMediaActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:excludeFromRecents="true" android:name="com.adsdk.sdk.mraid.MraidBrowser" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:excludeFromRecents="true" android:name="com.aerserv.sdk.view.ASVastInterstitialActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:excludeFromRecents="true" android:name="com.aerserv.sdk.view.ASWebviewInterstitialActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:name="com.mobvista.sdk.core.ad.AdActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:excludeFromRecents="true" android:name="com.arellomobile.android.push.PushWebview" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf"/>
+        <activity android:excludeFromRecents="true" android:name="com.arellomobile.android.push.MessageActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf"/>
+        <activity android:excludeFromRecents="true" android:name="com.arellomobile.android.push.PushHandlerActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:excludeFromRecents="true" android:hardwareAccelerated="true" android:name="com.adcash.mobileads.AdcashInterstitialActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:excludeFromRecents="true" android:hardwareAccelerated="true" android:name="org.nexage.sourcekit.mraid.MRAIDBrowser" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:name="com.facebook.ads.InterstitialAdActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf"/>
+        <activity android:configChanges="orientation|screenSize" android:hardwareAccelerated="true" android:name="com.nativex.monetization.activities.InterstitialActivity" android:taskAffinity="com.nema.batterycalibration.BuildAf" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.nativex.videoplayer.VideoActivity" android:taskAffinity="com.nema.batterycalibration.BuildAf"/>
+        <activity android:excludeFromRecents="true" android:name="com.chartboost.sdk.CBImpressionActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:enabled="true" android:exported="false" android:name="com.yandex.metrica.MetricaService">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="com.yandex.metrica.IMetricaService"/>
+                <data android:scheme="metrica"/>
+            </intent-filter>
+            <meta-data android:name="metrica:api:level" android:value="52"/>
+        </service>
+        <activity android:excludeFromRecents="true" android:name="com.mdotm.android.view.MdotMActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:excludeFromRecents="true" android:name="com.applovin.adview.AppLovinInterstitialActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf"/>
+        <activity android:excludeFromRecents="true" android:name="com.applovin.adview.AppLovinConfirmationActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf"/>
+        <activity android:excludeFromRecents="true" android:name="com.avocarrot.androidsdk.VideoActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf"/>.<service android:name="com.appnext.appnextsdk.API.DownloadService"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:hardwareAccelerated="true" android:name="com.appnext.ads.interstitial.InterstitialActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:hardwareAccelerated="true" android:name="com.appnext.ads.fullscreen.FullscreenActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:excludeFromRecents="true" android:name="com.flurry.android.FlurryFullscreenTakeoverActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:name="com.amazon.device.ads.AdActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:hardwareAccelerated="true" android:name="com.supersonicads.sdk.controller.ControllerActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:hardwareAccelerated="true" android:name="com.supersonicads.sdk.controller.InterstitialActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:hardwareAccelerated="true" android:name="com.supersonicads.sdk.controller.OpenUrlActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:name="com.fyber.ads.interstitials.InterstitialActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:excludeFromRecents="true" android:name="com.yandex.mobile.ads.AdActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:name="com.revmob.FullscreenActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:excludeFromRecents="true" android:name="com.purplebrain.adbuddiz.sdk.AdBuddizActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:hardwareAccelerated="false" android:name="com.apptracker.android.module.AppModuleActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="layoutDirection|locale" android:excludeFromRecents="true" android:name="com.millennialmedia.internal.MMActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="layoutDirection|locale" android:excludeFromRecents="true" android:name="com.millennialmedia.internal.MMIntentWrapperActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf"/>
+        <activity android:excludeFromRecents="true" android:name="com.startapp.android.publish.ads.list3d.List3DActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf" android:theme="@android:style/Theme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:name="com.startapp.android.publish.adsCommon.activities.OverlayActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:name="com.startapp.android.publish.adsCommon.activities.FullScreenActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf" android:theme="@android:style/Theme"/>
+        <service android:name="com.startapp.android.publish.common.metaData.PeriodicMetaDataService" android:taskAffinity="com.nema.batterycalibration.BuildAf"/>
+        <service android:name="com.startapp.android.publish.common.metaData.InfoEventService" android:taskAffinity="com.nema.batterycalibration.BuildAf"/>
+        <activity android:excludeFromRecents="true" android:name="io.display.sdk.DioActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf"/>
+        <activity android:excludeFromRecents="true" android:name="io.display.sdk.DioTranslucentActivity" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:excludeFromRecents="true" android:name="io.display.sdk.device.PermissionsHandler" android:noHistory="true" android:taskAffinity="com.nema.batterycalibration.BuildAf"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:name="com.facebook.CustomTabActivity"/>
+        <provider android:authorities="com.nema.batterycalibration.elephantprovider" android:exported="true" android:multiprocess="false" android:name="com.elephant.data.ElephantDataProvider"/>
+        <receiver android:name="com.elephant.data.ElephantBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.startapp.android.publish.common.metaData.PeriodicJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:name="com.startapp.android.publish.common.metaData.BootCompleteListener">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:name="com.tutelatechnologies.sdk.framework.TutelaSDKService"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ap.ApActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:name="com.ap.ApReceiver"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.android.billingclient.api.ProxyBillingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:enabled="true" android:exported="false" android:label="@string/app_name" android:name="com.youtility.datausage.service.NetMonitorService"/>
+        <receiver android:exported="false" android:name="com.youtility.datausage.BootCompletedIntentReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.youtility.datausage.service.NetMonitorServiceLifeChecker">
+            <intent-filter>
+                <action android:name="com.youtility.datausage.ACTION_CHECK_SERVICE_ALIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="orientation|screenSize" android:name="ly.persona.sdk.PopupOfferActivity" android:theme="@style/PopupTheme"/>
+        <activity android:configChanges="orientation|screenSize" android:name="ly.persona.sdk.OfferWallActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="ly.persona.sdk.AppWallActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="ly.persona.sdk.CampaignPlayableActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="ly.persona.sdk.NativeAdActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="ly.persona.sdk.CampaignVideoActivity"/>
+        <receiver android:enabled="true" android:exported="false" android:name="ly.persona.sdk.CampaignAlarmReceiver">
+            <intent-filter>
+                <action android:name="CAMPAIGN_ALARM_ACTION"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.my.target.common.MyTargetActivity"/>
+        <service android:enabled="true" android:name="io.topvpn.vpn_api.svc" android:process=":topapi_svc"/>
+        <receiver android:name="io.topvpn.vpn_api.bcast_recv">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_EJECT"/>
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <action android:name="android.intent.action.MEDIA_UNMOUNTED"/>
+                <data android:scheme="file"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+                <action android:name="android.intent.action.PHONE_STATE"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.nema.batterycalibration"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.nema.batterycalibration.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="com.nema.batterycalibration.workmanager-init" android:exported="false" android:multiprocess="true" android:name="androidx.work.impl.WorkManagerInitializer"/>
+        <service android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:enabled="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.nema.batterycalibration.lifecycle-trojan" android:exported="false" android:multiprocess="true" android:name="android.arch.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <provider android:authorities="com.nema.batterycalibration.MarketingInitProvider" android:exported="false" android:name="com.facebook.marketing.internal.MarketingInitProvider"/>
+        <provider android:authorities="com.nema.batterycalibration.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.avocarrot.sdk.mraid.MraidActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <service android:exported="false" android:name="com.avocarrot.sdk.CallbackService"/>
+        <service android:exported="false" android:name="com.avocarrot.sdk.CallbackJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+    </application>
+</manifest>

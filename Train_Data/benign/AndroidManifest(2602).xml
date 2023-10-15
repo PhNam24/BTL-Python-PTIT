@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.centsol.csongs" platformBuildVersionCode="23" platformBuildVersionName="6.0-2704002">
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="com.centsol.csongs.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.centsol.csongs.permission.C2D_MESSAGE"/>
+    <application android:allowBackup="true" android:fullBackupContent="false" android:hardwareAccelerated="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="com.centsol.csongs.app.PatariApplication" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <activity android:exported="true" android:label="@string/app_name" android:name="com.centsol.csongs.activities.DummySplashActivity" android:screenOrientation="portrait" android:theme="@style/splashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.centsol.csongs.activities.SplashActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen"/>
+        <activity android:label="@string/app_name" android:name="com.centsol.csongs.activities.LandingActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Holo.Light.NoActionBar"/>
+        <activity android:exported="true" android:launchMode="singleTask" android:name="com.centsol.csongs.activities.MainActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Holo.Light.NoActionBar" android:windowSoftInputMode="adjustNothing">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="patari.pk" android:scheme="patari"/>
+                <data android:host="patari.pk" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.centsol.csongs.activities.LoginActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Holo.Light.NoActionBar"/>
+        <activity android:name="com.centsol.csongs.activities.SignUpActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Holo.Light.NoActionBar"/>
+        <service android:name="com.centsol.csongs.app.MusicService">
+            <intent-filter>
+                <action android:name="xxx.yyy.zzz.ACTION_PLAY"/>
+                <action android:name="xxx.yyy.zzz.ACTION_PAUSE"/>
+                <action android:name="ACTION_STOP"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.facebook.app.FacebookContentProviderApplicationId" android:exported="true" android:name="com.facebook.FacebookContentProvider"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.analytics.AnalyticsReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <receiver android:exported="true" android:name="com.google.android.gms.analytics.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <activity android:name="com.instabug.library.InstabugFeedbackActivity" android:windowSoftInputMode="adjustPan"/>
+        <service android:name="com.instabug.library.network.UploadCacheService"/>
+        <receiver android:name="com.instabug.library.network.InstabugNetworkReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.parse.PushService"/>
+        <receiver android:name="com.parse.ParseBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.parse.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.centsol.csongs"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.centsol.csongs.pushnotification.PushNotificationReceiver">
+            <intent-filter>
+                <action android:name="com.parse.push.intent.RECEIVE"/>
+                <action android:name="com.parse.push.intent.DELETE"/>
+                <action android:name="com.parse.push.intent.OPEN"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:label="@string/com_accountkit_toolbar_title" android:name="com.facebook.accountkit.ui.AccountKitActivity" android:theme="@style/AppLoginTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:exported="true" android:name="com.facebook.accountkit.ui.AccountKitEmailRedirectActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/ak_login_protocol_scheme"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/action_bar_title_hello" android:name="com.centsol.csongs.androidkit.ErrorActivity"/>
+        <activity android:label="@string/action_bar_title_hello" android:name="com.centsol.csongs.androidkit.HelloCodeActivity"/>
+        <activity android:label="@string/action_bar_title_hello" android:name="com.centsol.csongs.androidkit.HelloTokenActivity"/>
+        <meta-data android:name="com.facebook.accountkit.ApplicationId" android:value="@string/app_id"/>
+        <meta-data android:name="com.facebook.accountkit.ApplicationName" android:value="@string/app_name"/>
+        <meta-data android:name="com.facebook.accountkit.ClientToken" android:value="@string/client_token"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name="io.intercom.android.sdk.activities.MainActivity" android:theme="@style/IntercomSDK_PanelTheme" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="io.intercom.android.sdk.attachments.AttachmentActivity" android:theme="@style/IntercomSDK_AttachmentTheme" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="io.intercom.android.sdk.conversation.lightbox.LightboxActivity" android:theme="@style/IntercomSDK_AttachmentTheme" android:windowSoftInputMode="stateHidden"/>
+        <activity android:exported="false" android:name="io.intercom.android.sdk.activities.TestActivity"/>
+        <service android:enabled="false" android:name="io.intercom.android.sdk.gcm.GcmIntentService"/>
+        <receiver android:enabled="false" android:name="io.intercom.android.sdk.gcm.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="io.intercom.intercomsdk.gcm"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.centsol.csongs.google_measurement_service" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity"/>
+    </application>
+</manifest>

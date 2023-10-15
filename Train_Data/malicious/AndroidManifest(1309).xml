@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.qyer.android.jinnang">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.UPDATE_APP_OPS_STATS"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES"/>
+    <uses-permission android:name="android.permission.CONTROL_LOCATION_UPDATES"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <permission android:name="com.qyer.android.jinnang.permission.MIPUSH_RECEIVE" android:protectionLevel="signatureOrSystem"/>
+    <uses-permission android:name="com.qyer.android.jinnang.permission.MIPUSH_RECEIVE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.SET_ACTIVITY_WATCHER"/>
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.DELETE_PACKAGES"/>
+    <uses-permission android:name="android.permission.CHANGE_COMPONENT_ENABLED_STATE"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <application android:allowBackup="true" android:debuggable="false" android:hardwareAccelerated="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:name=".QyerApplication" android:theme="@style/app_theme_noTitle">
+        <uses-library android:name="com.google.android.maps" android:required="false"/>
+        <meta-data android:name="com.amap.api.v2.apikey" android:value="741de34817c7fe05182ae0af6567726b"/>
+        <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="uUS9VWA7Kt09W7d0EoPI4e31"/>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyApMkFR1VButVkVsqmmW9IBC0YhyAn2xcQ"/>
+        <meta-data android:name="AA_DB_NAME" android:value="QYER_IM.db"/>
+        <meta-data android:name="AA_DB_VERSION" android:value="600"/>
+        <meta-data android:name="com.arrownock.push.SERVICE_TYPE" android:value="ARROWNOCK"/>
+        <meta-data android:name="com.arrownock.push.KEEPALIVE_INTERVAL_WIFI" android:value="14"/>
+        <meta-data android:name="com.arrownock.push.KEEPALIVE_INTERVAL_2G" android:value="4"/>
+        <meta-data android:name="com.arrownock.push.KEEPALIVE_INTERVAL_3G" android:value="4"/>
+        <service android:name="com.arrownock.push.PushService"/>
+        <receiver android:name="com.qyer.android.jinnang.activity.chat.ChatMessageReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.arrownock.push.PushService.MSG_ARRIVAL"/>
+                <category android:name="android.intent.category.HOME"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.qyer.android.jinnang.event.SendReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED"/>
+                <action android:name="android.net.wifi.STATE_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.qyer.android.jinnang.activity.launcher.SplashActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="launcher" android:scheme="qyer"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.qyer.android.jinnang.activity.main.MainFragmentActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.onway.UserWantGoActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.onway.PeopleAroundActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.onway.PeopleAroundFollowActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.more.FeedbackActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.qyer.android.jinnang.activity.more.user.LoginActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.qyer.android.jinnang.activity.more.user.UpdateNameActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.qyer.android.jinnang.activity.more.user.LoginByNameActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.qyer.android.jinnang.activity.more.user.RegistPhoneVerificationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.more.user.ForgotPwdPhoneVerificationActivityivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.more.user.RegistInputNameAndPwdActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.more.user.ForgotPwdInputPwdActivitytPwdInputPwdActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.more.user.CountryCodeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.more.MoreActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.more.AboutActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.more.RecommendAppActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.more.user.RegistActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.qyer.android.jinnang.activity.more.user.WebLoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.search.TestSearchResultActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.search.SearchFragmentActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.plan.WebViewForJourney" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.plan.WebViewForHotJourney" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.deal.DealAllFragmentActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.deal.DealDetailActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="deal" android:pathPattern="/detail/.*" android:scheme="qyer"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.qyer.android.jinnang.activity.deal.DealSpecialListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.deal.DealHotListActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.qyerapp.intent.action.appsearch.country.deal.list"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="deal" android:pathPattern="/list/country/.*" android:scheme="qyer"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.qyer.android.jinnang.activity.deal.order.OrderContactsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.deal.order.OrderInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.deal.order.ProductCalendarActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.deal.order.OrderToPayInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.deal.order.OrderPayStatusActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.guide.GuideJnDetailFragmentActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="guidejn" android:pathPattern="/detail/.*" android:scheme="qyer"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.qyer.android.jinnang.activity.dest.CountryDetailActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.qyerapp.intent.action.appsearch.country.detail"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="country" android:pathPattern="/detail/.*" android:scheme="qyer"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.qyer.android.jinnang.activity.poi.PoiDetailActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.qyerapp.intent.action.appsearch.poi.detail"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="poi" android:pathPattern="/detail/.*" android:scheme="qyer"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.qyer.android.jinnang.activity.poi.PoiIntroduceActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.poi.PoiCommentActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.poi.PoiPhotoAlbumActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.poi.PhotoViewPagerActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.poi.PoiNearHotelActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.poi.PoiNearCommonActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.poi.WebBrowserActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.guide.GuideJnAllActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.guide.GuideJnDownloadTaskActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.guide.GuideJnListingForDestActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.guide.GuideJnReaderActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.guide.GuideJnReaderCoverActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.map.QyerMapActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.dest.CityDetailActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.qyerapp.intent.action.appsearch.city.detail"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="city" android:pathPattern="/detail/.*" android:scheme="qyer"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.qyer.android.jinnang.activity.plan.HotPlanListFragmentActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.user.UserPlanListFragmentActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.user.TaPlanListFragmentActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.dest.HotTripListFragmentActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.dest.CityListFragmentActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.dest.PoiListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.dest.FilterPoiListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.guide.GuideJnFeedbackActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.qyer.android.jinnang.activity.dest.TripDetailWebViewActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.qyer.android.jinnang.activity.ListPhotoViewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.dest.HotelSelectWebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.dest.MicroGuideJnListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.dest.MicroGuideJnDetailActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="microguidejn" android:pathPattern="/detail/.*" android:scheme="qyer"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.qyer.android.jinnang.activity.main.SubjectWebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.dest.GuideWebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.dest.HotDestWebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.launcher.NoviceIntroActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.message.MessageFragmentActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.main.LocalPersonAdActivity" android:screenOrientation="portrait" android:theme="@style/app_theme_dialog" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.qyer.android.jinnang.activity.user.TaDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.user.UserDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.user.UserJnActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.user.TaFriendsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.user.UserFriendsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.user.UserTripbbsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.user.TaTripbbsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.user.UserDealActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.user.UserDealNotifyAddActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.user.UserDealNotifySelectActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.deal.order.OrderWebBrowserActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.user.UserWantGoCountryActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.user.UserWantGoCityActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.user.TaWantGoCountryActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.user.TaWantGoCityActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.user.UserBeenCountryActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.user.UserBeenCityActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.user.TaBeenCountryActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.user.TaBeenCityActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.user.CommentEditActivity" android:screenOrientation="portrait" android:theme="@style/app_theme_dialog" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.qyer.android.jinnang.sso.weibo.WeiBossoManager" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencent222222"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.tencent.connect.common.AssistActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.androidex.zsns.activity.EditActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.androidex.zsns.activity.OauthActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.androidex.zsns.activity.SinaWeiboSsoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.dest.DestSearchFragmentActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.guide.GuideJnBookMarkActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.chat.ChatRoomActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.qyer.android.jinnang.activity.chat.ChatSessionActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.qyer.android.jinnang.activity.onway.ArbitraryDoorActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.chat.PhotoAlbumPickActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.chat.PhotoItemPickActivity" android:screenOrientation="portrait"/>
+        <activity android:hardwareAccelerated="false" android:name="com.qyer.android.jinnang.activity.chat.PhotoPreviewActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.qyer.android.jinnang.activity.onway.WallDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.qyer.android.jinnang.activity.PhotoPickerActivity" android:screenOrientation="portrait" android:theme="@style/app_theme_dialog"/>
+        <activity android:name="com.qyer.android.jinnang.activity.onway.WallPublishActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.qyer.android.jinnang.activity.onway.OnWayGuideActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.onway.WallFragmentActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.qyer.android.jinnang.activity.user.UserAvatarEditActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.community.WriteArticleActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.community.SearchArticleActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.community.ForumListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.community.CommunityDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.onway.OnWayJnActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.onway.OnWayPoiListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.onway.OnWayFilterPoiListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.onway.OnWayUserPlanActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.qyer.android.jinnang.activity.onway.LoadingDialogActivity" android:theme="@style/app_theme_dialog"/>
+        <receiver android:name="com.qyer.android.jinnang.activity.launcher.DealAlarm"/>
+        <receiver android:exported="true" android:name="com.qyer.android.jinnang.activity.launcher.QyerPushMessageReceiver">
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.ERROR"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:name="com.xiaomi.push.service.XMPushService" android:process=":pushservice"/>
+        <service android:enabled="true" android:exported="true" android:name="com.xiaomi.mipush.sdk.PushMessageHandler"/>
+        <service android:enabled="true" android:name="com.xiaomi.mipush.sdk.MessageHandleService"/>
+        <receiver android:exported="true" android:name="com.xiaomi.push.service.receivers.NetworkStatusReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.xiaomi.push.service.receivers.PingReceiver" android:process=":pushservice">
+            <intent-filter>
+                <action android:name="com.xiaomi.push.PING_TIMER"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.umeng.update.net.DownloadingService" android:process=":DownloadingService"/>
+        <activity android:name="com.umeng.update.UpdateDialogActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="UMENG_APPKEY" android:value="533e4f4056240b5a19000d36"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="wandoujia"/>
+        <service android:exported="true" android:name="com.baidu.android.moplus.MoPlusService" android:process=":bdservice_v1"/>
+        <receiver android:name="com.baidu.android.moplus.MoPlusReceiver" android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.baidu.android.moplus.action.START"/>
+                <action android:name="com.baidu.android.pushservice.action.BIND_SYNC"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.baidu.android.defense.push.PushMsgReceiver" android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.RECEIVE"/>
+                <action android:name="com.baidu.android.pushservice.action.MESSAGE"/>
+                <action android:name="com.baidu.android.pushservice.action.SDK_MESSAGE"/>
+                <action android:name="com.baidu.android.pushservice.action.sdk.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

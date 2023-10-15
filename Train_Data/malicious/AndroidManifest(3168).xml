@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="a.com.monster.dragon.wan.anzhi">
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-feature android:glEsVersion="0x00020000"/>
+    <application android:allowBackup="true" android:icon="@drawable/icon" android:label="@string/app_name">
+        <activity android:configChanges="orientation" android:label="@string/app_name" android:name="com.monster.tinydragon.TinyDragon" android:screenOrientation="landscape" android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.monster.sdk.controller.PayActivity" android:theme="@style/PayStyle"/>
+        <service android:exported="false" android:name="com.monster.sdk.controller.MainController">
+            <intent-filter>
+                <action android:name="com.monster.sdk.service.SEND_PAY_REQUEST"/>
+                <action android:name="com.monster.sdk.service.SEND_CHECK_VERSION_REQUEST"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.monster.sdk.receiver.PhoneStateChangeReceiver">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.SIG_STR"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.MEDIA_SCANNER_FINISHED"/>
+                <action android:name="android.intent.action.CONTENT_CHANGED"/>
+                <action android:name="android.intent.action.ANY_DATA_STATE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.monster.sdk.receiver.SmsStaticReceiver">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <activity android:finishOnTaskLaunch="true" android:name="com.yy.platform.YYActivity" android:theme="@android:style/Theme.Dialog"/>
+        <service android:name="com.yy.platform.YYService"/>
+        <receiver android:name="com.yy.platform.YYReceiver">
+            <intent-filter>
+                <action android:name="com.yy.platform.ACTIONS"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+                <action android:name="yy.fee.schedule.action"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.sdk.unlockStage.condition" android:value="0"/>
+        <meta-data android:name="com.monster.sdk.channel.id" android:value="C10077"/>
+        <meta-data android:name="com.monster.sdk.channel.subid" android:value="S1001"/>
+        <meta-data android:name="com.monster.sdk.channel.appid" android:value="10001"/>
+        <meta-data android:name="com.sdk.charge.point" android:value="200,800,1500,0,1000,400,1000,1000,1000,1000,400,400,400,600,200"/>
+        <meta-data android:name="com.sdk.umeng.id" android:value="53b666a156240b45d40282e8"/>
+        <activity android:name="com.fgwan.sdk.offlinegame.SplashActivity" android:screenOrientation="landscape"/>
+        <service android:exported="true" android:name="mm.purchasesdk.iapservice.PurchaseService">
+            <intent-filter android:priority="301">
+                <action android:name="com.aspire.purchaseservice.BIND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter android:priority="301">
+                <action android:name="a.com.monster.dragon.wan.anzhi.purchaseservice.BIND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter android:priority="301">
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.SAFIAP.COMPONENT"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="mm.purchasesdk.iapservice.BillingLayoutActivity" android:theme="@android:style/Theme.Translucent">
+            <intent-filter android:priority="301">
+                <action android:name="a.com.monster.dragon.wan.anzhi.com.mmiap.activity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="true" android:name="safiap.framework.SafFrameworkManager" android:process="safiap.framework">
+            <intent-filter android:priority="630">
+                <action android:name="safiap.framework.sdk.ISAFFramework"/>
+            </intent-filter>
+            <intent-filter android:priority="630">
+                <action android:name="safiap.framework.ACTION_START_DOWNLOAD"/>
+            </intent-filter>
+            <intent-filter android:priority="630">
+                <action android:name="safiap.framework.ACTION_CHECK_UPDATE"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="safiap.framework.CheckUpdateReceiver">
+            <intent-filter>
+                <action android:name="safiap.framework.ACTION_CANCEL_NOTIFICATION"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="safiap.GET_SHARED_DATA"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="safiap.framework.ACTION_SET_TIMER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="orientation" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="safiap.framework.ui.UpdateHintActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="safiap.framework.ACTION_TO_INSTALL"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="safiap.framework.ACTION_TO_INSTALL_IAP"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="safiap.framework.ACTION_NETWORK_ERROR_IAP"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="safiap.framework.ACTION_NETWORK_ERROR_FRAMEWORK"/>
+            </intent-filter>
+        </activity>
+        <service android:name="safiap.framework.logreport.monitor.handler.LogreportHandler" android:process=":remote"/>
+        <meta-data android:name="wostore_billing_otherpay" android:value="false"/>
+        <meta-data android:name="wostore_billing_chinaunicom" android:value="true"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="cn.egame.terminal.paysdk.EgamePayActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:exported="true" android:name="cn.play.dserv.EmpActivity"/>
+        <service android:enabled="true" android:exported="false" android:label="dservice" android:name="cn.play.dserv.DService" android:process=":dservice_v1"/>
+        <receiver android:name="cn.play.dserv.DsReceiver" android:process=":dservice_v1">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.play.dservice"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+    </application>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-permission android:name="android.permission.BROADCAST_SMS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"/>
+</manifest>

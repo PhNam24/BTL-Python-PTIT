@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="31" android:compileSdkVersionCodename="12" package="br.com.inchurch.ibcentralsantoandre" platformBuildVersionCode="31" platformBuildVersionName="12">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="com.google.android.apps.photos.permission.GOOGLE_PHOTOS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.BROWSABLE"/>
+            <data android:scheme="https"/>
+        </intent>
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE"/>
+        </intent>
+        <package android:name="com.google.android.youtube"/>
+    </queries>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <permission android:name="br.com.inchurch.ibcentralsantoandre.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="br.com.inchurch.ibcentralsantoandre.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT"/>
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
+    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE"/>
+    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT"/>
+    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_APP_BADGE"/>
+    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ"/>
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE"/>
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:isSplitRequired="true" android:label="@string/app_name" android:largeHeap="true" android:localeConfig="@xml/locales_config" android:name="br.com.inchurch.InChurchApp" android:requestLegacyExternalStorage="true" android:supportsRtl="true" android:theme="@style/Theme.inChurch.Material" android:usesCleartextTraffic="true">
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyCCd8FFJZIQDyebyZDivmtwcTIm73fV3z8"/>
+        <meta-data android:name="firebase_crashlytics_collection_enabled" android:value="true"/>
+        <meta-data android:name="com.onesignal.NotificationAccentColor.DEFAULT" android:value="@string/notification_accent_color"/>
+        <meta-data android:name="google_analytics_automatic_screen_reporting_enabled" android:value="false"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:hardwareAccelerated="true" android:label="@string/app_name" android:launchMode="singleTask" android:name="br.com.inchurch.activities.HomeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
+            <intent-filter>
+                <data android:host="br.com.inchurch.ibcentralsantoandre.pix" android:scheme="app"/>
+                <data android:host="br.com.inchurch.ibcentralsantoandre.home" android:scheme="app"/>
+                <data android:host="br.com.inchurch.ibcentralsantoandre.feeling" android:scheme="app"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="br.com.inchurch.presentation.user.profile.PersonalDataActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/app_name" android:name="br.com.inchurch.presentation.business.MyAddsActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/fb_login_protocol_scheme"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="cct.br.com.inchurch.ibcentralsantoandre" android:scheme="fbconnect"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="br.com.inchurch.presentation.business.BusinessActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="br.com.inchurch.presentation.bible.BibleActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.com.inchurch.presentation.business.JobsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="br.com.inchurch.presentation.donation.options.DonationsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="br.com.inchurch.presentation.donation.report.DonationReportTabsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="br.com.inchurch.presentation.preach.pages.preach_home.PreachHomeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="true" android:name="br.com.inchurch.presentation.preach.pages.preach_detail.PreachDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <data android:host="br.com.inchurch.ibcentralsantoandre.preach" android:scheme="app"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="br.com.inchurch.presentation.preach.pages.preach_series_detail.PreachSeriesDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.com.inchurch.presentation.preach.pages.search.PreachSeriesSearchActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:name="br.com.inchurch.presentation.preach.pages.filter.PreachSeriesFilterActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/option_prayer" android:name="br.com.inchurch.presentation.prayer.PrayerRequestActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:name="br.com.inchurch.presentation.user.login.LoginActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:name="br.com.inchurch.presentation.user.register.RegisterActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="br.com.inchurch.presentation.user.password.PasswordRecoveryActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="br.com.inchurch.presentation.tertiarygroup.ChooseTertiaryGroupActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="br.com.inchurch.activities.SplashActivity" android:screenOrientation="portrait" android:theme="@style/Theme.inChurch.Material.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="br.com.inchurch.presentation.contact.ContactActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="br.com.inchurch.presentation.base.activity.SimpleWebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.com.inchurch.presentation.bible.BibleFilterActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:label="@string/live_home_title" android:name="br.com.inchurch.presentation.live.home.LiveHomeActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <data android:host="br.com.inchurch.ibcentralsantoandre.live" android:scheme="app"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:name="br.com.inchurch.presentation.live.detail.LiveDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="Anotações" android:name="br.com.inchurch.presentation.notes.NotesActivity" android:screenOrientation="portrait"/>
+        <activity android:label="Anotações" android:name="br.com.inchurch.presentation.notes.NotesEditActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="br.com.inchurch.presentation.business.AdvertiseActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.com.inchurch.presentation.payment.PaymentBilletSuccessActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/add_credit_card_title_toolbar" android:name="br.com.inchurch.presentation.creditcard.AddCreditCardActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="br.com.inchurch.presentation.creditcard.ListCreditCardActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.com.inchurch.presentation.base.activity.YoutubeActivity" android:screenOrientation="user" android:theme="@style/Theme.inChurch.Material.YoutubeScreen"/>
+        <activity android:exported="false" android:name="br.com.inchurch.presentation.notification.NotificationListActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <data android:host="br.com.inchurch.ibcentralsantoandre.notification" android:scheme="app"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="br.com.inchurch.presentation.smallgroup.SmallGroupsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.yalantis.ucrop.UCropActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="layoutDirection|orientation|screenSize" android:name="br.com.inchurch.presentation.base.activity.VideoPlayerActivity" android:theme="@style/Theme.inChurch.Material.Fullscreen"/>
+        <activity android:name="br.com.inchurch.presentation.membershipcard.MembershipCardListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.com.inchurch.presentation.membershipcard.MembershipCardDetailActivity" android:screenOrientation="landscape" android:theme="@style/Theme.inChurch.Material.Fullscreen"/>
+        <activity android:name="br.com.inchurch.presentation.user.profile.ProfileActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.com.inchurch.presentation.institutionalpage.InstitutionalPagesActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.com.inchurch.presentation.reading.ReadingPlanListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.com.inchurch.presentation.reading.ReadingPlanDetailsActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <data android:host="br.com.inchurch.ibcentralsantoandre.reading_plan" android:scheme="app"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="br.com.inchurch.presentation.reading.ReadingPlanDayActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <data android:host="br.com.inchurch.ibcentralsantoandre.reading" android:scheme="app"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="br.com.inchurch.presentation.news.list.NewsListActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="br.com.inchurch.presentation.news.detail.NewsDetailActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing" android:value="true"/>
+        </activity>
+        <activity android:exported="false" android:name="br.com.inchurch.presentation.news.detail.NewsDetailActivity2" android:screenOrientation="portrait">
+            <intent-filter>
+                <data android:host="br.com.inchurch.ibcentralsantoandre.news" android:scheme="app"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing" android:value="true"/>
+        </activity>
+        <activity android:name="br.com.inchurch.presentation.hymnal.HymnalActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.com.inchurch.presentation.hymnal.HymnalDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/dashboard_cell_title" android:name="br.com.inchurch.presentation.cell.management.dashboard.DashboardCellActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <data android:host="br.com.inchurch.ibcentralsantoandre.cells" android:scheme="app"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/report_cell_meeting_title" android:name="br.com.inchurch.presentation.cell.management.report.list.ReportCellMeetingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.com.inchurch.presentation.cell.management.report.detail.ReportCellMeetingDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.com.inchurch.presentation.cell.management.report.cancel.ReportCellMeetingCancelActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.com.inchurch.presentation.cell.management.report.register.ReportCellMeetingRegisterActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="br.com.inchurch.presentation.cell.management.report.register.addmember.ReportCellMeetingRegisterAddMemberActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="br.com.inchurch.presentation.cell.management.report.register.searchmember.ReportCellMeetingRegisterSearchMemberActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:label="@string/material_cell_title" android:name="br.com.inchurch.presentation.cell.management.material.list.MaterialCellActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.com.inchurch.presentation.cell.management.material.detail.MaterialCellDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/donation_bank_account_title" android:name="br.com.inchurch.presentation.donation.bankaccount.BankAccountActivity" android:screenOrientation="portrait"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="f66dfa3912c68026a9d4f50ada5945dffce3775d"/>
+        <meta-data android:name="com.onesignal.NotificationOpened.DEFAULT" android:value="DISABLE"/>
+        <activity android:exported="false" android:name="br.com.inchurch.presentation.event.pages.home.EventHomeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.com.inchurch.presentation.event.pages.calendar.EventCalendarActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="br.com.inchurch.presentation.event.pages.detail.EventDetailActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <data android:host="br.com.inchurch.ibcentralsantoandre.event" android:scheme="app"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <data android:host="br.com.inchurch.ibcentralsantoandre.schedule" android:scheme="app"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SENDTO"/>
+                <data android:scheme="mailto"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="br.com.inchurch.presentation.event.pages.list.EventListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.com.inchurch.presentation.event.pages.filter.EventListFilterActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.com.inchurch.presentation.event.pages.ticket_purchase.EventTicketPurchaseActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.com.inchurch.presentation.event.pages.transaction_list.EventTransactionListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="br.com.inchurch.presentation.download.pages.home.DownloadHomeActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:name="br.com.inchurch.presentation.download.pages.download_detail.DownloadDetailActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <data android:host="br.com.inchurch.ibcentralsantoandre.download" android:scheme="app"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="br.com.inchurch.presentation.download.pages.download_search.DownloadSearchActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysVisible|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/download_searcheable"/>
+            <meta-data android:name="android.app.default_searchable" android:value="br.com.inchurch.presentation.download.pages.download_search.DownloadSearchActivity"/>
+        </activity>
+        <activity android:name="br.com.inchurch.presentation.termsofuse.TermsOfUseActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <service android:enabled="true" android:exported="true" android:name="br.com.inchurch.presentation.service.MediaPlayerService">
+            <intent-filter>
+                <action android:name="br.com.inchurch.ibcentralsantoandre.ACTION.PLAY_TOGGLE"/>
+                <action android:name="br.com.inchurch.ibcentralsantoandre.ACTION.STOP_SERVICE"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="true" android:name="br.com.inchurch.presentation.service.RadioPlayerService" android:stopWithTask="false">
+            <intent-filter>
+                <action android:name="br.com.inchurch.ibcentralsantoandre.ACTION.PLAY_RADIO"/>
+                <action android:name="br.com.inchurch.ibcentralsantoandre.ACTION.PAUSE_RADIO"/>
+                <action android:name="br.com.inchurch.ibcentralsantoandre.ACTION.STOP_SERVICE_RADIO"/>
+                <action android:name="br.com.inchurch.ibcentralsantoandre.ACTION.NEXT_RADIO"/>
+                <action android:name="br.com.inchurch.ibcentralsantoandre.ACTION.PREVIOUS_RADIO"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="true" android:name="br.com.inchurch.presentation.service.MediaPlayerServiceImpl" android:stopWithTask="false">
+            <intent-filter>
+                <action android:name="br.com.inchurch.ibcentralsantoandre.ACTION.PLAY_MEDIA"/>
+                <action android:name="br.com.inchurch.ibcentralsantoandre.ACTION.PAUSE_MEDIA"/>
+                <action android:name="br.com.inchurch.ibcentralsantoandre.ACTION.STOP_SERVICE_MEDIA"/>
+                <action android:name="br.com.inchurch.ibcentralsantoandre.ACTION.FORWARD_MEDIA"/>
+                <action android:name="br.com.inchurch.ibcentralsantoandre.ACTION.REWIND_MEDIA"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="br.com.inchurch.ibcentralsantoandre.provider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <provider android:authorities="br.com.inchurch.ibcentralsantoandre.DownloadSearchProvider" android:name="br.com.inchurch.presentation.download.fragments.download_search.DownloadSearchProvider"/>
+        <activity android:exported="false" android:hardwareAccelerated="true" android:label="@string/places_autocomplete_label" android:name="com.google.android.libraries.places.widget.AutocompleteActivity" android:theme="@style/PlacesAutocompleteOverlay" android:windowSoftInputMode="stateAlwaysVisible|adjustPan"/>
+        <service android:name="br.com.bemobi.medescope.service.impl.DownloadCommandService" android:process=":download"/>
+        <service android:name="br.com.bemobi.medescope.service.impl.DMIntentService" android:process=":download"/>
+        <receiver android:exported="true" android:name="br.com.bemobi.medescope.receiver.DMDownloaderReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+                <action android:name="android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <meta-data android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule" android:value="GlideModule"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="br.com.inchurch.ibcentralsantoandre.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <meta-data android:name="onesignal_app_id" android:value="5ed60921-b350-4430-bc0c-d99376db6416"/>
+        <meta-data android:name="onesignal_google_project_number" android:value="str:918545561002"/>
+        <receiver android:name="com.onesignal.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter android:priority="999">
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="br.com.inchurch.ibcentralsantoandre"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.onesignal.NotificationOpenedReceiver"/>
+        <service android:exported="false" android:name="com.onesignal.HmsMessageServiceOneSignal">
+            <intent-filter>
+                <action android:name="com.huawei.push.action.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:name="com.onesignal.NotificationOpenedActivityHMS" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+        </activity>
+        <service android:name="com.onesignal.GcmIntentService"/>
+        <service android:name="com.onesignal.GcmIntentJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.onesignal.RestoreJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.onesignal.RestoreKickoffJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.onesignal.SyncService" android:stopWithTask="true"/>
+        <service android:name="com.onesignal.SyncJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:name="com.onesignal.PermissionsActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:name="com.onesignal.NotificationRestoreService"/>
+        <receiver android:name="com.onesignal.BootUpReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.onesignal.UpgradeReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:name="androidx.work.impl.foreground.SystemForegroundService"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <provider android:authorities="br.com.inchurch.ibcentralsantoandre.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <activity android:enabled="false" android:exported="false" android:launchMode="singleInstance" android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true"/>
+        <activity android:enabled="false" android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
+        <service android:enabled="false" android:exported="true" android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService"/>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="37"/>
+    </application>
+</manifest>

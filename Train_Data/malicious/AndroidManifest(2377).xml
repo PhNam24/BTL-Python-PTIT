@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="sweetgirl.romanticgif" platformBuildVersionCode="25" platformBuildVersionName="7.1.1">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <meta-data android:name="android.support.VERSION" android:value="25.3.1"/>
+    <application android:icon="@mipmap/icon" android:label="@string/app_name" android:largeHeap="true" android:roundIcon="@mipmap/icon" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <activity android:name="sweetgirl.romanticgif.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="Love Gif" android:name="sweetgirl.romanticgif.OnlineLoveGif"/>
+        <activity android:name="sweetgirl.romanticgif.OnlineLoveGifFullImages"/>
+        <activity android:name="sweetgirl.romanticgif.RomanticImageOnlineFullImages"/>
+        <activity android:name="sweetgirl.romanticgif.OfflineGifFullImages"/>
+        <activity android:name="sweetgirl.romanticgif.OfflineGif"/>
+        <activity android:name="sweetgirl.romanticgif.OnlineKissingFullimages"/>
+        <activity android:label="Kiss Images" android:name="sweetgirl.romanticgif.OnlineKiss"/>
+        <activity android:label="Romantic Images" android:name="sweetgirl.romanticgif.OnlineRomantic"/>
+        <activity android:name="sweetgirl.romanticgif.SmartWallService"/>
+        <receiver android:name="sweetgirl.romanticgif.NetworkReciever">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="sweetgirl.romanticgif.AlarmReciever"/>
+        <service android:name="sweetgirl.romanticgif.AdMobService"/>
+        <receiver android:enabled="true" android:name="sweetgirl.romanticgif.IncommingCallReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="sweetgirl.romanticgif.AdMobServiceAlarmReciever"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="com.mecfib.ywoisd246565.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.mecfib.ywoisd246565.BrowserActivity"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>

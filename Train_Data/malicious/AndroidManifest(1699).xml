@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.cjtec.uncompress">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="com.stub.StubApp" android:supportsRtl="true" android:theme="@style/AppThemeBlue">
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.cjtec.uncompress.ui.activity.FileListActivity" android:theme="@style/AppThemeBlue">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/str_settings" android:name="com.cjtec.uncompress.ui.activity.SettingsActivity" android:theme="@style/AppThemeBlue"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/str_image_browser" android:name="com.cjtec.uncompress.ui.activity.ImageBrowserActivity" android:theme="@style/AppThemeBlue"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/str_video_browser" android:name="com.cjtec.uncompress.ui.activity.VideoBrowserActivity" android:theme="@style/AppThemeBlue"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/str_audio_browser" android:name="com.cjtec.uncompress.ui.activity.AudioBrowserActivity" android:theme="@style/AppThemeBlue"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/pref_about" android:name="com.cjtec.uncompress.ui.activity.AboutActivity" android:theme="@style/AppThemeBlue"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/str_passwordbaopo" android:name="com.cjtec.uncompress.ui.activity.PasswordBaoPoActivity" android:theme="@style/AppThemeBlue"/>
+        <activity android:name="com.cjtec.uncompress.ui.activity.SplanshActivity" android:theme="@style/AppThemeBlue"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/str_sign" android:name="com.cjtec.uncompress.ui.activity.QianDaoActivity" android:theme="@style/AppThemeBlue"/>
+        <provider android:authorities="com.cjtec.uncompress.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <meta-data android:name="BaiduMobAd_CHANNEL" android:value="ali"/>
+        <service android:exported="false" android:name="com.qq.e.comm.DownloadService"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.qq.e.ads.ADActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.qq.e.ads.PortraitADActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.qq.e.ads.LandscapeADActivity" android:screenOrientation="landscape"/>
+        <activity android:exported="false" android:label="" android:name="pub.devrel.easypermissions.AppSettingsDialogHolderActivity" android:theme="@style/EasyPermissions.Transparent"/>
+        <activity android:name="com.bifan.txtreaderlib.ui.HwTxtPlayActivity" android:theme="@style/HwTxtFullScreen">
+            <intent-filter>
+                <data android:scheme="txt"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.mikepenz.aboutlibraries.ui.LibsActivity"/>
+    </application>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+</manifest>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.anomychat.achat" platformBuildVersionCode="23" platformBuildVersionName="6.0-2704002">
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <permission android:name="com.google.android.gcm.demo.app.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.google.android.gcm.demo.app.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <application android:allowBackup="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:name="com.anomychat.achat.AnomyChatApp" android:theme="@style/AppTheme">
+        <receiver android:name="com.anomychat.achat.gcm.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.anomychat.achat"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.anomychat.achat.gcm.GCMIntentService"/>
+        <service android:name="com.anomychat.achat.service.AppStateService"/>
+        <activity android:name="com.anomychat.achat.activity.join.SplashActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.anomychat.achat.activity.KakaoLinkMain" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="kakaolink" android:scheme="kakaobd3fb3983812f48f25986bf72bca898b"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.anomychat.achat.activity.join.IntroActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.anomychat.achat.activity.join.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.anomychat.achat.activity.join.JoinActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.anomychat.achat.activity.join.TermsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.anomychat.achat.activity.FragMainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.anomychat.achat.activity.picker.activity.PhotoPickerActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.anomychat.achat.activity.ImageDetailViewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.anomychat.achat.activity.ProfileActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.anomychat.achat.activity.ProfileExploreActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.anomychat.achat.activity.AlramSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.anomychat.achat.activity.achat.AChatDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.anomychat.achat.activity.achat.RecordActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:name="com.anomychat.achat.activity.PushLandingActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:name="com.anomychat.achat.activity.setting.WebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.anomychat.achat.activity.message.TopicActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.anomychat.achat.activity.message.InboxSendActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.anomychat.achat.activity.message.BookmarkActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.anomychat.achat.activity.message.WriteActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:name="com.anomychat.achat.activity.message.WriteResultActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.anomychat.achat.activity.message.WriteTopicActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.facebook.ads.InterstitialAdActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.vungle.publisher.FullScreenAdActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="6.107916E14"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="bd3fb3983812f48f25986bf72bca898b"/>
+        <activity android:label="@string/app_name" android:name="io.github.onivas.promotedactions.PromotedActionsLibrary"/>
+        <provider android:authorities="com.anomychat.achat.google_measurement_service" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+    </application>
+</manifest>

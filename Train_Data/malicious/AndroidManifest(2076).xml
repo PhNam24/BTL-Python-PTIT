@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.seeme.tvframe">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>	以下为必须的权限
+<uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+    <application android:allowBackup="true" android:icon="@drawable/app_icon_128" android:label="@string/app_name" android:largeHeap="true" android:launchMode="singleTop" android:name="com.seeme.tvframe.consts.PublicApp" android:screenOrientation="landscape" android:theme="@style/AppTheme">
+        <activity android:label="@string/title_activity_main" android:launchMode="singleTop" android:name="com.seeme.tvframe.activity.MainActivity" android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="com.seeme.tvframe.activity.CoverFlowActivity"/>
+        <activity android:label="@string/title_activity_img_detail" android:launchMode="singleTask" android:name="com.seeme.tvframe.activity.ImagePagerActivity"/>
+        <activity android:label="@string/title_activity_manual" android:launchMode="singleTask" android:name="com.seeme.tvframe.activity.ManualActivity"/>
+        <activity android:label="@string/title_activity_album_based" android:launchMode="singleTask" android:name="com.seeme.tvframe.activity.AlbumBasedActivity"/>
+        <activity android:label="@string/title_activity_album_first" android:launchMode="singleTask" android:name="com.seeme.tvframe.activity.AlbumFirstActivity"/>
+        <activity android:label="@string/title_activity_album_second" android:launchMode="singleTask" android:name="com.seeme.tvframe.activity.AlbumSecondActivity"/>
+        <activity android:label="@string/title_activity_album_third" android:launchMode="singleTask" android:name="com.seeme.tvframe.activity.AlbumThirdActivity"/>
+        <activity android:label="@string/title_activity_album_fourth" android:launchMode="singleTask" android:name="com.seeme.tvframe.activity.AlbumFourthActivity"/>
+        <activity android:label="@string/title_activity_album_fifth" android:launchMode="singleTask" android:name="com.seeme.tvframe.activity.AlbumFifthActivity"/>
+        <activity android:label="@string/title_activity_album_sixth" android:launchMode="singleTask" android:name="com.seeme.tvframe.activity.AlbumSixthActivity"/>
+        <activity android:label="@string/title_activity_album_seven" android:launchMode="singleTask" android:name="com.seeme.tvframe.activity.AlbumSeventhActivity"/>
+        <activity android:label="@string/title_activity_album_based" android:launchMode="singleTask" android:name="com.seeme.tvframe.activity.AlbumEighthActivity"/>
+        <activity android:label="@string/title_activity_splash" android:launchMode="singleTask" android:name="com.seeme.tvframe.activity.SplashActivity" android:screenOrientation="landscape"/>
+        <activity android:label="@string/title_activity_ad" android:launchMode="singleTask" android:name="com.seeme.tvframe.activity.AdActivity"/>
+        <activity android:label="@string/title_activity_ad2" android:launchMode="singleTask" android:name="com.seeme.tvframe.activity.Ad2Activity"/>
+        <activity android:launchMode="singleTask" android:name="com.seeme.tvframe.views.CustomDialogActivity" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:name="com.dmx.web.WebActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <meta-data android:name="UMENG_APPKEY" android:value="528445c656240bcec906b2b2"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="alibaba"/>
+        <meta-data android:name="appid" android:value="o6KWkwMO1297ywAUSWfWH4"/>
+        <meta-data android:name="appkey" android:value="pV3gVZoFIg67cYxzG5tsZ7"/>
+        <meta-data android:name="appsecret" android:value="ChKjqPHglB627uWhDR3b42"/>
+        <activity android:excludeFromRecents="true" android:name="com.igexin.sdk.SdkActivity" android:process="com.seeme.tvframe.pushservice" android:taskAffinity="android.task.SdkActivityTask" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="com.igexin.action.popupact.com.seeme.tvframe"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="true" android:label="NotifyCenterAIDL" android:name="com.igexin.sdk.coordinator.SdkMsgService" android:process="com.seeme.tvframe.pushservice"/>
+        <receiver android:name="com.igexin.sdk.coordinator.NotificationCenterAIDLReceiver">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.refreshls"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:label="NotifyCenter" android:name="com.igexin.sdk.SdkMainService" android:process="com.seeme.tvframe.pushservice"/>
+        <receiver android:name="com.igexin.sdk.SdkReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="sdk.download.DownloadService" android:process="com.seeme.tvframe.pushservice"/>
+        <receiver android:exported="false" android:name="sdk.download.DownloadReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="sdk.download.com.seeme.tvframe" android:name="sdk.download.DownloadProvider" android:process="com.seeme.tvframe.pushservice"/>
+        <receiver android:name="com.seeme.tvframe.receiver.AlbumPicReceiver">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.o6KWkwMO1297ywAUSWfWH4"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.seeme.tvframe.receiver.SMSReceiver">
+            <intent-filter>
+                <action android:name="com.seeme.tvframe.sms"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="31" android:compileSdkVersionCodename="12" package="cz.seznam.tv" platformBuildVersionCode="31" platformBuildVersionName="12">
+    <uses-permission android:name="android.permission.INTERNET" android:required="true"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" android:required="true"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="cz.seznam.phone.GET_PHONE_ID"/>
+    <uses-permission android:name="cz.seznam.auth.LIST_SHARED_ACCOUNTS"/>
+    <permission android:name="cz.seznam.cmp.provider.READ_WRITE" android:protectionLevel="signature"/>
+    <uses-permission android:name="cz.seznam.cmp.provider.READ_WRITE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" android:required="true"/>
+    <queries>
+        <package android:name="cz.seznam.email"/>
+        <package android:name="cz.seznam.mapy"/>
+        <package android:name="cz.seznam.novinky"/>
+        <package android:name="cz.seznam.streampohadky"/>
+        <package android:name="cz.seznam.sauto"/>
+        <package android:name="cz.seznam.sbazar"/>
+        <package android:name="cz.seznam.seznamzpravy"/>
+        <package android:name="cz.seznam.sbrowser"/>
+        <package android:name="cz.seznam.sport"/>
+        <package android:name="cz.seznam.sreality"/>
+        <package android:name="com.stream.cz.app"/>
+        <package android:name="cz.seznam.tv"/>
+        <package android:name="cz.fhejl.pubtran"/>
+        <package android:name="cz.seznam.podcast"/>
+        <package android:name="cz.seznam.cmpexample"/>
+        <package android:name="cz.seznam.cmpexample2"/>
+        <intent>
+            <action android:name="cz.seznam.stats.sid.ACTION_SID_REQUEST_2"/>
+        </intent>
+        <intent>
+            <action android:name="android.media.browse.MediaBrowserService"/>
+        </intent>
+    </queries>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+    <application android:allowBackup="false" android:allowClearUserData="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:fullBackupContent="true" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="cz.seznam.tv.ApplicationTV" android:networkSecurityConfig="@xml/network_security_config" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <activity android:exported="true" android:name="cz.seznam.tv.activity.ActivityMain" android:noHistory="true" android:theme="@style/AppTheme_splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="cz.seznam.tv.activity.ActToolbarFrag" android:theme="@style/AppTheme"/>
+        <activity android:name="cz.seznam.tv.schedule.grid.ActGrid" android:theme="@style/AppTheme"/>
+        <activity android:name="cz.seznam.tv.schedule.column.ActColumn" android:theme="@style/AppTheme"/>
+        <activity android:name="cz.seznam.tv.setting.SettingChannelsAct"/>
+        <service android:exported="true" android:name="cz.seznam.auth.SznAuthenticationService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@xml/szn_authenticator"/>
+        </service>
+        <activity android:launchMode="singleTop" android:name="cz.seznam.killswitch.KillswitchActivity" android:theme="@style/KillswitchActivityTheme"/>
+        <service android:exported="false" android:name="cz.seznam.tv.net.fcm.FCMService" android:permission="android.permission.BIND_JOB_SERVICE">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="cz.seznam.tv.provider" android:enabled="true" android:exported="true" android:name="cz.seznam.cmp.provider.ConsentProvider" android:permission="cz.seznam.cmp.provider.READ_WRITE"/>
+        <activity android:configChanges="orientation|screenLayout|screenSize" android:name="cz.seznam.auth.app.SznAccountActivity" android:theme="@style/SznLoginTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="cz.seznam.lib_player.deprecated.PlayerActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <meta-data android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME" android:value="cz.seznam.lib_player.castv3.CastOptionsProvider"/>
+        <receiver android:name="cz.seznam.lib_player.download.DownloadReceiver"/>
+        <service android:name="cz.seznam.lib_player.download.Downloader$SimpleService"/>
+        <service android:enabled="true" android:exported="true" android:name="cz.seznam.lib_player.audio.AudioService">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+                <action android:name="android.media.AUDIO_BECOMING_NOISY"/>
+                <action android:name="android.media.browse.MediaBrowserService"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="cz.seznam.tv.util.certificate.CertInitProvider" android:enabled="true" android:exported="false" android:name="cz.seznam.lib_player.certificate.CertInitProvider"/>
+        <activity android:launchMode="singleTask" android:name="cz.seznam.gallery.activity.GridActivity"/>
+        <activity android:name="cz.seznam.gallery.activity.GalleryActivity" android:theme="@style/GalleryTheme"/>
+        <service android:exported="false" android:name="com.gemius.sdk.MobilePlugin">
+            <intent-filter>
+                <action android:name="com.gemius.sdk.MOBILEPLUGIN"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="true" android:name="cz.seznam.stats.InstallReferrerReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="cz.seznam.stats.gsid.SIDRequestReceiver">
+            <intent-filter>
+                <action android:name="cz.seznam.stats.sid.ACTION_SID_REQUEST_2"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="cz.seznam.feedback.FeedbackActivity" android:theme="@style/FeedbackTheme"/>
+        <activity android:name="cz.seznam.feedback.FeedbackRouteActivity" android:theme="@style/FeedbackTheme"/>
+        <activity android:name="cz.seznam.about.AboutActivity"/>
+        <activity android:name="cz.seznam.feedback.FeedbackFormActivity"/>
+        <service android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.ktx.FirebaseAnalyticsKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <provider android:authorities="cz.seznam.tv.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+        <meta-data android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule" android:value="GlideModule"/>
+        <receiver android:exported="false" android:name="com.google.android.gms.cast.framework.media.MediaIntentReceiver"/>
+        <service android:exported="false" android:foregroundServiceType="mediaPlayback" android:name="com.google.android.gms.cast.framework.media.MediaNotificationService"/>
+        <service android:exported="false" android:name="com.google.android.gms.cast.framework.ReconnectionService"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <provider android:authorities="cz.seznam.tv.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <provider android:authorities="cz.seznam.tv.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:enabled="false" android:exported="false" android:launchMode="singleInstance" android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true"/>
+        <activity android:enabled="false" android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
+        <service android:enabled="false" android:exported="true" android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService">
+            <meta-data android:name="com.google.android.play.core.assetpacks.versionCode" android:value="11000"/>
+        </service>
+        <service android:enabled="false" android:exported="false" android:name="com.google.android.play.core.assetpacks.ExtractionForegroundService"/>
+    </application>
+</manifest>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.mikiapp" platformBuildVersionCode="21" platformBuildVersionName="5.0.1-1624448">
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <permission android:name="com.mikiapp.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.mikiapp.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="true" android:icon="@drawable/ic_app_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="tiki.vn.ebook.ReaderApplication">
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:name="tiki.vn.ebook.activity.SplashActivity" android:theme="@style/SplashTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="tiki.vn.ebook.activity.IntroActivity" android:screenOrientation="portrait" android:theme="@style/AppBaseTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter android:label="mikiapp-item">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="items" android:scheme="mikiapp"/>
+                <data android:host="categories" android:scheme="mikiapp"/>
+                <data android:host="tags" android:scheme="mikiapp"/>
+                <data android:host="features" android:scheme="mikiapp"/>
+                <data android:host="newsfeed" android:scheme="mikiapp"/>
+                <data android:host="profile" android:scheme="mikiapp"/>
+                <data android:host="otp_login" android:scheme="mikiapp"/>
+                <data android:host="event" android:scheme="mikiapp"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="tiki.vn.ebook.activity.HomeActivity" android:theme="@style/AppBaseTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="miki" android:launchMode="singleTask" android:name="tiki.vn.ebook.activity.ReaderActivity" android:theme="@style/AppBaseTheme">
+            <intent-filter>
+                <action android:name="android.tkreader.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.tkreader.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="file"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="tkreader-action"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="content"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation" android:launchMode="singleTask" android:name="tiki.vn.ebook.activity.LibraryActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Black.NoTitleBar">
+            <meta-data android:name="android.app.default_searchable" android:value="tiki.vn.ebook.activity.LibrarySearchActivity"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="tiki.vn.ebook.activity.BookInfoActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="tiki.vn.ebook.activity.TOCActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="tiki.vn.ebook.activity.SearchActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="orientation" android:name="tiki.vn.ebook.activity.ScanActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="tiki.vn.ebook.activity.PrivacyDialogActivity" android:theme="@style/TKReader.Dialog"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="tiki.vn.ebook.activity.PinValueDialogActivity" android:theme="@style/TKReader.Dialog"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="tiki.vn.ebook.activity.ShareFacebookDialogActivity" android:theme="@style/TKReader.Dialog"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="tiki.vn.ebook.activity.LoginActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="tiki.vn.ebook.activity.SignInActivity" android:screenOrientation="portrait" android:theme="@style/TKReader.Dialog"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="tiki.vn.ebook.activity.CreateAccountActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Black.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="tiki.vn.ebook.activity.BookStoreActivity" android:screenOrientation="portrait" android:theme="@style/SlideAppTheme" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="tiki.vn.ebook.activity.BookStoreInfoActivity" android:screenOrientation="portrait" android:theme="@style/NoBackgroundStyle" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="tiki.vn.ebook.activity.SettingActivity" android:screenOrientation="portrait" android:theme="@style/AppBaseTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="tiki.vn.ebook.activity.NewsFeedTabActivity" android:screenOrientation="portrait" android:theme="@style/AppBaseTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="tiki.vn.ebook.activity.ProfileActivity" android:screenOrientation="portrait" android:theme="@style/AppBaseTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="tiki.vn.ebook.activity.MainTabActivity" android:screenOrientation="portrait" android:theme="@style/AppBaseTheme" android:windowSoftInputMode="adjustPan">
+            <intent-filter android:label="mikiapp-item">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="profile" android:scheme="mikiapp-local"/>
+                <data android:host="otp_login" android:scheme="mikiapp-local"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="tiki.vn.ebook.activity.AllCommentActivity" android:screenOrientation="portrait" android:theme="@style/SlideAppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.appboy.ui.activities.AppboyFeedActivity" android:screenOrientation="portrait" android:theme="@style/AppBaseTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="tiki.vn.ebook.fragmentview.FeedbackFragmentActivity" android:screenOrientation="portrait" android:theme="@style/AppBaseTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="tiki.vn.ebook.activity.OTPRequestActivity" android:screenOrientation="portrait" android:theme="@style/AppBaseTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="tiki.vn.ebook.activity.OTPVerifyActivity" android:screenOrientation="portrait" android:theme="@style/AppBaseTheme"/>
+        <meta-data android:name="sandbox" android:value="false"/>
+        <receiver android:name="tiki.vn.ebook.gcm.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.appboy.AppboyGcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.mikiapp"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="tiki.vn.analytics.appboy.AppboyBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.mikiapp.intent.APPBOY_PUSH_RECEIVED"/>
+                <action android:name="com.mikiapp.intent.APPBOY_NOTIFICATION_OPENED"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <receiver android:exported="true" android:name="com.google.android.gms.analytics.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.appboy.ui.AppboyWebViewActivity" android:theme="@android:style/Theme"/>
+        <service android:name="tiki.vn.ebook.gcm.GcmIntentService"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationName" android:value="@string/app_name"/>
+        <provider android:authorities="com.facebook.app.FacebookContentProvider1496918317204205" android:exported="true" android:name="com.facebook.FacebookContentProvider"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="tiki.vn.ebook.activity.RestoreAccountDialogActivity" android:screenOrientation="portrait" android:theme="@style/TKReader.Dialog"/>
+        <activity android:label="@string/title_activity_user_wallet" android:name="tiki.vn.ebook.activity.UserWalletActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar">
+            <intent-filter android:label="mikiapp-item">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="wallet" android:scheme="mikiapp"/>
+                <data android:host="otp_login" android:scheme="mikiapp-local"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/title_activity_top_up_chooser_dialog" android:name="tiki.vn.ebook.activity.TopUpChooserDialogActivity" android:screenOrientation="portrait" android:theme="@style/TKReader.Dialog"/>
+        <activity android:label="@string/title_activity_top_up_from_card" android:name="tiki.vn.ebook.activity.TopUpFromCardActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/title_activity_top_up_from_app" android:name="tiki.vn.ebook.activity.TopUpFromAppActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/title_activity_top_up_from_atm" android:name="tiki.vn.ebook.activity.TopUpFromAtmActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/title_activity_top_up_from_credit" android:name="tiki.vn.ebook.activity.TopUpFromCreditActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/title_activity_credit_card_web_view" android:name="tiki.vn.ebook.activity.CreditCardWebViewActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/title_activity_atmtopup_webview" android:name="tiki.vn.ebook.activity.ATMTopupWebviewActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/title_activity_friend_list" android:name="tiki.vn.ebook.activity.FriendListActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_comic_reader" android:name="tiki.vn.ebook.activity.ComicReaderActivity" android:screenOrientation="fullSensor" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_menu" android:name="tiki.vn.ebook.activity.MenuActivity" android:screenOrientation="fullSensor" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/title_activity_chapter_dialog" android:name="tiki.vn.ebook.activity.ChapterDialogActivity" android:screenOrientation="portrait" android:theme="@style/TKReader.Dialog"/>
+        <activity android:label="@string/title_activity_free_book_chooser" android:name="tiki.vn.ebook.activity.FreeBookChooserActivity" android:screenOrientation="portrait" android:theme="@style/NoBackgroundStyle"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="8fdefabdebeec861e88f2bb781106fe64944bd83"/>
+        <activity android:name="tiki.vn.ebook.activity.SearchBookActivity" android:screenOrientation="portrait" android:theme="@style/NoBackgroundStyle"/>
+        <activity android:name="tiki.vn.ebook.activity.CategoryActivity" android:screenOrientation="portrait" android:theme="@style/NoBackgroundStyle"/>
+        <activity android:name="tiki.vn.ebook.activity.BookListActivity" android:screenOrientation="portrait" android:theme="@style/NoBackgroundStyle"/>
+        <activity android:name="tiki.vn.ebook.activity.SuggestionBookActivity" android:screenOrientation="portrait" android:theme="@style/NoBackgroundStyle"/>
+        <activity android:name="tiki.vn.ebook.activity.ShakeGiftActivity" android:screenOrientation="portrait" android:theme="@style/NoBackgroundStyle"/>
+        <activity android:name="tiki.vn.ebook.activity.AllQuotesActivity" android:screenOrientation="portrait" android:theme="@style/NoBackgroundStyle"/>
+        <activity android:name="tiki.vn.ebook.activity.AllQuotesListActivity" android:screenOrientation="portrait" android:theme="@style/NoBackgroundStyle"/>
+        <activity android:name="tiki.vn.ebook.activity.FullQuoteViewActivity" android:screenOrientation="portrait" android:theme="@style/NoBackgroundStyle"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+    </application>
+</manifest>

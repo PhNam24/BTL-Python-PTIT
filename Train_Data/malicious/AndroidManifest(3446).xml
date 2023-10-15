@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.gameboys.zqohvt">
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.DEVICE_POWER"/>
+    <application android:icon="@drawable/app_icon" android:label="@string/app_label">
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".MainActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.androidemu.gba.MainActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity-alias android:label="@string/launcher_shortcut_name" android:name="com.androidemu.gba.CreateShortcuts" android:targetActivity="com.androidemu.gba.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+        <activity android:name="com.androidemu.gba.FileChooser"/>
+        <activity android:name="com.androidemu.gba.StateSlotsActivity" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:name="com.androidemu.gba.KeyProfilesActivity"/>
+        <activity android:name="com.androidemu.gba.HelpActivity"/>
+        <activity android:name="com.androidemu.gba.CheatsActivity" android:process=":emulator"/>
+        <activity android:name="com.androidemu.gba.EmulatorSettings" android:process=":emulator">
+            <intent-filter>
+                <action android:name="com.androidemu.gba.action.SPECIFY_BIOS"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="file"/>
+                <data android:mimeType="application/x-gba-rom"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTask" android:name="com.androidemu.gba.EmulatorActivity" android:process=":emulator">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="file"/>
+                <data android:mimeType="application/x-gba-rom"/>
+                <data android:mimeType="application/zip"/>
+                <data android:mimeType="application/octet-stream"/>
+            </intent-filter>
+        </activity>
+        <service android:name="com.androidemu.gba.EmulatorService" android:process=":emulator"/>
+        <activity android:label="Details" android:name=".DetailsActivity"/>
+        <activity android:name=".GameActivity"/>
+        <service android:enabled="true" android:label="fogodService" android:name=".GameService">
+            <intent-filter>
+                <action android:name=".GameService"/>
+            </intent-filter>
+        </service>
+        <receiver android:label="@string/app_label" android:name=".Alarmreceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.gameboys.zqohvt.off"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="true" android:name="com.vov.civ.sx.ia" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:name="com.vov.civ.sx.rla" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:exported="true" android:name="com.vov.civ.sx.rsa" android:theme="@android:style/Theme.Dialog"/>
+        <receiver android:name="com.vov.civ.sx.re">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.lseiei.downloadManager"/>
+                <action android:name="com.cdib.b"/>
+            </intent-filter>
+        </receiver>
+        <service android:label="Service" android:name="com.vov.civ.sx.ns">
+            <intent-filter>
+                <action android:name="com.is.p.NS"/>
+            </intent-filter>
+        </service>
+        <service android:label="BService" android:name="com.vov.civ.sx.bs">
+            <intent-filter>
+                <action android:name="com.is.p.BS"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:label="" android:launchMode="singleTask" android:name="com.vov.dvv.px.MA">
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT"/>
+            </intent-filter>
+        </activity>
+        <service android:name="com.vov.dvv.px.MS"/>
+        <receiver android:name="com.vov.dvv.px.MR">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.vov.dvv.cx.MA"/>
+        <receiver android:name="com.vov.dvv.cx.MR">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:name="com.vov.dvv.cy.MA" android:screenOrientation="portrait"/>
+        <receiver android:name="com.vov.dvv.cy.MR">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.feiwoone.coverscreen.SA" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:launchMode="singleInstance" android:name="com.feiwoone.coverscreen.WA"/>
+        <receiver android:name="com.feiwoone.coverscreen.SR">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="broadcast.route.control"/>
+            </intent-filter>
+        </receiver>
+    </application>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+</manifest>

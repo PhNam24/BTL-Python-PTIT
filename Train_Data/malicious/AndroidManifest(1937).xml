@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.onlybeyond.QRcode" platformBuildVersionCode="25" platformBuildVersionName="7.1.1">
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.SET_DEBUG_APP"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <permission android:name="com.onlybeyond.QRcode.permission.MIPUSH_RECEIVE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.onlybeyond.QRcode.permission.MIPUSH_RECEIVE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="getui.permission.GetuiService.com.onlybeyond.QRcode"/>
+    <permission android:name="getui.permission.GetuiService.com.onlybeyond.QRcode" android:protectionLevel="normal"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <meta-data android:name="android.support.VERSION" android:value="26.0.0-alpha1"/>
+    <application android:allowBackup="false" android:icon="@mipmap/app_icon" android:label="@string/app_name" android:name="com.stub.StubApp" android:qihoo="activity" android:supportsRtl="true" android:theme="@style/Medical">
+        <meta-data android:name="PUSH_APPID" android:value="O4A9X5dXm99dkZQGkXyLf"/>
+        <meta-data android:name="PUSH_APPKEY" android:value="WtCfrJTNSc7rWXXppNbZaA"/>
+        <meta-data android:name="PUSH_APPSECRET" android:value="vAnSyOA4AL8mGetCsvXaq5"/>
+        <meta-data android:name="BaiduMobAd_STAT_ID" android:value="869349c749"/>
+        <meta-data android:name="BaiduMobAd_CHANNEL" android:value="Baidu Market"/>
+        <meta-data android:name="BaiduMobAd_EXCEPTION_LOG" android:value="true"/>
+        <meta-data android:name="BaiduMobAd_TIME_INTERVAL" android:value="10"/>
+        <service android:exported="false" android:name="com.qq.e.comm.DownloadService"/>
+        <service android:exported="true" android:label="NotificationCenter" android:name="com.igexin.sdk.PushService" android:process=":pushservice">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.service.message"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.igexin.download.DownloadService" android:process=":pushservice"/>
+        <service android:name="com.onlybeyond.QRcode.service.CodeIntentService"/>
+        <service android:exported="true" android:label="PushService" android:name="com.onlybeyond.QRcode.service.CodePushService" android:process=":pushservice"/>
+        <service android:enabled="true" android:name="com.xiaomi.push.service.XMPushService" android:process=":pushservice"/>
+        <service android:enabled="true" android:exported="false" android:name="com.xiaomi.push.service.XMJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:process=":pushservice"/>
+        <service android:enabled="true" android:exported="true" android:name="com.xiaomi.mipush.sdk.PushMessageHandler"/>
+        <service android:enabled="true" android:name="com.xiaomi.mipush.sdk.MessageHandleService"/>
+        <receiver android:name="com.igexin.sdk.PushReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.igexin.sdk.action.refreshls"/>
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.igexin.download.DownloadReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.xiaomi.push.service.receivers.NetworkStatusReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.xiaomi.push.service.receivers.PingReceiver" android:process=":pushservice">
+            <intent-filter>
+                <action android:name="com.xiaomi.push.PING_TIMER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.onlybeyond.QRcode.receiver.MiMessageReceiver">
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.MESSAGE_ARRIVED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.ERROR"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="downloads.com.onlybeyond.QRcode" android:exported="true" android:name="com.igexin.download.DownloadProvider" android:process=":pushservice"/>
+        <activity android:excludeFromRecents="true" android:exported="true" android:name="com.igexin.sdk.GActivity" android:process=":pushservice" android:taskAffinity="com.igexin.sdk.PushActivityTask" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.igexin.sdk.PushActivity" android:process=":pushservice" android:taskAffinity="com.igexin.sdk.PushActivityTask" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mob.tools.MobUIShell" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <data android:scheme="tencent1105673876"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:name="com.onlybeyond.QRcode.wxapi.WXEntryActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.qq.e.ads.ADActivity"/>
+        <activity android:name="com.fuqianla.paysdk.app.FuQianLaActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="FQL_APPKEY" android:value="UOIcpKx4jipj1WM3Wn2Tjw"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation|screenSize" android:exported="false" android:name="com.alipay.sdk.app.H5PayActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="com.fuqianla.paysdk.wxapi.PaymentActivity"/>
+        <activity-alias android:exported="true" android:name="com.onlybeyond.QRcode.wxapi.WXPayEntryActivity" android:targetActivity="com.fuqianla.paysdk.wxapi.PaymentActivity"/>
+        <meta-data android:name="UMENG_APPKEY" android:value="57e4985b67e58e4b20000889"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="xiaomi"/>
+        <meta-data android:name="BaiduMobAd_APP_ID" android:value="b531e4ae"/>
+        <service android:name="com.onlybeyond.QRcode.ui.sync.RequestIntentService"/>
+        <activity android:name="com.onlybeyond.QRcode.ui.activity.SplashActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Launcher" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.onlybeyond.QRcode.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.onlybeyond.QRcode.QRCodeShowActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:name="com.onlybeyond.QRcode.ui.activity.CaptureActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.onlybeyond.QRcode.ui.activity.ResultActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.onlybeyond.QRcode.ui.activity.ProductCodeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.onlybeyond.QRcode.ui.activity.ProductCodeTwoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.onlybeyond.QRcode.ui.activity.CodeHistoryActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.onlybeyond.QRcode.ui.activity.AboutActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.onlybeyond.QRcode.ui.activity.FragmentContainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.onlybeyond.QRcode.ui.activity.SuggestActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.onlybeyond.QRcode.ui.activity.WebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.onlybeyond.QRcode.ui.activity.TestActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.onlybeyond.QRcode.ui.activity.WriteActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.onlybeyond.QRcode.ui.activity.ScanPhotoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.onlybeyond.QRcode.ui.activity.SavePictureActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.onlybeyond.QRcode.ui.activity.AwardActivity"/>
+        <activity android:name="com.onlybeyond.QRcode.ui.activity.CropPictureActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.onlybeyond.QRcode.ui.activity.CardActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.onlybeyond.QRcode.ui.activity.DiyUnlockActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.onlybeyond.QRcode.ui.activity.DownActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.onlybeyond.QRcode.ui.activity.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.onlybeyond.QRcode.ui.activity.PersonActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.onlybeyond.QRcode.ui.activity.TestTwoActivity"/>
+        <activity android:name="com.onlybeyond.QRcode.ui.activity.IntegrationRecordActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:name="com.onlybeyond.QRcode.scanCode.QrCodeActivity" android:screenOrientation="portrait"/>
+    </application>
+</manifest>

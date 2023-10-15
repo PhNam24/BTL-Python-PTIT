@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.lancaizhu" platformBuildVersionCode="23" platformBuildVersionName="6.0-2438415">
+    <permission android:name="com.lancaizhu.permission.JPUSH_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.lancaizhu.permission.JPUSH_MESSAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.SET_DEBUG_APP"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <application android:allowBackup="true" android:icon="@drawable/icon_app" android:label="@string/app_name" android:name="com.qihoo.util.StubApp1705933246" android:qihoo="activity" android:theme="@style/MyTheme">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.baofoo.sdk.vip.BaofooPayActivity" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:exported="false" android:name="com.qihoo.util.appupdate.AppUpdateActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.yintong.secure.activity.BaseActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+        <service android:exported="false" android:name="com.yintong.secure.service.PayService"/>
+        <meta-data android:name="UMENG_APPKEY" android:value="56c301b267e58e1c660001b2"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="lancaizhu"/>
+        <activity android:excludeFromRecents="true" android:name="com.umeng.socialize.editorpage.ShareActivity" android:theme="@style/Theme.UMDefault"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:name="com.umeng.example.wxapi.WXEntryActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencent1105133732"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.tencent.connect.common.AssistActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".activity.WBShareActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser" android:windowSoftInputMode="adjustResize"/>
+        <service android:exported="false" android:name="com.sina.weibo.sdk.net.DownloadService"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="cn.jpush.android.ui.PushActivity" android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.lancaizhu"/>
+            </intent-filter>
+        </activity>
+        <service android:enabled="true" android:exported="false" android:name="cn.jpush.android.service.DownloadService"/>
+        <service android:enabled="true" android:exported="false" android:name="cn.jpush.android.service.PushService">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER"/>
+                <action android:name="cn.jpush.android.intent.REPORT"/>
+                <action android:name="cn.jpush.android.intent.PushService"/>
+                <action android:name="cn.jpush.android.intent.PUSH_TIME"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="true" android:name="cn.jpush.android.service.DaemonService">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.DaemonService"/>
+                <category android:name="com.lancaizhu"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="cn.jpush.android.service.PushReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY"/>
+                <category android:name="com.lancaizhu"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="cn.jpush.android.service.AlarmReceiver"/>
+        <meta-data android:name="JPUSH_CHANNEL" android:value="developer-default"/>
+        <meta-data android:name="JPUSH_APPKEY" android:value="4a7853c4ab981953a889fab7"/>
+        <receiver android:enabled="true" android:exported="false" android:name=".receiver.NotificationReceiver">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION"/>
+                <action android:name="cn.jpush.android.intent.UNREGISTRATION"/>
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED"/>
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED"/>
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED"/>
+                <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK"/>
+                <action android:name="cn.jpush.android.intent.CONNECTION"/>
+                <category android:name="com.lancaizhu"/>
+            </intent-filter>
+        </receiver>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name=".activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_lhq" android:launchMode="singleTask" android:name=".activity.LHQActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_ldz" android:launchMode="singleTask" android:name=".activity.LDZActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_lhqdetail" android:name=".activity.LHQDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_ldzdetail" android:name=".activity.LDZDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_income_record" android:name=".activity.IncomeRecordActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_ldzbuy" android:name=".activity.LDZBuyActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_assets_detail" android:name=".activity.LDZAssetsDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_recharge_and_cash" android:name=".activity.TradeRecordActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_message" android:name=".activity.MessageActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_total_assets" android:name=".activity.TotalAssetsActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_my_bonus" android:name=".activity.MyBonusActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_my_awards" android:name=".activity.MyAwardsActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_freeze_cash" android:name=".activity.FreezeCashActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_usable_balance" android:name=".activity.UsableBalanceActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_select_bank" android:name=".activity.SelectBankActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_result_detail" android:name=".activity.ResultDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_reset_password" android:name=".activity.ResetLoginPasswordActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_get_message_code" android:name=".activity.GetMessageCodeActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_select_addrate" android:name=".activity.SelectAddrateActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_new_result_detail" android:name=".activity.CashResultActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_login" android:launchMode="singleTask" android:name=".activity.LoginActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/title_activity_recharge" android:name=".activity.RechargeAndAuthActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_bank_authentication_main" android:name=".activity.BankAuthActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_register" android:launchMode="singleTask" android:name=".activity.RegisterActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/title_activity_register_next" android:name=".activity.RegisterNextActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/title_activity_go_login" android:name=".activity.GoLoginActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_set_trade_password" android:name=".activity.SetTradePasswordActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_recharge" android:name=".activity.RechargeActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_account_set" android:name=".activity.AccountSetActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_update_login_password" android:name=".activity.UpdateLoginPasswordActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_update_trade_password" android:name=".activity.UpdateTradePasswordActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/title_activity_cash" android:name=".activity.CashActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_smoney_help" android:name=".activity.SmoneyHelpActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_gesture_password" android:name=".activity.GesturePasswordVerifyActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_my_grade" android:name=".activity.MyGradeActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_gesture_password_setup" android:name=".activity.GesturePasswordSetupActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_cs_weixin" android:name=".activity.WeixinCustomerServiceActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_aboutus" android:name=".activity.AboutUsActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_share" android:name=".activity.ShareActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_safe" android:name=".activity.SafeActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_new_hand_helper" android:name=".activity.NewHandHelperActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_active" android:name=".activity.ActiveActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_com_problen_detail" android:name=".activity.ComProblenDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_common_problem" android:name=".activity.ComProblemActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_mtbd" android:name=".activity.MtbdActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_active_detail" android:name=".activity.ActiveDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_notice_list" android:name=".activity.NoticeListActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_notice" android:name=".activity.NoticeActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_agreement" android:name=".activity.AgreementActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_buy_result" android:name=".activity.BuyResultActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_redeem_result" android:name=".activity.RedeemResultActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_ldq" android:launchMode="singleTask" android:name=".activity.LDQActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_pro_assets" android:name=".activity.ProAssetsActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_ldqassets_detail" android:name=".activity.LDQAssetsDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_ldqpro_params" android:name=".activity.LDQProParamsActivity" android:screenOrientation="portrait"/>
+        <service android:name=".appupdate.DownloadService"/>
+        <activity android:label="@string/title_activity_welcome" android:name=".activity.WelcomeActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_welcome" android:launchMode="standard" android:name="com.qihoo.util.StartActivity" android:noHistory="true" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_base" android:name=".base.BaseActivity"/>
+        <activity android:label="@string/title_activity_lhq_redeem" android:name=".activity.LHQRedeemActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/title_activity_base_fragment" android:name=".base.BaseFragmentActivity"/>
+        <activity android:label="@string/title_activity_lhqredeem_result" android:name=".activity.LHQRedeemResultActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_ldqbuy" android:name=".activity.LHQBuyActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_lhq_queue_record" android:name=".activity.LhqQueueActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_lhqresult_detail" android:name=".activity.LHQResultDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_lhq_redeem" android:name=".activity.LDZRedeemActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_ldqbuy" android:name=".activity.LDQBuyActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_lhq_queue_record" android:name=".activity.LHQQueueActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_lhq_queue_record" android:name=".activity.LHQRedeemResultDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_lhq_queue_record" android:name=".activity.LDQProInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_select_coupon" android:name=".activity.SelectCouponActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_select_coupon" android:name=".activity.CashRecordResultDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_select_coupon" android:name=".activity.LDQRedeemActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_ldqredeem_result_detail" android:name=".activity.LDQRedeemResultDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_report" android:name=".activity.BannerActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_hint_new_version" android:launchMode="singleTask" android:name=".activity.HintNewVersionActivity" android:screenOrientation="portrait" android:theme="@style/HintNewVersionDialog"/>
+        <activity android:label="@string/title_activity_ldqredeem_freeze" android:name=".activity.LDQRedeemFreezeActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_new_hands_active" android:name=".activity.NewHandsActiveActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_new_hands_active_dialog" android:launchMode="singleTask" android:name=".activity.NewHandsActiveDialogActivity" android:screenOrientation="portrait" android:theme="@style/HintNewVersionDialog"/>
+        <activity android:label="@string/title_activity_auto_finance_setting" android:name=".activity.AutoFinanceSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_auto_finance" android:name=".activity.AutoFinanceActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_auto_finance_result" android:name=".activity.AutoFinanceResultActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_auto_finance_result" android:name=".activity.IdentityVerifyActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_hbrain" android:name=".anniversary.HongBaoRainActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_tu_hao" android:name=".anniversary.TuHaoActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_gua_gua" android:name=".anniversary.GuaGuaActivity" android:screenOrientation="portrait"/>
+    </application>
+</manifest>

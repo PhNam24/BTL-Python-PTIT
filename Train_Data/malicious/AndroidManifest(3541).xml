@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.tencent.radio" platformBuildVersionCode="21" platformBuildVersionName="5.0.1-1624448">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.prmission.WRITE_MEDIA_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="com.tencent.radio.theme.permission"/>
+    <permission android:name="com.tencent.radio.theme.permission" android:protectionLevel="signature"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.BATTERY_STATS"/>
+    <uses-permission android:name="android.permission.DUMP"/>
+    <meta-data android:name="com.tencent.rdm.uuid" android:value="6d6e107e-5d7d-4793-b38e-8c1406883c8b"/>
+    <application android:allowBackup="false" android:allowTaskReparenting="true" android:hardwareAccelerated="true" android:icon="@drawable/logo_medium" android:label="@string/app_name" android:name="com.tencent.radio.RadioApplication" android:supportsRtl="true" android:theme="@style/AppTheme.Radio">
+        <meta-data android:name="com.tencent.rdm.uuid" android:value="a85e26df-b84f-4b21-a3aa-f63c02947c37"/>
+        <meta-data android:name="CHANNEL" android:value="AZM_A"/>
+        <meta-data android:name="APPKEY_DENGTA" android:value="0S100IHI4517DU6O"/>
+        <meta-data android:name="CHANNEL_DENGTA" android:value="0"/>
+        <meta-data android:name="tvk_sdk_appid" android:value="NBeNYg7QG2zVkdrpRyS9QTGKlupAlDEf78meY0/nCEErkasX/3sMuKQefVzhzMHz8xiL0CS87R3fDVXtymKiMZNOoE/LaSL0XFXGuETHoe1GPbHcZ1pwHC5bcpPs02nNykiLaZxUMAb9JdGdranL80Js8+wp36L5gsTiuk3kXt20jedZNQy2eOWqMoXb7XZz14FW1smTCbHqx9dfqWi4WOmsCg508t9wEzpgY8gb5ooeEi/RE5cYSUTm0yz6AghZASSftBrYI/mb/GG7u2lW9kTxrjU091/nkUEK0f86IF2pUuoDqhFfgxGoHaMIi5Q1am9Bff1fW5kJucn9M0vjwg=="/>
+        <service android:exported="false" android:label="ConnectionService" android:name="com.tencent.wns.service.WnsMain">
+            <intent-filter>
+                <action android:name="com.tencent.wns.service.WnsMain"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="false" android:name="com.tencent.radio.push.WnsPushBroadcastReceiver">
+            <intent-filter>
+                <action android:name="wns.push.to.com.tencent.radio"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.tencent.radio.playback.ui.controller.MediaKeyReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:label="AudioPlayService" android:name="com.tencent.component.media.AudioPlayService">
+            <intent-filter>
+                <action android:name="com.tencent.component.media.AudioPlayService"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="false" android:name="com.tencent.base.os.clock.AlarmClockReceiver">
+            <intent-filter>
+                <action android:name="wns.heartbeat"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.tencent.radio.broadcast.broadcastDetail.book.BookReceiver">
+            <intent-filter>
+                <action android:name="book_broadcast_notification"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.tencent.radio.broadcast.broadcastDetail.timing.TimingReceiver">
+            <intent-filter>
+                <action android:name="update_broadcast_notification"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.tencent.radio.broadcast.broadcastDetail.book.RebootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.tencent.imageservice.ImageProcessService" android:process=":imageservice"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.app.base.ui.AppContainerActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.tencent.app.safemode.ui.SafeModeActivity" android:process=":safemode" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:alwaysRetainTaskState="true" android:clearTaskOnLaunch="false" android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.tencent.radio.common.ui.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Radio.ActionBarOverlay" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.tencent.radio.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:name="com.tencent.radio.common.ui.AuthActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="com.tencent.radio.AUTH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.tencent.radio.common.ui.IntentActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="nextradio"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:name="com.tencent.radio.wxapi.WXEntryActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencent1103394134"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.connect.common.AssistActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.debug.server.ServerSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.auth.RegisterActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.discovery.ui.DiscoveryColumnActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Radio.ActionBarOverlay" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="com.tencent.radio.intelli_recommend.ui.IntelliRecommendDialogActivity" android:theme="@style/AppTheme.Radio.Translucent.FullScreenDialogActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.albumDetail.ui.AlbumDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Radio.ActionBarOverlay" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.tencent.radio.broadcast.broadcastDetail.ui.BroadcastDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Radio.ActionBarOverlay" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.albumDetail.ui.AlbumDownloadActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.category.ui.CategoryActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Radio.ActionBarOverlay" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.profile.ui.UserProfileActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Radio.ActionBarOverlay" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.photo.task.SelectPhotoTask" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.photo.task.TakePhotoTask" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.photo.localphoto.GroupPhotoCropActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.photo.localphoto.LocalAlbumActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.search.ui.RadioSearchActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateUnchanged"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.feedback.ui.FeedbackActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Radio.ActionBarOverlay" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleInstance" android:name="com.tencent.radio.lockScreen.ui.LockScreenActivity" android:screenOrientation="portrait" android:taskAffinity="com.tencent.radio.lockScreen.task" android:theme="@style/AppTheme.Radio.Translucent" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.tencent.radio.playback.ui.PlayerActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Radio.ActionBarOverlay" android:windowSoftInputMode="adjustNothing|stateAlwaysHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.local.common.MultChoiceActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.downloadbox.ui.AudioDownloadBoxActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.share.OutShareActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Radio.Translucent" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.local.albumdetail.LocalAlbumDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Radio.ActionBarOverlay" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.topicDetail.ui.TopicDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Radio.ActionBarOverlay" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.issue.ui.IssueActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Radio.ActionBarOverlay" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.photo.photoviewer.PhotoViewerActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Radio.Translucent" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.setting.RadioSettingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.support.ui.SupportActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.tencent.radio.setting.GlobalActivityDialog" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.tencent.radio.download.record.GlobalRecordWarnActivityDialog" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.tencent.radio.setting.SendLogActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.guide.ui.RadioGuideActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.mine.ui.MineActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Radio.ActionBarOverlay" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.mine.ui.MineRecentEditActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Radio.ActionBarOverlay" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.gift.RadioGiftActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Radio.Translucent" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.danmu.RadioCommentActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Radio.Translucent" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.danmu.RadioCommentListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Radio.ActionBarOverlay" android:windowSoftInputMode="adjustNothing|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.gift.RadioGiftRankActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Radio.ActionBarOverlay" android:windowSoftInputMode="adjustNothing|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.broadcast.category.ui.RadioBroadcastConvergeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Radio.ActionBarOverlay" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.broadcast.category.ui.RadioBroadcastCategoryListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Radio.ActionBarOverlay" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.radio.pay.ui.BalanceCenterActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="orientation" android:exported="false" android:name="com.tencent.radio.common.open.sina.SinaAPI" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:name="com.tencent.radio.web.RadioWebViewActivity" android:process=":tools" android:screenOrientation="portrait" android:theme="@style/AppTheme.Radio.WithActionBarTitle" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.tencent.radio.WEB"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.midas.proxyactivity.APMidasPayProxyActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:exported="true" android:name="com.tencent.midas.wx.APMidasWXPayActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="true" android:launchMode="singleTop" android:name="com.tencent.midas.qq.APMidasQQWalletActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="qwallet100703379"/>
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

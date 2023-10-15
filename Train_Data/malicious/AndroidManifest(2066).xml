@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.boyapp.tpshishisbzhushouzt">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-feature android:name="android.hardware.camera2.full"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <application android:allowBackup="true" android:icon="@mipmap/e_logo" android:label="@string/app_name" android:name="com.stub.StubApp" android:supportsRtl="true" android:theme="@style/AppTheme" android:vmSafeMode="true">
+        <activity android:name="com.boyapp.tpshishisbzhushouzt.ticket.PhotoTranslationActivity"/>
+        <activity android:name="com.boyapp.tpshishisbzhushouzt.ticket.PaperResultActivity"/>
+        <activity android:name="com.boyapp.tpshishisbzhushouzt.ticket.PapersSelectActivity"/>
+        <activity android:name="com.boyapp.tpshishisbzhushouzt.tab_home.DetailActivity"/>
+        <activity android:name="com.boyapp.tpshishisbzhushouzt.tab_home.PicActivity" android:windowSoftInputMode="adjustPan"/>
+        <meta-data android:name="android.max_aspect" android:value="2.4"/>
+        <meta-data android:name="android.notch_support" android:value="true"/>
+        <meta-data android:name="notch.config" android:value="portrait|landscape"/>
+        <activity android:name="com.boyapp.tpshishisbzhushouzt.launcher.MainActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.boyapp.tpshishisbzhushouzt.launcher.StartActivity" android:theme="@style/styleSplash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.boyapp.tpshishisbzhushouzt.launcher.WebActivity"/>
+        <activity android:name="com.boyapp.tpshishisbzhushouzt.wxapi.BalanceActivity"/>
+        <activity android:exported="true" android:name="com.boyapp.tpshishisbzhushouzt.wxapi.WXEntryActivity"/>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.boyapp.tpshishisbzhushouzt.wxapi.WXPayEntryActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="wx371bd486661adc24"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.boyapp.tpshishisbzhushouzt.launcher.InWebActivity"/>
+        <activity android:name="com.boyapp.tpshishisbzhushouzt.wxapi.BalanceOneActivity"/>
+        <activity android:name="com.boyapp.tpshishisbzhushouzt.launcher.PrivacyActivity"/>
+        <activity android:name="com.boyapp.tpshishisbzhushouzt.launcher.RegistraActivity"/>
+        <activity android:name="com.boyapp.tpshishisbzhushouzt.launcher.MeOneActivity"/>
+        <activity android:name="com.boyapp.tpshishisbzhushouzt.launcher.SettingActivity"/>
+        <activity android:name="com.boyapp.tpshishisbzhushouzt.launcher.LoginActivity"/>
+        <activity android:name="com.boyapp.tpshishisbzhushouzt.launcher.JiHuoActivity"/>
+        <activity android:name="com.boyapp.tpshishisbzhushouzt.launcher.ZaiXianActivity"/>
+        <activity android:name="com.boyapp.tpshishisbzhushouzt.launcher.CodeJihuoActivity"/>
+        <activity android:name="com.boyapp.tpshishisbzhushouzt.tab_me.AgreeActivity"/>
+        <activity android:name="com.boyapp.tpshishisbzhushouzt.launcher.GuideActivity"/>
+        <provider android:authorities="com.boyapp.tpshishisbzhushouzt.provider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <meta-data android:name="UMENG_CHANNEL" android:value="android"/>
+        <meta-data android:name="UMENG_APPKEY" android:value="5e5341be895cca2fa20002c0"/>
+        <activity android:name="com.ess.filepicker.activity.SelectFileByBrowserActivity"/>
+        <activity android:name="com.ess.filepicker.activity.SelectPictureActivity"/>
+        <activity android:name="com.ess.filepicker.activity.SelectFileByScanActivity"/>
+        <provider android:authorities="com.boyapp.tpshishisbzhushouzt.ess.file.provider" android:exported="false" android:grantUriPermissions="true" android:name="com.ess.filepicker.model.EssFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <activity android:name="com.ess.filepicker.activity.PicturesViewActivity"/>
+        <activity android:name="com.ess.filepicker.activity.FileSelectActivity"/>
+        <activity android:launchMode="singleTask" android:name="com.mylhyl.acp.AcpActivity" android:theme="@style/Theme.Transparent"/>
+        <activity android:configChanges="orientation|screenSize" android:name="me.nereo.multi_image_selector.MultiImageSelectorActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.baidu.ocr.ui.camera.CameraActivity" android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"/>
+        <provider android:authorities="com.boyapp.tpshishisbzhushouzt.AgentWebFileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.just.agentweb.AgentWebFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/web_files_paths"/>
+        </provider>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="standard" android:name="com.just.agentweb.ActionActivity" android:theme="@style/actionActivity" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <meta-data android:name="android.support.VERSION" android:value="26.1.0"/>
+    </application>
+</manifest>

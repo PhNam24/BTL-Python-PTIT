@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.smarteragent.android.agency" platformBuildVersionCode="23" platformBuildVersionName="6.0-2704002">
+    <supports-screens android:anyDensity="false" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <permission android:name="com.smarteragent.android.agency.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
+    <permission android:name="com.smarteragent.android.agency.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.smarteragent.android.agency.permission.MAPS_RECEIVE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_OWNER_DATA"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT"/>
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
+    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT"/>
+    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <application android:icon="@drawable/icon" android:label="@string/app_name" android:largeHeap="true" android:name="com.smarteragent.android.SAApplication">
+        <receiver android:name="com.smarteragent.android.receivers.NotificationReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.smarteragent.android.agency"/>
+            </intent-filter>
+        </receiver>
+        <uses-library android:name="com.google.android.maps"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="@string/api_key"/>
+        <activity android:alwaysRetainTaskState="true" android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:launchMode="singleTop" android:name="com.smarteragent.android.AppLauncher" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="com.smarteragent.android.agency"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="LoginShim"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.login.NumberEntry" android:screenOrientation="sensor" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.login.TermsOfService" android:screenOrientation="sensor"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.MenuListNew" android:screenOrientation="sensor">
+            <intent-filter>
+                <action android:name="Home"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="0"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.HomeScreen1" android:screenOrientation="user" android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
+            <intent-filter>
+                <action android:name="Home"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="1"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.HomeScreen2" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
+            <intent-filter>
+                <action android:name="Home"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="2"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.HomeScreen5" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
+            <intent-filter>
+                <action android:name="Home"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="5"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.login.PriorityLoginActivity" android:screenOrientation="sensor" android:theme="@android:style/Theme.Dialog">
+            <intent-filter>
+                <action android:name="Authenticate"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="1"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.login.AppLogin" android:screenOrientation="sensor" android:theme="@android:style/Theme.Dialog" android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            <intent-filter>
+                <action android:name="Authenticate"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="2"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.login.AppLoginT3" android:screenOrientation="sensor" android:theme="@android:style/Theme.Dialog" android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            <intent-filter>
+                <action android:name="Authenticate"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="3"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.login.ProAuthHandlerActivity" android:screenOrientation="sensor" android:theme="@android:style/Theme.Dialog" android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            <intent-filter>
+                <action android:name="ProAuthenticate"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.smarteragent.android.agency"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.login.BrandUserActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Dialog">
+            <intent-filter>
+                <action android:name="BrandUser"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.smarteragent.android.agency"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.contact.ContactForm" android:screenOrientation="sensor" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="ContactForm"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="1"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.contact.ContactFormT2" android:screenOrientation="sensor" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="ContactForm"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="2"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.contact.ContactFormT3" android:screenOrientation="sensor" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="ContactForm"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="3"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.contact.ContactFormT4" android:screenOrientation="sensor" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="ContactForm"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="4"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.contact.ContactFormT5" android:screenOrientation="sensor" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="ContactForm"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="5"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.fav.SavePropertyActivity" android:screenOrientation="sensor" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="SaveProperty"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.fav.EditSavePropertyActivity" android:screenOrientation="sensor" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+m
+<action android:name="EditSaveProperty"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.fav.SaveSearchActivity" android:screenOrientation="sensor" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="SaveSearch"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.fav.EditSaveSearchActivity" android:screenOrientation="sensor" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="EditSaveSearch"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.ErrorAction" android:screenOrientation="sensor"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.AddressValidateAndSearch" android:screenOrientation="sensor" android:theme="@android:style/Theme.Dialog">
+            <intent-filter>
+                <action android:name="AddressValidateAndSearch"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.results.ResultEntryScreen" android:screenOrientation="sensor">
+            <intent-filter>
+                <action android:name="CombinedResultScreen"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.results.activities.SearchResultListV2" android:screenOrientation="sensor">
+            <intent-filter>
+                <action android:name="SearchResultsList"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.results.enhancedui.SearchResultsGallery" android:screenOrientation="sensor">
+            <intent-filter>
+                <action android:name="SearchResultsGallery"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.results.map.SearchResultsMapNew" android:screenOrientation="sensor">
+            <intent-filter>
+                <action android:name="SearchResultsMap"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.DynamicOfficeAgentSearch" android:screenOrientation="sensor" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="OfficeAgentSearch"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.results.OfficeAgentSearchResult" android:screenOrientation="sensor" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="OfficeAgentSearchResult"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.ListingNumberSearch" android:screenOrientation="portrait" android:theme="@android:style/Theme.Dialog">
+            <intent-filter>
+                <action android:name="ListingNumberSearch"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.PopupRefineActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Dialog" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="PopupRefineActivity"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.CommunityCityList" android:screenOrientation="sensor"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.CommunityLetterList" android:screenOrientation="sensor"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.CommunityInterstitial" android:screenOrientation="sensor"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.HoodList" android:screenOrientation="sensor"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.HoodLetterList" android:screenOrientation="sensor"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.AddressSearch" android:screenOrientation="sensor"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.AddressList" android:screenOrientation="sensor"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.RefineSearch" android:screenOrientation="sensor"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.SaveSearch" android:screenOrientation="sensor"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.ZipSearch" android:screenOrientation="sensor"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.ListingSearch" android:screenOrientation="sensor"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.fav.SavedFavoritesV2" android:screenOrientation="sensor">
+            <intent-filter>
+                <action android:name="SavedSearchList"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.C21SavedSearchList" android:screenOrientation="sensor"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.results.PhotoView" android:screenOrientation="sensor"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.results.SearchResults" android:screenOrientation="sensor"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.results.activities.SearchResultUnitListV2" android:screenOrientation="sensor">
+            <intent-filter>
+                <action android:name="AdvancedUIPropertyList"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.results.ResultDetailNew" android:screenOrientation="sensor">
+            <intent-filter>
+                <action android:name="ResultDetail"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.smarteragent.android.results.PhotoShow" android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="PhotoShow"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.mapper.SearchMapper" android:screenOrientation="sensor"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.ancillary.MortgageSearch" android:screenOrientation="sensor"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.ancillary.BrokerSearch" android:screenOrientation="sensor"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.ancillary.MortgageStandardize" android:screenOrientation="sensor"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.ancillary.BrokerStandardize" android:screenOrientation="sensor"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.AdvancedSearch" android:screenOrientation="sensor" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="AdvancedSearch"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="0"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.AdvanceFilterSearch" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="AdvancedSearch"/>
+                <category android:name="com.smarteragent.android.agency"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="1"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.SideIndex" android:screenOrientation="sensor" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.util.VoiceRecognitionActivity" android:screenOrientation="sensor" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.login.NumberEntryLV" android:screenOrientation="sensor" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.SAWebView" android:screenOrientation="sensor"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.SAWebViewHV" android:screenOrientation="sensor"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.NeighborhoodSearch" android:screenOrientation="sensor" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.search.IndexedList" android:screenOrientation="sensor" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.results.GroupMenu" android:screenOrientation="sensor"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.util.SendEmail" android:screenOrientation="sensor"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.DevHackActivity" android:screenOrientation="sensor"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.smarteragent.android.login.SettingsActivity" android:screenOrientation="sensor"/>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="054ca416a457a63f55da47433d3d98035c8c5a59"/>
+        <receiver android:exported="true" android:name="com.smarteragent.android.receivers.TrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+    </application>
+</manifest>

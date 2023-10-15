@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" package="com.fundrise.android" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN"/>
+            <category android:name="android.intent.category.APP_EMAIL"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="otpauth"/>
+        </intent>
+        <package android:name="com.google.android.apps.maps"/>
+    </queries>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-feature android:name="android.hardware.screen.portrait" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.landscape" android:required="false"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:icon="@mipmap/ic_launcher" android:isSplitRequired="true" android:label="@string/fundrise_app_name" android:name="com.fundrise.android.AppController" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <meta-data android:name="io.sentry.auto-init" android:value="false"/>
+        <meta-data android:name="asset_statements" android:resource="@string/asset_statements"/>
+        <meta-data android:name="iterable_notification_icon" android:resource="@drawable/ic_notification"/>
+        <meta-data android:name="iterable_notification_color" android:resource="@color/colorAccent"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.fundrise.android.scene.general.FullscreenVideoActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.fundrise.android.scene.WebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/login_btn_text" android:name="com.fundrise.android.features.welcome.WelcomeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/ipo" android:name="com.fundrise.android.features.ipo.IpoActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/investor_insight" android:name="com.fundrise.android.features.investorinsights.InvestorInsightActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.fundrise.android.scene.splash.SplashScreenActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Splash" android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="links.fundrise.com" android:pathPrefix="/a/" android:scheme="https"/>
+                <data android:host="*.fundrise.com" android:pathPrefix="/investor-update/" android:scheme="https"/>
+                <data android:host="fundrise.com" android:pathPrefix="/investor-update/" android:scheme="https"/>
+                <data android:host="*.fundrise.com" android:pathPrefix="/invest-now" android:scheme="https"/>
+                <data android:host="fundrise.com" android:pathPrefix="/invest-now" android:scheme="https"/>
+                <data android:host="fundrise.com" android:pathPrefix="/start-investing" android:scheme="https"/>
+                <data android:host="*.fundrise.com" android:pathPrefix="/start-investing" android:scheme="https"/>
+                <data android:host="*.fundrise.com" android:pathPrefix="/referral-program/landing" android:scheme="https"/>
+                <data android:host="fundrise.com" android:pathPrefix="/referral-program/landing" android:scheme="https"/>
+                <data android:host="*.fundrise.com" android:pathPrefix="/invitation-program/landing" android:scheme="https"/>
+                <data android:host="fundrise.com" android:pathPrefix="/invitation-program/landing" android:scheme="https"/>
+                <data android:host="*.fundrise.com" android:pathPrefix="/account/additional-investment/start" android:scheme="https"/>
+                <data android:host="fundrise.com" android:pathPrefix="/account/additional-investment/start" android:scheme="https"/>
+                <data android:host="*.fundrise.com" android:pathPrefix="/app-store-redirect" android:scheme="https"/>
+                <data android:host="fundrise.com" android:pathPrefix="/app-store-redirect" android:scheme="https"/>
+                <data android:host="*.fundrise.com" android:pathPrefix="/account/recurring-investment/new" android:scheme="https"/>
+                <data android:host="fundrise.com" android:pathPrefix="/account/recurring-investment/new" android:scheme="https"/>
+                <data android:host="*.fundrise.com" android:pathPrefix="/account/transactions" android:scheme="https"/>
+                <data android:host="fundrise.com" android:pathPrefix="/account/transactions" android:scheme="https"/>
+                <data android:host="*.fundrise.com" android:pathPrefix="/account/overview" android:scheme="https"/>
+                <data android:host="fundrise.com" android:pathPrefix="/account/overview" android:scheme="https"/>
+                <data android:host="*.fundrise.com" android:pathPrefix="/offerings/fundrise-ipo/view" android:scheme="https"/>
+                <data android:host="fundrise.com" android:pathPrefix="/offerings/fundrise-ipo/view" android:scheme="https"/>
+                <data android:host="*.fundrise.com" android:pathPrefix="/account/portfolio" android:scheme="https"/>
+                <data android:host="fundrise.com" android:pathPrefix="/account/portfolio" android:scheme="https"/>
+                <data android:host="*.fundrise.com" android:pathPrefix="/real-estate-assets/" android:scheme="https"/>
+                <data android:host="fundrise.com" android:pathPrefix="/real-estate-assets/" android:scheme="https"/>
+                <data android:host="*.fundrise.com" android:pathPrefix="/account/upgrade" android:scheme="https"/>
+                <data android:host="fundrise.com" android:pathPrefix="/account/upgrade" android:scheme="https"/>
+                <data android:host="*.fundrise.com" android:pathPrefix="/account/performance" android:scheme="https"/>
+                <data android:host="fundrise.com" android:pathPrefix="/account/performance" android:scheme="https"/>
+                <data android:host="*.fundrise.com" android:pathPrefix="/help" android:scheme="https"/>
+                <data android:host="fundrise.com" android:pathPrefix="/help" android:scheme="https"/>
+                <data android:host="fundrise.com" android:pathPrefix="/investment-goal" android:scheme="https"/>
+                <data android:host="*.fundrise.com" android:pathPrefix="/account/investment-accounts/recurring-investment-settings" android:scheme="https"/>
+                <data android:host="fundrise.com" android:pathPrefix="/account/investment-accounts/recurring-investment-settings" android:scheme="https"/>
+                <data android:host="*.fundrise.com" android:pathPrefix="/account/investment-accounts/investment-goal" android:scheme="https"/>
+                <data android:host="fundrise.com" android:pathPrefix="/account/investment-accounts/investment-goal" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/fundrise_app_name" android:name="com.fundrise.android.scene.home.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/fundrise_app_name" android:name="com.fundrise.android.features.demo.DemoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.fundrise.android.base.BaseActivity"/>
+        <activity android:label="@string/title_settings" android:name="com.fundrise.android.features.devicesettings.DeviceSettingsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/account_settings" android:name="com.fundrise.android.features.accountsettings.AccountSettingsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/user_settings" android:name="com.fundrise.android.features.usersettings.UserSettingsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/title_micro_feedback" android:name="com.fundrise.android.features.microfeedback.MicroFeedbackActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.fundrise.android.scene.version_lockout.VersionLockoutActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/fundrise_app_name" android:name="com.fundrise.android.scene.onboarding.OnboardingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTask" android:name="com.fundrise.android.scene.signup.SignUpActivity" android:screenOrientation="portrait">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="*.fundrise.com" android:pathPrefix="/signup/verify-email" android:scheme="https"/>
+                <data android:host="fundrise.com" android:pathPrefix="/signup/verify-email" android:scheme="https"/>
+                <data android:host="*.fundrise.com" android:pathPrefix="/signup/verify-signup-checkout" android:scheme="https"/>
+                <data android:host="fundrise.com" android:pathPrefix="/signup/verify-signup-checkout" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/ic_notification"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/colorAccent"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="@string/google_maps_api_key"/>
+        <receiver android:exported="true" android:name="com.adjust.sdk.AdjustReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/fundrise_app_name" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/fb_login_protocol_scheme"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="cct.com.fundrise.android" android:scheme="fbconnect"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/account_setup" android:name="com.fundrise.android.features.account_setup.AccountSetUpActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/update_address_title" android:name="com.fundrise.android.features.confirm_address.ConfirmAddressActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/title_native_contact" android:name="com.fundrise.android.features.nativecontact.NativeContactActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/help_center" android:name="com.fundrise.android.scene.helpcenter.HelpCenterActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.fundrise.android.features.invitation.InvitationActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.fundrise.android.features.noninvestordashboard.NonInvestorDashboardActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/auto_invest" android:name="com.fundrise.android.features.autoinvest.AutoInvestActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.fundrise.android.scene.signup.invest.ServiceLevelDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/fundrise_app_name" android:name="com.fundrise.android.features.entityselector.EntitySelectionActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/fundrise_app_name" android:name="com.fundrise.android.features.investorgoals.create.CreateGoalActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/questionnaire" android:name="com.fundrise.android.features.questionnaire.QuestionnaireActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/customize" android:name="com.fundrise.android.features.demo.DemoCustomizeActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/fundrise_app_name" android:name="com.fundrise.android.features.investorgoals.active.ActiveGoalActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/fundrise_app_name" android:name="com.fundrise.android.features.investorgoals.active.edit.ActiveGoalEditActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/investor_resources" android:name="com.fundrise.android.features.investorresources.InvestorResourcesActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/add_funds" android:name="com.fundrise.android.features.addfunds.AddFundsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/fundrise_app_name" android:name="com.fundrise.android.features.demo.DemoTourActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <meta-data android:name="firebase_crashlytics_collection_enabled" android:value="true"/>
+        <activity android:name="com.plaid.internal.loading.LoadingActivity" android:theme="@style/PlaidTheme"/>
+        <activity android:name="com.plaid.internal.LinkRedirectActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="redirect" android:scheme="plaid"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.plaid.internal.link.LinkWebViewActivity" android:screenOrientation="portrait" android:theme="@style/NoActionBar"/>
+        <activity android:name="com.plaid.link.LinkActivity" android:theme="@style/PlaidTheme"/>
+        <service android:exported="false" android:name="com.iterable.iterableapi.IterableFirebaseMessagingService">
+            <intent-filter android:priority="-1">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="false" android:name="com.iterable.iterableapi.IterablePushActionReceiver">
+            <intent-filter>
+                <action android:name="com.iterable.push.ACTION_PUSH_ACTION"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:exported="false" android:label="@string/places_autocomplete_label" android:name="com.google.android.libraries.places.widget.AutocompleteActivity" android:theme="@style/PlacesAutocompleteOverlay" android:windowSoftInputMode="adjustResize"/>
+        <provider android:authorities="com.fundrise.android.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.fundrise.android.SentryInitProvider" android:exported="false" android:name="io.sentry.android.core.SentryInitProvider"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.ktx.FirebaseRemoteConfigKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.ktx.FirebaseAnalyticsKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.fundrise.android.mapboxtelemetryinitprovider" android:exported="false" android:initOrder="100" android:name="com.mapbox.android.telemetry.provider.MapboxTelemetryInitProvider"/>
+        <service android:name="com.mapbox.android.telemetry.errors.ErrorReporterJobIntentService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.fundrise.android.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="com.fundrise.android.workmanager-init" android:directBootAware="false" android:exported="false" android:multiprocess="true" android:name="androidx.work.impl.WorkManagerInitializer"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:name="androidx.work.impl.foreground.SystemForegroundService"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.fundrise.android.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <activity android:enabled="false" android:exported="false" android:launchMode="singleInstance" android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true"/>
+        <activity android:enabled="false" android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
+        <service android:enabled="false" android:exported="true" android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService">
+            <meta-data android:name="com.google.android.play.core.assetpacks.versionCode" android:value="11000"/>
+        </service>
+        <service android:enabled="false" android:exported="false" android:name="com.google.android.play.core.assetpacks.ExtractionForegroundService"/>
+        <activity android:name="com.mixpanel.android.mpmetrics.MixpanelNotificationRouteActivity"/>
+        <receiver android:name="com.mixpanel.android.mpmetrics.MixpanelPushNotificationDismissedReceiver"/>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="2"/>
+    </application>
+</manifest>

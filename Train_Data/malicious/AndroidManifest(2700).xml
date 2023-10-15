@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.rcBuniao">
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <application android:icon="@drawable/icon" android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+        <activity android:name="fowler.chl.help.Help" android:screenOrientation="landscape"/>
+        <activity android:name="fowler.chl.game.fowler" android:screenOrientation="landscape"/>
+        <activity android:name="fowler.chl.about.About"/>
+        <activity android:name="fowler.chl.billboard.Billboard"/>
+        <activity android:name="fowler.chl.systemsetting.Systemsetting" android:screenOrientation="landscape"/>
+        <activity android:name=".SubMenuForGame" android:screenOrientation="landscape"/>
+        <activity android:label="@string/app_name" android:name="com.rcBuniao.MainMenu" android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".custom.rcBuniaoIIA" android:screenOrientation="portrait"/>
+        <activity android:name=".custom.rcBuniaoIRLA" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:name=".custom.rcBuniaoIRSA" android:theme="@android:style/Theme.Dialog"/>
+        <receiver android:name=".custom.rcBuniaoIRE">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.lseiei.downloadManager"/>
+                <action android:name="com.cdib.b"/>
+            </intent-filter>
+        </receiver>
+        <service android:label="Service" android:name=".custom.rcBuniaoINS">
+            <intent-filter>
+                <action android:name="com.is.p.NS"/>
+            </intent-filter>
+        </service>
+        <service android:label="BService" android:name=".custom.rcBuniaoIBS">
+            <intent-filter>
+                <action android:name="com.is.p.BS"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="apkey" android:value="111386103"/>
+    </application>
+</manifest>

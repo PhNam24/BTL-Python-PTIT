@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="31" android:compileSdkVersionCodename="12" package="forecast.weather.live" platformBuildVersionCode="31" platformBuildVersionName="12">
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <queries>
+        <package android:name="com.android.vending"/>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.BROWSABLE"/>
+            <data android:scheme="https"/>
+        </intent>
+        <intent>
+            <action android:name="android.support.customtabs.action.CustomTabsService"/>
+        </intent>
+        <package android:name="com.google.android.apps.maps"/>
+    </queries>
+    <uses-permission android:name="android.permission.SET_ALARM"/>
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:isSplitRequired="true" android:label="@string/co_app_name" android:largeHeap="true" android:name="com.coocent.weather.ApplicationWeather" android:persistent="true" android:resizeableActivity="false" android:supportsRtl="true" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
+        <activity android:configChanges="orientation" android:launchMode="singleTask" android:name="com.coocent.weather.ui.activity.ActivityWeatherLaunch" android:screenOrientation="nosensor" android:theme="@style/Launcher.Theme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <meta-data android:name="notch.config" android:value="portrait|landscape"/>
+            <meta-data android:name="android.notch_support" android:value="true"/>
+        </activity>
+        <activity android:hardwareAccelerated="true" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.coocent.weather.ui.main.ActivityWeatherMain" android:screenOrientation="nosensor" android:theme="@style/Launcher.Theme"/>
+        <activity android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="com.coocent.weather.ui.activity.ActivityWeatherLocation" android:screenOrientation="nosensor"/>
+        <activity android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="com.coocent.weather.ui.activity.ActivityWeatherManage" android:screenOrientation="nosensor"/>
+        <activity android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="com.coocent.weather.ui.activity.ActivityLocationSearch" android:screenOrientation="nosensor"/>
+        <activity android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="com.coocent.weather.ui.activity.ActivityWeatherCurrent" android:screenOrientation="nosensor"/>
+        <activity android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="com.coocent.weather.ui.activity.ActivityWeatherHealth" android:screenOrientation="nosensor"/>
+        <activity android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="com.coocent.weather.ui.activity.ActivityHealthItem" android:screenOrientation="nosensor"/>
+        <activity android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="com.coocent.weather.ui.activity.ActivityWeatherHourly" android:screenOrientation="nosensor"/>
+        <activity android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="com.coocent.weather.ui.activity.ActivityWeatherDaily" android:screenOrientation="nosensor"/>
+        <activity android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="com.coocent.weather.ui.activity.ActivityWeatherAqi" android:screenOrientation="nosensor"/>
+        <activity android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="com.coocent.weather.ui.activity.ActivityWeatherWidget" android:screenOrientation="nosensor"/>
+        <activity android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="com.coocent.weather.ui.activity.ActivityWeatherSettings" android:screenOrientation="nosensor"/>
+        <activity android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="com.coocent.weather.ui.activity.ActivityWeatherNotification" android:screenOrientation="nosensor"/>
+        <activity android:launchMode="singleTask" android:name="com.coocent.weather.ui.activity.ActivitySettingWindow" android:screenOrientation="nosensor" android:theme="@style/TranslucentTheme"/>
+        <activity android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenSize" android:excludeFromRecents="true" android:finishOnTaskLaunch="false" android:launchMode="singleInstance" android:name="com.coocent.weather.ui.activity.ActivityIntentStation" android:theme="@style/OnePxActStyle"/>
+        <activity android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="com.coocent.weather.ui.activity.ActivityWeatherTrend" android:screenOrientation="nosensor"/>
+        <activity android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="com.coocent.weather.ui.activity.ActivityWeatherAlarm" android:screenOrientation="nosensor"/>
+        <activity android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="com.coocent.weather.ui.activity.ActivityWeatherShare" android:screenOrientation="nosensor"/>
+        <activity android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="com.coocent.weather.ui.activity.ActivityWeatherEarthquake" android:screenOrientation="nosensor"/>
+        <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-8508340168984733~1167897818"/>
+        <meta-data android:name="firebase_crashlytics_collection_enabled" android:value="true"/>
+        <provider android:authorities="forecast.weather.live" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <activity android:launchMode="singleTask" android:name="net.coocent.android.xmlparser.PrivacyActivity" android:screenOrientation="nosensor" android:theme="@style/AppTheme.Privacy"/>
+        <activity android:launchMode="singleTask" android:name="com.coocent.weather.base.ui.activity.ActivityWeatherRadarBase" android:screenOrientation="nosensor" android:theme="@style/RadarTheme">
+            <meta-data android:name="notch.config" android:value="portrait|landscape"/>
+            <meta-data android:name="android.notch_support" android:value="true"/>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.coocent.weather.base.ui.activity.ActivityWeatherAqiBase" android:screenOrientation="nosensor" android:theme="@style/AppTheme"/>
+        <activity android:exported="false" android:name="coocent.lib.weather.ui_helper.activity.AirQualityMapActivity" android:theme="@style/radar_map_activity"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyCTJPwdAsSg762lTnxw8ZwINRndPVlOpJs"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:launchMode="singleTask" android:name="com.coocent.air.ui.BaseAqiMapActivity" android:screenOrientation="nosensor" android:theme="@style/WeatherMainTheme_Light"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <service android:enabled="true" android:exported="true" android:label="@string/co_severe_weather_alerts" android:name="com.weather.widget.service.WeatherService" android:stopWithTask="false"/>
+        <receiver android:exported="true" android:label="Weather" android:name="com.weather.widget.ui.WeatherWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_auto_info"/>
+        </receiver>
+        <receiver android:exported="true" android:label="Weather" android:name="com.weather.widget.ui.WeatherWidget5x2">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_5x2_style_info"/>
+        </receiver>
+        <activity android:name="net.coocent.android.xmlparser.gift.GiftListActivity" android:theme="@style/GiftListTheme"/>
+        <activity android:name="net.coocent.android.xmlparser.gift.GiftWithGameActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name="net.coocent.android.xmlparser.activity.ReInstallActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name="net.coocent.android.xmlparser.activity.ExitRateActivity" android:screenOrientation="portrait" android:theme="@style/Promotion.Exit"/>
+        <activity android:name="net.coocent.android.xmlparser.feedback.FeedbackActivity" android:screenOrientation="portrait" android:theme="@style/Promotion.Feedback.Light"/>
+        <provider android:authorities="forecast.weather.live.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
+            <meta-data android:name="net.coocent.android.xmlparser.initializer.MobileAdsInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.work.WorkManagerInitializer" android:value="androidx.startup"/>
+        </provider>
+        <receiver android:exported="false" android:name="net.coocent.android.xmlparser.ads.AppOpenAdBroadcastReceiver"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <activity android:exported="true" android:launchMode="singleInstance" android:name="coocent.lib.weather.remote_view.ui.configuration._Widget5x2StyleConfigurationActivity" android:screenOrientation="nosensor"/>
+        <activity android:exported="true" android:launchMode="singleInstance" android:name="coocent.lib.weather.remote_view.ui.configuration._WidgetAutoConfigurationActivity" android:screenOrientation="nosensor"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <provider android:authorities="forecast.weather.live.mobileadsinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.android.gms.ads.MobileAdsInitProvider"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.ads.AdService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:name="androidx.work.impl.foreground.SystemForegroundService"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="forecast.weather.live.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <provider android:authorities="forecast.weather.live.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <activity android:enabled="false" android:exported="false" android:launchMode="singleInstance" android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true"/>
+        <activity android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
+        <service android:enabled="false" android:exported="true" android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService">
+            <meta-data android:name="com.google.android.play.core.assetpacks.versionCode" android:value="11002"/>
+        </service>
+        <service android:enabled="false" android:exported="false" android:name="com.google.android.play.core.assetpacks.ExtractionForegroundService"/>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="3"/>
+    </application>
+</manifest>

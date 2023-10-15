@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.csm.welian" platformBuildVersionCode="21" platformBuildVersionName="5.0.1-1624448">
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.UPDATE_APP_OPS_STATS"/>
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.flash"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="getui.permission.GetuiService.com.csm.welian"/>
+    <permission android:name="getui.permission.GetuiService.com.csm.welian" android:protectionLevel="normal"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true"/>
+    <application android:allowBackup="true" android:exported="false" android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/app_name" android:largeHeap="true" android:name="com.csm.base.MyApplication" android:theme="@style/AppTheme2">
+        <meta-data android:name="PUSH_APPID" android:value="CgF0UHbnv0827eFprsyYT9"/>
+        <meta-data android:name="PUSH_APPKEY" android:value="eAJBPqawMhAi406E0FcSh3"/>
+        <meta-data android:name="PUSH_APPSECRET" android:value="rOSsO1iPvj6H39gltxdDJ6"/>
+        <meta-data android:name="PUSH_GROUPID" android:value=""/>
+        <service android:exported="true" android:label="NotificationCenter" android:name="com.igexin.sdk.PushService" android:process=":pushservice"/>
+        <receiver android:exported="false" android:name="com.csm.receiver.PushDemoReceiver">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.CgF0UHbnv0827eFprsyYT9"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.igexin.sdk.PushReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.igexin.sdk.action.refreshls"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.igexin.sdk.PushManagerReceiver">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.pushmanager"/>
+            </intent-filter>
+        </receiver>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.igexin.sdk.PushActivity" android:process=":pushservice" android:taskAffinity="com.igexin.sdk.PushActivityTask" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:excludeFromRecents="true" android:exported="false" android:name="com.igexin.getuiext.activity.GetuiExtActivity" android:process=":pushservice" android:taskAffinity="android.task.myServicetask" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:exported="false" android:name="com.alipay.sdk.app.H5PayActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <receiver android:exported="false" android:name="com.igexin.getuiext.service.PayloadReceiver">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.7fjUl2Z3LH6xYy7NQK4ni4"/>
+                <action android:name="com.igexin.sdk.action.CgF0UHbnv0827eFprsyYT9"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.igexin.getuiext.service.GetuiExtService" android:process=":pushservice"/>
+        <service android:name="com.igexin.download.DownloadService" android:process=":pushservice"/>
+        <receiver android:name="com.igexin.download.DownloadReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="downloads.com.csm.welian" android:name="com.igexin.download.DownloadProvider" android:process=":pushservice"/>
+        <service android:exported="false" android:name="com.csm.service.BackNoNetConnectService">
+            <intent-filter>
+                <action android:name="com.csm.welian.BACKNONETCONNECTSERVICE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.csm.service.BackSendNotificationService">
+            <intent-filter>
+                <action android:name="com.csm.welian.BACKSENDNOTIFICATIONSERVICE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.csm.service.MessageService">
+            <intent-filter>
+                <action android:name="com.csm.welian.MESSAGESERVICE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.csm.service.UpdateAppService">
+            <intent-filter>
+                <action android:name="com.csm.welian.UPDATEAPPSERVICE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.csm.service.UpdateClientIdService">
+            <intent-filter>
+                <action android:name="com.csm.welian.UPDATECLIENTIDSERVICE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.csm.service.ConnectRongIMService">
+            <intent-filter>
+                <action android:name="com.csm.welian.CONNECTRONGIMSERVICE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.csm.service.BackPublishDynamicService">
+            <intent-filter>
+                <action android:name="com.csm.welian.BACKPUBLISHDYNAMICSERVICE"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="UMENG_APPKEY" android:value="5439edf9fd98c54cce04a6b7"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="anzhistore"/>
+        <meta-data android:name="QBSDKAppKey" android:value="cyEYssFovHHnZRmHcKU8wIqL"/>
+        <service android:enabled="true" android:name="com.baidu.location.f" android:process=":remote">
+            <intent-filter>
+                <action android:name="com.baidu.location.service_v2.2"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="dgOnEB8qchOCwLeWvKvveiip"/>
+        <meta-data android:name="RONG_CLOUD_APP_KEY" android:value="z3v5yqkbvojw0"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.login.SplashActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.login.ChooseLoginActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.login.GuideActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.login.MobileLoginActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="stateVisible"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.login.WriteTelephoneToGetPwdActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="stateVisible"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.login.WriteCheckCodeToGetPwdActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="stateVisible"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.login.WriteNewPwdActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="stateVisible"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.login.WriteTelephoneToRegisterActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="stateVisible"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.login.WriteCheckCodeToRegisterActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="stateVisible"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.login.WriteInfoToRegisterActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.login.wechat.WechatLoginActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.login.WechatChoosePositionActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.login.WechatBindActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.login.WechatWriteInfoActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.login.WechatChooseUnitActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="com.csm.welian.activity.login.MainTabsActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="welian"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:label="@string/app_name" android:name="com.csm.welian.wxapi.WXEntryActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.me.ChooseUnitActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.me.ChooseProjectFieldActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.me.ChooseSchoolActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.me.ChooseProfessionActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.me.ChooseInvestStageActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.me.ChooseSingleInvestStageActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.me.ChooseInvestFieldActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.me.ChooseInvestorInstanceActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.me.ChooseEmailActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.me.BusinessCardActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.me.ChooseProvinceActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.me.ChooseCityActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.me.ImInvestorActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.me.PrivateInfoActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.me.BigHeadActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.me.SettingActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.me.MyProjectsActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.me.MyActivitiesActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.me.MyDynamicListActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.me.PhoneVerifyActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.me.CurriculumActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.me.AddWorkingActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.me.AddEducationActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.me.ReviseActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.me.ChoosePositionActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.me.InvestInstanceListActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.me.AboutActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:exported="true" android:label="@string/app_name" android:name="com.csm.welian.activity.friend.AddFriendActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.friend.FriendOfFriendActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.friend.MobileAndWechatActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.friend.RecommandActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.friend.FriendChooseActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.friend.FirstFriendListActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.friend.SearchFriendActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="stateVisible"/>
+        <activity android:hardwareAccelerated="false" android:label="@string/app_name" android:name="com.csm.welian.activity.friend.ChatActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.friend.PersonDetailsActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.discovery.InvestorListActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.discovery.activity.ActivitySignUperListActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.discovery.activity.ActivitiesListAcitivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.discovery.activity.ActivityDetailActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.discovery.activity.ActivityOrderDetailActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:configChanges="orientation" android:label="@string/app_name" android:name="com.csm.welian.activity.discovery.WebDetailActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.discovery.SearchInvestorActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="stateVisible"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.discovery.project.ProjectDetailsActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.discovery.project.ProjectPraiserListActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.discovery.project.ProjectCollectionDetailListActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.discovery.project.PDFActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.discovery.project.ProjectDetailToInvestorActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.discovery.project.CreateProjectStepOneActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.discovery.project.CreateProjectStepThreeActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.discovery.project.ReviseProjectStepThreeActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.discovery.project.ReviseProjectStepOneActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.discovery.project.ReviseProjectStepTwoActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.discovery.EntrepreneurTopicListActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.discovery.project.CreateProjectStepTwoActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.discovery.project.ProjectMembersListActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.discovery.project.FinancingInfoActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.discovery.project.ProjectListActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.dynamic.DynamicMessageListActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.dynamic.DynamicItemDetailActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.dynamic.PictureBrowserActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.dynamic.FriendDynamicListActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.dynamic.PicturesControlActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.dynamic.CameraStoreActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.dynamic.PublishDynamicActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.dynamic.ShareDynamicActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.login.RadarActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.map.BaseMapActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.map.BaiduSharedMapActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/title_activity_localphoto" android:name="com.syw.avatar.LocalPhotoActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/title_activity_localphoto" android:name="com.syw.avatar.CropperActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.discovery.InvestorDetailActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.discovery.InvestOrgDetailActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.message.HistoryConversationListActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.message.FriendRequestListActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <service android:name="io.rong.push.PushService" android:process="io.rong.push">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="io.rong.push"/>
+            </intent-filter>
+        </service>
+        <service android:name="io.rong.push.CommandService" android:process="io.rong.push">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="io.rong.command"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="io.rong.push.PushReceiver" android:process="io.rong.push">
+            <intent-filter>
+                <action android:name="io.rong.imlib.action.push.heartbeat"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="io.rong.imlib.HeartbeatReceiver" android:process=":ipc"/>
+        <service android:name="io.rong.imlib.ipc.RongService" android:process=":ipc"/>
+        <service android:name="io.rong.imlib.ReConnectService"/>
+        <receiver android:name="io.rong.imlib.ipc.PushMessageReceiver">
+            <intent-filter>
+                <action android:name="io.rong.push.message"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="io.rong.imlib.ConnectChangeReceiver"/>
+        <activity android:name="io.rong.imkit.tools.SelectPictureActivity" android:screenOrientation="portrait"/>
+        <activity android:name="io.rong.imkit.tools.PreviewPictureActivity" android:screenOrientation="portrait"/>
+        <activity android:name="io.rong.imkit.tools.RongWebviewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="io.rong.imkit.widget.provider.TakingPicturesActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.discovery.activity.ActiveCollectionInfoActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme2"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.message.ConversationMainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme2"/>
+        <activity android:name="com.csm.welian.activity.message.WeLianConversationActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme2" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="com.csm.welian" android:pathPrefix="/conversation/" android:scheme="rong"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="com.csm.welian" android:pathPrefix="/conversationlist" android:scheme="rong"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="com.csm.welian" android:pathPrefix="/friend/" android:scheme="rong"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.csm.welian.activity.message.WeLianSubConversationActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme2" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="com.csm.welian" android:pathPrefix="/subconversationlist" android:scheme="rong"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.chat.CreateOrReviseChatRoomActivity" android:screenOrientation="portrait" android:theme="@style/TimeTheme"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.chat.ChatRoomListActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.chat.ChatRoomActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="com.csm.welian" android:pathPrefix="/chatroompage/" android:scheme="rong"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.csm.welian.activity.chat.ChatRoomMemberListActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+    </application>
+</manifest>

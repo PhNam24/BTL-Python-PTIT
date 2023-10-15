@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" package="com.netquest.pokey" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:maxSdkVersion="18" android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:fullBackupContent="@xml/backup_rules" android:icon="@mipmap/ic_launcher" android:label="@string/APP_NAME" android:name="com.netquest.pokey.BaseApplication" android:roundIcon="@mipmap/ic_launcher" android:supportsRtl="true" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
+        <activity android:label="@string/PROFILE_MENU_PRIVACY" android:name="com.netquest.pokey.presentation.ui.activities.account.PrivacyDetailActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.account.PrivacyDashboardActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.account.PrivacyDashboardActivity"/>
+        </activity>
+        <activity android:label="@string/MENU_PRIVACY_DATAUSE_SETTINGS_ADEXPOSURE_GOOGLE" android:name="com.netquest.pokey.presentation.ui.activities.account.GoogleConsentActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.account.PrivacyDashboardActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.account.PrivacyDashboardActivity"/>
+        </activity>
+        <activity android:label="@string/MENU_PRIVACY" android:name="com.netquest.pokey.presentation.ui.activities.account.PrivacyDashboardActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.DashboardActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.DashboardActivity"/>
+        </activity>
+        <activity android:name="com.netquest.pokey.presentation.ui.activities.account.InfoAboutPrivacyActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.account.PrivacySettingsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.account.PrivacySettingsActivity"/>
+        </activity>
+        <activity android:label="@string/MENU_PRIVACY" android:name="com.netquest.pokey.presentation.ui.activities.account.PrivacySettingsActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.DashboardActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.DashboardActivity"/>
+        </activity>
+        <activity android:name="com.netquest.pokey.presentation.ui.activities.login.TourActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.netquest.pokey.presentation.ui.activities.sanctions.ISOSanctionUnderAge" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.netquest.pokey.presentation.ui.activities.sanctions.FrozenActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.netquest.pokey.presentation.ui.activities.sanctions.ISOSanctionActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/HISTORY_ORDER_DETAILS" android:name="com.netquest.pokey.presentation.ui.activities.account.HistoryDetailActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.account.HistoryActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.account.HistoryActivity"/>
+        </activity>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/ic_notification"/>
+        <service android:name="com.netquest.pokey.presentation.services.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_channel_id" android:value="default channel"/>
+        <service android:enabled="true" android:label="@string/wkp_tracker_app_name" android:name="com.wakoopa.pokey.TrackerService"/>
+        <service android:name="com.wakoopa.vinny.LocalVPNProxyService" android:permission="android.permission.BIND_VPN_SERVICE">
+            <intent-filter>
+                <action android:name="android.net.VpnService"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.wakoopa.kenshilib.KenshiService" android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+            <meta-data android:name="android.accessibilityservice" android:resource="@xml/accessibilityservice"/>
+        </service>
+        <activity android:name="com.netquest.pokey.presentation.ui.activities.login.SplashActivity" android:screenOrientation="portrait" android:theme="@style/GeneralNoTitle">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter android:label="@string/APP_NAME">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="app.nicequest.com" android:pathPattern="/" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.netquest.pokey.presentation.ui.activities.login.LoginActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/LOGIN_FORGOT_PASSWORD_BUTTON" android:name="com.netquest.pokey.presentation.ui.activities.login.ForgotPasswordWebViewActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.login.LoginActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.login.LoginActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:launchMode="singleTask" android:name="com.netquest.pokey.presentation.ui.activities.DashboardActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/CONTACT_TITLE" android:name="com.netquest.pokey.presentation.ui.activities.account.SupportMessageActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.DashboardActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.DashboardActivity"/>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.netquest.pokey.presentation.ui.activities.searchincentives.SearchActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.DashboardActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.DashboardActivity"/>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="" android:name="com.netquest.pokey.presentation.ui.activities.incentives.IncentiveDetailActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.DashboardActivity" android:theme="@style/AppTheme.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.DashboardActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:name="com.netquest.pokey.presentation.ui.activities.searchincentives.CategoryResultActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.DashboardActivity" android:theme="@style/AppTheme.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.DashboardActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:name="com.netquest.pokey.presentation.ui.activities.searchincentives.GetQueryActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.DashboardActivity" android:theme="@style/AppTheme.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.DashboardActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:name="com.netquest.pokey.presentation.ui.activities.searchincentives.LoadedQueryActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.DashboardActivity" android:theme="@style/AppTheme.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.DashboardActivity"/>
+        </activity>
+        <activity android:label="@string/INCENTIVE_DETAIL_DESCRIPTION" android:name="com.netquest.pokey.presentation.ui.activities.incentives.FullDescriptionActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.incentives.IncentiveDetailActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.incentives.IncentiveDetailActivity"/>
+        </activity>
+        <activity android:label="@string/INCENTIVE_DETAIL_MORE_INFO" android:name="com.netquest.pokey.presentation.ui.activities.incentives.MoreInfoActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.incentives.IncentiveDetailActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.incentives.IncentiveDetailActivity"/>
+        </activity>
+        <activity android:label="@string/RATE_TITLE" android:name="com.netquest.pokey.presentation.ui.activities.incentives.FeedbackListActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.incentives.IncentiveDetailActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.incentives.IncentiveDetailActivity"/>
+        </activity>
+        <activity android:label="@string/REDEEM_CONFIRMATION_TITLE" android:name="com.netquest.pokey.presentation.ui.activities.redeem.RedeemPhysicalActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.incentives.IncentiveDetailActivity" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.incentives.IncentiveDetailActivity"/>
+        </activity>
+        <activity android:label="@string/REDEEM_CONFIRMATION_TITLE" android:name="com.netquest.pokey.presentation.ui.activities.redeem.RedeemVirtualActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.incentives.IncentiveDetailActivity" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.incentives.IncentiveDetailActivity"/>
+        </activity>
+        <activity android:label="@string/INCENTIVE_EXCHANGE_ADDRESS" android:name="com.netquest.pokey.presentation.ui.activities.shippingaddress.NewShippingAddressActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.redeem.RedeemPhysicalActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.redeem.RedeemPhysicalActivity"/>
+        </activity>
+        <activity android:label="@string/INCENTIVE_EXCHANGE_ADDRESS" android:name="com.netquest.pokey.presentation.ui.activities.shippingaddress.EditShippingAddressActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.redeem.RedeemPhysicalActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.redeem.RedeemPhysicalActivity"/>
+        </activity>
+        <activity android:label="@string/DRAWS_CONDITIONS_TITLE" android:name="com.netquest.pokey.presentation.ui.activities.incentives.DrawRulesActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.redeem.RedeemVirtualActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.redeem.RedeemVirtualActivity"/>
+        </activity>
+        <activity android:name="com.netquest.pokey.presentation.ui.activities.redeem.RedeemSuccessActivity" android:theme="@style/AppTheme.Transparent"/>
+        <activity android:label="@string/PROFILE_CREDENTIALS_CHANGE_PASSWORD_TITLE" android:name="com.netquest.pokey.presentation.ui.activities.account.ChangePasswordActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.DashboardActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.DashboardActivity"/>
+        </activity>
+        <activity android:name="com.netquest.pokey.presentation.ui.activities.premium.PremiumConfigurationActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.DashboardActivity" android:theme="@style/AppTheme.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.DashboardActivity"/>
+        </activity>
+        <activity android:name="com.netquest.pokey.presentation.ui.activities.premium.PremiumTourActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.DashboardActivity"/>
+        </activity>
+        <receiver android:name="com.netquest.pokey.domain.mappers.TrackerBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.netquest.pokey.domain.mappers.TrackerUpgradeReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="true" android:name="com.netquest.pokey.data.local.services.ResumeSentianceAlarm"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.netquest.pokey.data.local.services.ResumeSentianceBootBroadcastReceiver" android:process=":remote">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.netquest.pokey.presentation.ui.activities.premium.PremiumProposalActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.DashboardActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.DashboardActivity"/>
+        </activity>
+        <activity android:name="com.netquest.pokey.presentation.ui.activities.atlas.AtlasProposalActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.DashboardActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.DashboardActivity"/>
+        </activity>
+        <activity android:name="com.netquest.pokey.presentation.ui.activities.atlas.AtlasConfigurationActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.DashboardActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.DashboardActivity"/>
+        </activity>
+        <activity android:label="@string/HELP_SECTION" android:name="com.netquest.pokey.presentation.ui.activities.account.HelpActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.DashboardActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.DashboardActivity"/>
+        </activity>
+        <activity android:name="com.netquest.pokey.presentation.ui.activities.login.ForceUpdateActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.netquest.pokey.presentation.ui.activities.QaInfoActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.DashboardActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.DashboardActivity"/>
+        </activity>
+        <activity android:label="@string/CATEGORIES" android:name="com.netquest.pokey.presentation.ui.activities.incentives.AllCategoriesActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.DashboardActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.DashboardActivity"/>
+        </activity>
+        <activity android:label="@string/PROFILE_DATA_TITLE" android:name="com.netquest.pokey.presentation.ui.activities.account.PersonalInfoActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.DashboardActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.DashboardActivity"/>
+        </activity>
+        <activity android:label="@string/HISTORY_TITLE" android:name="com.netquest.pokey.presentation.ui.activities.account.HistoryActivity" android:parentActivityName="com.netquest.pokey.presentation.ui.activities.DashboardActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".presentation.ui.activities.DashboardActivity"/>
+        </activity>
+        <activity android:name="com.karumi.dexter.DexterActivity" android:theme="@style/Dexter.Internal.Theme.Transparent"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <provider android:authorities="com.netquest.pokey.firebaseperfprovider" android:exported="false" android:initOrder="101" android:name="com.google.firebase.perf.provider.FirebasePerfProvider"/>
+        <service android:name="com.sentiance.sdk.task.SdkJobTaskService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.sentiance.sdk.authentication.RefreshTokenService"/>
+        <service android:name="com.sentiance.sdk.task.SdkAlarmTaskService"/>
+        <service android:name="com.sentiance.sdk.location.LocationService"/>
+        <service android:name="com.sentiance.sdk.events.GuardingService"/>
+        <service android:name="com.sentiance.sdk.sensorstream.ContinuousSensorStreamService"/>
+        <service android:name="com.sentiance.sdk.foreground.ForegroundService"/>
+        <service android:name="com.sentiance.sdk.geofence.internal.GeofenceService"/>
+        <receiver android:name="com.sentiance.sdk.powerinfo.PowerInfoUpdateAlarmReceiver"/>
+        <receiver android:name="com.sentiance.sdk.alarm.LocalAlarmBroadcastReceiver"/>
+        <receiver android:name="com.sentiance.sdk.geofence.GeofenceTransitionReceiver"/>
+        <receiver android:name="com.sentiance.sdk.geofence.TransitionTimeoutReceiver"/>
+        <receiver android:name="com.sentiance.sdk.location.LocationReceiver"/>
+        <receiver android:name="com.sentiance.sdk.BootCompletedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.sentiance.sdk.TimezoneChangeReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.sentiance.sdk.location.LocationProviderChangeReceiver">
+            <intent-filter>
+                <action android:name="android.location.PROVIDERS_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.sentiance.sdk.DebugReceiver">
+            <intent-filter>
+                <action android:name="com.sentiance.sdk.DEBUG"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.sentiance.sdk.task.ConnectivityChangeReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.sentiance.sdk.task.PowerStateChangedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.sentiance.sdk.deviceinfo.UpgradeBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.sentiance.sdk.activitytransition.ActivityTransitionChangeReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.sentiance.sdk.movingstate.MovingStateTimeoutReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.sentiance.sdk.samsung.SleepDetectorReceiver"/>
+        <receiver android:name="com.sentiance.sdk.payload.batching.PayloadBatcherAlarmReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.sentiance.sdk.movingstate.StationaryAssistantReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.sentiance.sdk.autostopdetection.SdkDetectionTimeoutReceiver"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <provider android:authorities="com.netquest.pokey.workmanager-init" android:directBootAware="false" android:exported="false" android:multiprocess="true" android:name="androidx.work.impl.WorkManagerInitializer"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.netquest.pokey.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="com.netquest.pokey.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-0000000000000000~0000000000"/>
+        <service android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+    </application>
+</manifest>

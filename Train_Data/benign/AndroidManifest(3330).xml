@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="31" android:compileSdkVersionCodename="12" android:configChanges="orientation|screenSize" android:installLocation="auto" android:largeHeap="true" package="gov.anzong.androidnga" platformBuildVersionCode="31" platformBuildVersionName="12">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application android:allowBackup="true" android:anyDensity="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:hardwareAccelerated="false" android:icon="@mipmap/ic_launcher" android:label="@string/label_activity_main" android:name="gov.anzong.androidnga.NgaClientApp" android:networkSecurityConfig="@xml/network_security_config" android:preserveLegacyExternalStorage="true" android:requestLegacyExternalStorage="true" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@android:style/Theme.Holo.Light">
+        <meta-data android:name="EasyGoClient" android:value="true"/>
+        <activity android:configChanges="locale|orientation|screenLayout|screenSize|smallestScreenSize" android:exported="true" android:label="@string/app_name" android:name="gov.anzong.androidnga.activity.MainActivity" android:theme="@style/AppTheme">
+            <meta-data android:name="android.app.shortcuts" android:resource="@xml/static_shortcuts"/>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/label_activity_login" android:launchMode="singleTop" android:name="gov.anzong.androidnga.activity.LoginActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="gov.anzong.androidnga.activity.ProfileActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="gov.anzong.androidnga.activity.PostActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="gov.anzong.androidnga.activity.AvatarPostActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="gov.anzong.androidnga.activity.SignPostActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="gov.anzong.androidnga.activity.MessagePostActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/menu_setting" android:launchMode="singleTop" android:name="gov.anzong.androidnga.activity.SettingsActivity"/>
+        <activity android:label="@string/label_activity_message_list" android:name="gov.anzong.androidnga.activity.MessageListActivity"/>
+        <activity android:label="@string/label_activity_message_detail" android:name="gov.anzong.androidnga.activity.MessageDetailActivity"/>
+        <activity android:configChanges="locale|orientation|screenLayout|screenSize|smallestScreenSize" android:exported="true" android:name="gov.anzong.androidnga.activity.TopicListActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="bbs.nga.cn" android:path="/thread.php" android:scheme="http"/>
+                <data android:host="bbs.ngacn.cc" android:path="/thread.php" android:scheme="http"/>
+                <data android:host="nga.178.com" android:path="/thread.php" android:scheme="http"/>
+                <data android:host="bbs.nga.cn" android:path="/thread.php" android:scheme="https"/>
+                <data android:host="bbs.ngacn.cc" android:path="/thread.php" android:scheme="https"/>
+                <data android:host="nga.178.com" android:path="/thread.php" android:scheme="https"/>
+                <data android:host="ngabbs.com" android:path="/thread.php" android:scheme="https"/>
+                <data android:host="ngabbs.com" android:path="/thread.php" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="locale|orientation|screenLayout|screenSize|smallestScreenSize" android:exported="true" android:name="gov.anzong.androidnga.activity.ArticleListActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="nga.178.com" android:path="/read.php" android:scheme="http"/>
+                <data android:host="bbs.ngacn.cc" android:path="/read.php" android:scheme="http"/>
+                <data android:host="bbs.nga.cn" android:path="/read.php" android:scheme="http"/>
+                <data android:host="nga.178.com" android:path="/read.php" android:scheme="https"/>
+                <data android:host="bbs.ngacn.cc" android:path="/read.php" android:scheme="https"/>
+                <data android:host="bbs.nga.cn" android:path="/read.php" android:scheme="https"/>
+                <data android:host="ngabbs.com" android:path="/read.php" android:scheme="https"/>
+                <data android:host="ngabbs.com" android:path="/read.php" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="gov.anzong.androidnga.gallery.ImageZoomActivity"/>
+        <activity android:name="gov.anzong.androidnga.activity.ForumListActivity"/>
+        <activity android:name="gov.anzong.androidnga.activity.WebViewerActivity"/>
+        <activity android:name="gov.anzong.androidnga.activity.RecentNotificationActivity"/>
+        <activity android:name="gov.anzong.androidnga.activity.LauncherSubActivity"/>
+        <activity android:label="@string/search" android:name="gov.anzong.androidnga.activity.SearchActivity"/>
+        <activity android:label="@string/title_about" android:name="gov.anzong.androidnga.activity.AboutActivity"/>
+        <activity android:label="我的缓存" android:name="gov.anzong.androidnga.activity.TopicCacheActivity"/>
+        <activity android:name="gov.anzong.androidnga.activity.ArticleCacheActivity"/>
+        <activity android:name="gov.anzong.androidnga.activity.WebViewActivity"/>
+        <provider android:authorities="gov.anzong.androidnga" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+    </application>
+</manifest>

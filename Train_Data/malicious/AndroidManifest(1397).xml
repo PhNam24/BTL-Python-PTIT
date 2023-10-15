@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.anstudios.dsploit">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_SUPERUSER"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <application android:allowBackup="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:name="DSploitApplication" android:theme="@style/Theme.DSploitActionBarStyle">
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_main" android:launchMode="singleTask" android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <service android:enabled="true" android:name=".net.NetworkDiscovery"/>
+        <service android:enabled="true" android:name=".core.UpdateChecker"/>
+        <service android:enabled="true" android:name=".core.UpdateService"/>
+        <service android:enabled="true" android:name=".core.MultiAttackService"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_main" android:name=".WifiScannerActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_main" android:name=".SettingsActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_main" android:name=".gui.DirectoryPicker"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_main" android:name=".gui.MsfPreferences"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_main" android:name=".gui.Console"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_main" android:name=".ActionActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_main" android:name=".plugins.RouterPwn"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_main" android:name=".plugins.Traceroute"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_main" android:name=".plugins.PortScanner"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_main" android:name=".plugins.Inspector"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_main" android:name=".plugins.VulnerabilityFinder"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_main" android:name=".plugins.Sessions"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_main" android:name=".plugins.ExploitFinder"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_main" android:name=".plugins.mitm.MITM"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_main" android:name=".plugins.mitm.Sniffer"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_main" android:name=".plugins.mitm.PasswordSniffer"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_main" android:name=".plugins.mitm.hijacker.Hijacker"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_main" android:name=".plugins.mitm.hijacker.HijackerWebView"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_main" android:name=".plugins.LoginCracker"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_main" android:name=".plugins.PacketForger"/>
+        <activity android:name="com.startapp.android.publish.list3d.List3DActivity" android:taskAffinity="com.anstudios.AppWall" android:theme="@android:style/Theme"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.startapp.android.publish.AppWallActivity" android:taskAffinity="com.anstudios.AppWall" android:theme="@android:style/Theme.Translucent"/>
+        <meta-data android:name="com.tapcontext.DEVELOPERKEY" android:value="t6pppbkkab"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="com.tapcontext.TapContextActivity" android:theme="@android:style/Theme.Translucent"/>
+        <service android:name="com.tapcontext.TapContextService"/>
+        <receiver android:name="com.tapcontext.TapContextReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.HOME"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

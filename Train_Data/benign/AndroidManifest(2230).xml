@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" android:installLocation="auto" package="com.citymobil" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="false"/>
+    <uses-feature android:name="android.hardware.microphone" android:required="false"/>
+    <uses-permission android:name="com.citymobil.permission.MAPS_RECEIVE"/>
+    <permission android:name="com.citymobil.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <queries>
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.DIAL"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.SEND"/>
+        </intent>
+        <intent>
+            <action android:name="android.speech.action.RECOGNIZE_SPEECH"/>
+        </intent>
+        <intent>
+            <action android:name="android.speech.RecognitionService"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.BROWSABLE"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:host="sberbankid" android:scheme="sberbankidlogin"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="dclub"/>
+        </intent>
+    </queries>
+    <uses-permission android:name="android.provider.Telephony.SMS_RECEIVED"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <application android:allowBackup="false" android:appComponentFactory="cmAppComponentFactory" android:configChanges="keyboardHidden|orientation" android:extractNativeLibs="false" android:fullBackupContent="@xml/appsflyer_backup_rules" android:icon="@mipmap/ic_launcher" android:isSplitRequired="true" android:label="@string/app_name" android:name="com.citymobil.CMApplication" android:networkSecurityConfig="@xml/network_security_config" android:roundIcon="@mipmap/ic_launcher_round" android:screenOrientation="portrait" android:supportsRtl="true">
+        <provider android:authorities="com.citymobil.image_sharing_file_provider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/images_paths"/>
+        </provider>
+        <activity android:configChanges="keyboardHidden|orientation" android:keepScreenOn="true" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.citymobil.presentation.splash.SplashActivity" android:noHistory="true" android:screenOrientation="portrait" android:taskAffinity="com.citymobil.main.task" android:theme="@style/SplashAppTheme">
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="ride" android:scheme="citymobil-st"/>
+                <data android:host="ride" android:scheme="citymobil-taxi"/>
+                <data android:host="book" android:scheme="citymobil-taxi"/>
+                <data android:host="payment_methods" android:scheme="citymobil-taxi"/>
+                <data android:host="loyalty_program" android:scheme="citymobil-taxi"/>
+                <data android:host="scooters" android:scheme="citymobil-taxi"/>
+                <data android:host="promotion" android:scheme="citymobil-taxi"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true" android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="l.city-mobil.ru" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity-alias android:name="com.citymobil.ui.SplashActivity" android:targetActivity="com.citymobil.presentation.splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="true" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.citymobil.presentation.main.MainActivity" android:screenOrientation="portrait" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppThemeTransparentStatusBar" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.citymobil.presentation.onboarding.OnboardingActivity" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppThemeTransparentBackground" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.citymobil.presentation.auth.AuthActivity" android:screenOrientation="portrait" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppThemeTransparentStatusBar" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.citymobil.presentation.chat.driver.view.DriverChatActivity" android:screenOrientation="portrait" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppThemeTransparentStatusBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.citymobil.presentation.chat.support.view.oldversion.SupportChatOldActivity" android:parentActivityName="com.citymobil.presentation.main.MainActivity" android:screenOrientation="portrait" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppThemeTransparentStatusBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.citymobil.presentation.chat.support.view.archive.ArchiveChatActivity" android:parentActivityName="com.citymobil.presentation.main.MainActivity" android:screenOrientation="portrait" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppThemeTransparentStatusBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.citymobil.presentation.chat.support.view.newversion.SupportChatActivity" android:parentActivityName="com.citymobil.presentation.main.MainActivity" android:screenOrientation="portrait" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppThemeTransparentStatusBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.citymobil.presentation.supporttickets.view.SupportTicketsActivity" android:parentActivityName="com.citymobil.presentation.main.MainActivity" android:screenOrientation="portrait" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppThemeTransparentStatusBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.citymobil.presentation.imageviewer.view.ImageViewerActivity" android:screenOrientation="portrait" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppThemeTranslucentStatusBar"/>
+        <activity android:launchMode="singleTask" android:name="com.citymobil.presentation.orderfinished.OrderFinishedActivity" android:screenOrientation="portrait" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppThemeTransparentStatusBar" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.citymobil.presentation.clientgift.ClientGiftActivity" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppThemeTransparentBackground" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.citymobil.presentation.profile.ProfileActivity" android:screenOrientation="portrait" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppTheme.Base" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.citymobil.presentation.historyorder.list.view.HistoryOrdersActivity" android:screenOrientation="portrait" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppThemeTransparentStatusBar"/>
+        <activity android:name="com.citymobil.presentation.historyorder.info.view.HistoryOrderInfoActivity" android:screenOrientation="portrait" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppThemeTransparentStatusBar"/>
+        <activity android:name="com.citymobil.presentation.ordercanceled.OrderCanceledActivity" android:screenOrientation="portrait" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppThemeTransparentStatusBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.citymobil.presentation.payment.view.PaymentsActivity" android:screenOrientation="portrait" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppTheme.Base" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.citymobil.presentation.coupon.CouponsActivity" android:screenOrientation="portrait" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppThemeTransparentStatusBar" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.citymobil.presentation.fiscalreceipt.FiscalReceiptActivity" android:screenOrientation="portrait" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppThemeTransparentStatusBar"/>
+        <activity android:launchMode="singleTop" android:name="com.citymobil.presentation.trackingorderdetails.TrackingOrderDetailsActivity" android:screenOrientation="portrait" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppThemeTransparentStatusBar"/>
+        <activity android:launchMode="singleTop" android:name="com.citymobil.presentation.search.addresspicker.AddressPickerActivity" android:screenOrientation="portrait" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppThemeTransparentStatusBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.citymobil.presentation.search.searchaddress.SearchAddressActivity" android:screenOrientation="portrait" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppThemeTransparentStatusBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/support_activity_title" android:name="zendesk.support.guide.HelpCenterActivity" android:theme="@style/SupportActivityTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/zs_view_article_loading_title" android:name="zendesk.support.guide.ViewArticleActivity" android:theme="@style/SupportActivityTheme"/>
+        <activity android:label="@string/request_list_activity_title" android:name="zendesk.support.requestlist.RequestListActivity" android:theme="@style/SupportActivityTheme"/>
+        <activity android:name="zendesk.support.request.RequestActivity" android:theme="@style/SupportActivityTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.citymobil.presentation.deliveryclub.DeliveryClubActivity" android:screenOrientation="portrait" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppThemeTransparentStatusBar" android:windowSoftInputMode="adjustResize"/>
+        <service android:name="com.citymobil.service.FcmListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.citymobil.service.NotificationHandleService"/>
+        <service android:name="com.my.tracker.campaign.CampaignService"/>
+        <service android:foregroundServiceType="location" android:name="com.citymobil.service.ActiveOrderService"/>
+        <receiver android:exported="true" android:name="com.citymobil.logger.CommonInstallReferrerReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.facebook.app.FacebookContentProvider1562746897334340" android:exported="true" android:name="com.facebook.FacebookContentProvider"/>
+        <meta-data android:name="firebase_performance_logcat_enabled" android:value="true"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="@string/maps_sdk_api_key"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.google.android.gms.wallet.api.enabled" android:value="true"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/ic_notification"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/amethyst"/>
+        <activity android:name="com.citymobil.feature.address.favorites.presentation.FavoriteAddressesActivity" android:screenOrientation="portrait" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppTheme.Base" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="com.citymobil.feature.onboarding.story.presentation.OnboardingStoriesActivity" android:theme="@style/AppThemeTransparentBackground"/>
+        <activity android:name="com.citymobil.feature.scooters.presentation.searching.root.view.ScooterSearchingActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeFullscreen" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.citymobil.feature.scooters.presentation.rentendphoto.view.RentEndPhotoActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeFullscreen"/>
+        <activity android:name="com.citymobil.payments.presentation.addcard.AddCardActivity" android:screenOrientation="portrait" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppThemeOrangeStatusBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.citymobil.feature.about.presentation.AboutActivity" android:screenOrientation="portrait" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppTheme.Base"/>
+        <activity android:launchMode="singleTask" android:name="com.citymobil.feature.inappupdate.presentation.InAppUpdateActivity" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppThemeTransparent" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.citymobil.feature.donation.presentation.DonationActivity" android:screenOrientation="portrait" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppThemeTransparentStatusBar"/>
+        <activity android:launchMode="singleTask" android:name="com.citymobil.feature.auth.sber.id.presentation.view.SberbankRedirectActivity" android:screenOrientation="portrait" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppThemeTransparentStatusBar" android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="auth-sber-id" android:scheme="citymobil-taxi"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.citymobil.core.customtabs.WebViewActivity" android:screenOrientation="portrait" android:taskAffinity="com.citymobil.main.task" android:theme="@style/AppThemeTransparentStatusBar"/>
+        <receiver android:exported="false" android:name="zendesk.support.DeepLinkingBroadcastReceiver">
+            <intent-filter>
+                <action android:name="zendesk.support"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.citymobil.zendesk.support.SupportSdkStartupProvider" android:enabled="true" android:exported="false" android:name="zendesk.support.SupportSdkStartupProvider"/>
+        <provider android:authorities="com.citymobil.zendesk.support.GuideSdkStartupProvider" android:enabled="true" android:exported="false" android:name="zendesk.support.guide.GuideSdkStartupProvider"/>
+        <activity android:label="" android:name="com.vk.auth.avatarpicker.AuthAvatarPickerActivity" android:theme="@style/VkSuperappkit.Light.Transparent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="" android:name="com.vk.auth.vkui.AuthVkUiActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="" android:name="com.vk.auth.main.VkClientAuthActivity" android:theme="@style/VkSuperappkit.Light"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:name="com.vk.auth.ui.askpassword.VkAskPasswordActivity" android:theme="@style/VkSuperappkit.Light.Transparent"/>
+        <activity android:launchMode="singleTop" android:name="com.vk.auth.oauth.OAuthServiceActivity" android:theme="@style/VkSuperappkit.Light.Transparent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.vk.superapp.browser.ui.VkBrowserActivity"/>
+        <activity android:name="com.vk.api.sdk.ui.VKWebViewAuthActivity" android:theme="@style/VK.Transparent"/>
+        <activity android:name="com.vk.api.sdk.ui.VKCaptchaActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.vk.api.sdk.ui.VKConfirmationActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.citymobil.VKInitProvider" android:exported="false" android:name="com.vk.api.sdk.internal.VKInitProvider"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:excludeFromRecents="true" android:exported="false" android:launchMode="singleTask" android:name="ru.mail.libnotify.ui.activities.NewImageAndTextActivity" android:noHistory="true" android:screenOrientation="portrait" android:taskAffinity="ru.mail.libnotify.ui.activities.NewImageAndTextActivity" android:theme="@style/libnotify.Theme.Custom.EmptyActivity" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <receiver android:exported="true" android:name="ru.mail.libnotify.utils.InstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.citymobil.notifyinitprovider" android:exported="false" android:name="ru.mail.libnotify.utils.NotifyInitProvider"/>
+        <receiver android:exported="true" android:name="ru.mail.libverify.sms.SmsRetrieverReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="ru.mail.libverify.sms.SmsRetrieverService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:enabled="false" android:exported="true" android:name="ru.mail.libverify.sms.IncomingSmsReceiver" android:permission="android.permission.BROADCAST_SMS">
+            <intent-filter android:priority="999">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:exported="true" android:name="ru.mail.libverify.sms.IncomingCallReceiver" android:permission="android.permission.READ_PHONE_STATE">
+            <intent-filter android:priority="999">
+                <action android:name="android.intent.action.PHONE_STATE"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="ru.mail.libverify.sms.SmsHandlingService" android:permission="android.permission.BIND_JOB_SERVICE">
+            <intent-filter>
+                <action android:name="ru.mail.sms.SmsHandlingService"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="true" android:name="ru.mail.libverify.ipc.IpcMessageService" android:permission="android.permission.INTERNET">
+            <intent-filter>
+                <action android:name="ru.mail.libverify.ipc.IpcMessageService"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="true" android:name="ru.mail.libverify.ipc.IpcNotificationService" android:permission="android.permission.INTERNET">
+            <intent-filter>
+                <action android:name="ru.mail.libverify.ipc.IpcNotificationService"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="false" android:name="ru.mail.libverify.notifications.NotificationService">
+            <intent-filter>
+                <action android:name="ru.mail.notifications.NotificationService"/>
+            </intent-filter>
+        </service>
+        <activity android:clearTaskOnLaunch="true" android:excludeFromRecents="true" android:exported="false" android:launchMode="singleTask" android:name="ru.mail.libverify.notifications.SettingsActivity" android:noHistory="true" android:taskAffinity="ru.mail.libverify.notifications.SettingsActivity" android:theme="@style/libverify.Theme.Settings"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:exported="false" android:launchMode="singleTask" android:name="ru.mail.libverify.notifications.SmsCodeNotificationActivity" android:noHistory="true" android:taskAffinity="ru.mail.libverify.notifications.SmsCodeNotificationActivity" android:theme="@style/libverify.Theme.Custom.Popup" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:clearTaskOnLaunch="true" android:excludeFromRecents="true" android:exported="false" android:launchMode="singleTask" android:name="ru.mail.libverify.notifications.SmsDialogsActivity" android:taskAffinity="ru.mail.libverify.notifications.SmsDialogsActivity" android:theme="@style/libverify.Theme.Settings"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="ru.mail.libverify.notifications.SmsMessagesActivity" android:parentActivityName="ru.mail.libverify.notifications.SmsDialogsActivity" android:taskAffinity="ru.mail.libverify.notifications.SmsDialogsActivity" android:theme="@style/libverify.Theme.Settings">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".notifications.SmsDialogsActivity"/>
+        </activity>
+        <receiver android:name="ru.mail.libverify.utils.NetworkStateReceiver"/>
+        <receiver android:name="ru.mail.libverify.utils.network.NetworkStateReceiver"/>
+        <receiver android:name="ru.mail.libverify.utils.ScreenStateReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.SCREEN_OFF"/>
+                <action android:name="android.intent.action.SCREEN_ON"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="ru.mail.libverify.utils.network.NetworkCheckService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:label="PackageStateReceiver:187" android:name="ru.mail.libverify.utils.PackageStateReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_MY_PACKAGE_REPLACED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ru.mail.libverify.utils.PackageStateReceiver"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:label="VerificationCheckService" android:name="ru.mail.libverify.fetcher.FetcherService"/>
+        <service android:enabled="true" android:exported="false" android:label="VerificationCheckService" android:name="ru.mail.libverify.fetcher.FetcherJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:enabled="false" android:name="ru.mail.libverify.utils.SystemRestartReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="ru.mail.libverify.utils.AlarmReceiver"/>
+        <receiver android:enabled="false" android:name="ru.mail.libverify.utils.BatteryLevelReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="ru.mail.libverify.utils.permissions.ShadowActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.citymobil.verifyinitprovider" android:exported="false" android:name="ru.mail.libverify.utils.VerifyInitProvider"/>
+        <service android:exported="false" android:name="ru.mail.notify.core.gcm.GcmMessageHandlerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="ru.mail.notify.core.utils.AlarmReceiver"/>
+        <receiver android:name="ru.mail.notify.core.utils.network.NetworkStateReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="ru.mail.notify.core.utils.VerificationService"/>
+        <service android:enabled="true" android:exported="false" android:name="ru.mail.notify.core.utils.VerificationJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:enabled="true" android:exported="false" android:name="ru.mail.notify.core.gcm.GcmProcessService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:enabled="true" android:exported="false" android:name="ru.mail.notify.core.utils.IntentProcessService"/>
+        <service android:enabled="true" android:exported="false" android:name="ru.mail.notify.core.utils.IntentProcessJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:name="ru.mail.notify.core.utils.TimeChangeReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.ACTION_DATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.ndk.CrashlyticsNdkRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <provider android:authorities="com.citymobil.firebaseperfprovider" android:exported="false" android:initOrder="101" android:name="com.google.firebase.perf.provider.FirebasePerfProvider"/>
+        <provider android:authorities="com.citymobil.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:enabled="false" android:exported="false" android:launchMode="singleInstance" android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true"/>
+        <activity android:enabled="false" android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
+        <service android:enabled="false" android:exported="true" android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService">
+            <meta-data android:name="com.google.android.play.core.assetpacks.versionCode" android:value="11000"/>
+        </service>
+        <service android:enabled="false" android:exported="false" android:name="com.google.android.play.core.assetpacks.ExtractionForegroundService"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:visibleToInstantApps="true"/>
+        <activity android:name="zendesk.messaging.MessagingActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:exported="false" android:label="" android:name="pub.devrel.easypermissions.AppSettingsDialogHolderActivity" android:theme="@style/EasyPermissions.Transparent"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.citymobil.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <provider android:authorities="com.citymobil.belvedere2.attachments" android:exported="false" android:grantUriPermissions="true" android:name="zendesk.belvedere.BelvedereFileProvider" android:readPermission="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/belvedere_attachment_storage_v2"/>
+        </provider>
+        <provider android:authorities="com.citymobil.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.my.target.common.MyTargetActivity"/>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <receiver android:name="receivers.TimeSyncRequestedReceiver"/>
+        <receiver android:name="com.instacart.library.truetime.BootCompletedBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="3"/>
+    </application>
+</manifest>

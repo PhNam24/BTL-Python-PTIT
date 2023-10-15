@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:amazon="http://schemas.amazon.com/apk/res/android" xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.choicehotels.android" platformBuildVersionCode="21" platformBuildVersionName="5.0.1-1624448">
+    <supports-screens android:anyDensity="true"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.location" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <application android:allowBackup="false" android:debuggable="false" android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/na_app_name" android:name="com.choicehotels.android.application.ChoiceData" android:theme="@style/AppTheme">
+        <meta-data android:name="Xml File" android:value="choicehotels2"/>
+        <activity android:label="Locked" android:launchMode="singleTask" android:name="com.intraedge.applinkapp.ui.LockScreenActivity" android:screenOrientation="portrait" android:taskAffinity="com.choicehotels.android">
+            <meta-data android:name="FordSyncLock" android:value="true"/>
+        </activity>
+        <service android:name="com.intraedge.applinkcore.linkproc.AppLinkService"/>
+        <receiver android:name="com.intraedge.applinkapp.InVehicleBluetoothReceiver">
+            <intent-filter>
+                <action android:name="android.bluetooth.device.action.ACL_CONNECTED"/>
+                <action android:name="android.bluetooth.device.action.ACL_DISCONNECTED"/>
+                <action android:name="android.media.AUDIO_BECOMING_NOISY"/>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:label="@string/na_app_name" android:name="com.choicehotels.android.ui.SplashActivity" android:noHistory="true" android:theme="@style/SplashActivityTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleInstance" android:name="com.choicehotels.android.ui.DeepLinkActivity" android:theme="@style/NoDisplayTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="choicehotels"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="@string/home_title" android:launchMode="singleTop" android:name="com.choicehotels.android.ui.HomeActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="@string/login_title" android:launchMode="singleTop" android:name="com.choicehotels.android.ui.LoginActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="@string/forgot_credentials_title" android:name="com.choicehotels.android.ui.ForgotCredentialsActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="@string/feedback_title" android:launchMode="singleTop" android:name="com.choicehotels.android.ui.FeedbackActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="@string/about_brands_title" android:launchMode="singleTop" android:name="com.choicehotels.android.ui.AboutBrandsActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="@string/privacy_title" android:launchMode="singleTop" android:name="com.choicehotels.android.ui.PrivacyActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="@string/terms_of_use_title" android:launchMode="singleTop" android:name="com.choicehotels.android.ui.TermsActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="@string/support_title" android:launchMode="singleTop" android:name="com.choicehotels.android.ui.SupportActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="@string/membership_application_title" android:launchMode="singleTop" android:name="com.choicehotels.android.ui.MembershipApplicationActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="@string/ratings_review_webview_title" android:launchMode="singleTop" android:name="com.choicehotels.android.ui.RatingsAndReviewWebViewActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="@string/search_results_title" android:name="com.choicehotels.android.ui.SearchResultsActivity" android:parentActivityName=".ui.HomeActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/hotel_details_title" android:name="com.choicehotels.android.ui.HotelDetailsActivity" android:parentActivityName=".ui.SearchResultsActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="@string/account_title" android:launchMode="singleTop" android:name="com.choicehotels.android.ui.AccountActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="@string/about_title" android:launchMode="singleTop" android:name="com.choicehotels.android.ui.AboutActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="@string/ambig_search_description" android:launchMode="singleTop" android:name="com.choicehotels.android.ui.AmbigSearchActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="@string/reservation_webview_title" android:launchMode="singleTop" android:name="com.choicehotels.android.ui.ReservationsActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="@string/settings" android:launchMode="singleTop" android:name="com.choicehotels.android.ui.SettingsActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="@string/privacy_title" android:launchMode="singleTop" android:name="com.choicehotels.android.ui.TrackingActivity" android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:path="policy" android:scheme="ch-tracking"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.choicehotels.android.ui.DialogActivity" android:theme="@style/DialogTheme"/>
+        <activity android:label="@string/rooms" android:name="com.choicehotels.android.ui.CheckoutActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="@string/membership_application_title" android:launchMode="singleTop" android:name="com.choicehotels.android.ui.UserAccountActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="@string/hotel_details_title" android:launchMode="singleTop" android:name="com.choicehotels.android.ui.BeaconOfferDialogActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/reservation_native_title" android:launchMode="singleTop" android:name="com.choicehotels.android.ui.FindReservationActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/upcoming_reservations" android:launchMode="singleTop" android:name="com.choicehotels.android.ui.UpcomingReservationsActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:launchMode="singleTop" android:name=".ui.ReviewWebViewActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTop" android:name=".ui.WebViewActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="@string/statement_title" android:launchMode="singleTop" android:name="com.choicehotels.android.ui.LoyaltyAccountStatementsActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:name=".ui.VirtualTourActivity" android:theme="@style/VirtualTour"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="@string/recent_stays_title" android:launchMode="singleTop" android:name="com.choicehotels.android.ui.RecentStaysActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="6639037e43f0fb44e2970c2c3b0dd346f8e0f648"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <receiver android:name="com.choicehotels.android.application.UpcomingReservationNotificationReceiver"/>
+        <receiver android:name="com.choicehotels.android.application.AbandonedSearchNotificationReceiver"/>
+        <receiver android:exported="false" android:name="com.google.android.gms.wallet.EnableWalletOptimizationReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.wallet.ENABLE_WALLET_OPTIMIZATION"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.choicehotels.android.beacon.services.GeofencingReceiver"/>
+        <service android:exported="false" android:name="com.estimote.sdk.service.BeaconService"/>
+        <service android:exported="false" android:name="com.choicehotels.android.beacon.services.BeaconService"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.choicehotels.android.beacon.receivers.BeaconBroadcastReceiver" android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="AmazonAPIKey" android:value="@string/adm_api_key"/>
+        <amazon:enable-feature android:name="com.amazon.device.messaging" android:required="false"/>
+        <service android:exported="false" android:name="com.choicehotels.android.push.services.ADMPushService"/>
+        <receiver android:name="com.choicehotels.android.push.receivers.ADMExternalReceiver" android:permission="com.amazon.device.messaging.permission.SEND">
+            <intent-filter>
+                <action android:name="com.amazon.device.messaging.intent.REGISTRATION"/>
+                <action android:name="com.amazon.device.messaging.intent.RECEIVE"/>
+                <category android:name="com.choicehotels.android"/>
+            </intent-filter>
+        </receiver>
+        <service android:label="com.choicehotels.android.push.services.GCMPushService" android:name="com.choicehotels.android.push.services.GCMPushService">
+            <intent-filter>
+                <action android:name="com.choicehotels.android"/>
+                <action android:name="com.choicehotels.android.push.receivers.GCMExternalReceiver"/>
+                <category android:name="com.choicehotels"/>
+            </intent-filter>
+        </service>
+        <receiver android:name=".push.receivers.GCMExternalReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTER"/>
+                <category android:name="com.choicehotels"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.choicehotels.android.application.TrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+            <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        </receiver>
+    </application>
+</manifest>

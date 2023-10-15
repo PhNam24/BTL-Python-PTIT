@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" android:installLocation="internalOnly" package="net.safelagoon.lagoon2" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <permission android:description="@string/permission_set_connection_description" android:label="@string/permission_set_connection_label" android:name="net.safelagoon.lagoon2.permission.SET_CONNECTION" android:protectionLevel="signature"/>
+    <uses-permission android:name="net.safelagoon.lagoon2.permission.SET_CONNECTION"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.READ_PROFILE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.QUICKBOOT_POWERON"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES"/>
+    <uses-permission android:name="oppo.permission.OPPO_COMPONENT_SAFE"/>
+    <uses-permission android:name="com.huawei.permission.external_app_settings.USE_COMPONENT"/>
+    <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE"/>
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
+    <uses-feature android:name="android.hardware.location"/>
+    <uses-feature android:name="android.hardware.location.network"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:allowBackup="false" android:allowClearUserData="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:manageSpaceActivity=".scenes.login.overlord.OverlordActivity" android:name="net.safelagoon.lagoon2.LagoonApplication" android:persistent="true" android:requestLegacyExternalStorage="true" android:supportsRtl="true" android:theme="@style/LagoonTheme.Design">
+        <activity android:label="@string/app_name" android:name="net.safelagoon.lagoon2.scenes.login.overlord.OverlordActivity" android:screenOrientation="portrait" android:theme="@style/LoginTheme.Design.NoPreview" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="safelagoon.com" android:pathPattern="/" android:scheme="https"/>
+                <data android:pathPattern="/" android:scheme="safelagoon"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="net.safelagoon.lagoon2.scenes.register.RegisterActivity" android:screenOrientation="portrait" android:theme="@style/LoginTheme.Design" android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="safelagoon.com" android:pathPattern="/.+/registration.html" android:scheme="https"/>
+                <data android:pathPattern="/.+/registration.html" android:scheme="safelagoon"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/profile_new_title" android:launchMode="singleTop" android:name="net.safelagoon.lagoon2.scenes.register.ProfileActivity" android:screenOrientation="portrait" android:theme="@style/LoginTheme.Design" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:name="net.safelagoon.lagoon2.scenes.gmode.GmodeActivityExt" android:screenOrientation="portrait" android:theme="@style/LoginTheme.Design.Violet" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name="net.safelagoon.lagoon2.scenes.gmode.GmodeSettingsActivityExt" android:screenOrientation="portrait" android:theme="@style/LoginTheme.Design.DarkGreen" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="@string/app_name" android:name="net.safelagoon.lagoon2.scenes.login.fast.LoginFastActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/LoginTheme.Design" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.soundcloud.android.crop.CropImageActivity"/>
+        <activity android:label="@string/status_title" android:name="net.safelagoon.lagoon2.scenes.dashboard.status.StatusActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/settings_title" android:name="net.safelagoon.lagoon2.scenes.dashboard.settings.SettingsActivity" android:parentActivityName="net.safelagoon.lagoon2.scenes.dashboard.status.StatusActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".scenes.dashboard.status.StatusActivity"/>
+        </activity>
+        <activity android:excludeFromRecents="true" android:label="@string/app_name" android:launchMode="singleInstance" android:name="net.safelagoon.lagoon2.scenes.lock.LockActivity" android:noHistory="true" android:resizeableActivity="false" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:excludeFromRecents="true" android:label="@string/app_name" android:launchMode="singleInstance" android:name="net.safelagoon.lagoon2.scenes.lock.TransparentActivity" android:noHistory="true" android:theme="@style/LagoonTheme.Transparent" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <receiver android:name="net.safelagoon.lagoon2.receivers.CommunicationReceiver" android:permission="net.safelagoon.lagoon2.permission.SET_CONNECTION">
+            <intent-filter>
+                <action android:name="net.safelagoon.lagoon2.intent.action.GET_CONNECTION"/>
+                <action android:name="net.safelagoon.lagoon2.intent.action.MODULEX_CONNECTION"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:description="@string/admin_settings_description" android:label="@string/app_name" android:name="net.safelagoon.lagoon2.receivers.AdminReceiver" android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data android:name="android.app.device_admin" android:resource="@xml/device_admin"/>
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED"/>
+                <action android:name="android.app.action.DEVICE_ADMIN_DISABLED"/>
+                <action android:name="android.app.action.DEVICE_ADMIN_DISABLE_REQUESTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="net.safelagoon.lagoon2.receivers.ServiceProtectorReceiver">
+            <intent-filter android:priority="1001">
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter android:priority="1001">
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="net.safelagoon.lagoon2.receivers.location.GpsTimeoutReceiver"/>
+        <receiver android:exported="false" android:name="net.safelagoon.lagoon2.receivers.location.GpsStateReceiver"/>
+        <receiver android:exported="false" android:name="net.safelagoon.lagoon2.receivers.location.FusionTimeoutReceiver"/>
+        <receiver android:exported="false" android:name="net.safelagoon.lagoon2.receivers.location.FusionStateReceiver"/>
+        <receiver android:exported="false" android:name="net.safelagoon.lagoon2.receivers.CleanUpReceiver"/>
+        <service android:exported="false" android:foregroundServiceType="dataSync|location|mediaProjection" android:label="@string/app_name" android:name="net.safelagoon.lagoon2.services.InfoService"/>
+        <service android:exported="false" android:name="net.safelagoon.lagoon2.services.AccessibilityServiceExt" android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+            <meta-data android:name="android.accessibilityservice" android:resource="@xml/accessibility_service"/>
+        </service>
+        <service android:exported="false" android:label="@string/app_name" android:name="net.safelagoon.lagoon2.services.NotificationListenerServiceExt" android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:label="@string/app_name" android:name="net.safelagoon.mediaradar.MediaRadarService"/>
+        <service android:exported="false" android:label="@string/app_name" android:name="net.safelagoon.screentracker.CaptureService"/>
+        <provider android:authorities="net.safelagoon.lagoon2.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="net.safelagoon.lagoon2.providers.FileProviderExt">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <provider android:authorities="net.safelagoon.lagoon2.dataprovider" android:exported="true" android:grantUriPermissions="false" android:name="net.safelagoon.lagoon2.providers.DataProvider" android:permission="net.safelagoon.lagoon2.permission.SET_CONNECTION"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <activity android:label="@string/parent_app_name" android:name="net.safelagoon.parent.scenes.login.fast.LoginFastActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/LoginTheme.Design" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:label="@string/parent_dashboard_activity_title" android:launchMode="singleTop" android:name="net.safelagoon.parent.activities.dashboard.DashboardActivity" android:theme="@style/ParentTheme.Design.NoPreview">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="safelagoon.com" android:pathPattern="/.+/parental-app.html" android:scheme="https"/>
+                <data android:pathPattern="/.+/parental-app.html" android:scheme="safelagoon"/>
+                <data android:host="safelagoon.com" android:pathPattern="/.+/why-safelagoon.html" android:scheme="https"/>
+                <data android:pathPattern="/.+/why-safelagoon.html" android:scheme="safelagoon"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/parent_details_activity_title" android:name="net.safelagoon.parent.scenes.register.RegisterActivity" android:parentActivityName="net.safelagoon.parent.activities.dashboard.DashboardActivity" android:screenOrientation="portrait" android:theme="@style/LoginTheme.Design" android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="net.safelagoon.parent.activities.dashboard.DashboardActivity"/>
+        </activity>
+        <activity android:label="@string/parent_details_activity_title" android:name="net.safelagoon.parent.activities.dashboard.SettingsActivity" android:parentActivityName="net.safelagoon.parent.activities.dashboard.DashboardActivity" android:theme="@style/ParentTheme.Design" android:windowSoftInputMode="stateAlwaysHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="net.safelagoon.parent.activities.dashboard.DashboardActivity"/>
+        </activity>
+        <activity android:label="@string/parent_misc_activity_title" android:name="net.safelagoon.parent.scenes.misc.MiscActivity" android:parentActivityName="net.safelagoon.parent.activities.dashboard.DashboardActivity" android:theme="@style/ParentTheme.Design" android:windowSoftInputMode="stateAlwaysHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="net.safelagoon.parent.activities.dashboard.DashboardActivity"/>
+        </activity>
+        <activity android:label="@string/parent_details_activity_title" android:name="net.safelagoon.parent.scenes.details.DetailsActivity" android:parentActivityName="net.safelagoon.parent.activities.dashboard.DashboardActivity" android:theme="@style/ParentTheme.Design" android:windowSoftInputMode="stateAlwaysHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="net.safelagoon.parent.activities.dashboard.DashboardActivity"/>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="safelagoon.com" android:pathPattern="/.+/safe-internet.html" android:scheme="https"/>
+                <data android:pathPattern="/.+/safe-internet.html" android:scheme="safelagoon"/>
+                <data android:host="safelagoon.com" android:pathPattern="/.+/help-block-specific-website" android:scheme="https"/>
+                <data android:pathPattern="/.+/help-block-specific-website" android:scheme="safelagoon"/>
+                <data android:host="safelagoon.com" android:pathPattern="/.+/control-calls-sms.html" android:scheme="https"/>
+                <data android:pathPattern="/.+/control-calls-sms.html" android:scheme="safelagoon"/>
+                <data android:host="safelagoon.com" android:pathPattern="/.+/create-schedule-webcenter" android:scheme="https"/>
+                <data android:pathPattern="/.+/create-schedule-webcenter" android:scheme="safelagoon"/>
+                <data android:host="safelagoon.com" android:pathPattern="/.+/help-android-schedule" android:scheme="https"/>
+                <data android:pathPattern="/.+/help-android-schedule" android:scheme="safelagoon"/>
+                <data android:host="safelagoon.com" android:pathPattern="/.+/help-setup-android-app-time-limits" android:scheme="https"/>
+                <data android:pathPattern="/.+/help-setup-android-app-time-limits" android:scheme="safelagoon"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/parent_details_activity_title" android:name="net.safelagoon.parent.scenes.details.AppsListDetailsActivity" android:parentActivityName="net.safelagoon.parent.activities.dashboard.DashboardActivity" android:theme="@style/ParentTheme.Design" android:windowSoftInputMode="stateAlwaysHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="net.safelagoon.parent.activities.dashboard.DashboardActivity"/>
+        </activity>
+        <activity android:label="@string/parent_details_activity_title" android:name="net.safelagoon.parent.activities.dashboard.NotificationsDetailsActivity" android:parentActivityName="net.safelagoon.parent.activities.dashboard.DashboardActivity" android:theme="@style/ParentTheme.Design" android:windowSoftInputMode="stateAlwaysHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="net.safelagoon.parent.activities.dashboard.DashboardActivity"/>
+        </activity>
+        <activity android:label="@string/parent_details_activity_title" android:name="net.safelagoon.parent.scenes.gmode.GmodeActivityExt" android:parentActivityName="net.safelagoon.parent.activities.dashboard.DashboardActivity" android:screenOrientation="portrait" android:theme="@style/ParentTheme.Design.Geo" android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="net.safelagoon.parent.activities.dashboard.DashboardActivity"/>
+        </activity>
+        <activity android:label="@string/parent_details_activity_title" android:name="net.safelagoon.parent.scenes.details.GalleryDetailsActivity" android:parentActivityName="net.safelagoon.parent.activities.dashboard.DashboardActivity" android:theme="@style/ParentTheme.Design" android:windowSoftInputMode="stateAlwaysHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="net.safelagoon.parent.activities.dashboard.DashboardActivity"/>
+        </activity>
+        <activity android:label="@string/parent_details_activity_title" android:name="net.safelagoon.parent.scenes.details.CaptureDetailsActivity" android:parentActivityName="net.safelagoon.parent.activities.dashboard.DashboardActivity" android:theme="@style/ParentTheme.Design.Capture">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="net.safelagoon.parent.activities.dashboard.DashboardActivity"/>
+        </activity>
+        <activity android:label="@string/parent_geo_activity_title" android:name="net.safelagoon.parent.activities.tabs.GeoTabsActivity" android:parentActivityName="net.safelagoon.parent.activities.dashboard.DashboardActivity" android:theme="@style/ParentTheme.Design.Geo">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="net.safelagoon.parent.activities.dashboard.DashboardActivity"/>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="safelagoon.com" android:pathPattern="/.+/gps-tracker.html" android:scheme="https"/>
+                <data android:pathPattern="/.+/gps-tracker.html" android:scheme="safelagoon"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/parent_timeline_activity_title" android:name="net.safelagoon.parent.scenes.timeline.TimelineTabsActivity" android:parentActivityName="net.safelagoon.parent.activities.dashboard.DashboardActivity" android:theme="@style/ParentTheme.MaterialDesign.Timeline">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="net.safelagoon.parent.activities.dashboard.DashboardActivity"/>
+        </activity>
+        <activity android:label="@string/parent_chat_activity_title" android:name="net.safelagoon.parent.activities.tabs.ChatTabsActivity" android:parentActivityName="net.safelagoon.parent.activities.dashboard.DashboardActivity" android:theme="@style/ParentTheme.Design.Chat">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="net.safelagoon.parent.activities.dashboard.DashboardActivity"/>
+        </activity>
+        <activity android:label="@string/parent_rules_dashboard_activity_title" android:name="net.safelagoon.parent.activities.tabs.RulesTabsActivity" android:parentActivityName="net.safelagoon.parent.activities.dashboard.DashboardActivity" android:theme="@style/ParentTheme.Design.Rules">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="net.safelagoon.parent.activities.dashboard.DashboardActivity"/>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="safelagoon.com" android:pathPattern="/.+/time-management.html/" android:scheme="https"/>
+                <data android:pathPattern="/.+/time-management.html/" android:scheme="safelagoon"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/parent_title_wb_lists" android:name="net.safelagoon.parent.activities.tabs.AppsModesTabsActivity" android:parentActivityName="net.safelagoon.parent.activities.dashboard.DashboardActivity" android:theme="@style/ParentTheme.Design.AppsModes.White">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="net.safelagoon.parent.activities.dashboard.DashboardActivity"/>
+        </activity>
+        <activity android:label="@string/parent_calls_rules_dashboard_activity_title" android:name="net.safelagoon.parent.activities.tabs.CallsRulesTabsActivity" android:parentActivityName="net.safelagoon.parent.activities.dashboard.DashboardActivity" android:theme="@style/ParentTheme.Design.Calls.Rules">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="net.safelagoon.parent.activities.dashboard.DashboardActivity"/>
+        </activity>
+        <activity android:label="@string/parent_app_override_activity_title" android:name="net.safelagoon.parent.activities.dashboard.AppOverrideActivity" android:parentActivityName="net.safelagoon.parent.activities.dashboard.NotificationsDetailsActivity" android:theme="@style/ParentTheme.Design">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="net.safelagoon.parent.activities.dashboard.NotificationsDetailsActivity"/>
+        </activity>
+        <activity android:label="@string/parent_app_override_activity_title" android:name="net.safelagoon.parent.activities.dashboard.AppModeActivity" android:parentActivityName="net.safelagoon.parent.activities.dashboard.NotificationsDetailsActivity" android:theme="@style/ParentTheme.Design">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="net.safelagoon.parent.activities.dashboard.NotificationsDetailsActivity"/>
+        </activity>
+        <receiver android:name="net.safelagoon.parent.receivers.AppOverrideReceiver">
+            <intent-filter android:priority="999">
+                <action android:name="net.safelagoon.parent.receivers.AppOverrideReceiver.ACTION_PERMIT"/>
+                <action android:name="net.safelagoon.parent.receivers.AppOverrideReceiver.ACTION_BLOCK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="net.safelagoon.parent.receivers.AppModeReceiver">
+            <intent-filter android:priority="999">
+                <action android:name="net.safelagoon.parent.receivers.AppModeReceiver.ACTION_PERMIT"/>
+                <action android:name="net.safelagoon.parent.receivers.AppModeReceiver.ACTION_BLOCK"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="@string/google_maps_key"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <service android:enabled="true" android:name="com.amazonaws.mobileconnectors.s3.transferutility.TransferService"/>
+        <activity android:name="com.amplifyframework.devmenu.DeveloperMenuActivity" android:theme="@style/OverlayActivity"/>
+        <activity android:name="net.safelagoon.library.scenes.login.LoginActivity" android:screenOrientation="portrait" android:theme="@style/LoginTheme.Design" android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="safelagoon.com" android:pathPattern="/.+/login.html" android:scheme="https"/>
+                <data android:pathPattern="/.+/login.html" android:scheme="safelagoon"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="false" android:name="net.safelagoon.library.services.FirebaseMessagingServiceExt">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="cct.net.safelagoon.lagoon2" android:scheme="fbconnect"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:name="androidx.biometric.DeviceCredentialHandlerActivity" android:theme="@style/DeviceCredentialHandlerTheme"/>
+        <provider android:authorities="net.safelagoon.lagoon2.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:name="androidx.work.impl.foreground.SystemForegroundService"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="net.safelagoon.lagoon2.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="net.safelagoon.lagoon2.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:launchMode="singleTask" android:name="com.amazonaws.mobileconnectors.cognitoauth.activities.CustomTabsManagerActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <provider android:authorities="net.safelagoon.lagoon2.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <activity android:enabled="false" android:exported="false" android:launchMode="singleInstance" android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true"/>
+        <activity android:enabled="false" android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
+        <service android:enabled="false" android:exported="true" android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService"/>
+    </application>
+</manifest>

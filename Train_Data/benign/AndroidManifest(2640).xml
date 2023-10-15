@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" package="it.isplus.klindex" platformBuildVersionCode="75" platformBuildVersionName="8.4.12">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.landscape" android:required="false"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <application android:allowBackup="true" android:appComponentFactory="android.support.v4.app.CoreComponentFactory" android:fullBackupContent="@xml/backup_descriptor" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="it.isplus.isplus.utility.MyApplication" android:requestLegacyExternalStorage="true" android:supportsRtl="true" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
+        <service android:name="it.isplus.isplus.firebase.MyFcmListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="it.isplus.isplus.view.SplashScreenActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_home" android:name="it.isplus.isplus.view.news_hashtag.FollownewsHomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar.Transparent"/>
+        <activity android:name="it.isplus.isplus.login.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_news_view" android:name="it.isplus.isplus.view.news_hashtag.NewsViewActivity" android:parentActivityName="it.isplus.isplus.view.news_hashtag.FollownewsHomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar.Transparent">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="it.isplus.isplus.view.news_hashtag.FollownewsHomeActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_list_news" android:name="it.isplus.isplus.view.news_hashtag.ListNewsActivity" android:parentActivityName="it.isplus.isplus.view.news_hashtag.FollownewsHomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="it.isplus.isplus.view.news_hashtag.FollownewsHomeActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_news_mod" android:name="it.isplus.isplus.view.news_hashtag.NewsModActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_feedback" android:name="it.isplus.isplus.view.FeedbackActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_settings" android:name="it.isplus.isplus.view.SettingsActivity" android:screenOrientation="portrait"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="@string/google_maps_key"/>
+        <activity android:label="@string/title_activity_list_movmag" android:name="it.isplus.isplus.view.magazzino.ListMovmagActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_movmag_view" android:name="it.isplus.isplus.view.magazzino.MovmagViewActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_movmag_carico" android:name="it.isplus.isplus.view.magazzino.MovmagCaricoActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_lista_magazzini" android:name="it.isplus.isplus.view.magazzino.ListaMagazziniActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_lista_articoli" android:name="it.isplus.isplus.view.articoli.ListaArticoliActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar.CustomCursor">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable_articles"/>
+        </activity>
+        <activity android:label="@string/title_activity_lista_contatti" android:name="it.isplus.isplus.contacts.old_contacts.ListaContattiActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar.CustomCursor">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable_contacts"/>
+        </activity>
+        <activity android:label="@string/title_activity_lista_movmag_trace" android:name="it.isplus.isplus.view.magazzino.ListaMovmagTraceActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_movmag_trace_view" android:name="it.isplus.isplus.view.magazzino.MovmagTraceViewActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_movmag_barcode_scanner" android:name="it.isplus.isplus.view.magazzino.MovmagBarcodeScannerActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/title_activity_mag_barcode_scanner" android:name="it.isplus.isplus.view.magazzino.MagBarcodeScannerActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/title_activity_movmag_muovi_da_carico" android:name="it.isplus.isplus.view.magazzino.MovmagMuoviDaCaricoActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_movmag_muovi" android:name="it.isplus.isplus.view.magazzino.MovmagMuoviActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_movmag_trace_mod_actovity" android:name="it.isplus.isplus.view.magazzino.MovmagTraceModActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="" android:name="it.isplus.isplus.contacts.old_contacts.ContactSchedaActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar.Transparent"/>
+        <activity android:label="@string/title_activity_ecommerce" android:name="it.isplus.isplus.ecommerce.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="orientation|screenLayout|screenSize" android:label="@string/title_activity_ecommerce" android:name="it.isplus.isplus.ecommerce.signorder.SignOrderActivity" android:screenOrientation="landscape" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_ecommerce" android:name="it.isplus.isplus.ecommerce.item_detail.ItemDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/ecommerce_datetime_slot_title" android:name="it.isplus.isplus.ecommerce.delivery_options.DeliveryOptionsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/ecommerce_datetime_slot_title" android:name="it.isplus.isplus.ecommerce.datetime_slot.DateTimeSlotActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/ecommerce_payment_method_title" android:name="it.isplus.isplus.ecommerce.payment.PaymentMethodActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="Movimento magazzino" android:name="it.isplus.isplus.warehouse.movimento_magazzino.MovMagActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable_articles"/>
+        </activity>
+        <activity android:label="Gestione Magazzino" android:name="it.isplus.isplus.warehouse.home.WarehouseHomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_search_domain" android:name="it.isplus.isplus.domain.SearchDomainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable_domain"/>
+        </activity>
+        <activity android:name="it.isplus.isplus.warehouse.inventory_management.load_from_barcode.InventoryManagementLoadActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.warehouse.inventory_management.reintegrate_from_production.InventoryManagementReintegrateActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.warehouse.inventory_management.unload_from_barcode.InventoryManagementUnloadActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.contacts.ContactsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.warehouse.detailed_internal_handling.DetailedInternalHandlingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.fidygest.view.CardScreenActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.fidygest.view.CardNetworkActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.fidygest.view.MovementsListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.fidygest.view.MovementsDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.fidygest.view.NewCardActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.fidygest.view.CardListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.fidygest.view.CardSearchActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.fidygest.view.OperationsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="it.isplus.isplus.badgedetection.view.BadgeListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.badgedetection.view.BadgeScreenActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.badgedetection.view.BadgeStampingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="it.isplus.isplus.badgedetection.view.BadgeMovementsListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.badgedetection.view.BadgeMovementDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:clearTaskOnLaunch="true" android:name="com.journeyapps.barcodescanner.CaptureActivity" android:screenOrientation="portrait" android:stateNotNeeded="true" android:theme="@style/zxing_CaptureTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <provider android:authorities="it.isplus.klindex.fileprovider" android:exported="false" android:grantUriPermissions="true" android:multiprocess="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/filepaths"/>
+        </provider>
+        <provider android:authorities="it.isplus.klindex.provider" android:exported="false" android:grantUriPermissions="true" android:multiprocess="true" android:name="it.isplus.isplus.utility.FileProviderDownload">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <activity android:label="@string/title_activity_maps" android:name="it.isplus.isplus.maps.MapsActivity"/>
+        <activity android:name="it.isplus.isplus.purchaseorder.views.PurchaseOrderHomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.purchaseorder.views.PurchaseOrderCartActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.purchaseorder.views.PurchaseOrderProductsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.taskmanager.views.TMStartRequestHomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.taskmanager.views.TMStartRequestHumanResourceActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.taskmanager.views.TMTaskHomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.contacts.ContactSimpleUpdateDsoActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.contacts.ContactSimpleInsertDsoActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.contacts.ContactDsoActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.aziende.views.GenAziendeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.articles.views.ArticleDsoActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.follownews.views.FNWCommentDsoActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.follownews.views.FNWNewsDsoActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.follownews.views.FNWHashtagDsoActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="it.isplus.isplus.login.RegistrationDsoActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="it.isplus.klindex.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|layoutDirection|locale|mcc|mnc|orientation|screenLayout|screenSize|uiMode" android:name="com.gun0912.tedpermission.TedPermissionActivity" android:screenOrientation="unspecified" android:theme="@style/Theme.Transparent.Permission"/>
+        <provider android:authorities="it.isplus.klindex.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+    </application>
+</manifest>

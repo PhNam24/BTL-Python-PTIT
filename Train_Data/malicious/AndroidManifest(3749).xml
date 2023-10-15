@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.cidtech.xianwaishi" platformBuildVersionCode="19" platformBuildVersionName="4.4.2-1035858">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_GPS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL"/>
+    <permission android:name="com.cidtech.xianwaishi.permission.MIPUSH_RECEIVE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.cidtech.xianwaishi.permission.MIPUSH_RECEIVE"/>
+    <application android:hardwareAccelerated="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:name="com.tencent.StubShell.TxAppEntry" android:persistent="true" android:theme="@style/AppTheme">
+        <meta-data android:name="TxAppEntry" android:value="com.donson.beiligong.MyApplication"/>
+        <receiver android:name="com.yonyou.sns.im.core.YYIMBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.ACTION_SHUTDOWN"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.yonyou.sns.im.core.YYIMService"/>
+        <meta-data android:name="com.yonyou.sns.im.appid" android:value="1078501223"/>
+        <meta-data android:name="com.yonyou.sns.im.etpid" android:value="cidtech"/>
+        <service android:enabled="true" android:name="com.xiaomi.push.service.XMPushService" android:process=":pushservice"/>
+        <service android:enabled="true" android:exported="true" android:name="com.xiaomi.mipush.sdk.PushMessageHandler"/>
+        <service android:enabled="true" android:name="com.xiaomi.mipush.sdk.MessageHandleService"/>
+        <receiver android:exported="true" android:name="com.xiaomi.push.service.receivers.NetworkStatusReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.xiaomi.push.service.receivers.PingReceiver" android:process=":pushservice">
+            <intent-filter>
+                <action android:name="com.xiaomi.push.PING_TIMER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.donson.beiligong.mipush.MiPushBroadcast">
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.MESSAGE_ARRIVED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.ERROR"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:exported="false" android:name="com.alipay.sdk.app.H5PayActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:exported="false" android:name="com.alipay.sdk.auth.AuthActivity" android:screenOrientation="behind"/>
+        <service android:exported="false" android:name="cmb.pb.cmbsafe.CmbService"/>
+        <activity android:name="cmb.pb.ui.PBKeyboardActivity" android:theme="@style/CmbDialogStyleBottom"/>
+        <meta-data android:name="com.amap.api.v2.apikey" android:value="53bea4b971912b4ad5baace99c52eb6b"/>
+        <service android:name="com.amap.api.location.APSService"/>
+        <activity android:name="com.donson.beiligong.view.SaplashPageActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.donson.beiligong.view.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.SettingActivity" android:screenOrientation="portrait"/>
+        <service android:enabled="true" android:label="AlarmService" android:name="com.donson.beiligong.push.AlarmService">
+            <intent-filter android:priority="1000">
+                <action android:name="com.donson.beiligong.push.AlarmService"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:name="com.donson.beiligong.im.receive.AlarmReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="com.donson.beiligong.im.BD_IM_inform"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.donson.beiligong.view.RegisterActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.AgreementActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.EditRegisterInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:name="com.donson.beiligong.wxapi.WXEntryActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.widget.BigImageScanActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.widget.BigImageScanOneActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.huihua.ChatActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.xiaoyou.SheTuanDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.beiligong.PinglunActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.huihua.MessageActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.EditEducationInputActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.huihua.SystemMessageActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.huihua.FriendToApplyActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.huihua.GroupChatActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:name="com.donson.beiligong.view.huihua.QunMemberSelectActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.PersonalDetailInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.beiligong.BeiligongActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.beiligong.DetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.AddPhotoImageScanActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.SetVisibleActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.FoundActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:name="com.donson.beiligong.view.found.FoundActivityGridView" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:name="com.donson.beiligong.view.found.DonationPageActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.donson.beiligong.view.found.PhoneDonationStyleActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.PhoneMsgDoantionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.XiaoyouGongyiActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.OnlineApplyActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.DonationActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name="com.donson.beiligong.view.found.DonationSayActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.ShareToFriendActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.ProjectsDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.SchoolAlbumActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.SchoolPictrueScanActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.SchoolAlbumDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.OnlineSurveyActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.OnlineSurveyDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.donson.beiligong.view.found.PublicTextActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.donson.beiligong.view.found.AddPhotoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.NewsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.MeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.MyExcelDocument" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.MyCardActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.BusinessActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.BusinessDetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.AdvertisingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.AdsDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.FavoritePhotoScanActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.ApplyCardActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.JifenDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.InputApplyInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.TextAlbumActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.xiaoyou.SchoolClubMemberListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.MoreActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.UserInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.EditImageActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.PwdOrNameModifyActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.UserNameChangeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.MsgNotifyActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.EditEducationInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.TecentAuthorizeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.ImageAndTextAlbumActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.youth.CheckBigImgeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.JifenHistoryActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.CannotLookPhotoMemberActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.MyPhotosGroupActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.CreatePhotoGroupActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.EditPhotoGroupNameActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.CantactsGroupActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.xiaoyou.XiaoYouActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.xiaoyou.SchoolFriendsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.xiaoyou.BanJiActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.xiaoyou.BanJiDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.xiaoyou.FiltrateActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.xiaoyou.TeacherActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.xiaoyou.XiaoYouHuiActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.xiaoyou.SheTuanActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.xiaoyou.SchoolClubSearchActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.xiaoyou.SearchActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.xiaoyou.NoticeDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.xiaoyou.SchoolFriendsClubDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="standard" android:name="com.donson.beiligong.view.cantacts.group.GroupMemberSelectActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="standard" android:name="com.donson.beiligong.view.cantacts.group.CantactsGroupEditActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="standard" android:name="com.donson.beiligong.view.cantacts.CantactsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="standard" android:name="com.donson.beiligong.view.cantacts.CantactsSelectActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="standard" android:name="com.donson.beiligong.view.cantacts.group.CantactsQunActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="standard" android:name="com.donson.beiligong.view.cantacts.group.CantactsSelectQunActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="standard" android:name="com.donson.beiligong.view.cantacts.group.CantactsZuActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="standard" android:name="com.donson.beiligong.view.cantacts.group.CantactsSelectZuActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.CantactsGroupDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.MyFavoritesActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.ChangePwdActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.FeedBackActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.PrivaceSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.GroupChatNotifyActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.AboutUsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.InfoChangeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.PhoneActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.EducautionInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.MyAccumulate" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.PointsLawActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.donson.beiligong.view.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.donson.beiligong.view.FindBackPwdActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.ResetPwdActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.huihua.ChatDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.xiaoyou.NoticePublishActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.HuodongActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.HuodongDetailActivtiy" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.BaomingPeopleListActivty" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.RiliHuodongSearchActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.RiliActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.MineHuodongActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.CheckPhotoVisibleGroupActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.PhotoListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.DazhaohuActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.NearbyAlumeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.SendDazhaohuActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.MyPhotoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.youth.YouthActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.donson.beiligong.view.found.FoundYouthDialogActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.bank.BankActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.donson.beiligong.view.found.bank.PublishActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.found.bank.zhaopin.ZhaoPinActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.found.bank.city.SearchCityActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.found.bank.position.PostionActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.found.bank.hangye.HangyeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.found.bank.SearchResultActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.found.youth.SearchActivityResultActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.found.bank.PostionDetilActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <receiver android:enabled="true" android:name="com.donson.beiligong.im.receive.ChatToDbRecever">
+            <intent-filter>
+                <action android:name="com.donson.beiligong.im.BD_IM_inform"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:launchMode="singleTask" android:name="com.donson.beiligong.im.receive.LoginReceiver" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.donson.beiligong.im.BD_CMD_LOGIN"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenSize" android:name="com.donson.beiligong.camera.activity.CameraAty"/>
+        <activity android:name="com.donson.beiligong.camera.activity.ActivityFilm"/>
+        <activity android:name="com.donson.beiligong.camera.activity.ActivityNormal"/>
+        <activity android:name="com.donson.beiligong.camera.activity.AlbumAty"/>
+        <activity android:name="com.donson.beiligong.camera.activity.AlbumItemAty"/>
+        <activity android:name="com.donson.beiligong.camera.activity.SubtitleActivity"/>
+        <activity android:name="com.donson.beiligong.ContactManageActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.GroupManageActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.QunMemberActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.QunDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.CreateQunActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.EditCreateQunInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.SelectQunCityActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.SelectMarkActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.AnswerDongtaiActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.PostDetail" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.PersonCardActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.AddActivityActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.EnrollOptionActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.NumLimitActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.OneSelectActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.MoreSelectActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.OneTextActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.MoreTextActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.CostActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.AddDontaiActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.ActivityListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.DongtaiListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.ExitGroupActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.FindGroupActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.MemberActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.ActivityDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.SelectFylxActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.ActivityTypeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.EditAddressActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.UpdateGroupActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.AddPostActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.EditActivityActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.DynamicDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.PostListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.StarClubActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.MemberActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.SelectPicActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.group.EditPicActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.donson.beiligong.view.me.MessageBoxActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.AboutHelpActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.huihua.FriendToApplyDetail" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.beiligong.SeekHelpActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.beiligong.HotActivityDetail" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:name="com.donson.beiligong.view.beiligong.PublicHelpActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.cantacts.FriendListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.widget.zxingcode.CaptureActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.ZhaoXiaoYouActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.ZhaoZuZhiActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.ZhaoZiYuanActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.DonationWebActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.found.DonationSelectActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.pay.alipay.AliPayActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.beiligong.ShangHaiShiFan9gonggeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.beiligong.ShangHaiShiFanListingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.MeSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.GuideViewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.beiligong.ShangShiFanFengCai" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.beiligong.ShangShiFanNewsTop" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.beiligong.ShangShiFanHuoDong" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.view.me.PositionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.pay.cmb.CmbPayWebActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.donson.beiligong.yyimsdk.YYIMChatActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.yyimsdk.AlbumPhotoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.yyimsdk.CameraEditActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.donson.beiligong.yyimsdk.ImagePagerActivity" android:screenOrientation="portrait"/>
+    </application>
+</manifest>

@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.diandianzhuan.app" platformBuildVersionCode="23" platformBuildVersionName="6.0-2704002">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.diandianzhuan.app.permission.JPUSH_MESSAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <permission android:name="com.diandianzhuan.app.permission.JPUSH_MESSAGE" android:protectionLevel="signature"/>
+    <permission android:name="com.diandianzhuan.app.permission.MIPUSH_RECEIVE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.diandianzhuan.app.permission.MIPUSH_RECEIVE"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="false" android:icon="@drawable/app_logo" android:label="@string/app_name" android:name="com.diandianzhuan.app.MainApp" android:theme="@style/AppTheme">
+        <meta-data android:name="BUGLY_APPID" android:value="6378ba485d"/>
+        <meta-data android:name="BUGLY_APP_VERSION" android:value="3.1.2"/>
+        <meta-data android:name="BUGLY_APP_CHANNEL" android:value="yingyongbao"/>
+        <meta-data android:name="BUGLY_ENABLE_DEBUG" android:value="true"/>
+        <meta-data android:name="UMENG_APPKEY" android:value="5528e887fd98c559cc000e00"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="yingyongbao"/>
+        <meta-data android:name="DR_APPKEY" android:value="@string/app_key"/>
+        <meta-data android:name="ZHUGE_APPKEY" android:value="ea1eef6980ea401986e1bf932f23a8b1"/>
+        <meta-data android:name="ZHUGE_CHANNEL" android:value="yingyongbao"/>
+        <meta-data android:name="com.fengchuan.cid" android:value="yingyongbao"/>
+        <meta-data android:name="com.amap.api.v2.apikey" android:value="dba357ac67341efe440a7b7223352a63"/>
+        <meta-data android:name="design_width" android:value="750"/>
+        <meta-data android:name="design_height" android:value="1334"/>
+        <service android:name="com.amap.api.location.APSService"/>
+        <receiver android:label="NetworkConnection" android:name="com.diandianzhuan.network.NetworkReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.dc.wall.DcActivity"/>
+        <activity android:name="com.diandianzhuan.home.TextActivity"/>
+        <activity android:label="@string/app_name" android:name="com.diandianzhuan.home.MainEntrance" android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:host="com.diandianzhuan.app" android:scheme="fengchuan"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.diandianzhuan.account.AccountActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.diandianzhuan.home.HomeActivity2" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="com.diandianzhuan.app.MESSAGE_RECEIVED_ACTION"/>
+                <category android:name="jpush.testCategory"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.diandianzhuan.home.WelcomeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.diandianzhuan.center.ChangeTelphoneActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.diandianzhuan.home.RankActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.diandianzhuan.home.PublishActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleTask" android:name="com.diandianzhuan.home.ChanelChooseActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleTask" android:name="com.diandianzhuan.home.NewsDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.diandianzhuan.home.ProxyActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.diandianzhuan.home.SignActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.diandianzhuan.home.InviteNowActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.diandianzhuan.center.InviteActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.diandianzhuan.account.SettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.diandianzhuan.account.PushMsgActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.diandianzhuan.account.UserResetPwdActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.diandianzhuan.account.TipActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.diandianzhuan.account.FeedBackActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.diandianzhuan.center.TakeCashActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.diandianzhuan.center.BindTelphoneActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.diandianzhuan.center.TelphoneValidateActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.diandianzhuan.center.ProfitDetailSysActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.diandianzhuan.center.FansActiviy" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.diandianzhuan.center.HobbyActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.diandianzhuan.center.AboutTakeMoneyActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.diandianzhuan.center.ChangeUserInfoActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.diandianzhuan.center.ChangeInfoActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.diandianzhuan.account.AboutActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.diandianzhuan.shop.AboutDuoBaoActivity"/>
+        <activity android:name="com.diandianzhuan.shop.MyDuoBaoNumberActivity"/>
+        <activity android:name="com.diandianzhuan.shop.OrderPayActivity"/>
+        <activity android:name="com.diandianzhuan.shop.ProductDetailImageActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.diandianzhuan.shop.AddressManageActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.diandianzhuan.shop.ShopCartActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.diandianzhuan.shop.DuoBaoHistoryActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.diandianzhuan.shop.DuoBaoProductDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.diandianzhuan.shop.AttendRecordsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.diandianzhuan.shop.MyDuoBaoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.diandianzhuan.shop.CalcuateRuleActiviy" android:screenOrientation="portrait"/>
+        <activity android:name="com.diandianzhuan.shop.MissionDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.diandianzhuan.shop.DuoBaoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.diandianzhuan.home.CooperationPlatformActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.diandianzhuan.account.UserInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.diandianzhuan.center.MessageActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.diandianzhuan.center.HelperActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.diandianzhuan.center.ProfitDetailReadingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.diandianzhuan.center.ProfitDetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.diandianzhuan.center.TakeMoneyRecordsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.diandianzhuan.center.WalletActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.diandianzhuan.app.WBShareActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser" android:windowSoftInputMode="adjustResize"/>
+        <activity android:excludeFromRecents="true" android:name="com.umeng.socialize.editorpage.ShareActivity" android:theme="@style/Theme.UMDefault"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:name="com.diandianzhuan.app.wxapi.WXEntryActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencent1104008830"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.connect.common.AssistActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:name="com.dc.wall.AC"/>
+        <service android:name="com.dc.wall.DC"/>
+        <service android:exported="false" android:name="com.sina.weibo.sdk.net.DownloadService"/>
+        <service android:name="com.umeng.update.net.DownloadingService" android:process=":DownloadingService"/>
+        <activity android:name="com.umeng.update.UpdateDialogActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:exported="false" android:name="cn.jpush.android.ui.PopWinActivity" android:theme="@style/MyDialogStyle"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="cn.jpush.android.ui.PushActivity" android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.diandianzhuan.app"/>
+            </intent-filter>
+        </activity>
+        <service android:enabled="true" android:exported="false" android:name="cn.jpush.android.service.DownloadService"/>
+        <service android:enabled="true" android:exported="false" android:name="cn.jpush.android.service.PushService">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER"/>
+                <action android:name="cn.jpush.android.intent.REPORT"/>
+                <action android:name="cn.jpush.android.intent.PushService"/>
+                <action android:name="cn.jpush.android.intent.PUSH_TIME"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="true" android:name="cn.jpush.android.service.DaemonService">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.DaemonService"/>
+                <category android:name="com.diandianzhuan.app"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="cn.jpush.android.service.PushReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY"/>
+                <category android:name="com.diandianzhuan.app"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="cn.jpush.android.service.AlarmReceiver"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.diandianzhuan.network.MyReceiver">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION"/>
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED"/>
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED"/>
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED"/>
+                <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK"/>
+                <action android:name="cn.jpush.android.intent.CONNECTION"/>
+                <category android:name="com.diandianzhuan.app"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="JPUSH_CHANNEL" android:value="developer-default"/>
+        <meta-data android:name="JPUSH_APPKEY" android:value="b3e3285e7973c1630e7e59d4"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:exported="false" android:name="com.alipay.sdk.app.H5PayActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:exported="false" android:name="com.alipay.sdk.auth.AuthActivity" android:screenOrientation="behind"/>
+        <service android:enabled="true" android:name="com.xiaomi.push.service.XMPushService" android:process=":pushservice"/>
+        <service android:enabled="true" android:exported="false" android:name="com.xiaomi.push.service.XMJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:process=":pushservice"/>
+        <service android:enabled="true" android:exported="true" android:name="com.xiaomi.mipush.sdk.PushMessageHandler"/>
+        <service android:enabled="true" android:name="com.xiaomi.mipush.sdk.MessageHandleService"/>
+        <receiver android:exported="true" android:name="com.xiaomi.push.service.receivers.NetworkStatusReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.xiaomi.push.service.receivers.PingReceiver" android:process=":pushservice">
+            <intent-filter>
+                <action android:name="com.xiaomi.push.PING_TIMER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.diandianzhuan.receiver.XiaoMiPushMessageReceiver">
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.MESSAGE_ARRIVED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.ERROR"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.fingermobi.vj.activity.QdiActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.fingermobi.vj.activity.TaskInfoActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.fingermobi.vj.activity.WithDrawalActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.fingermobi.vj.activity.MyincomeActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.fingermobi.vj.activity.TiXianAActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.fingermobi.vj.activity.TiXianPActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.fingermobi.vj.activity.TiXianQActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.fingermobi.vj.activity.CuserwitLogActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.fingermobi.vj.activity.UserInfoActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.fingermobi.vj.activity.LevelExplainActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.fingermobi.vj.activity.WeiBoShareActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.fingermobi.vj.activity.CpaTaskInfoActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.fingermobi.vj.activity.TaskCenterPageActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.fingermobi.vj.activity.PublishNeedBackActivity"/>
+        <service android:name="com.fingermobi.vj.utils.DownloadService"/>
+        <receiver android:name="com.fingermobi.vj.utils.AppChangeBrocastreceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.zy.phone.sdk.SDKActivity" android:screenOrientation="portrait"/>
+        <receiver android:name="com.zy.phone.service.BootReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.zy.phone.service.ZYService"/>
+        <activity android:enabled="true" android:exported="false" android:name="com.yql.dr.sdk.DRActivity" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <service android:enabled="true" android:exported="false" android:name="com.yql.dr.sdk.ProcessService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.yql.dr.sdk.DRService"/>
+        <receiver android:exported="false" android:name="com.yql.dr.pkg.LocalAppContrast">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.fengchuan.DevNativeActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:name="com.fengchuan.DevNativeService"/>
+        <activity android:label="@string/app_name" android:name="com.diandian.geetest.MainActivity"/>
+    </application>
+</manifest>

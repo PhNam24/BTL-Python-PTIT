@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="org.table.yourlcc">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.location" android:required="false"/>
+    <uses-feature android:name="android.location.gps" android:required="false"/>
+    <uses-feature android:name="android.location.network" android:required="false"/>
+    <uses-feature android:name="android.permission.BLUETOOTH" android:required="false"/>
+    <permission android:name=".permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name=".permission.C2D_MESSAGE"/>
+    <application android:allowBackup="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:logo="@drawable/logo_actionbar" android:name="org.tableproject.utils.BaseApplication" android:theme="@style/AppTheme">
+        <activity android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="org.tableproject.activity.LauncherActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="org.tableproject.activity.SignInActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Overlay"/>
+        <activity android:configChanges="orientation|screenSize" android:label="" android:name="org.tableproject.activity.MainFeedActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Overlay">
+            <meta-data android:name="android.app.default_searchable" android:value="org.tableproject.activity.SearchActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="org.tableproject.activity.WalkthroughActivity" android:screenOrientation="portrait" android:theme="@style/NoActionBarTheme"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/add_content" android:name="org.tableproject.activity.AddContentActivity" android:parentActivityName="org.tableproject.activity.MainFeedActivity" android:screenOrientation="portrait" android:theme="@style/NoActionBarTheme.Transparent">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activity.MainFeedActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_prayer_request" android:name="org.tableproject.activity.PrayerDetailActivity" android:parentActivityName="org.tableproject.activity.MainFeedActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="org.tableproject.activity.MainFeedActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_search" android:launchMode="singleTop" android:name="org.tableproject.activity.SearchActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_search" android:launchMode="singleTop" android:name="org.tableproject.activity.LessonSearchActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_add_prayer" android:name="org.tableproject.activity.AddEditPrayerActivity" android:parentActivityName="org.tableproject.activity.MainFeedActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activity.AddContentActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/discussion" android:name="org.tableproject.activity.TopicDetailActivity" android:parentActivityName="org.tableproject.activity.MainFeedActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activity.MainFeedActivity"/>
+        </activity>
+        <activity android:label="@string/title_activity_lesson_detail" android:name="org.tableproject.activity.LessonDetailActivity" android:parentActivityName="org.tableproject.activity.MainFeedActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activity.MainFeedActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_add_topic" android:name="org.tableproject.activity.AddEditTopicActivity" android:parentActivityName="org.tableproject.activity.MainFeedActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activity.AddContentActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/add_need" android:name="org.tableproject.activity.AddEditServeActivity" android:parentActivityName="org.tableproject.activity.MainFeedActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activity.AddContentActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/serve" android:name="org.tableproject.activity.ServeDetailActivity" android:parentActivityName="org.tableproject.activity.MainFeedActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="org.tableproject.activity.MainFeedActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/add_shared_item" android:name="org.tableproject.activity.AddEditSharedItemActivity" android:parentActivityName="org.tableproject.activity.MainFeedActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activity.AddContentActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/shared_item" android:name="org.tableproject.activity.SharedItemDetailActivity" android:parentActivityName="org.tableproject.activity.MainFeedActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="org.tableproject.activity.MainFeedActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_add_listing_item" android:name="org.tableproject.activity.AddListingItemActivity" android:parentActivityName="org.tableproject.activity.MainFeedActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activity.AddContentActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/quick_notes" android:name="org.tableproject.activity.QuickNotesActivity" android:parentActivityName="org.tableproject.activity.MainFeedActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="org.tableproject.activity.MainFeedActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/profile" android:name="org.tableproject.activity.ProfileActivity" android:parentActivityName="org.tableproject.activity.MainFeedActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="org.tableproject.activity.MainFeedActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/group" android:name="org.tableproject.activity.GroupActivity" android:parentActivityName="org.tableproject.activity.MainFeedActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="org.tableproject.activity.MainFeedActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/notifications" android:name="org.tableproject.activity.NotificationsActivity" android:parentActivityName="org.tableproject.activity.MainFeedActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="org.tableproject.activity.MainFeedActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/church_directory" android:name="org.tableproject.activity.PeopleActivity" android:parentActivityName="org.tableproject.activity.MainFeedActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="org.tableproject.activity.MainFeedActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/find_people" android:name="org.tableproject.activity.PeopleDirectoryActivity" android:parentActivityName="org.tableproject.activity.MainFeedActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="org.tableproject.activity.MainFeedActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/find_groups" android:name="org.tableproject.activity.GroupsDirectoryActivity" android:parentActivityName="org.tableproject.activity.MainFeedActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="org.tableproject.activity.MainFeedActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:name="org.tableproject.activity.AddressFormActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="com.facebook.LoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:label="@string/my_notes" android:name="org.tableproject.activity.MyNotesActivity" android:parentActivityName="org.tableproject.activity.MainFeedActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="org.tableproject.activity.MainFeedActivity"/>
+        </activity>
+        <activity android:label="@string/my_posts" android:name="org.tableproject.activity.MyPostsActivity" android:parentActivityName="org.tableproject.activity.MainFeedActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Overlay">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="org.tableproject.activity.MainFeedActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/teaching" android:name="org.tableproject.activity.StreamingLessonActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="org.tableproject.activity.LessonSeriesActivity" android:parentActivityName="org.tableproject.activity.MainFeedActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:name="org.tableproject.activity.WebActivity" android:parentActivityName="org.tableproject.activity.MainFeedActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="org.tableproject.activity.MainFeedActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:name="org.tableproject.activity.JustVisitingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Overlay"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_dashboard_web" android:name="org.tableproject.activity.DashboardWebActivity" android:screenOrientation="portrait">
+            <intent-filter android:label="@string/filter_title_dashboard_webview">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/DATA_SCHEME"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="org.tableproject.fragment.FragmentTestActivity"/>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="a6f4dca0bd83fbe311c31dcbbb18785016c6f423"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <receiver android:name="org.tableproject.push.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name=".push"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="org.tableproject.receiver.PhoneCallReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="org.tableproject.push.GcmIntentService"/>
+    </application>
+</manifest>

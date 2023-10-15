@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.nobexinc.wls_40741808.rc">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:smallScreens="false"/>
+    <application android:allowBackup="true" android:icon="@drawable/launch_icon" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.nobexinc.rc.NobexRadioApplication" android:theme="@android:style/Theme.NoTitleBar">
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.nobexinc.rc.CBCAboutActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.nobexinc.rc.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.nobexinc.rc.MainActivity" android:screenOrientation="landscape" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTask" android:name="com.nobexinc.rc.NowPlayingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTask" android:name="com.nobexinc.rc.OptionsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTask" android:name="com.nobexinc.rc.BrowseSearchActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTask" android:name="com.nobexinc.rc.MyStationsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.nobexinc.rc.RegisterActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.nobexinc.rc.FeedActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.sec.android.ad.AdActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="com.millennialmedia.android.MMActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.facebook.ads.InterstitialAdActivity"/>
+        <service android:name="com.nobexinc.rc.core.streaming.StreamingService"/>
+        <service android:name="com.nobexinc.rc.core.billing.BillingService"/>
+        <receiver android:name="com.nobexinc.rc.core.streaming.NoisyIntentReceiver">
+            <intent-filter>
+                <action android:name="android.media.AUDIO_BECOMING_NOISY"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.nobexinc.rc.core.utils.LocationDataManagerBroadcastReceiverImpl"/>
+        <receiver android:name="com.nobexinc.rc.core.billing.BillingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.billing.IN_APP_NOTIFY"/>
+                <action android:name="com.android.vending.billing.RESPONSE_CODE"/>
+                <action android:name="com.android.vending.billing.PURCHASE_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.nobexinc.rc.core.utils.AutoSleepManager"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/app_id"/>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="your_40_char_api_key_from_above"/>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="846c8968fbfdc5477d27f68f4d3602b32b83c8aa"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.radar.ScringoRadarActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.feed.ScringoFeedActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.profile.ScringoProfileActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.profile.ScringoFollowersActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.inbox.ScringoInboxActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.inbox.ScringoChatActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.invite.ScringoInviteActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.twitter.ScringoTwitterActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.invite.ScringoFindFriendsActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.feedback.ScringoFeedbackActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.inbox.ScringoSendToActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.profile.ScringoProfileBridge"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.profile.ScringoProfileEditBio"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.feedback.ScringoFeedbackRootActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.inbox.ScringoSystemMessageActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.invite.ScringoFindFriendsRootActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.invite.ScringoSuggestionsActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.apps.ScringoAppDiscoveryActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.chatroom.ScringoChatroomActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.chatroom.ScringoTopicActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.profile.ScringoSignUpRootActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.profile.ScringoSignUpActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.profile.ScringoLoginRootActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.profile.ScringoLoginActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.profile.ScringoSignUpSettingsActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.profile.ScringoForgotPasswordActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.profile.ScringoChangePasswordActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.quiz.ScringoQuizzesActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.quiz.ScringoQuizActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.quiz.ScringoQuizIntroActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.quiz.ScringoQuizStoreActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.menu.ScringoMenuActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.profile.ScringoMyProfileActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.scores.ScringoScoresActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.quiz.ScringoSuggestQuestionActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.keyboard.ScringoStickerStoreActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.keyboard.ScringoStickerPackActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.keyboard.ScringoPhotoActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.scringo.features.ScringoWebViewActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.facebook.LoginActivity"/>
+        <service android:name="com.scringo.service.ScringoService"/>
+    </application>
+</manifest>

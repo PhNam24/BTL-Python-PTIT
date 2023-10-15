@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.hg.townsmen6">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <application android:icon="@drawable/icon" android:label="@string/T_APPNAME" android:name="com.tencent.StubShell.TxAppEntry">
+        <meta-data android:name="TxAppEntry" android:value="android.app.Application"/>
+        <meta-data android:name="game_display_name" android:resource="@string/T_APPNAME"/>
+        <meta-data android:name="game_icon" android:resource="@drawable/icon_xperia"/>
+        <meta-data android:name="xperiaplayoptimized_content" android:resource="@string/xperiaplay_content"/>
+        <meta-data android:name="ADMOB_PUBLISHER_ID" android:value="a14d36cc3b30911"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|navigation|orientation" android:launchMode="singleTop" android:name="com.hg.townsmen6.Main" android:screenOrientation="nosensor" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.aiwu.Splash" android:screenOrientation="nosensor">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|navigation|orientation" android:launchMode="singleTop" android:name="com.hg.j2me.J2MEActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="com.google.ads.AdActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|navigation|orientation" android:name="com.hg.android.mg.MoreGamesWebActivity"/>
+        <service android:name="com.hg.android.dlc.BillingService"/>
+        <receiver android:name="com.hg.android.dlc.BillingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.billing.IN_APP_NOTIFY"/>
+                <action android:name="com.android.vending.billing.RESPONSE_CODE"/>
+                <action android:name="com.android.vending.billing.PURCHASE_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

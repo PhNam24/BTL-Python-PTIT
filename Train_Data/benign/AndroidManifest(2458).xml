@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="32" android:compileSdkVersionCodename="12" package="com.phoneboost.cleaner.pro" platformBuildVersionCode="32" platformBuildVersionName="12">
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_SYNC_STATS"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <permission android:name="com.phoneboost.cleaner.pro.SERVICE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.phoneboost.cleaner.pro.SERVICE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:maxSdkVersion="28" android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <queries>
+        <intent>
+            <action android:name="com.github.shadowsocks.plugin.ACTION_NATIVE_PLUGIN"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.BROWSABLE"/>
+            <data android:scheme="https"/>
+        </intent>
+        <intent>
+            <action android:name="android.support.customtabs.action.CustomTabsService"/>
+        </intent>
+    </queries>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:autoRevokePermissions="allowed" android:dataExtractionRules="@xml/data_extraction_rules" android:extractNativeLibs="true" android:fullBackupContent="@xml/backup_rules" android:hasFragileUserData="true" android:icon="@mipmap/ic_logo" android:isSplitRequired="true" android:label="@string/app_name" android:largeHeap="true" android:name="com.phoneboost.cleaner.pro.MyApplication" android:networkSecurityConfig="@xml/network_security_config" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/Theme.PhoneBooster">
+        <service android:enabled="true" android:exported="true" android:name="com.phoneboost.cleaner.pro.service.ke.KeService1"/>
+        <service android:enabled="true" android:exported="true" android:name="com.phoneboost.cleaner.pro.service.ke.MainKeService"/>
+        <activity android:exported="false" android:name="com.phoneboost.cleaner.pro.activity.vpn.PBVPNEndActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.phoneboost.cleaner.pro.activity.vpn.PBVPNNodeListActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:name="com.phoneboost.cleaner.pro.change.PBChange3Activity" android:theme="@style/pb_desk_activity"/>
+        <activity android:exported="true" android:name="com.phoneboost.cleaner.pro.change.PBChange2Activity" android:theme="@style/pb_desk_activity"/>
+        <activity android:exported="true" android:name="com.phoneboost.cleaner.pro.change.PBChange1Activity" android:theme="@style/pb_desk_activity"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.phoneboost.cleaner.pro.receiver.PBOnePxReceiver"/>
+        <provider android:authorities="com.phone.boost.call.sync" android:enabled="true" android:exported="true" android:name="com.phoneboost.cleaner.pro.provider.MyCallContentProvider" android:syncable="true">
+            <meta-data android:name="android.content.ContactDirectory" android:value="true"/>
+        </provider>
+        <receiver android:enabled="true" android:exported="true" android:name="com.phoneboost.cleaner.pro.receiver.PBScreenPresentReceiver">
+            <intent-filter android:priority="2147483647">
+                <action android:name="OK_Broadcast"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.phoneboost.cleaner.pro.activity.vpn.PBVPNActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.phoneboost.cleaner.pro.activity.clean.PBCleanDetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.phoneboost.cleaner.pro.activity.photo.PBPhotosActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:launchMode="singleTask" android:name="com.phoneboost.cleaner.pro.activity.PBOpenActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <service android:enabled="true" android:exported="true" android:name="com.phoneboost.cleaner.pro.service.PBForegroundService">
+            <intent-filter android:priority="1000">
+                <action android:name="phone_boost"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.phoneboost.cleaner.pro.service.PBMyJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:enabled="true" android:exported="true" android:name="com.phoneboost.cleaner.pro.account.PBAccountAuthService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@xml/account_phone"/>
+        </service>
+        <service android:enabled="true" android:exported="true" android:name="com.phoneboost.cleaner.pro.account.PBAccountAuthSyncService">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter"/>
+            </intent-filter>
+            <meta-data android:name="android.content.SyncAdapter" android:resource="@xml/account_phone_adapter"/>
+        </service>
+        <provider android:authorities="phone.boost.clean.account.provider1" android:name="com.phoneboost.cleaner.pro.account.MyAccountAuthProvider"/>
+        <service android:enabled="true" android:exported="true" android:name="com.phoneboost.cleaner.pro.account.PBAccountAuthSyncService1">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter"/>
+            </intent-filter>
+            <meta-data android:name="android.content.SyncAdapter" android:resource="@xml/account_phone_adapter1"/>
+        </service>
+        <activity android:exported="false" android:name="com.phoneboost.cleaner.pro.activity.clean.PBCleanAnimActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.phoneboost.cleaner.pro.activity.clean.PBCleanActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.phoneboost.cleaner.pro.activity.cpu.PBCPUAnimActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.phoneboost.cleaner.pro.activity.battery.PBBatteryAnimActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.phoneboost.cleaner.pro.activity.end.PBSuccessActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.phoneboost.cleaner.pro.activity.end.PBEndAnimActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.phoneboost.cleaner.pro.activity.clean.PBCleanLoadAnimActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.phoneboost.cleaner.pro.activity.PhoneBoosterWebActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.phoneboost.cleaner.pro.activity.PhoneBoosterSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.phoneboost.cleaner.pro.activity.booster.PBBoostAnimActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:name="com.phoneboost.cleaner.pro.activity.MainActivity" android:screenOrientation="portrait"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/fb_facebook_id"/>
+        <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-5029781467619884~9392721743"/>
+        <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing" android:value="true"/>
+        <service android:directBootAware="true" android:exported="false" android:label="@string/app_name" android:name="com.github.shadowsocks.bg.VpnService" android:permission="android.permission.BIND_VPN_SERVICE" android:process=":bg">
+            <intent-filter>
+                <action android:name="android.net.VpnService"/>
+            </intent-filter>
+        </service>
+        <service android:directBootAware="true" android:exported="false" android:name="com.github.shadowsocks.bg.TransproxyService" android:process=":bg"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.github.shadowsocks.bg.ProxyService" android:process=":bg"/>
+        <service android:exported="false" android:name="com.github.shadowsocks.subscription.SubscriptionService"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.github.shadowsocks.VpnRequestActivity" android:taskAffinity="" android:theme="@style/Theme.Shadowsocks.Translucent"/>
+        <receiver android:directBootAware="true" android:enabled="false" android:exported="true" android:name="com.github.shadowsocks.BootReceiver" android:process=":bg">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService" android:process=":bg"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="cct.com.phoneboost.cleaner.pro" android:scheme="fbconnect"/>
+            </intent-filter>
+        </activity>
+        <provider android:authorities="com.phoneboost.cleaner.pro.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.facebook.AuthenticationTokenManager$CurrentAuthenticationTokenChangedBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_AUTHENTICATION_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:label="@string/oss_license_title" android:name="com.google.android.gms.oss.licenses.OssLicensesMenuActivity"/>
+        <activity android:name="com.google.android.gms.oss.licenses.OssLicensesActivity"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.ktx.FirebaseAnalyticsKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <provider android:authorities="com.phoneboost.cleaner.pro.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <service android:exported="false" android:name="androidx.work.multiprocess.RemoteWorkManagerService"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <provider android:authorities="com.phoneboost.cleaner.pro.mobileadsinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.android.gms.ads.MobileAdsInitProvider"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.ads.AdService"/>
+        <provider android:authorities="com.phoneboost.cleaner.pro.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
+            <meta-data android:name="androidx.work.WorkManagerInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
+        </provider>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:name="androidx.work.impl.foreground.SystemForegroundService"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="2"/>
+    </application>
+</manifest>

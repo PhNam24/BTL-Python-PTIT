@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:allowBackup="false" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" package="com.vitalityactive.africanHealth" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-permission android:name="com.vitalityactive.va.base.ENROLL_MARKET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"/>
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION"/>
+    <queries>
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE"/>
+        </intent>
+        <package android:name="com.google.android.apps.fitness"/>
+        <package android:name="com.sec.android.app.shealth"/>
+    </queries>
+    <permission android:label="Permission needed to be embedded that enrolls a new market" android:name="com.vitalityactive.va.base.ENROLL_MARKET" android:protectionLevel="signature"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.landscape" android:required="false"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:icon="@mipmap/ic_launcher" android:isSplitRequired="true" android:label="@string/app_name" android:name="com.vitalityactive.va.VitalityActiveApplication" android:networkSecurityConfig="@xml/network_security_config" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <activity android:name="com.vitalityactive.va.splashscreen.SplashScreenActivity" android:screenOrientation="portrait" android:theme="@style/SplashTheme_EC"/>
+        <activity android:label=" " android:name="com.vitalityactive.va.activerewards.onboarding.ActiveRewardsLinkDeviceOrAppActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:label="@string/AR.activated.celebration_title_4363" android:name="com.vitalityactive.va.activerewards.onboarding.ActiveRewardsMedalsWonCelebrationActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:label="" android:name="com.vitalityactive.va.partnerjourney.mallcontainer.MallContainerActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:label="" android:name="com.vitalityactive.va.devicecashback.learnmore.EcuDeviceCashbackLearnMoreActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:label=" " android:name="com.vitalityactive.va.login.basic.BasicLoginActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:label=" " android:launchMode="singleTask" android:name="com.vitalityactive.va.login.callback.LoginCallbackActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="oauth" android:pathPrefix="/redirect" android:scheme="com.vitalityactive.afh"/>
+            </intent-filter>
+        </activity>
+        <provider android:authorities="com.vitalityactive.africanHealth.provider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <meta-data android:name="firebase_crashlytics_collection_enabled" android:value="false"/>
+        <meta-data android:name="com.pushwoosh.appid" android:value="FD36E-05F12"/>
+        <meta-data android:name="com.pushwoosh.senderid" android:value="8.4805367E11"/>
+        <meta-data android:name="com.pushwoosh.notification_service_extension" android:value="com.vitalityactive.va.pushnotification.AppNotificationServiceExtension"/>
+        <meta-data android:name="com.pushwoosh.notification_factory" android:value="com.vitalityactive.va.pushnotification.AppNotificationFactory"/>
+        <meta-data android:name="com.samsung.android.health.permission.read" android:value="com.samsung.health.exercise;com.samsung.shealth.step_daily_trend"/>
+        <activity android:name="com.vitalityactive.va.launch.LaunchActivity" android:screenOrientation="portrait" android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="vitalitygroup" android:pathPrefix="/registrationScreen" android:scheme="appdata"/>
+                <data android:host="vitalitygroup" android:pathPrefix="/changePasswordScreen" android:scheme="appdata"/>
+                <data android:host="vitalitygroup" android:pathPrefix="/statusRewardScreen" android:scheme="appdata"/>
+                <data android:host="vitalitygroup" android:pathPrefix="/activeRewardScreen" android:scheme="appdata"/>
+            </intent-filter>
+        </activity>
+        <activity android:label=" " android:launchMode="singleTop" android:name="com.vitalityactive.va.login.LoginActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.LoginTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.vitalityactive.va.userpreferences.FirstTimeUserPreferencesActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.vitalityactive.va.userpreferences.PrivacyStatementActivity" android:parentActivityName="com.vitalityactive.va.userpreferences.FirstTimeUserPreferencesActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.HomeTheme"/>
+        <activity android:name="com.vitalityactive.va.register.view.RegisterActivity" android:parentActivityName="com.vitalityactive.va.login.LoginActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.vitalityactive.va.loginrestriction.view.LoginRestrictionUserActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.vitalityactive.va.loginrestriction.view.LoginRestrictionWebViewActivity" android:parentActivityName="com.vitalityactive.va.loginrestriction.view.LoginRestrictionUserActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.vitalityactive.va.forgotpassword.ForgotPasswordActivity" android:parentActivityName="com.vitalityactive.va.login.LoginActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.vitalityactive.va.termsandconditions.TermsAndConditionsActivity" android:parentActivityName="com.vitalityactive.va.login.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.vitalityactive.va.search.SearchResultsActivity" android:permission="" android:screenOrientation="portrait" android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:name="com.vitalityactive.va.resend_insurer_code.view.ResendInsurerCodeActivity" android:parentActivityName="com.vitalityactive.va.register.view.RegisterActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label=" " android:name="com.vitalityactive.va.activerewards.onboarding.ActiveRewardsOnboardingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.coinsnogame.intro.CNGIntroGetActiveGoalScreenActivity"/>
+        <activity android:name="com.vitalityactive.va.coinsnogame.getactivegoals.howtocomplete.GetActiveGoalsHowToCompleteActivity"/>
+        <activity android:label=" " android:name="com.vitalityactive.va.activerewards.onboarding.ArVhrIncompleteModalActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.activerewards.termsandconditions.ActiveRewardsMedicallyFitAgreementActivity" android:parentActivityName="com.vitalityactive.va.activerewards.onboarding.ActiveRewardsOnboardingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.activerewards.ActiveRewardsActivatedActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth.BehindStatusBar"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.activerewards.landing.ActiveRewardsLandingActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.activerewards.ActiveRewardsLearnMoreActivity" android:parentActivityName="com.vitalityactive.va.activerewards.landing.ActiveRewardsLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.activerewards.rewards.RewardsListActivity" android:parentActivityName="com.vitalityactive.va.activerewards.landing.ActiveRewardsLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.activerewards.eventdetail.ActiveRewardsEventDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.activerewards.participatingpartners.ActiveRewardsParticipatingPartnersActivity" android:parentActivityName="com.vitalityactive.va.activerewards.ActiveRewardsLearnMoreActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:label=" " android:name="com.vitalityactive.va.activerewards.participatingpartners.ParticipatingPartnersTermsAndConditionsActivity" android:parentActivityName="com.vitalityactive.va.activerewards.participatingpartners.ActiveRewardsParticipatingPartnersActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.activerewards.history.GoalHistoryActivity" android:parentActivityName="com.vitalityactive.va.activerewards.landing.ActiveRewardsLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.activerewards.history.detailedscreen.HistoryWeekDetailsActivity" android:parentActivityName="com.vitalityactive.va.activerewards.history.GoalHistoryActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.activerewards.participatingpartners.CachedParticipatingPartnerDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.userpreferences.BaseChangeEmailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.activerewards.participatingpartners.ParticipatingPartnerDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.activerewards.rewards.WheelSpinActivity" android:parentActivityName="com.vitalityactive.va.activerewards.rewards.RewardsListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.activerewards.rewards.RouletteSpinActivity" android:parentActivityName="com.vitalityactive.va.activerewards.rewards.RewardsListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:label=" " android:name="com.vitalityactive.va.activerewards.rewards.RouletteSpinCoinsRewardActivity" android:parentActivityName="com.vitalityactive.va.activerewards.rewards.RouletteSpinActivity" android:theme="@style/Translucent.Coin"/>
+        <activity android:label=" " android:name="com.vitalityactive.va.activerewards.rewards.RouletteSpinGiftCardRewardActivity" android:parentActivityName="com.vitalityactive.va.activerewards.rewards.RouletteSpinActivity" android:theme="@style/Translucent.Coin"/>
+        <activity android:label=" " android:name="com.vitalityactive.va.activerewards.rewards.GameplayDataPrivacyActivity" android:parentActivityName="com.vitalityactive.va.activerewards.rewards.RouletteSpinGiftCardRewardActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:label=" " android:name="com.vitalityactive.va.activerewards.rewards.BonusGiftCardActivity" android:parentActivityName="com.vitalityactive.va.activerewards.rewards.RouletteSpinActivity" android:theme="@style/Translucent.Coin"/>
+        <activity android:name="com.vitalityactive.va.activerewards.rewards.PartnerRegistrationActivity" android:parentActivityName="com.vitalityactive.va.activerewards.rewards.RewardsListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.activerewards.onboarding.ActiveRewardsVhrStartActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.activerewards.rewards.RewardVoucherActivity" android:parentActivityName="com.vitalityactive.va.activerewards.rewards.RewardsListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.activerewards.rewards.StarbucksDataSharingConsentActivity" android:parentActivityName="com.vitalityactive.va.activerewards.rewards.PartnerRegistrationActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.activerewards.rewards.CinemaRewardSelectionActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.activerewards.rewards.CinemaRewardConfirmationActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.activerewards.rewards.CentralAssetWheelSpinConfirmationActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.activerewards.rewards.ChooseRewardActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.activerewards.rewards.ActiveRewardsDataSharingConsentActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.nonsmokersdeclaration.onboarding.NonSmokersDeclarationOnboardingActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.nonsmokersdeclaration.NonSmokersDeclareActivity" android:parentActivityName="com.vitalityactive.va.nonsmokersdeclaration.onboarding.NonSmokersDeclarationOnboardingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.nonsmokersdeclaration.NonSmokersPrivacyPolicyActivity" android:parentActivityName="com.vitalityactive.va.nonsmokersdeclaration.NonSmokersDeclareActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.nonsmokersdeclaration.NonSmokersAssessmentCompleteActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth.BehindStatusBar"/>
+        <activity android:name="com.vitalityactive.va.nonsmokersdeclaration.onboarding.NonSmokersDeclarationLearnMoreActivity" android:parentActivityName="com.vitalityactive.va.nonsmokersdeclaration.onboarding.NonSmokersDeclarationOnboardingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.vhc.VHCOnboardingActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:launchMode="singleTask" android:name="com.vitalityactive.va.vhc.landing.VHCLandingActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.vhc.detail.HealthAttributeDetailActivity" android:parentActivityName="com.vitalityactive.va.vhc.landing.VHCLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.vhc.captureresults.VHCCaptureResultsActivity" android:parentActivityName="com.vitalityactive.va.vhc.landing.VHCLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.vitalityactive.va.vhc.history.ui.VHCHistoryActivity" android:parentActivityName="com.vitalityactive.va.vhc.landing.VHCLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.vhc.learnmore.VHCLearnMoreActivity" android:parentActivityName="com.vitalityactive.va.vhc.landing.VHCLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.ofe.fitness.OFEFitnessEventsActivity" android:parentActivityName="com.vitalityactive.va.ofe.onboarding.OFEOnboardingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.ofe.fitness.details.OFEFitnessEventsDetailsActivity" android:parentActivityName="com.vitalityactive.va.ofe.onboarding.OFEOnboardingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.ofe.learnmore.OFELearnMoreActivity" android:parentActivityName="com.vitalityactive.va.ofe.onboarding.OFEOnboardingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.ofe.screens.OFECompletedActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth.BehindStatusBar"/>
+        <activity android:name="com.vitalityactive.va.ofe.history.OFEHistoryActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.ofe.history.OFEHistoryDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.vhc.learnmore.VHCLearnMoreItemDetailActivity" android:parentActivityName="com.vitalityactive.va.vhc.learnmore.VHCLearnMoreActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.mwb.view.MWBLearnMoreMenuActivity" android:parentActivityName="com.vitalityactive.va.mwb.learnmore.MWBLearnMoreActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.vhc.VHCHelpActivity" android:parentActivityName="com.vitalityactive.va.vhc.landing.VHCLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.vhc.PDFActivity" android:parentActivityName="com.vitalityactive.va.vhc.landing.VHCLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.vhc.VHCParticipatingPartnersActivity" android:parentActivityName="com.vitalityactive.va.vhc.learnmore.VHCLearnMoreActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.vhc.addproof.VHCAddProofActivity" android:parentActivityName="com.vitalityactive.va.vhc.captureresults.VHCCaptureResultsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth.add_proof"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.devicecashback.addproof.DeviceCashbackAddProofActivity" android:parentActivityName="com.vitalityactive.va.devicecashback.landing.DeviceCashbackLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.ofe.addproof.OFEAddProofActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.devicecashback.privacypolicy.DCLinkPrivacyPolicyActivity" android:parentActivityName="com.vitalityactive.va.devicecashback.purchaseDetail.DCPurchaseDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.ftuj.successfulusercreation.FtujSuccessfulUserCreationActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.LifeStyleGoals.BehindStatusBar"/>
+        <activity android:name="com.vitalityactive.va.ftuj.errorhandler.FtujErrorActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.LifeStyleGoals.BehindStatusBar"/>
+        <activity android:label=" " android:name="com.vitalityactive.va.ftuj.termsandconditions.FtujTermsAndConditionsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Connections"/>
+        <activity android:label=" " android:name="com.vitalityactive.va.ftuj.connectionshealthapp.FtujConnectionsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Connections"/>
+        <activity android:name="com.vitalityactive.va.ftuj.privacypolicy.FtujPrivacyPolicyActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Connections"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.ftuj.assessment.landing.FtujQuestionnaireLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.LifeStyleGoals.BehindStatusBar"/>
+        <activity android:name="com.vitalityactive.va.ftuj.assessment.questionnaire.FtujQuestionnaireAssessmentActivity" android:parentActivityName="com.vitalityactive.va.ftuj.assessment.landing.FtujQuestionnaireLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.LifeStyleGoals.BehindStatusBar"/>
+        <activity android:label=" " android:name="com.vitalityactive.va.ftuj.programoverview.FtujProgramOverviewActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ProgramOverview"/>
+        <activity android:label=" " android:name="com.vitalityactive.va.coinsnogame.onboarding.activities.CNGProgramOverviewActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ProgramOverview"/>
+        <activity android:label="" android:launchMode="singleTop" android:name="com.vitalityactive.va.promotions.PromotionDetailsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Promotions.BehindStatusBar"/>
+        <activity android:name="com.vitalityactive.va.lifestylegoals.details.LifestyleGoalDetailsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.LifeStyleGoals.BehindStatusBar"/>
+        <activity android:autoRemoveFromRecents="true" android:name="com.vitalityactive.va.profile_quizzes.assessment.questionnaire.QuizProfileQuestionnaireAssessmentActivity" android:screenOrientation="portrait" android:taskAffinity="profile_quizzes.assessment.questionnaire.QuizProfileQuestionnaireAssessment" android:theme="@style/AppTheme.LifeStyleGoals.BehindStatusBar"/>
+        <activity android:name="com.vitalityactive.va.profile_quizzes.assessment.activities.LifestyleGoalSummaryActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.LifeStyleGoals.BehindStatusBar"/>
+        <activity android:name="com.vitalityactive.va.profile_quizzes.assessment.activities.LifestyleGoalQuizLoadingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.LifeStyleGoals.BehindStatusBar"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.lifestylegoals.landing.LifestyleGoalLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.WhiteStatusBar"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.coinsnogame.onboarding.activities.CNGWLGOnboardingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.WhiteStatusBar"/>
+        <activity android:name="com.vitalityactive.va.lifestylegoals.progress.LifestyleGoalProgressActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.LifeStyleGoals.BehindStatusBar"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.lifestylegoals.howtocompletescreen.LifestyleGoalHowToCompleteActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.profile_quizzes.factsheet.QuizFactSheetActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:launchMode="singleTask" android:name="com.vitalityactive.va.lifestylegoals.history.LifestyleGoalHistoryActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:launchMode="singleTask" android:name="com.vitalityactive.va.lifestylegoals.history.LifestyleGoalEmptyHistoryActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:name="com.vitalityactive.va.coinsnogame.onboarding.reward.CNGAwardedRewardCoinsActivity" android:theme="@style/Translucent.Coin"/>
+        <activity android:name="com.vitalityactive.va.devicecashback.privacypolicy.DCSubmitPrivacyPolicyActivity" android:parentActivityName="com.vitalityactive.va.devicecashback.summary.BaseDeviceCashbackSummaryActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.ofe.privacypolicy.OFEPrivacyPolicyActivity" android:parentActivityName="com.vitalityactive.va.ofe.addproof.OFEAddProofActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.feedback.FeedbackAddProofActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:name="com.vitalityactive.va.vhc.VHCSummaryActivity" android:parentActivityName="com.vitalityactive.va.vhc.addproof.VHCAddProofActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.devicecashback.summary.BaseDeviceCashbackSummaryActivity" android:parentActivityName="com.vitalityactive.va.devicecashback.addproof.DeviceCashbackAddProofActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.vhc.VHCPrivacyPolicyActivity" android:parentActivityName="com.vitalityactive.va.vhc.VHCSummaryActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.vhc.VHCMeasurementsConfirmedActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth.BehindStatusBar"/>
+        <activity android:name="com.vitalityactive.va.vhc.addproof.VHCProofItemDetailActivity" android:parentActivityName="com.vitalityactive.va.vhc.addproof.VHCAddProofActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.devicecashback.addproof.DeviceCashbackProofItemDetailActivity" android:parentActivityName="com.vitalityactive.va.devicecashback.addproof.DeviceCashbackAddProofActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.ofe.addproof.OFEProofItemDetailActivity" android:parentActivityName="com.vitalityactive.va.ofe.addproof.OFEAddProofActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.pointsmonitor.PointsMonitorEntryDetailActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.vitalityactive.va.pointsmonitor.PointsMonitorActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.vitalityactive.va.vhr.VHROnBoardingActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.vhr.VHRLearnMoreActivity" android:parentActivityName="com.vitalityactive.va.vhr.VHROnBoardingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:launchMode="singleTask" android:name="com.vitalityactive.va.vhr.landing.VHRLandingActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.vhr.questions.VHRQuestionnaireActivity" android:parentActivityName="com.vitalityactive.va.vhr.landing.VHRLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.vhr.VHRPrivacyPolicyActivity" android:parentActivityName="com.vitalityactive.va.vhr.questions.VHRQuestionnaireActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.vna.VNAPrivacyPolicyActivity" android:parentActivityName="com.vitalityactive.va.vna.VNAQuestionnaireActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.mwb.MWBPrivacyPolicyActivity" android:parentActivityName="com.vitalityactive.va.mwb.questions.MWBQuestionnaireActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.vna.help.VNAHelpActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.vhr.questions.VHRQuestionnaireCompletedActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth.BehindStatusBar"/>
+        <activity android:name="com.vitalityactive.va.vhr.disclaimer.VHRDisclaimerActivity" android:parentActivityName="com.vitalityactive.va.vhr.VHRLearnMoreActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.wellnessdevices.onboarding.WellnessDevicesOnboardingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.wellnessdevices.landing.WellnessDevicesLandingActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.ofe.landing.OFELandingActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.wellnessdevices.WellnessDevicesLearnMoreActivity" android:parentActivityName="com.vitalityactive.va.wellnessdevices.landing.WellnessDevicesLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.wellnessdevices.linking.WellnessDevicesDetailsActivity" android:parentActivityName="com.vitalityactive.va.wellnessdevices.landing.WellnessDevicesLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.wellnessdevices.linking.SHealthDeviceDetailsActivity" android:parentActivityName="com.vitalityactive.va.wellnessdevices.landing.WellnessDevicesLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:label=" " android:name="com.vitalityactive.va.wellnessdevices.linking.web.WellnessDevicesWebActivity" android:parentActivityName="com.vitalityactive.va.wellnessdevices.linking.WellnessDevicesDetailsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.devicecashback.purchase.view.web.GarminPurchaseWebActivity" android:parentActivityName="com.vitalityactive.va.devicecashback.landing.DeviceCashbackLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:label=" " android:name="com.vitalityactive.va.wellnessdevices.pointsmonitor.WellnessDevicesPointsActivity" android:parentActivityName="com.vitalityactive.va.wellnessdevices.linking.WellnessDevicesDetailsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.wellnessdevices.linking.privacypolicy.WellnessDevicesPrivacyPolicyActivity" android:noHistory="true" android:parentActivityName="com.vitalityactive.va.wellnessdevices.linking.WellnessDevicesDetailsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.wellnessdevices.informative.WellnessDevicesInfoActivity" android:parentActivityName="com.vitalityactive.va.wellnessdevices.linking.WellnessDevicesDetailsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.wellnessdevices.SimpleBrowserActivity" android:parentActivityName="com.vitalityactive.va.wellnessdevices.linking.WellnessDevicesDetailsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.vna.onboarding.VNAOnboardingActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.vna.landing.VNALandingActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.vna.VNALearnMoreActivity" android:parentActivityName="com.vitalityactive.va.vna.landing.VNALandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.vna.VNAQuestionnaireActivity" android:parentActivityName="com.vitalityactive.va.vna.landing.VNALandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.mwb.questions.MWBQuestionnaireActivity" android:parentActivityName="com.vitalityactive.va.mwb.landing.MWBLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.mwb.questions.MWBQuestionnaireCompletedActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth.BehindStatusBar"/>
+        <activity android:name="com.vitalityactive.va.mwbv2.questions.activities.MWBV2QuestionnaireCompletedActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth.BehindStatusBar"/>
+        <activity android:name="com.vitalityactive.va.vna.disclaimer.VNADisclaimerActivity" android:parentActivityName="com.vitalityactive.va.vna.VNALearnMoreActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.vna.VNAQuestionnaireCompletedActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth.BehindStatusBar"/>
+        <activity android:name="com.vitalityactive.va.snv.SNVOnboardingActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.myhealth.vnadetails.MyHealthVNAProfileActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:name="com.vitalityactive.va.myhealth.mwbdetails.MyHealthMWBStressorProfileActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:name="com.vitalityactive.va.myhealth.mwbdetails.MyHealthMWBPsychologicalProfileActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:name="com.vitalityactive.va.myhealth.mwbdetails.MyHealthMWBSocialProfileActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:name="com.vitalityactive.va.myhealth.vitalityage.VitalityAgeActivity" android:noHistory="true" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.VitalityAge"/>
+        <activity android:name="com.vitalityactive.va.myhealth.mwb.MentalWellBeingActivity" android:noHistory="true" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.VitalityAge"/>
+        <activity android:name="com.vitalityactive.va.myhealth.onboarding.MyHealthOnboardingActivity" android:noHistory="true" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.MyHealth"/>
+        <activity android:name="com.vitalityactive.va.myhealth.vitalityageprofile.MyHealthVitalityAgeProfileActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.MyHealth"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.myhealth.learnmore.VitalityAgeLearnMoreActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.MyHealth"/>
+        <activity android:name="com.vitalityactive.va.myhealth.disclaimer.MyHealthDisclaimerActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.MyHealth"/>
+        <activity android:name="com.vitalityactive.va.myhealth.moretips.MyHealthMoreTipsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.MyHealth"/>
+        <activity android:name="com.vitalityactive.va.myhealth.tipdetail.MyHealthTipDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.MyHealth"/>
+        <activity android:name="com.vitalityactive.va.myhealth.vitalityageprofile.MyHealthTipsMoreResultsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.MyHealth"/>
+        <activity android:name="com.vitalityactive.va.myhealth.healthattributes.MyHealthAttributeDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.MyHealth"/>
+        <activity android:name="com.vitalityactive.va.vitalitystatus.landing.VitalityStatusLandingActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.VitalityStatus"/>
+        <activity android:name="com.vitalityactive.va.vitalitystatus.detail.VitalityStatusLevelDetailActivity" android:parentActivityName="com.vitalityactive.va.vitalitystatus.landing.VitalityStatusLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.VitalityStatus"/>
+        <activity android:name="com.vitalityactive.va.vitalitystatus.detail.StatusMyRewardsDetailActivity" android:parentActivityName="com.vitalityactive.va.vitalitystatus.landing.VitalityStatusLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.VitalityStatus"/>
+        <activity android:name="com.vitalityactive.va.vitalitystatus.VitalityStatusLearnMoreActivity" android:parentActivityName="com.vitalityactive.va.vitalitystatus.landing.VitalityStatusLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.VitalityStatus"/>
+        <activity android:name="com.vitalityactive.va.vitalitystatus.earningpoints.VitalityStatusDetailsActivity" android:parentActivityName="com.vitalityactive.va.vitalitystatus.detail.VitalityStatusLevelDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.VitalityStatus"/>
+        <activity android:name="com.vitalityactive.va.vitalitystatus.earningpoints.StatusPointsActivity" android:parentActivityName="com.vitalityactive.va.vitalitystatus.earningpoints.VitalityStatusDetailsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.VitalityStatus"/>
+        <activity android:name="com.vitalityactive.va.vitalitystatus.PointsEarningMetricDetail" android:screenOrientation="portrait" android:theme="@style/AppTheme.VitalityStatus"/>
+        <activity android:name="com.vitalityactive.va.vitalitystatus.VitalityStatusLevelIncreasedActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.VitalityStatus"/>
+        <activity android:name="com.vitalityactive.va.vitalitystatus.onboarding.VitalityStatusOnboarding" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.VitalityStatus"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.partnerjourney.PartnerListActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.partnerjourney.PartnerDetailsActivity" android:parentActivityName="com.vitalityactive.va.partnerjourney.PartnerListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.partnerjourney.PartnerTermsAndConditionsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.profile.PersonalDetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/settings.landing_membership_pass_title_2446" android:name="com.vitalityactive.va.membershippass.MembershipPassActivity" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/Settings.membership_vitality_number_title_966" android:name="com.vitalityactive.va.membershippass.VitalityNumberActivity" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/help_button_141" android:name="com.vitalityactive.va.membershippass.MembershipPassHelpActivity" android:theme="@style/AppTheme"/>
+        <activity android:name="com.vitalityactive.va.userpreferences.CommunicationPreferencesActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.vitalityactive.va.userpreferences.PrivacyPreferencesActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.vitalityactive.va.termsandconditions.TermAndConditionsWithoutAgreeButtonBarActivity" android:parentActivityName="com.vitalityactive.va.login.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.vitalityactive.va.eventsfeed.views.EventsFeedActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.vitalityactive.va.settings.SettingChangePasswordActivity" android:noHistory="true" android:parentActivityName="com.vitalityactive.va.userpreferences.SecurityPreferencesActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.vitalityactive.va.settings.PasswordChangedActivity" android:noHistory="true" android:parentActivityName="com.vitalityactive.va.userpreferences.SecurityPreferencesActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.vitalityactive.va.feedback.FeedbackActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.vitalityactive.va.profile.ProfileActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.vitalityactive.va.settings.SettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.snv.learnmore.ScreeningAndVaccinationsLearnMoreActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.snv.learnmore.ScreeningsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.snv.learnmore.SNVLearnMoreDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.snv.partners.SnvParticipatingPartnersActivity" android:parentActivityName="com.vitalityactive.va.snv.landing.ScreeningsAndVaccinationsOnboardingActivity"/>
+        <activity android:name="com.vitalityactive.va.snv.partners.SnvParticipatingPartnersDetailActivity" android:parentActivityName="com.vitalityactive.va.snv.partners.SnvParticipatingPartnersActivity"/>
+        <activity android:name="com.vitalityactive.va.snv.landing.ScreeningsAndVaccinationsOnboardingActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.snv.confirmandsubmit.view.ConfirmAndSubmitActivity" android:parentActivityName="com.vitalityactive.va.snv.landing.ScreeningsAndVaccinationsOnboardingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.snv.landing.healthactions.HealthActionsActivity" android:parentActivityName="com.vitalityactive.va.snv.landing.ScreeningsAndVaccinationsOnboardingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.snv.confirmandsubmit.view.SNVAddProofActivity" android:parentActivityName="com.vitalityactive.va.snv.confirmandsubmit.view.ConfirmAndSubmitActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.snv.confirmandsubmit.view.SNVProofItemDetailActivity" android:parentActivityName="com.vitalityactive.va.snv.confirmandsubmit.view.SNVAddProofActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.snv.confirmandsubmit.view.SNVSummaryActivity" android:parentActivityName="com.vitalityactive.va.snv.confirmandsubmit.view.SNVProofItemDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.snv.confirmandsubmit.view.SNVPrivacyPolicyActivity" android:parentActivityName="com.vitalityactive.va.snv.confirmandsubmit.view.SNVSummaryActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.snv.confirmandsubmit.view.SNVDataConfirmedActivity" android:parentActivityName="com.vitalityactive.va.snv.confirmandsubmit.view.SNVSummaryActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.snv.history.views.SNVHistoryActivity" android:parentActivityName="com.vitalityactive.va.snv.landing.ScreeningsAndVaccinationsOnboardingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.snv.history.views.SNVHistoryDetailActivity" android:parentActivityName="com.vitalityactive.va.snv.history.views.SNVHistoryActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.help.HelpActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:name="com.vitalityactive.va.userpreferences.SecurityPreferencesActivity" android:screenOrientation="portrait"/>
+        <activity android:label=" " android:name="com.theartofdev.edmodo.cropper.CropImageActivity" android:theme="@style/Base.Theme.MaterialComponents"/>
+        <activity android:name="com.vitalityactive.va.mwb.MWBOnBoardingActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:launchMode="singleTask" android:name="com.vitalityactive.va.mwb.landing.MWBLandingActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.mwb.learnmore.MWBLearnMoreActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.mwb.onboarding.MWBOnBoardingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.devicecashback.onboarding.DeviceCashbackOnboardingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.ofe.onboarding.OFEOnboardingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.devicecashback.landing.DeviceCashbackLandingActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.devicecashback.termsandconditions.view.GarminTermsAndConditionsConsentActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.devicecashback.screens.DCDetailsSubmittedConfirmationActivity" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.devicecashback.screens.DCLinkDeviceConfirmationActivity" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.devicecashback.screens.DCActivatedConfirmationActivity" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.devicecashback.samsung.onboarding.SamsungDeviceCashbackOnboardingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.devicecashback.samsung.landing.SamsungDeviceCashbackLandingActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.devicecashback.yourorder.YourOrderActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.devicecashback.samsung.screen.SDCLinkDeviceConfirmationActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.devicecashback.purchaseDetail.DCPurchaseDetailActivity" android:parentActivityName="com.vitalityactive.va.devicecashback.landing.DeviceCashbackLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.mwb.learnmore.BaseStressorLearnMoreActivity"/>
+        <activity android:name="com.vitalityactive.va.mwb.learnmore.DynamicLearnMoreActivity"/>
+        <activity android:name="com.vitalityactive.va.vna.learnmore.VNAResultsLearnMoreActivity"/>
+        <activity android:name="com.vitalityactive.va.ofe.addproof.AddProofLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.ofe.addproof.OFEAddWeblinkProofActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.vitalityactive.va.devicecashback.cashbackEarned.DcCashbackEarnedActivity" android:parentActivityName="com.vitalityactive.va.devicecashback.landing.DeviceCashbackLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.devicecashback.cashbackEarned.DcCashbackEarnedDetailsActivity" android:parentActivityName="com.vitalityactive.va.devicecashback.cashbackEarned.DcCashbackEarnedActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.devicecashback.previousCashback.DcPreviousCashbackActivity" android:parentActivityName="com.vitalityactive.va.devicecashback.cashbackEarned.DcCashbackEarnedActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.devicecashback.previousCashback.DcPreviousCashbackDetailActivity" android:parentActivityName="com.vitalityactive.va.devicecashback.previousCashback.DcPreviousCashbackActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.devicecashback.learnmore.DeviceCashbackLearnMoreActivity" android:parentActivityName="com.vitalityactive.va.devicecashback.landing.DeviceCashbackLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.ofe.claimpoints.OFEClaimPointsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.activerewards.rewards.SwapRewardActivity" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.ofe.claimpoints.search.SearchEventTypeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.ofe.summary.OFESummaryActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.ofe.claimpoints.distance.DistanceActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.devicecashback.howToTrack.HowToTrackYourCashbackActivity" android:parentActivityName="com.vitalityactive.va.devicecashback.landing.DeviceCashbackLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.devicecashback.samsung.learnmore.SamsungDeviceCashbackLearnMoreActivity" android:parentActivityName="com.vitalityactive.va.devicecashback.samsung.landing.SamsungDeviceCashbackLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.devicecashback.qualifyingDevices.QualifyingDevicesActivity" android:parentActivityName="com.vitalityactive.va.devicecashback.landing.DeviceCashbackLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.devicecashback.samsung.qualifyingDevices.SamsungQualifyingDevicesActivity" android:parentActivityName="com.vitalityactive.va.devicecashback.samsung.landing.SamsungDeviceCashbackLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.devicecashback.device.DeviceCashbackDeviceActivity" android:parentActivityName="com.vitalityactive.va.devicecashback.landing.DeviceCashbackLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.partnerjourney.PartnerDetailsOfflineActivity" android:parentActivityName="com.vitalityactive.va.partnerjourney.PartnerListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.activerewards.rewards.RewardVoucherWebViewActivity" android:parentActivityName="com.vitalityactive.va.activerewards.rewards.RewardsListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.activationbarcode.PDFActivationBarcodeActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.vitalityactive.va.policycashback.landing.PolicyCashbackLandingActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:launchMode="singleTask" android:name="com.vitalityactive.va.partnerjourney.MobileSSOActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.onboarding.NewOnboardingActivity" android:parentActivityName="com.vitalityactive.va.userpreferences.FirstTimeUserPreferencesActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.LoginTheme"/>
+        <activity android:name="com.vitalityactive.va.devicecashback.screens.BYODWellnessDeviceLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ImproveYourHealth"/>
+        <activity android:name="com.vitalityactive.va.userpreferences.SuccessfullyChangeEmailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.vitalityactive.va.insurancepremiumreward.InsuranceRewardActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:name="com.vitalityactive.va.vhc.history.ui.VHCHistoryDetailActivity" android:parentActivityName="com.vitalityactive.va.vhc.history.ui.VHCHistoryActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.faqhelp.FaqHelpActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.vitalityactive.va.mwbv2.onboarding.activities.MWBV2OnBoardingActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.mwbv2.feedback.MWBV2FeedBackActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.mwbv2.learnmore.MWBV2LearnMoreActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.mwbv2.questions.activities.MWBV2QuestionnaireActivity" android:parentActivityName="com.vitalityactive.va.mwbv2.learnmore.MWBV2LearnMoreActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:name="com.vitalityactive.va.mwbv2.privacypolicy.MWBV2PrivacyPolicyActivity" android:parentActivityName="com.vitalityactive.va.mwbv2.questions.activities.MWBV2QuestionnaireActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.KnowYourHealth"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.helpfaqs.activities.HelpAndFaqsLandingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.HelpFaq"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.rewards.partnerRedirect.PartnerRedirectWebViewActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.LifeStyleGoals.BehindStatusBar"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.templatedscreen.TemplatedScreenActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.YourHealth"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.templatedscreen.TemplatedScreenUploadActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.YourHealth"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.rewards.details.BaseRewardDetailsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.YourHealth"/>
+        <activity android:name="com.vitalityactive.va.getactivegoal.howtocomplete.GAGHowToCompleteActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.vitalityactive.va.getactivegoal.progress.GAGInProgressActivity" android:parentActivityName="com.vitalityactive.va.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.LifeStyleGoals.BehindStatusBar"/>
+        <activity android:name="com.vitalityactive.va.getactivegoal.activityhistory.GAGActivityHistoryActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <receiver android:name="com.vitalityactive.va.pushnotification.LocalNotificationFactory$CancelNotification"/>
+        <receiver android:name="com.vitalityactive.va.pushnotification.AppNotificationFactory$DismissNotification"/>
+        <service android:name="com.vitalityactive.va.shared.applicationlinking.GoogleFitDataUpdatesService"/>
+        <meta-data android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule" android:value="GlideModule"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <activity android:clearTaskOnLaunch="true" android:name="com.journeyapps.barcodescanner.CaptureActivity" android:screenOrientation="sensorLandscape" android:stateNotNeeded="true" android:theme="@style/zxing_CaptureTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.vitalityactive.africanHealth.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
+            <meta-data android:name="androidx.work.WorkManagerInitializer" android:value="androidx.startup"/>
+        </provider>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:name="androidx.work.impl.foreground.SystemForegroundService"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.tagmanager.TagManagerService"/>
+        <activity android:exported="true" android:name="com.google.android.gms.tagmanager.TagManagerPreviewActivity" android:noHistory="true">
+            <intent-filter>
+                <data android:scheme="tagmanager.c.com.vitalityactive.africanHealth"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <provider android:authorities="com.vitalityactive.africanHealth.firebasepushwooshinitprovider" android:enabled="true" android:exported="false" android:initOrder="54" android:name="com.pushwoosh.firebase.FirebaseInitProvider"/>
+        <service android:exported="false" android:name="com.pushwoosh.firebase.PushFcmIntentService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:name="com.pushwoosh.inapp.view.RichMediaWebActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.pushwoosh.inapp.view.RemoteUrlActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:enabled="true" android:name="com.pushwoosh.BootReceiver" android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.pushwoosh.internal.utils.PermissionActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:name="com.pushwoosh.notification.LocalNotificationReceiver"/>
+        <provider android:authorities="com.vitalityactive.africanHealth.pushwooshinitprovider" android:enabled="true" android:exported="false" android:initOrder="50" android:name="com.pushwoosh.PushwooshInitProvider"/>
+        <provider android:authorities="com.vitalityactive.africanHealth.PushwooshSharedDataProvider" android:enabled="true" android:exported="true" android:initOrder="60" android:name="com.pushwoosh.PushwooshSharedDataProvider"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.pushwoosh.NotificationOpenReceiver"/>
+        <provider android:authorities="com.vitalityactive.africanHealth.provider" android:exported="false" android:grantUriPermissions="true" android:name="com.pushwoosh.internal.fileprovider.PWFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/pw_provider_paths"/>
+        </provider>
+        <meta-data android:name="com.google.gms.fitness.sdk.version" android:value="20.0.0"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:visibleToInstantApps="true"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.vitalityactive.africanHealth.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="com.vitalityactive.africanHealth.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="3"/>
+    </application>
+</manifest>

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.acmelabs" platformBuildVersionCode="23" platformBuildVersionName="6.0-2166767">
+    <supports-screens android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="com.acmelabs.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.acmelabs.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="com.acmelabs.permission.MAPS_RECEIVE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <permission android:name="com.acmelabs.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <application android:allowBackup="true" android:icon="@drawable/icon_twin" android:label="@string/app_name" android:largeHeap="true" android:theme="@style/Theme.DesignTwin">
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.acmelabs.TwinMobile" android:theme="@style/Theme.DesignTwin">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.acmelabs.LAUNCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.acmelabs.DISPLAY_CUSTOM_DATA"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="notif"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="vnd.android-dir/mms-sms"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.SENDTO"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="sms"/>
+                <data android:scheme="smsto"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.acmelabs.TwinMobileChat" android:theme="@style/Theme.DesignTwin">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.acmelabs.TwinMobile"/>
+        </activity>
+        <activity android:name="com.twinsms.Eula" android:noHistory="true" android:theme="@android:style/Theme.Black.NoTitleBar" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.twinsms.login" android:noHistory="true" android:theme="@style/Theme.DesignTwin" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.twinsms.nuevousuario" android:noHistory="true" android:theme="@style/Theme.DesignTwin" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.twinsms.ActivarCuenta" android:noHistory="true" android:theme="@style/Theme.DesignTwin" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.acmelabs.NewMessage" android:screenOrientation="unspecified" android:theme="@style/ThemeTitle"/>
+        <activity android:launchMode="singleTask" android:name="com.twin.search" android:screenOrientation="unspecified" android:theme="@style/ThemeTitle"/>
+        <activity android:launchMode="singleTask" android:name="com.twin.newproduct" android:screenOrientation="unspecified" android:theme="@style/ThemeTitle"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.acmelabs.MyGroups" android:screenOrientation="unspecified" android:theme="@style/Theme.DesignTwin">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.acmelabs.TwinMobile"/>
+        </activity>
+        <activity android:name="com.acmelabs.SelectContactstwin" android:screenOrientation="unspecified" android:theme="@style/Theme.DesignTwin">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.acmelabs.TwinMobile"/>
+        </activity>
+        <activity android:name="com.acmelabs.ShowImage" android:screenOrientation="unspecified" android:theme="@style/ThemeTitle"/>
+        <activity android:configChanges="orientation" android:name="com.acmelabs.ShowVideo" android:screenOrientation="unspecified" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.acmelabs.ShowAvatar" android:screenOrientation="unspecified" android:theme="@style/ThemeTitle"/>
+        <activity android:launchMode="singleTask" android:name="com.twin.accesoemp" android:screenOrientation="unspecified" android:theme="@style/ThemeTitle"/>
+        <activity android:launchMode="singleTask" android:name="com.twin.menuemp" android:screenOrientation="unspecified" android:theme="@style/ThemeTitle"/>
+        <activity android:name="com.acmelabs.ShowGroup" android:screenOrientation="unspecified" android:theme="@style/ThemeTitle"/>
+        <activity android:name="com.acmelabs.ShowMap" android:screenOrientation="unspecified" android:theme="@style/ThemeTitle"/>
+        <activity android:label="@string/app_name" android:name="com.acmelabs.ShareOnFacebook" android:theme="@style/myBackgroundStyle"/>
+        <activity android:exported="true" android:launchMode="singleTask" android:name="com.acmelabs.ShareOnTwitter" android:theme="@style/myBackgroundStyle">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="twinmobile" android:scheme="app"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.acmelabs.Setting" android:theme="@style/Theme.DesignTwin">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="twinmobile" android:scheme="setting"/>
+            </intent-filter>
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.acmelabs.TwinMobile"/>
+        </activity>
+        <activity android:exported="false" android:name="com.acmelabs.Credits" android:screenOrientation="unspecified" android:theme="@style/Theme.DesignTwin">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="twinmobile" android:scheme="credits"/>
+            </intent-filter>
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.acmelabs.TwinMobile"/>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.twin.datostwin" android:screenOrientation="unspecified" android:theme="@style/ThemeTitle"/>
+        <activity android:launchMode="singleTask" android:name="com.twin.mycampaign" android:screenOrientation="unspecified" android:theme="@style/ThemeTitle"/>
+        <activity android:launchMode="singleTask" android:name="com.twin.newcampaign" android:screenOrientation="unspecified" android:theme="@style/ThemeTitle"/>
+        <activity android:exported="false" android:name="com.acmelabs.Help" android:screenOrientation="unspecified" android:theme="@style/Theme.DesignTwin">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.acmelabs.TwinMobile"/>
+        </activity>
+        <activity android:exported="false" android:launchMode="singleTask" android:name="com.acmelabs.Estadisticas" android:theme="@style/Theme.DesignTwin">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="twinmobile" android:scheme="settingsms"/>
+            </intent-filter>
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.acmelabs.TwinMobile"/>
+        </activity>
+        <activity android:name="com.acmelabs.Confirmacion" android:theme="@style/myBackgroundStyle"/>
+        <activity android:name="com.acmelabs.SelectContact" android:theme="@style/Theme.DesignTwin"/>
+        <activity android:launchMode="singleTask" android:name="com.acmelabs.SelectContactsTwinwall" android:theme="@style/ThemeTitle"/>
+        <activity android:name="com.acmelabs.AddNewContact" android:screenOrientation="unspecified" android:theme="@style/Theme.DesignTwin">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.acmelabs.TwinMobile"/>
+        </activity>
+        <activity android:name="com.acmelabs.SelectContactTosend" android:theme="@style/ThemeTitle"/>
+        <activity android:name="com.acmelabs.AddFile" android:theme="@style/Theme.DesignTwin" android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.acmelabs.TwinMobileChat"/>
+        </activity>
+        <activity android:name="com.acmelabs.ShowContactsGroup" android:theme="@style/Theme.DesignTwin"/>
+        <activity android:name="com.acmelabs.ViewContactProfile" android:theme="@style/Theme.DesignTwin"/>
+        <activity android:name="com.acmelabs.SelectContactsGroup" android:theme="@style/Theme.DesignTwin"/>
+        <activity android:exported="false" android:name="com.acmelabs.SelectTwintype" android:theme="@android:style/Theme.Translucent">
+            <intent-filter>
+                <action android:name="com.acmelabs.SelectTwintype"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:name="com.acmelabs.SelectTwintypeHistorico" android:theme="@style/myBackgroundStyle">
+            <intent-filter>
+                <action android:name="com.acmelabs.SelectTwintypeHistorico"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:name="com.acmelabs.SelectBackground" android:theme="@style/Theme.DesignTwin">
+            <intent-filter>
+                <action android:name="com.acmelabs.SelectBackground"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:name="com.acmelabs.CrearTwintype" android:theme="@style/myBackgroundStyle">
+            <intent-filter>
+                <action android:name="com.acmelabs.CrearTwintype"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:name="com.acmelabs.CrearGrupoparcial" android:theme="@style/myBackgroundStyle">
+            <intent-filter>
+                <action android:name="com.acmelabs.CrearGrupoparcial"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:name="presentaciontwinpoint" android:theme="@style/myBackgroundStyle">
+            <intent-filter>
+                <action android:name="com.acmelabs.presentaciontwinpoint"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.acmelabs.SelectColorDialog" android:theme="@style/myBackgroundStyle"/>
+        <activity android:name="com.twinsms.OpcionesSonido" android:theme="@style/MyAlertDialogStyle">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.acmelabs.TwinMobile"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.twinsms.OpcionesConversacion" android:theme="@style/MyAlertDialogStyle"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.twinsms.OpcionesConversacionRecordsound" android:theme="@style/MyAlertDialogStyle"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.twinsms.OpcionesConversacionVoicetotext" android:theme="@style/MyAlertDialogStyle"/>
+        <activity android:exported="false" android:name="com.acmelabs.SelectMultimediaContact" android:theme="@style/Theme.DesignTwin"/>
+        <receiver android:name="com.acmelabs.inbox.PackageReplaced">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="com.acmelabs.inbox.SMSReceiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="com.acmelabs.inbox.AlarmaReceiver"/>
+        <receiver android:name="com.acmelabs.inbox.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.acmelabs"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.acmelabs.inbox.GcmIntentService"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.ads.AdActivity"/>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyAiwog-pzU9fudnXaszjEnTgNU71ZEcxi4"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity"/>
+    </application>
+</manifest>

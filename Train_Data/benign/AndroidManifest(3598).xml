@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="28" android:compileSdkVersionCodename="9" package="com.quizlet.quizletandroid" platformBuildVersionCode="28" platformBuildVersionName="9">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:isSplitRequired="true" android:label="@string/app_name" android:name="com.quizlet.quizletandroid.QuizletApplication" android:supportsRtl="true" android:theme="@style/QuizletTheme">
+        <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="@string/admob_app_id"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_client_id"/>
+        <meta-data android:name="android.app.default_searchable" android:value="com.quizlet.quizletandroid.ui.search.SearchActivity"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/white_logomark"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/notificationColor"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_channel_id" android:value="@string/default_notification_channel_id"/>
+        <meta-data android:name="firebase_performance_logcat_enabled" android:value="false"/>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="ad63a20d5ebac56ccdec47e1f03a4a75a222cf5d"/>
+        <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_bcz8SofRZY10mfUvwDrU8lanFzbj24Wn"/>
+        <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_ifx3IcbP918WfcTurFvXsjjfBshm686C"/>
+        <meta-data android:name="io.branch.sdk.TestMode" android:value="@bool/branch_test_mode"/>
+        <meta-data android:name="com.google.firebase.ml.vision.DEPENDENCIES" android:value="barcode"/>
+        <activity android:exported="true" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.quizlet.quizletandroid.ui.RootActivity" android:windowSoftInputMode="adjustResize|stateVisible">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <data android:scheme="quizletbranch"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+            <intent-filter>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="quizlet.app.link"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+            <intent-filter>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="quizlet.test-app.link"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+            <meta-data android:name="android.app.default_searchable" android:value="com.quizlet.quizletandroid.ui.search.SearchActivity"/>
+            <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.shortcuts.CreateSetShortcutInterstitialActivity" android:noHistory="true"/>
+        <activity android:exported="false" android:launchMode="singleTask" android:name="com.quizlet.quizletandroid.ui.intro.IntroActivity" android:theme="@style/QuizletFullscreenTheme">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_Intro"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.login.LoginActivity" android:windowSoftInputMode="adjustResize">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_Login"/>
+        </activity>
+        <activity android:exported="true" android:launchMode="singleTask" android:name="com.quizlet.quizletandroid.ui.login.SignupActivity" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="com.quizlet.quizletandroid" android:scheme="quizlet"/>
+            </intent-filter>
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_Signup"/>
+        </activity>
+        <activity android:exported="false" android:launchMode="singleTask" android:name="com.quizlet.quizletandroid.ui.startpage.nav2.HomeNavigationActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_HomeNavigation"/>
+        </activity>
+        <activity android:exported="true" android:launchMode="singleTask" android:name="com.quizlet.quizletandroid.ui.group.GroupActivity" android:parentActivityName="com.quizlet.quizletandroid.ui.RootActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_Group"/>
+        </activity>
+        <activity android:exported="true" android:name="com.google.android.gms.tagmanager.TagManagerPreviewActivity" android:noHistory="true">
+            <intent-filter>
+                <data android:scheme="tagmanager.c.com.quizlet.quizletandroid"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:exported="true" android:launchMode="singleInstance" android:name="com.quizlet.quizletandroid.util.links.DeepLinkInterstitialActivity" android:noHistory="true">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_DeepLinkInterstitial"/>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="quizlet"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="quizlet.com"/>
+                <data android:host="www.quizlet.com"/>
+                <data android:pathPattern="/.*/folders.*"/>
+                <data android:pathPattern="/.*/classes.*"/>
+                <data android:path="/p/wordlywise3000"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="quizlet"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="quizlet.com"/>
+                <data android:host="www.quizlet.com"/>
+                <data android:path="/live"/>
+                <data android:pathPattern="/live/.*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="quizlet.live"/>
+                <data android:host="www.quizlet.live"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="quizlet"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="quizlet.com"/>
+                <data android:host="www.quizlet.com"/>
+                <data android:pathPrefix="/class/"/>
+                <data android:pathPrefix="/join/"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="quizlet"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="quizlet.com"/>
+                <data android:host="www.quizlet.com"/>
+                <data android:path="/upgrade"/>
+                <data android:pathPattern="/upgrade/.*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="quizlet"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="quizlet.com"/>
+                <data android:host="www.quizlet.com"/>
+                <data android:pathPrefix="/0"/>
+                <data android:pathPrefix="/gb/0"/>
+                <data android:pathPrefix="/au/0"/>
+                <data android:pathPrefix="/nz/0"/>
+                <data android:pathPrefix="/ca/0"/>
+                <data android:pathPrefix="/in/0"/>
+                <data android:pathPrefix="/de/0"/>
+                <data android:pathPrefix="/es/0"/>
+                <data android:pathPrefix="/mx/0"/>
+                <data android:pathPrefix="/fr/0"/>
+                <data android:pathPrefix="/ca/0"/>
+                <data android:pathPrefix="/id/0"/>
+                <data android:pathPrefix="/it/0"/>
+                <data android:pathPrefix="/nl/0"/>
+                <data android:pathPrefix="/pl/0"/>
+                <data android:pathPrefix="/br/0"/>
+                <data android:pathPrefix="/ru/0"/>
+                <data android:pathPrefix="/tr/0"/>
+                <data android:pathPrefix="/vn/0"/>
+                <data android:pathPrefix="/kr/0"/>
+                <data android:pathPrefix="/jp/0"/>
+                <data android:pathPrefix="/cn/0"/>
+                <data android:pathPrefix="/tw/0"/>
+                <data android:pathPrefix="/1"/>
+                <data android:pathPrefix="/gb/1"/>
+                <data android:pathPrefix="/au/1"/>
+                <data android:pathPrefix="/nz/1"/>
+                <data android:pathPrefix="/ca/1"/>
+                <data android:pathPrefix="/in/1"/>
+                <data android:pathPrefix="/de/1"/>
+                <data android:pathPrefix="/es/1"/>
+                <data android:pathPrefix="/mx/1"/>
+                <data android:pathPrefix="/fr/1"/>
+                <data android:pathPrefix="/ca/1"/>
+                <data android:pathPrefix="/id/1"/>
+                <data android:pathPrefix="/it/1"/>
+                <data android:pathPrefix="/nl/1"/>
+                <data android:pathPrefix="/pl/1"/>
+                <data android:pathPrefix="/br/1"/>
+                <data android:pathPrefix="/ru/1"/>
+                <data android:pathPrefix="/tr/1"/>
+                <data android:pathPrefix="/vn/1"/>
+                <data android:pathPrefix="/kr/1"/>
+                <data android:pathPrefix="/jp/1"/>
+                <data android:pathPrefix="/cn/1"/>
+                <data android:pathPrefix="/tw/1"/>
+                <data android:pathPrefix="/2"/>
+                <data android:pathPrefix="/gb/2"/>
+                <data android:pathPrefix="/au/2"/>
+                <data android:pathPrefix="/nz/2"/>
+                <data android:pathPrefix="/ca/2"/>
+                <data android:pathPrefix="/in/2"/>
+                <data android:pathPrefix="/de/2"/>
+                <data android:pathPrefix="/es/2"/>
+                <data android:pathPrefix="/mx/2"/>
+                <data android:pathPrefix="/fr/2"/>
+                <data android:pathPrefix="/ca/2"/>
+                <data android:pathPrefix="/id/2"/>
+                <data android:pathPrefix="/it/2"/>
+                <data android:pathPrefix="/nl/2"/>
+                <data android:pathPrefix="/pl/2"/>
+                <data android:pathPrefix="/br/2"/>
+                <data android:pathPrefix="/ru/2"/>
+                <data android:pathPrefix="/tr/2"/>
+                <data android:pathPrefix="/vn/2"/>
+                <data android:pathPrefix="/kr/2"/>
+                <data android:pathPrefix="/jp/2"/>
+                <data android:pathPrefix="/cn/2"/>
+                <data android:pathPrefix="/tw/2"/>
+                <data android:pathPrefix="/3"/>
+                <data android:pathPrefix="/gb/3"/>
+                <data android:pathPrefix="/au/3"/>
+                <data android:pathPrefix="/nz/3"/>
+                <data android:pathPrefix="/ca/3"/>
+                <data android:pathPrefix="/in/3"/>
+                <data android:pathPrefix="/de/3"/>
+                <data android:pathPrefix="/es/3"/>
+                <data android:pathPrefix="/mx/3"/>
+                <data android:pathPrefix="/fr/3"/>
+                <data android:pathPrefix="/ca/3"/>
+                <data android:pathPrefix="/id/3"/>
+                <data android:pathPrefix="/it/3"/>
+                <data android:pathPrefix="/nl/3"/>
+                <data android:pathPrefix="/pl/3"/>
+                <data android:pathPrefix="/br/3"/>
+                <data android:pathPrefix="/ru/3"/>
+                <data android:pathPrefix="/tr/3"/>
+                <data android:pathPrefix="/vn/3"/>
+                <data android:pathPrefix="/kr/3"/>
+                <data android:pathPrefix="/jp/3"/>
+                <data android:pathPrefix="/cn/3"/>
+                <data android:pathPrefix="/tw/3"/>
+                <data android:pathPrefix="/4"/>
+                <data android:pathPrefix="/gb/4"/>
+                <data android:pathPrefix="/au/4"/>
+                <data android:pathPrefix="/nz/4"/>
+                <data android:pathPrefix="/ca/4"/>
+                <data android:pathPrefix="/in/4"/>
+                <data android:pathPrefix="/de/4"/>
+                <data android:pathPrefix="/es/4"/>
+                <data android:pathPrefix="/mx/4"/>
+                <data android:pathPrefix="/fr/4"/>
+                <data android:pathPrefix="/ca/4"/>
+                <data android:pathPrefix="/id/4"/>
+                <data android:pathPrefix="/it/4"/>
+                <data android:pathPrefix="/nl/4"/>
+                <data android:pathPrefix="/pl/4"/>
+                <data android:pathPrefix="/br/4"/>
+                <data android:pathPrefix="/ru/4"/>
+                <data android:pathPrefix="/tr/4"/>
+                <data android:pathPrefix="/vn/4"/>
+                <data android:pathPrefix="/kr/4"/>
+                <data android:pathPrefix="/jp/4"/>
+                <data android:pathPrefix="/cn/4"/>
+                <data android:pathPrefix="/tw/4"/>
+                <data android:pathPrefix="/5"/>
+                <data android:pathPrefix="/gb/5"/>
+                <data android:pathPrefix="/au/5"/>
+                <data android:pathPrefix="/nz/5"/>
+                <data android:pathPrefix="/ca/5"/>
+                <data android:pathPrefix="/in/5"/>
+                <data android:pathPrefix="/de/5"/>
+                <data android:pathPrefix="/es/5"/>
+                <data android:pathPrefix="/mx/5"/>
+                <data android:pathPrefix="/fr/5"/>
+                <data android:pathPrefix="/ca/5"/>
+                <data android:pathPrefix="/id/5"/>
+                <data android:pathPrefix="/it/5"/>
+                <data android:pathPrefix="/nl/5"/>
+                <data android:pathPrefix="/pl/5"/>
+                <data android:pathPrefix="/br/5"/>
+                <data android:pathPrefix="/ru/5"/>
+                <data android:pathPrefix="/tr/5"/>
+                <data android:pathPrefix="/vn/5"/>
+                <data android:pathPrefix="/kr/5"/>
+                <data android:pathPrefix="/jp/5"/>
+                <data android:pathPrefix="/cn/5"/>
+                <data android:pathPrefix="/tw/5"/>
+                <data android:pathPrefix="/6"/>
+                <data android:pathPrefix="/gb/6"/>
+                <data android:pathPrefix="/au/6"/>
+                <data android:pathPrefix="/nz/6"/>
+                <data android:pathPrefix="/ca/6"/>
+                <data android:pathPrefix="/in/6"/>
+                <data android:pathPrefix="/de/6"/>
+                <data android:pathPrefix="/es/6"/>
+                <data android:pathPrefix="/mx/6"/>
+                <data android:pathPrefix="/fr/6"/>
+                <data android:pathPrefix="/ca/6"/>
+                <data android:pathPrefix="/id/6"/>
+                <data android:pathPrefix="/it/6"/>
+                <data android:pathPrefix="/nl/6"/>
+                <data android:pathPrefix="/pl/6"/>
+                <data android:pathPrefix="/br/6"/>
+                <data android:pathPrefix="/ru/6"/>
+                <data android:pathPrefix="/tr/6"/>
+                <data android:pathPrefix="/vn/6"/>
+                <data android:pathPrefix="/kr/6"/>
+                <data android:pathPrefix="/jp/6"/>
+                <data android:pathPrefix="/cn/6"/>
+                <data android:pathPrefix="/tw/6"/>
+                <data android:pathPrefix="/7"/>
+                <data android:pathPrefix="/gb/7"/>
+                <data android:pathPrefix="/au/7"/>
+                <data android:pathPrefix="/nz/7"/>
+                <data android:pathPrefix="/ca/7"/>
+                <data android:pathPrefix="/in/7"/>
+                <data android:pathPrefix="/de/7"/>
+                <data android:pathPrefix="/es/7"/>
+                <data android:pathPrefix="/mx/7"/>
+                <data android:pathPrefix="/fr/7"/>
+                <data android:pathPrefix="/ca/7"/>
+                <data android:pathPrefix="/id/7"/>
+                <data android:pathPrefix="/it/7"/>
+                <data android:pathPrefix="/nl/7"/>
+                <data android:pathPrefix="/pl/7"/>
+                <data android:pathPrefix="/br/7"/>
+                <data android:pathPrefix="/ru/7"/>
+                <data android:pathPrefix="/tr/7"/>
+                <data android:pathPrefix="/vn/7"/>
+                <data android:pathPrefix="/kr/7"/>
+                <data android:pathPrefix="/jp/7"/>
+                <data android:pathPrefix="/cn/7"/>
+                <data android:pathPrefix="/tw/7"/>
+                <data android:pathPrefix="/8"/>
+                <data android:pathPrefix="/gb/8"/>
+                <data android:pathPrefix="/au/8"/>
+                <data android:pathPrefix="/nz/8"/>
+                <data android:pathPrefix="/ca/8"/>
+                <data android:pathPrefix="/in/8"/>
+                <data android:pathPrefix="/de/8"/>
+                <data android:pathPrefix="/es/8"/>
+                <data android:pathPrefix="/mx/8"/>
+                <data android:pathPrefix="/fr/8"/>
+                <data android:pathPrefix="/ca/8"/>
+                <data android:pathPrefix="/id/8"/>
+                <data android:pathPrefix="/it/8"/>
+                <data android:pathPrefix="/nl/8"/>
+                <data android:pathPrefix="/pl/8"/>
+                <data android:pathPrefix="/br/8"/>
+                <data android:pathPrefix="/ru/8"/>
+                <data android:pathPrefix="/tr/8"/>
+                <data android:pathPrefix="/vn/8"/>
+                <data android:pathPrefix="/kr/8"/>
+                <data android:pathPrefix="/jp/8"/>
+                <data android:pathPrefix="/cn/8"/>
+                <data android:pathPrefix="/tw/8"/>
+                <data android:pathPrefix="/9"/>
+                <data android:pathPrefix="/gb/9"/>
+                <data android:pathPrefix="/au/9"/>
+                <data android:pathPrefix="/nz/9"/>
+                <data android:pathPrefix="/ca/9"/>
+                <data android:pathPrefix="/in/9"/>
+                <data android:pathPrefix="/de/9"/>
+                <data android:pathPrefix="/es/9"/>
+                <data android:pathPrefix="/mx/9"/>
+                <data android:pathPrefix="/fr/9"/>
+                <data android:pathPrefix="/ca/9"/>
+                <data android:pathPrefix="/id/9"/>
+                <data android:pathPrefix="/it/9"/>
+                <data android:pathPrefix="/nl/9"/>
+                <data android:pathPrefix="/pl/9"/>
+                <data android:pathPrefix="/br/9"/>
+                <data android:pathPrefix="/ru/9"/>
+                <data android:pathPrefix="/tr/9"/>
+                <data android:pathPrefix="/vn/9"/>
+                <data android:pathPrefix="/kr/9"/>
+                <data android:pathPrefix="/jp/9"/>
+                <data android:pathPrefix="/cn/9"/>
+                <data android:pathPrefix="/tw/9"/>
+                <data android:pathPrefix="/_"/>
+                <data android:pathPrefix="/gb/_"/>
+                <data android:pathPrefix="/au/_"/>
+                <data android:pathPrefix="/nz/_"/>
+                <data android:pathPrefix="/ca/_"/>
+                <data android:pathPrefix="/in/_"/>
+                <data android:pathPrefix="/de/_"/>
+                <data android:pathPrefix="/es/_"/>
+                <data android:pathPrefix="/mx/_"/>
+                <data android:pathPrefix="/fr/_"/>
+                <data android:pathPrefix="/ca/_"/>
+                <data android:pathPrefix="/id/_"/>
+                <data android:pathPrefix="/it/_"/>
+                <data android:pathPrefix="/nl/_"/>
+                <data android:pathPrefix="/pl/_"/>
+                <data android:pathPrefix="/br/_"/>
+                <data android:pathPrefix="/ru/_"/>
+                <data android:pathPrefix="/tr/_"/>
+                <data android:pathPrefix="/vn/_"/>
+                <data android:pathPrefix="/kr/_"/>
+                <data android:pathPrefix="/jp/_"/>
+                <data android:pathPrefix="/cn/_"/>
+                <data android:pathPrefix="/tw/_"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:launchMode="singleTask" android:name="com.quizlet.quizletandroid.ui.folder.FolderActivity" android:parentActivityName="com.quizlet.quizletandroid.ui.RootActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_Folder"/>
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.quizlet.quizletandroid.ui.RootActivity"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.premiumcontent.activities.AccessCodeBlockerActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_AccessCodeBlocker"/>
+        </activity>
+        <activity android:exported="true" android:launchMode="singleTask" android:name="com.quizlet.quizletandroid.ui.setpage.SetPageActivity" android:parentActivityName="com.quizlet.quizletandroid.ui.RootActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_SetPage"/>
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.quizlet.quizletandroid.ui.RootActivity"/>
+        </activity>
+        <activity android:exported="false" android:launchMode="singleTask" android:name="com.quizlet.quizletandroid.ui.profile.ProfileActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_Profile"/>
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.quizlet.quizletandroid.ui.RootActivity"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.usersettings.activities.FeedbackActivity" android:windowSoftInputMode="adjustResize">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_Feedback"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.studymodes.flashcards.activities.FlipFlashcardsActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_FlipFlashcards"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.studymodes.flashcardsv3.activities.FlipFlashcardsV3Activity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_FlipFlashcardsV3Activity"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.studymodes.flashcardsv3.onboarding.FlipFlashcardsV3OnboardingActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_FlipFlashcardsV3OnboardingActivity"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.studymodes.flashcards.activities.FlipFlashcardsSettingsActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_FlipFlashcardsSettings"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:name="com.quizlet.quizletandroid.ui.studymodes.learn.LearnModeActivity" android:windowSoftInputMode="adjustResize">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_LearnMode"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.studymodes.learn.LearnSettingsActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_LearnSettings"/>
+        </activity>
+        <activity android:exported="false" android:label="@string/match_mode_label" android:name="com.quizlet.quizletandroid.ui.studymodes.match.MatchActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_Match"/>
+        </activity>
+        <activity android:exported="false" android:label="@string/match_mode_label" android:name="com.quizlet.quizletandroid.ui.studymodes.match.v2.activity.MatchActivityV2">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_Match_v2"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.studymodes.match.settings.MatchSettingsActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_MatchSettings"/>
+        </activity>
+        <activity android:exported="false" android:label="@string/test_mode_label" android:name="com.quizlet.quizletandroid.ui.studymodes.test.activities.TestStudyModeActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_TestStudyMode"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.FullScreenOverlayActivity" android:theme="@style/QuizletOverlayTheme" android:windowSoftInputMode="stateAlwaysHidden">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_FullScreenOverlay"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.setcreation.activities.EditTermImagePreviewActivity" android:theme="@style/QuizletOverlayTheme" android:windowSoftInputMode="stateAlwaysHidden">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_EditTermImagePreview"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.setcreation.activities.EditSetActivity" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_EditSet"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.setcreation.activities.EditSetDetailsActivity" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_EditSetDetails"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.setcreation.activities.EditSetLanguageSelectionActivity" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_EditSetLanguageSelection"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.setcreation.activities.EditSetPermissionSelectionActivity" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_EditSetPermissionSelection"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.setcreation.activities.EditSetMobileWebActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_EditSetMobileWebActivity"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.setcreation.activities.InputPassswordActivity" android:windowSoftInputMode="stateVisible">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_InputPasssword"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:launchMode="singleTop" android:name="com.quizlet.quizletandroid.ui.search.SearchActivity" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_Search"/>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:name="com.quizlet.quizletandroid.ui.webpages.WebViewActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_WebView"/>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.usersettings.activities.ChangeProfileImageActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_ChangeProfileImage"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.usersettings.activities.ChangeEmailActivity" android:windowSoftInputMode="adjustResize">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_ChangeEmail"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.usersettings.activities.ChangeUsernameActivity" android:windowSoftInputMode="adjustResize">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_ChangeUsername"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.usersettings.activities.AddPasswordActivity" android:windowSoftInputMode="adjustResize">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_AddPassword"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.usersettings.activities.ChangePasswordActivity" android:windowSoftInputMode="adjustResize">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_ChangePassword"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.usersettings.activities.PremiumContentActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_PremiumContent"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.usersettings.activities.NightThemePickerActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_NightThemePicker"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.usersettings.activities.NightThemeInputAutomaticSunsetModeActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_NightThemeInputAutomaticSunsetMode"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.login.GoogleAuthActivity" android:theme="@style/QuizletTransparent"/>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.login.FacebookAuthActivity" android:theme="@style/QuizletTransparent"/>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.usersettings.activities.CropImageActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_CropImage"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.studymodes.assistant.LearningAssistantActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_LearningAssistant"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.studymodes.assistant.duedate.LADueDateActivity"/>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.studymodes.assistant.settings.LASettingsActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_LASettings"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.studymodes.assistant.settings.feedbackoptions.LASettingsGradingOptionsActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_LASettingsGradingOptions"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.inappbilling.UpgradeActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_Upgrade"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.inappbilling.UpgradeExperimentInterstitialActivity" android:theme="@style/QuizletTransparent"/>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.diagramming.DiagramOverviewActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_DiagramOverview"/>
+        </activity>
+        <activity android:exported="false" android:label="@string/oss_license_title" android:name="com.google.android.gms.oss.licenses.OssLicensesMenuActivity" android:theme="@style/QuizletOssLicensesTheme"/>
+        <activity android:exported="false" android:name="com.google.android.gms.oss.licenses.OssLicensesActivity" android:theme="@style/QuizletOssLicensesTheme"/>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.setpage.addset.AddSetToClassOrFolderActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_AddSetToClassOrFolder"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.setpage.addset.ndl.addtofolder.AddSetToFolderWithNewDataLayerActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_AddSetToFolderWithNewDataLayer"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.group.addclassset.AddClassSetActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_AddClassSet"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.classcreation.EditClassActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_EditClass"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:launchMode="singleTask" android:name="com.quizlet.quizletandroid.ui.live.QuizletLiveActivity" android:parentActivityName="com.quizlet.quizletandroid.ui.RootActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_QuizletLive"/>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.quizlet.quizletandroid.ui.live.QuizletLiveDeepLinkInterstitialActivity" android:parentActivityName="com.quizlet.quizletandroid.ui.RootActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_QuizletLiveDeepLinkInterstitial"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.folder.addfolderset.AddSetToFolderActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_AddSetToFolder"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.live.interstitial.QuizletLiveInterstitialActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_QuizletLiveInterstitialActivity"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.qrcodes.QLiveQrCodeReaderActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_QLiveQrCodeReaderActivity"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.onboarding.OnboardingActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_OnboardingActivity"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.setcreation.activities.ScanDocumentActivity" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_ScanDocumentActivity"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.studymodes.flashcards.onboarding.SwipeFlashcardsOnboardingActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_SwipeFlashcardsOnboardingActivity"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.subject.SubjectActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_SubjectActivity"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.subject.SubjectActivityV2">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_SubjectActivityV2"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.matching.SchoolSubjectMatchingActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_SchoolSubjectMatchingActivity"/>
+        </activity>
+        <activity android:exported="false" android:name="com.quizlet.quizletandroid.ui.studymodes.voice.VoiceInputOnboardingActivity">
+            <meta-data android:name="com.quizlet.quizletandroid.loggingTag" android:value="@string/loggingTag_VoiceInputOnboardingActivity"/>
+        </activity>
+        <provider android:authorities="com.quizlet.quizletandroid.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <receiver android:exported="true" android:name="com.quizlet.quizletandroid.receivers.CoppaCompliantAdwordsConversionTrackingInstallReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.quizlet.quizletandroid.receivers.CoppaCompliantCampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.CampaignTrackingReceiver"/>
+        <receiver android:exported="true" android:name="androidx.media.session.MediaButtonReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.quizlet.quizletandroid.ui.studymodes.assistant.notifications.LANotificationScheduler"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.quizlet.quizletandroid.ui.studymodes.assistant.notifications.LADeviceRebootBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.quizlet.quizletandroid.ui.setpage.shareset.ShareIntentSender"/>
+        <service android:exported="false" android:name="com.quizlet.quizletandroid.logging.eventlogging.EventLogSyncingService"/>
+        <service android:exported="false" android:name="com.quizlet.quizletandroid.ui.studymodes.assistant.notifications.LANotificationService"/>
+        <service android:exported="true" android:name="com.quizlet.quizletandroid.ui.studymodes.flashcards.service.FlashcardAutoPlayService">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.quizlet.quizletandroid.firebase.services.QuizletFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.quizlet.quizletandroid.jobs.EventLogSyncingJob" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:name="com.apptimize.qaconsole.ApptimizeQaActivity"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="cct.com.quizlet.quizletandroid" android:scheme="fbconnect"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.appboy.ui.AppboyWebViewActivity"/>
+        <activity android:name="com.appboy.ui.activities.AppboyFeedActivity"/>
+        <activity android:name="com.appboy.ui.activities.AppboyContentCardsActivity"/>
+        <activity android:name="com.appboy.push.AppboyNotificationRoutingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:exported="false" android:name="com.appboy.AppboyFcmReceiver"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <provider android:authorities="com.quizlet.quizletandroid.firebaseperfprovider" android:exported="false" android:initOrder="101" android:name="com.google.firebase.perf.provider.FirebasePerfProvider"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <service android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.tagmanager.TagManagerService"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.quizlet.quizletandroid.crashlyticsinitprovider" android:exported="false" android:initOrder="90" android:name="com.crashlytics.android.CrashlyticsInitProvider"/>
+        <meta-data android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule" android:value="GlideModule"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.android.billingclient.api.ProxyBillingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <provider android:authorities="com.quizlet.quizletandroid.mobileadsinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.android.gms.ads.MobileAdsInitProvider"/>
+        <provider android:authorities="com.quizlet.quizletandroid.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <provider android:authorities="com.quizlet.quizletandroid.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.quizlet.quizletandroid.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.appboy.receivers.AppboyActionReceiver"/>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>

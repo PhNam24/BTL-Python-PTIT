@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" package="com.pickcab.driver" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="com.pickcab.driver.permission.MAPS_RECEIVE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.network" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <permission android:name="com.pickcab.driver.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
+    <permission android:name="com.pickcab.driver.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="com.pickcab.driver.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT"/>
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
+    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE"/>
+    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT"/>
+    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_APP_BADGE"/>
+    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ"/>
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <application android:allowBackup="true" android:icon="@drawable/app_logo_100" android:label="@string/app_name" android:largeHeap="true" android:name="com.pickcab.driver.MainApplication" android:resizeableActivity="true" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <provider android:authorities="com.pickcab.driver.provider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="@string/google_map_key"/>
+        <activity android:name="com.pickcab.driver.SplashActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.pickcab.driver.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustNothing|stateHidden"/>
+        <activity android:name="com.pickcab.driver.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pickcab.driver.RegisterActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pickcab.driver.PriceFareActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing|stateHidden"/>
+        <activity android:name="com.pickcab.driver.ProfileActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pickcab.driver.AboutActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing|stateHidden"/>
+        <activity android:name="com.pickcab.driver.ForgotPass_VerifyOTP" android:screenOrientation="portrait"/>
+        <activity android:name="com.pickcab.driver.ForgotPass_ConfirmPass" android:screenOrientation="portrait"/>
+        <activity android:name="com.pickcab.driver.TermsAndCondition" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing|stateHidden"/>
+        <activity android:name="com.pickcab.driver.ChangePasswordActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pickcab.driver.DocumentActivity" android:screenOrientation="portrait"/>
+        <receiver android:name="com.pickcab.driver.others.MyBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.pickcab.driver"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.pickcab.driver.fcmclasses.OneSignalServiceClass" android:permission="android.permission.BIND_JOB_SERVICE">
+            <intent-filter>
+                <action android:name="com.onesignal.NotificationExtender"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <receiver android:exported="true" android:name="com.google.android.gms.analytics.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <activity android:name="com.pickcab.driver.RidesActivity"/>
+        <activity android:name="com.pickcab.driver.SelectedRidesActivity"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="5a4e68fda1e165d6a9b88232af4008fbc3e56b9c"/>
+        <activity android:name="com.pickcab.driver.CustomerSupportActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pickcab.driver.trackride.TrackRideActivity" android:screenOrientation="portrait"/>
+        <service android:name="com.pickcab.driver.TimeService"/>
+        <activity android:name="com.pickcab.driver.earnings.EarningActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pickcab.driver.earnings.WeeklyStatementActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pickcab.driver.earnings.DailyStatementActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pickcab.driver.TrialReceivePassengerActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pickcab.driver.OnlineOfflineActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Holo.Dialog.NoActionBar"/>
+        <activity android:name="com.pickcab.driver.ReceiveRentalPassengerActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pickcab.driver.RentalTrackRideActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pickcab.driver.MeterImageActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Holo.Dialog.NoActionBar"/>
+        <activity android:name="com.pickcab.driver.RentalPriceFareActiviy" android:screenOrientation="portrait"/>
+        <activity android:name="com.pickcab.driver.BaseActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_selected_rental_ride" android:name="com.pickcab.driver.SelectedRentalRideActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.pickcab.driver.NotificationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pickcab.driver.NotificationWebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pickcab.driver.Verify_OTP" android:screenOrientation="portrait"/>
+        <activity android:name="com.pickcab.driver.SosActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Holo.Dialog.NoActionBar"/>
+        <activity android:name="com.pickcab.driver.PhotoUploaderActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Holo.Dialog.NoActionBar"/>
+        <activity android:name="com.pickcab.driver.StatusActiity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pickcab.driver.ChatActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pickcab.driver.TripHistoryActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pickcab.driver.AcceptPassActivity"/>
+        <activity android:name="com.pickcab.driver.ReceivePassengerActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pickcab.driver.ReAcceptpassActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pickcab.driver.ManualUserDetailActivity"/>
+        <activity android:name="com.pickcab.driver.settings.SettingsActivity"/>
+        <activity android:name="com.pickcab.driver.acceptModule.NewAcceptScreen"/>
+        <activity android:name="com.pickcab.driver.WalletActivity"/>
+        <service android:name="com.pickcab.driver.customs.CountUpService"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:launchMode="singleTop" android:name="com.mlsdev.rximagepicker.HiddenActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:name="com.google.android.gms.cast.framework.media.MediaIntentReceiver"/>
+        <service android:name="com.google.android.gms.cast.framework.media.MediaNotificationService"/>
+        <service android:name="com.google.android.gms.cast.framework.ReconnectionService"/>
+        <meta-data android:name="onesignal_app_id" android:value="83ec72bc-1a17-41e3-b9a5-cba7f2f32212"/>
+        <meta-data android:name="onesignal_google_project_number" android:value="str:REMOTE"/>
+        <receiver android:name="com.onesignal.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter android:priority="999">
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.pickcab.driver"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.onesignal.NotificationOpenedReceiver"/>
+        <service android:name="com.onesignal.GcmIntentService"/>
+        <service android:name="com.onesignal.GcmIntentJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.onesignal.RestoreJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.onesignal.RestoreKickoffJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.onesignal.SyncService" android:stopWithTask="true"/>
+        <service android:name="com.onesignal.SyncJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:name="com.onesignal.PermissionsActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:name="com.onesignal.NotificationRestoreService"/>
+        <receiver android:name="com.onesignal.BootUpReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.onesignal.UpgradeReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.pickcab.driver.firebaseperfprovider" android:exported="false" android:initOrder="101" android:name="com.google.firebase.perf.provider.FirebasePerfProvider"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:exported="true" android:name="com.google.android.gms.appinvite.PreviewActivity" android:theme="@style/Theme.AppInvite.Preview">
+            <intent-filter>
+                <action android:name="com.google.android.gms.appinvite.ACTION_PREVIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <activity android:excludeFromRecents="true" android:exported="true" android:launchMode="singleInstance" android:name="com.google.firebase.auth.internal.FederatedSignInActivity" android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.tagmanager.TagManagerService"/>
+        <activity android:exported="true" android:name="com.google.android.gms.tagmanager.TagManagerPreviewActivity" android:noHistory="true">
+            <intent-filter>
+                <data android:scheme="tagmanager.c.com.pickcab.driver"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.pickcab.driver"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.pickcab.driver.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <provider android:authorities="com.pickcab.driver.crashlyticsinitprovider" android:exported="false" android:initOrder="90" android:name="com.crashlytics.android.CrashlyticsInitProvider"/>
+    </application>
+</manifest>

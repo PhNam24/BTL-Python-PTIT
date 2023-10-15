@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.healthcloud" platformBuildVersionCode="23" platformBuildVersionName="6.0-2704002">
+    <permission android:description="@string/permdesc_downloadManager" android:label="@string/permlab_downloadManager" android:name="com.healthcloud.permission.ACCESS_DOWNLOAD_MANAGER" android:protectionLevel="normal"/>
+    <permission android:description="@string/permdesc_downloadManagerAdvanced" android:label="@string/permlab_downloadManagerAdvanced" android:name="com.healthcloud.permission.ACCESS_DOWNLOAD_MANAGER_ADVANCED" android:protectionLevel="normal"/>
+    <permission android:description="@string/permdesc_downloadCompletedIntent" android:label="@string/permlab_downloadCompletedIntent" android:name="com.healthcloud.permission.SEND_DOWNLOAD_COMPLETED_INTENTS" android:protectionLevel="normal"/>
+    <uses-permission android:name="com.healthcloud.permission.JPUSH_MESSAGE"/>
+    <uses-permission android:name="com.healthcloud.permission.ACCESS_DOWNLOAD_MANAGER"/>
+    <uses-permission android:name="com.healthcloud.permission.ACCESS_DOWNLOAD_MANAGER_ADVANCED"/>
+    <uses-permission android:name="com.healthcloud.permission.SEND_DOWNLOAD_COMPLETED_INTENTS"/>
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="com.google.android.gm.permission.AUTO_SEND"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <application android:allowBackup="true" android:icon="@drawable/healthcloudapp" android:label="@string/app_name" android:name="com.healthcloud.HealthCloudApplication" android:persistent="true" android:supportsRtl="true" android:theme="@android:style/Theme.Black.NoTitleBar">
+        <meta-data android:name="com.amap.api.v2.apikey" android:value="83b4a27b24097b47aed40de23d7aa55d"/>
+        <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="Cxr6o1dkRFoaRwjgKUc8noEa"/>
+        <activity android:name="com.tencent.connect.common.AssistActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencent100510172"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="MediaViewActivity" android:name="com.baidu.android.pushservice.richmedia.MediaViewActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="MediaListActivity" android:launchMode="singleTask" android:name="com.baidu.android.pushservice.richmedia.MediaListActivity"/>
+        <receiver android:name="com.healthcloud.HCPushMessageReceiver">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.MESSAGE"/>
+                <action android:name="com.baidu.android.pushservice.action.RECEIVE"/>
+                <action android:name="com.baidu.android.pushservice.action.notification.CLICK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.baidu.android.pushservice.PushServiceReceiver" android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.baidu.android.pushservice.action.notification.SHOW"/>
+                <action android:name="com.baidu.android.pushservice.action.media.CLICK"/>
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.baidu.android.pushservice.RegistrationReceiver" android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.METHOD"/>
+                <action android:name="com.baidu.android.pushservice.action.BIND_SYNC"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:name="com.baidu.location.f" android:process=":remote"/>
+        <service android:exported="true" android:name="com.baidu.android.pushservice.PushService" android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.PUSH_SERVICE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.baidu.android.pushservice.CommandService"/>
+        <meta-data android:name="api_key" android:value="6KG3ZCxiqS603B20KHH9jEYy"/>
+        <provider android:authorities="com.healthcloud.downloads" android:name="com.healthcloud.providers.downloads.DownloadProvider"/>
+        <service android:name="com.healthcloud.providers.downloads.DownloadService"/>
+        <receiver android:exported="false" android:name="com.healthcloud.providers.downloads.DownloadReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.healthcloud.service.HCUpdateService"/>
+        <service android:name="com.healthcloud.service.UpdateService"/>
+        <service android:name="com.healthcloud.service.PlayerService"/>
+        <activity android:label="@string/app_name" android:name="com.healthcloud.MainSplashActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="healthcloud640378833"/>
+                <data android:scheme="healthcloud640378834"/>
+                <data android:scheme="healthcloud640378835"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.healthcloud.HCMainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.MainDialogActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.healthcloud.MainWebActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.PhotographActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.MainChannelActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.HCNewSetActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.HomeWebviewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.position.MainPosCitysActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.MainAdvActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="com.healthcloud.ShowPic" android:theme="@style/Transparent"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="cn.sharesdk.framework.AuthorizeActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="cn.sharesdk.demo.GetTokenPage" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="cn.sharesdk.demo.GetInforPage" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="cn.sharesdk.demo.JsonPage" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.mob.tools.MobUIShell" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="adjustResize|stateHidden">
+            <meta-data android:name="Adapter" android:value="cn.sharesdk.demo.MyAdapter"/>
+        </activity>
+        <activity android:exported="true" android:name="com.healthcloud.wxapi.WXEntryActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:excludeFromRecents="true" android:exported="true" android:launchMode="singleTop" android:name="com.healthcloud.yxapi.YXEntryActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.healthcloud.downloadprovider.HCSoftwareUpdateActivity" android:theme="@style/myDialogTheme"/>
+        <activity android:name="com.healthcloud.MainSetActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.healthcloud.personalcenter.PersonalCenterRegisterActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.healthcloud.personalcenter.PersonalCenterResetActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.healthcloud.personalcenter.PersonalCenterWebActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.personalcenter.ServiceAgreementActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.personalcenter.UserVerifycodeReconfirmActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.MainIntroduceActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.personalcenter.QuickResponse" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yypc.YYPCNewMainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yypc.YYPCSearchActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yypc.YYPCSearchAddMenuActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yypc.YYPCSearchFirstMenuActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yypc.YYPCSearchSecondMenuActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yypc.YYPCDiancaiElistviewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yypc.YYPCDiancaiFoodListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yypc.YYPCFoodDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yypc.YYPCUserinfoActivity" android:theme="@style/myDialogTheme"/>
+        <activity android:name="com.healthcloud.yypc.YYPCPingjiaActivity" android:theme="@style/myDialogTheme"/>
+        <activity android:name="com.healthcloud.yypc.YYPCBmiIntroActivity" android:theme="@style/myDialogTheme"/>
+        <activity android:name="com.healthcloud.yypc.YYPCPingguActivity" android:theme="@style/myDialogTheme"/>
+        <activity android:name="com.healthcloud.yypc.YYPCMainFavoriteActivity" android:theme="@style/myDialogTheme"/>
+        <activity android:name="com.healthcloud.yypc.YYPCFavoriteTabPeicanActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yypc.YYPCFavPeicanSubActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yypc.YYPCFavoriteTabDishActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yypc.YYPCPeicanByDateDialogActivity" android:theme="@style/myDialogTheme"/>
+        <activity android:name="com.healthcloud.yypc.YYPCFavoriteActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yypc.YYPCCalenderActivity" android:theme="@style/myDialogTheme"/>
+        <activity android:name="com.healthcloud.yypc.YYPCImportFavActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yypc.YYPCPersonalPeicanAddActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yypc.YYPCPersonalPeicanAddMoreFavoriteDishActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yypc.YYPCKeduActivity" android:theme="@style/myDialogTheme"/>
+        <activity android:name="com.healthcloud.yypc.YYPCFoodWeightModActivity" android:theme="@style/myDialogTheme"/>
+        <activity android:name="com.healthcloud.smartqa.SQAMainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.smartqa.SQASymptomListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.smartqa.SQASymptomIntroAvtivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.smartqa.SQASymptomAskActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.smartqa.SQANavigationResultActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.smartqa.SQACommonSelectActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yuwell.YuwellBloodPressureActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yuwell.YuwellBloodPressureListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yuwell.YuwellBloodGlucoseActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yuwell.YuwellBloodGlucoseListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yuwell.YuwellBloodGlucoseTrendActivity" android:screenOrientation="portrait"/>
+        <service android:name="com.healthcloud.yuwell.BluetoothLeService"/>
+        <activity android:name="com.healthcloud.healthrecord.HealthRecordArchPicList" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.healthcloud.healthrecord.HealthRecordArchPicView" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.healthcloud.healthrecord.HealthRecordImageManagement" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.healthrecord.ImageAlterActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.healthrecord.ImageSelectActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.healthrecord.HealthRecMainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.healthrecord.HealthRecordEcgActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.healthrecord.EcgDetailActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.healthcloud.healthrecord.EcgInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.healthrecord.HealthRecAddHistoryActivity" android:screenOrientation="portrait" android:theme="@style/myDialogTheme"/>
+        <activity android:name="com.healthcloud.healthrecord.HealthRecordUserInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.healthrecord.SelectPicPopupWindow" android:screenOrientation="portrait" android:theme="@style/MyDialogStyleBottom"/>
+        <activity android:name="com.healthcloud.healthrecord.HealthRecRiskEvaluateStartActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.healthrecord.HealthRecRiskEvaluateQAActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.healthcloud.healthrecord.HealthRecRiskEvaluateResultActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.weather.CityActivity" android:screenOrientation="portrait" android:theme="@style/weather_city_title_background"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:name="com.healthcloud.video.HealthVideoWebActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.healthcloud.video.VideoBroadcastActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.healthcloud.video.VideoHealthActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.video.VideoKeySearchListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.video.VideoLanmuActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.video.VideoHealthDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.video.VideoHealthSCActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.findmedicine.FindMedicineActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.findmedicine.FindMedicineDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.consultation.HealthConsultationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.consultation.HealthConsultationDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.consultation.HealthConsultationAskActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysVisible"/>
+        <activity android:name="com.healthcloud.jkzc.JkzcMainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.jkzc.QwzcMainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.jkzc.JkzcBeginTestActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.jkzc.JkzcAnswerQuestionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.jkzc.JkzcResultActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.jkzc.JkzcBMIActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.jkzc.JkzcBWHActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.jkzc.JkzcCalActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.jkzc.JkzcEdcActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.jkzc.JkzcSPActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.jkzc.JkzcSPDateActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.jkzc.JkzcTCMActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.jkzc.JkzcTCMAnswerActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.jkzc.JkzcSPAActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yygh.YYGHWebActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yygh.AppointConfirmActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yygh.ReserveCityActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yygh.DoctorActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yygh.HospitalActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yygh.HospitalDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yygh.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yygh.OpenMemberActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yygh.GetTelecomFlowActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yygh.BDMapInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yygh.MapsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yygh.OutCallActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yygh.SectorActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yygh.AppointResponseActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yygh.MyFavouriteActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yygh.ReserveOrderListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yygh.ReserveOrderDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yygh.HealthReserveValidONumberListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yygh.YYGHPatientSelectActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yygh.YYGHPatientEditActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yygh.YYGHPatientAddActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.yygh.YYGHSubmitOrderActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.healthlisten.HealthListenWebActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.healthlisten.HLDetailPlayActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.healthlisten.HLMainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.healthlisten.HLKeySearchListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.healthlisten.HLLanmuListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.healthlisten.HLDetialActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.healthlisten.HLMyFavoriteListActivity" android:screenOrientation="portrait"/>
+        <service android:name="com.healthcloud.service.HLPlayerService"/>
+        <activity android:name="com.healthcloud.PushWebActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.jkzx.JkzxMainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.jkzx.JkzxUpdateQuestionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.jkzx.JkzxSearchActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.jkzx.JkzxPartSearchActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.jkzx.JkzxMyQuestionListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.jkzx.JkzxBodyPartListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.jkzx.JkzxMyStautsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.jkzx.JkzxSeeQuestionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.jkzx.JkzxCengTalkActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.jkzx.JkzxTalkToLZActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.healthmms.HealthMmsGetMyFavoriteListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.healthmms.HealthMmsWebActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="healthmms100510172"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.healthcloud.TemporaryActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.personalcenter.PersonalDefaultActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.personalcenter.PersonalBindingPhoneActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.personalcenter.PersonalChangePhoneActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.personalcenter.PersonalUnbindPhoneActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.personalcenter.PersonDefaultCenterActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.personalcenter.MSGCenterActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.personalcenter.PersonInfomationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.personalcenter.PersonInfoEditActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.personalcenter.PersonShowCenterActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.personalcenter.SendSmsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.personalcenter.OpenMemberActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.personalcenter.PersonalAssociateSetActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.personalcenter.PersonalAssociateAddActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.personalcenter.PersonalAssociateUpdateActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.personalcenter.guizhou.OrderMemberCodeSubmitActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.personalcenter.guizhou.OrderMemberSucActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.personalcenter.PersonalSetPasswordActivity" android:screenOrientation="portrait"/>
+        <receiver android:name="com.healthcloud.personalcenter.SmsReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:label="@string/title_feed_back" android:name="com.healthcloud.set.FeedbackActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.set.RecAppListActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_about_us" android:name="com.healthcloud.set.AboutUsActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_jkzc_shoucang" android:name="com.healthcloud.jkzc.JkzcShoucangActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.doctoronline.DocOnlineMainActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_doc_online_order" android:name="com.healthcloud.doctoronline.DocOnlineOrderActivity"/>
+        <activity android:label="@string/title_activity_doc_online_search" android:name="com.healthcloud.doctoronline.DocOnlineSearchActivity"/>
+        <activity android:label="@string/title_activity_doc_online_order_pay" android:name="com.healthcloud.doctoronline.DocOnlineOrderPayActivity"/>
+        <activity android:label="@string/title_activity_doc_online_pay" android:name="com.healthcloud.doctoronline.DocOnlinePayActivity"/>
+        <activity android:label="@string/title_activity_doc_online_doc_detial" android:name="com.healthcloud.doctoronline.DocOnlineDocDetialActivity"/>
+        <activity android:name="com.healthcloud.doctoronline.DocOnlineFavoriteListActivity"/>
+        <activity android:label="@string/title_activity_doc_online_order_list" android:name="com.healthcloud.doctoronline.DocOnlineOrderListActivity"/>
+        <activity android:label="@string/title_activity_doc_online_order_list" android:name="com.healthcloud.doctoronline.DocOnlineOrderDetialActivity"/>
+        <activity android:label="@string/title_activity_doc_online_order_list" android:name="com.healthcloud.doctoronline.DocOnlineSearchResultActivity"/>
+        <activity android:name="com.healthcloud.searcharound.AddPositionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.searcharound.SearchAroundDebugActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.searcharound.SearchAroundCity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.searcharound.SearchAroundActivity" android:screenOrientation="portrait" android:theme="@style/theme_mapbackground" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.healthcloud.searcharound.SearchAroundMedicalInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.searcharound.AddNewPositionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.searcharound.SearchAroundNavigationTypeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.searcharound.SearchAroundStartLocationChoiseActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.searcharound.SearchAroundFoundHospitalActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.equipment.EquipmentPersonalInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.equipment.EquipmentBoundActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.equipment.EquipmentGetInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.equipment.EquipmentResetDeviceInfo" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.equipment.EquipmentMainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.equipment.EquipmentBarChartDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.equipment.EquipmentDeviceListActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.healthcloud.equipment.CaptureActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.healthcloud.equipment.EquipmentBloodMainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.equipment.EquipmentBloodDataDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.equipment.EquipmentBloodTendActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.equipment.EquipmentBloodSugarDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.gbzs.VipWebActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.rfjc.RFJCWebActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.healthrecord.HealthRecordWebActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:name="com.healthcloud.HealthCloudWebActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.healthrecord.AddBloodPresssInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.healthrecord.AddXueTangInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.healthrecord.AddBodyAnalysisInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.healthrecord.AddTemperInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.healthcloud.healthrecord.AddXueYangInfoActivity" android:screenOrientation="portrait"/>
+    </application>
+</manifest>

@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" package="abeka.iziwork" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="com.iziwork.IziworkApp" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="false" android:theme="@style/Theme.Iziwork.Splash">
+        <meta-data android:name="ApplangaUpdateLanguages" android:value="fr"/>
+        <meta-data android:name="asset_statements" android:resource="@string/asset_statements"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyBhsBoy-0p7-SIuoDpGEvGBWuCxahYJUCA"/>
+        <meta-data android:name="com.facebook.sdk.AutoLogAppEventsEnabled" android:value="false"/>
+        <activity android:launchMode="singleTop" android:name="com.iziwork.feature.splash.SplashActivity" android:noHistory="true" android:theme="@style/Theme.Iziwork.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.iziwork.com" android:path="/splash" android:scheme="iziwork"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.iziwork.feature.deeplink.DeepLinkResolverActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/Theme.Iziwork.Splash">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https"/>
+                <data android:scheme="http"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:pathPrefix="/auth"/>
+                <data android:path="/logout"/>
+                <data android:pathPrefix="/onboarding"/>
+                <data android:pathPrefix="/profile"/>
+                <data android:pathPrefix="/refresh"/>
+                <data android:path="/dashboard"/>
+                <data android:path="/feed"/>
+                <data android:path="/mymissions"/>
+                <data android:path="/myapplication"/>
+                <data android:path="/worker/missions"/>
+                <data android:path="/worker/my-missions"/>
+                <data android:pathPrefix="/mission"/>
+                <data android:pathPrefix="/mydocuments"/>
+                <data android:path="/timesheets"/>
+                <data android:pathPrefix="/timesheet/"/>
+                <data android:path="/contracts"/>
+                <data android:pathPrefix="/contract/"/>
+                <data android:path="/payslips"/>
+                <data android:pathPrefix="/pay/"/>
+                <data android:path="/settings"/>
+                <data android:path="/availability"/>
+                <data android:path="/documentparsing"/>
+                <data android:pathPrefix="/loyalty"/>
+                <data android:path="/cashadvance"/>
+                <data android:pathPrefix="/showcase"/>
+                <data android:pathPrefix="/contact/mission"/>
+                <data android:path="/iban"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziw"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:pathPrefix="/"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.iziwork.feature.mission.MissionPagesActivity" android:parentActivityName="com.iziwork.feature.home.HomeActivity" android:theme="@style/Theme.Iziwork.MissionPages">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:pathPrefix="/mission/"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/mission"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:pathPrefix="/totalsalary/"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.iziwork.feature.settings.SettingsActivity" android:parentActivityName="com.iziwork.feature.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Iziwork.Settings">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/settings"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.iziwork.feature.availability.AvailabilityActivity" android:parentActivityName="com.iziwork.feature.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Iziwork.Availability">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/availability"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.iziwork.feature.cashadvance.CashAdvanceActivity" android:parentActivityName="com.iziwork.feature.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Iziwork.CashAdvance" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/cashadvance"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.iziwork.feature.profile.elearning.ElearningActivity" android:noHistory="true" android:parentActivityName="com.iziwork.feature.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Iziwork.Showcase.Light">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.iziwork.com" android:path="/elearning" android:scheme="iziwork"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:name="com.iziwork.feature.showcase.ShowcaseActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Iziwork.Showcase.Light">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:pathPrefix="/showcase"/>
+                <data android:path="/documentparsing"/>
+                <data android:pathPrefix="/contact/mission"/>
+                <data android:path="/iban"/>
+                <data android:path="/cet"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.iziwork.feature.ubble.UbbleActivity" android:parentActivityName="com.iziwork.feature.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Iziwork">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.iziwork.com" android:pathPrefix="/documentparsing/ubble" android:scheme="iziwork"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:name="com.iziwork.feature.web.WebActivity" android:parentActivityName="com.iziwork.feature.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Iziwork">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.iziwork.com" android:path="/web" android:scheme="iziwork"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.iziwork.feature.refresh.RefreshActivity" android:noHistory="true" android:theme="@style/Theme.Iziwork.Transparent">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.iziwork.com" android:pathPrefix="/refresh" android:scheme="iziwork"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.iziwork.feature.signout.SignOutActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/Theme.Iziwork.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.iziwork.com" android:path="/logout" android:scheme="iziwork"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.iziwork.feature.verification.email.RequestEmailVerificationActivity" android:noHistory="true" android:theme="@style/Theme.Iziwork.Transparent">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.iziwork.com" android:pathPrefix="/verificationEmail" android:scheme="iziwork"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/fb_login_protocol_scheme"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="cct.abeka.iziwork" android:scheme="fbconnect"/>
+            </intent-filter>
+        </activity>
+        <receiver android:exported="false" android:name="com.iziwork.feature.push.AppPushReceiver">
+            <intent-filter>
+                <action android:name="abeka.iziwork.intent.ACTION_PUSH_RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.iziwork.feature.push.AppFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="abeka.iziwork.provider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <receiver android:exported="false" android:name="com.iziwork.feature.parse.push.ParsePushReceiver">
+            <intent-filter>
+                <action android:name="com.parse.push.intent.RECEIVE"/>
+                <action android:name="com.parse.push.intent.DELETE"/>
+                <action android:name="com.parse.push.intent.OPEN"/>
+            </intent-filter>
+        </receiver>
+        <activity android:launchMode="singleTop" android:name="com.iziwork.feature.auth.AuthActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Iziwork.Auth" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/auth"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/auth/signin/email"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/auth/signup/email"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/auth/resetPassword"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:pathPrefix="/auth/verification/"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/auth/referral"/>
+            </intent-filter>
+        </activity>
+        <receiver android:exported="true" android:name="com.iziwork.feature.auth.verification.android.receiver.SmsVerificationCodeBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:clearTaskOnLaunch="true" android:exported="true" android:launchMode="singleTop" android:name="com.iziwork.feature.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Iziwork">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/dashboard"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/feed"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/worker/missions"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/contracts"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/payslips"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/mymissions"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/worker/my-missions"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/myapplications"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:pathPrefix="/contracts/client/"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/contracts/search"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:pathPrefix="/contract/"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:pathPrefix="/pay/"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/timesheets"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:pathPrefix="/timesheet/"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/profile"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/loyalty/home"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/profile/referral"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/profile/bio"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/profile/experiences"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/profile/experiences/add"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/profile/degrees"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/profile/degrees/add"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/profile/certificats"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/profile/certificats/add"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/loyalty/perks"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/loyalty/scale"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/profile/info"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/profile/info/edit/email"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/profile/preferences"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/search/preferences"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/profile/preferences/edit/sectors"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/profile/preferences/edit/workingradius"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/mydocuments"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/document/preview"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:pathPrefix="/mydocuments/"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.iziwork.feature.onboarding.OnBoardingActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Iziwork.OnBoarding">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/onboarding"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/worker/onboarding"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/onboarding/experiences"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:name="com.iziwork.feature.onboarding.address.autocomplete.AddressAutocompleteActivity" android:parentActivityName="com.iziwork.feature.onboarding.OnBoardingActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Iziwork.OnBoarding.AddressAutocomplete">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.iziwork.com" android:path="/address/autocomplete" android:scheme="iziwork"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.iziwork.feature.loyalty.join.LoyaltyJoinProgramActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/Theme.Iziwork.Loyalty.Join">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/loyalty/join"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.iziwork.feature.loyalty.upgrade.LoyaltyStatusUpgradeActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/Theme.Iziwork.Loyalty.StatusUpgrade">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:pathPrefix="/loyalty/upgrade/"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:name="com.iziwork.feature.camera.CameraActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Iziwork.Camera">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="iziwork"/>
+                <data android:host="www.iziwork.com"/>
+                <data android:path="/camera"/>
+            </intent-filter>
+        </activity>
+        <provider android:authorities="abeka.iziwork.camerax-init" android:exported="false" android:initOrder="100" android:multiprocess="true" android:name="androidx.camera.camera2.impl.Camera2Initializer"/>
+        <service android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="abeka.iziwork.crashlyticsinitprovider" android:exported="false" android:initOrder="90" android:name="com.crashlytics.android.CrashlyticsInitProvider"/>
+        <activity android:enabled="false" android:exported="false" android:launchMode="singleInstance" android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true"/>
+        <activity android:enabled="false" android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:process=":playcore_dialog_wrapper_activity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <provider android:authorities="abeka.iziwork.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.appboy.ui.AppboyWebViewActivity"/>
+        <activity android:name="com.appboy.ui.activities.AppboyFeedActivity"/>
+        <activity android:name="com.appboy.ui.activities.AppboyContentCardsActivity"/>
+        <activity android:name="com.appboy.push.AppboyNotificationRoutingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:exported="false" android:name="com.appboy.AppboyFcmReceiver"/>
+        <activity android:configChanges="orientation|screenSize" android:launchMode="singleTask" android:name="com.instabug.survey.ui.SurveyActivity" android:theme="@style/InstabugTranslucentSdkTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:launchMode="singleTop" android:name="com.instabug.survey.announcements.ui.activity.AnnouncementActivity" android:theme="@style/InstabugTranslucentSdkTheme" android:windowSoftInputMode="adjustResize"/>
+        <service android:name="com.instabug.survey.network.service.InstabugSurveysSubmitterService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.instabug.survey.announcements.network.InstabugAnnouncementSubmitterService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.instabug.crash.network.InstabugCrashesUploaderService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.instabug.bug.view.reporting.ReportingContainerActivity" android:theme="@style/InstabugSdkTheme" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <data android:host="instabug-disclaimer.com" android:scheme="instabug-bug"/>
+                <data android:host="instabug-disclaimer.com" android:scheme="repro-steps-disclaimer"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+        </activity>
+        <service android:name="com.instabug.bug.network.InstabugBugsUploaderService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.instabug.bug.view.actionList.service.ReportCategoriesService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:configChanges="orientation|screenSize" android:launchMode="singleTop" android:name="com.instabug.chat.ui.ChatActivity" android:theme="@style/InstabugSdkTheme" android:windowSoftInputMode="adjustResize"/>
+        <service android:name="com.instabug.chat.network.InstabugMessageUploaderService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.instabug.chat.network.InstabugPushNotificationTokenService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:configChanges="orientation|screenSize" android:launchMode="singleTop" android:name="com.instabug.featuresrequest.ui.FeaturesRequestActivity" android:theme="@style/Theme.AppCompat" android:windowSoftInputMode="adjustResize"/>
+        <service android:name="com.instabug.featuresrequest.network.service.FeaturesRequestVoteService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.instabug.library.network.worker.uploader.InstabugSessionUploaderService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.instabug.library.analytics.network.InstabugAnalyticsUploaderService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.instabug.library.internal.video.RequestPermissionActivity" android:theme="@style/InstabugTranslucentSdkTheme"/>
+        <activity android:launchMode="singleTask" android:name="com.instabug.library.invocation.invocationdialog.InstabugDialogActivity" android:theme="@style/InstabugTranslucentSdkTheme"/>
+        <activity android:launchMode="singleTask" android:name="com.instabug.library.ui.onboarding.OnboardingActivity" android:theme="@style/InstabugTranslucentSdkTheme"/>
+        <service android:enabled="true" android:exported="false" android:foregroundServiceType="mediaProjection" android:name="com.instabug.library.internal.video.ScreenRecordingService"/>
+        <activity android:exported="false" android:hardwareAccelerated="true" android:label="@string/places_autocomplete_label" android:name="com.google.android.libraries.places.widget.AutocompleteActivity" android:theme="@style/PlacesAutocompleteThemeOverlay" android:windowSoftInputMode="stateAlwaysVisible|adjustPan"/>
+        <meta-data android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule" android:value="GlideModule"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="abeka.iziwork.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="abeka.iziwork.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.appboy.receivers.AppboyActionReceiver"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="9e7aa64fc76fc23596e69c717b16dd5e91fb0f8c"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>

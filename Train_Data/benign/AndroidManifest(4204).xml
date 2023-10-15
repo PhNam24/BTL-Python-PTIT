@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.mobomap.cityguides670" platformBuildVersionCode="23" platformBuildVersionName="6.0-2438415">
+    <uses-feature android:glEsVersion="0x00020000" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="false" android:icon="@drawable/icon" android:label="@string/app_name" android:largeHeap="true" android:name="com.mobomap.cityguides670.MyApplication" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme">
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCAvcDiDmuKIEt0Ok-KhXcg6AtkecM0OHg"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <receiver android:name="com.mobomap.cityguides670.notifications.AlarmReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.octo.android.robospice.JacksonSpringAndroidSpiceService"/>
+        <service android:exported="false" android:name="com.mobomap.cityguides670.network.city_changer.CityChangerService"/>
+        <service android:exported="false" android:name="com.mobomap.cityguides670.network.start.MainJsonService"/>
+        <service android:exported="false" android:name="com.mobomap.cityguides670.network.address_search.AddressYandexSearchService"/>
+        <service android:exported="false" android:name="com.mobomap.cityguides670.network.address_search.AddressBingSearchService"/>
+        <service android:exported="false" android:name="com.mobomap.cityguides670.network.JsonSpiceService"/>
+        <service android:name="com.mobomap.cityguides670.map_module.DownloadVectorMapService"/>
+        <service android:name="com.mobomap.cityguides670.map_module.route.CalcRouteService"/>
+        <service android:name="com.mobomap.cityguides670.map_module.route.RouteCalcService"/>
+        <service android:name="com.mobomap.cityguides670.start.CopyDatabaseService"/>
+        <service android:name="com.mobomap.cityguides670.map_module.UnZipService"/>
+        <service android:name="com.mobomap.cityguides670.invitation.InvitationService"/>
+        <receiver android:name="com.mobomap.cityguides670.start.StartDownloadReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_DOWNLOAD_COMPLETE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.mobomap.cityguides670.map_module.MapForgeDownloadReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_DOWNLOAD_COMPLETE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:label="@string/app_name" android:name="com.mobomap.cityguides670.start.MainStart" android:noHistory="true" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.mobomap.cityguides670.map_module.TestActivity"/>
+        <activity android:name="com.mobomap.cityguides670.map_module.route.FavoriteRouteMapActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.invitation.InvitationMapActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.preferences.SettingsActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.invitation.NotificationSettingsActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.billing.BillingActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Transparent"/>
+        <activity android:name="com.mobomap.cityguides670.helper.TipLeftRightActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Transparent"/>
+        <activity android:name="com.mobomap.cityguides670.map_module.route.UploadRouteActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.map_module.CategoriesListActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.start.TouristOrResidentActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.start.TouristWithDateActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.map_module.route.DownloadRouteActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.map_module.route.RouteActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.helper.TipTabActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Transparent"/>
+        <activity android:name="com.mobomap.cityguides670.helper.TipRightCornerActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Transparent"/>
+        <activity android:name="com.mobomap.cityguides670.map_module.route.RouteMapActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.map_module.route.AttractionsRouteMapActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.map_module.easymap.EasyMapActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name="com.mobomap.cityguides670.binder_module.NewBindActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.binder_module.RegionBindActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name="com.mobomap.cityguides670.start.StartActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.weather.WeatherActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.map_module.FavoriteListActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.helper.NotificationActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.map_module.AddYourCompanyActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:launchMode="singleTop" android:name="com.mobomap.cityguides670.map_module.MapActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:launchMode="singleTop" android:name="com.mobomap.cityguides670.map_module.FavoriteMapActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.MainActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.map_module.AddUserPointActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.map_module.RoutingActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.map_module.MapSettingsActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.map_module.contact_page.ContactActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.map_module.contact_page.RouteContactActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.map_module.contact_page.FavoriteContactPageActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.map_module.contact_page.NormalContactPageActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.map_module.SearchActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.NoMoneyActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.AboutActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.sale.SaleActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name="com.mobomap.cityguides670.map_module.MapGalleryActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.images.ImagesGridViewActivity" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.images.ImageActivity" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.web_module.WebActivity" android:parentActivityName="com.mobomap.cityguides670.MainActivity" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.mobomap.cityguides670.start.PopUpActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Transparent"/>
+        <activity android:name="com.mobomap.cityguides670.binder_module.BindActivity" android:parentActivityName="com.mobomap.cityguides670.MainActivity" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity"/>
+    </application>
+</manifest>

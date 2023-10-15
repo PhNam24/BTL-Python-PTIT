@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="28" android:compileSdkVersionCodename="9" android:installLocation="auto" package="me.entri.entrime" platformBuildVersionCode="499" platformBuildVersionName="1.45.0">
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_GPS"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <application android:allowBackup="true" android:appComponentFactory="android.support.v4.app.CoreComponentFactory" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:label="Entri" android:largeHeap="true" android:name="me.entri.entrime.activities.Entri" android:supportsRtl="true" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
+        <activity android:label="Entri" android:name="me.entri.entrime.activities.Splash" android:screenOrientation="portrait" android:theme="@style/SplashTheme" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="me.entri.entrime.activities.LinkDispatcher" android:noHistory="true" android:theme="@android:style/Theme.NoDisplay" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter android:autoVerify="true" android:priority="1000">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="https"/>
+                <data android:scheme="http"/>
+                <data android:scheme="entri"/>
+                <data android:host="www.entri.me"/>
+                <data android:host="entri.me"/>
+                <data android:host="dev.entri.me"/>
+                <data android:host="www.entri.app"/>
+                <data android:host="entri.app"/>
+                <data android:host="dev.entri.app"/>
+                <data android:pathPattern=".*"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="Entri" android:launchMode="singleTop" android:name="me.entri.entrime.activities.UpdateActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/app_name" android:name="me.entri.entrime.activities.Home" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:label="Entri" android:name="me.entri.entrime.activities.FullScreenPopupActivity" android:screenOrientation="portrait" android:theme="@style/FullScreenPopupTheme" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/title_activity_course_detail" android:name="me.entri.entrime.activities.CourseDetail" android:parentActivityName="me.entri.entrime.activities.Home" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activities.Home"/>
+        </activity>
+        <activity android:label="@string/title_activity_topic_detail" android:name="me.entri.entrime.activities.ModuleDetail" android:parentActivityName="me.entri.entrime.activities.CourseDetail" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activities.CourseDetail"/>
+        </activity>
+        <activity android:name="me.entri.entrime.activities.OtpActivitiy" android:screenOrientation="portrait" android:theme="@style/TranparentBarTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="Registration" android:name="me.entri.entrime.activities.OtpFailure" android:screenOrientation="portrait" android:theme="@style/GreyStatusBarTheme"/>
+        <activity android:name="me.entri.entrime.activities.CartActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:hardwareAccelerated="true" android:label="@string/title_activity_quiz" android:launchMode="@integer/QuizLaunchModeApiLevel" android:name="me.entri.entrime.activities.Quiz" android:parentActivityName="me.entri.entrime.activities.ModuleDetail" android:resizeableActivity="false" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activities.ModuleDetail"/>
+        </activity>
+        <activity android:hardwareAccelerated="true" android:label="@string/title_activity_module_detail" android:name="me.entri.entrime.activities.ContentDetail" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_finish" android:name="me.entri.entrime.activities.QuizComplete" android:parentActivityName="me.entri.entrime.activities.ModuleDetail" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activities.ModuleDetail"/>
+        </activity>
+        <activity android:label="Entri" android:launchMode="singleTask" android:name="me.entri.entrime.activities.WebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="me.entri.entrime.activities.Unlock" android:parentActivityName="me.entri.entrime.activities.CourseDetail" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activities.CourseDetail"/>
+        </activity>
+        <activity android:name="me.entri.entrime.activities.YoutubeActivity" android:parentActivityName="me.entri.entrime.activities.ModuleDetail">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activities.ModuleDetail"/>
+        </activity>
+        <activity android:label="Rankboard" android:name="me.entri.entrime.activities.LeaderBoard" android:parentActivityName="me.entri.entrime.activities.Home" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activities.Home"/>
+        </activity>
+        <activity android:label="Help Topics" android:launchMode="singleTask" android:name="me.entri.entrime.activities.Help" android:parentActivityName="me.entri.entrime.activities.Home" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activities.Home"/>
+        </activity>
+        <activity android:label="Settings" android:launchMode="singleTask" android:name="me.entri.entrime.activities.Settings" android:screenOrientation="portrait"/>
+        <activity android:label="Bank Transfer" android:launchMode="singleTask" android:name="me.entri.entrime.activities.BankTransferActivity" android:screenOrientation="portrait"/>
+        <activity android:label="Contact Us" android:launchMode="singleTask" android:name="me.entri.entrime.activities.ContactUs" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:label="Add Friends" android:name="me.entri.entrime.activities.ContactList" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.razorpay.CheckoutActivity" android:screenOrientation="portrait" android:theme="@style/CheckoutTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <data android:host="rzp.io" android:scheme="io.rzp"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="Mock Exams" android:name="me.entri.entrime.activities.TestSeriesList" android:screenOrientation="portrait"/>
+        <activity android:label="Exam Details" android:name="me.entri.entrime.activities.TestSeriesDetail" android:screenOrientation="portrait"/>
+        <activity android:name="me.entri.entrime.activities.TestDetail" android:screenOrientation="portrait"/>
+        <activity android:name="me.entri.entrime.activities.SelectPlatform" android:screenOrientation="portrait"/>
+        <activity android:label="Preview" android:launchMode="singleTask" android:name="me.entri.entrime.activities.ImageViewer" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="me.entri.entrime.activities.PredictionWebView"/>
+        <activity android:name="me.entri.entrime.activities.Invite" android:parentActivityName="me.entri.entrime.activities.Home" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="me.entri.entrime.activities.Clubs" android:parentActivityName="me.entri.entrime.activities.Home" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="Entri" android:name="me.entri.entrime.activities.CommonWebView" android:parentActivityName="me.entri.entrime.activities.Splash" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="me.entri.entrime.activities.CouponCodeActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="me.entri.entrime.activities.DoubtsDetail" android:parentActivityName="me.entri.entrime.activities.Home" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activities.Home"/>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="me.entri.entrime.activities.PostDoubtActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTask" android:name="me.entri.entrime.activities.AddAnswerActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="me.entri.entrime.activities.DoubtsImageView" android:screenOrientation="portrait"/>
+        <activity android:name="me.entri.entrime.activities.PromptUserDetailsActivity" android:theme="@style/BlurredActivity"/>
+        <activity android:name="me.entri.entrime.activities.InstantCheckout" android:theme="@style/BlurredActivity"/>
+        <activity android:name="me.entri.entrime.activities.ExploreItemActivity" android:parentActivityName="me.entri.entrime.activities.Home" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="me.entri.entrime.activities.JobsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="me.entri.entrime.activities.JobItem" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="me.entri.entrime.activities.LockedTabYoutubeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="me.entri.entrime.activities.StudyTimeActivity" android:screenOrientation="portrait" android:theme="@style/FullScreenPopupTheme"/>
+        <activity android:finishOnTaskLaunch="true" android:name="me.entri.entrime.activities.PaymentStatus" android:screenOrientation="portrait" android:theme="@style/FullScreenPopupTheme" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="me.entri.entrime.activities.BookmarkItem" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <service android:enabled="true" android:exported="false" android:name="me.entri.entrime.api.GeneralApiService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:enabled="true" android:exported="false" android:name="me.entri.entrime.api.SyncService"/>
+        <service android:enabled="true" android:exported="false" android:name="me.entri.entrime.api.FirebaseAnalyticsService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:enabled="true" android:exported="true" android:name="me.entri.entrime.receivers.InstallReferrerReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="me.entri.entrime.receivers.TaskRemoveReciever">
+            <intent-filter>
+                <action android:name="APP_FORCE_CLOSE_DURING_QUIZ"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="APP_LEAVE_DURING_QUIZ"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <receiver android:exported="false" android:name="me.entri.entrime.receivers.ProviderReciever">
+            <intent-filter>
+                <action android:name="android.location.PROVIDERS_CHANGED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="me.entri.entrime.fcm.FCMListnerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="me.entri.entrime.fcm.FCMInstanceIDListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="me.entri.entrime.fcm.FCMRegistrationIntentService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="me.entri.entrime.api.JobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="cf93521435e530093abd07310eef7bbc89292cae"/>
+        <meta-data android:name="com.razorpay.ApiKey" android:value="rzp_live_DMWdBDN3ByNb6k"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <provider android:authorities="me.entri.entrime.provider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <provider android:authorities="se.emilsjolander.sprinkles.DatabaseContentProvider" android:name="me.entri.entrime.providers.DatabaseContentProvider"/>
+        <service android:enabled="true" android:exported="false" android:name="me.entri.entrime.api.QuizMonitorService"/>
+        <activity android:name="me.entri.entrime.activities.EditProfile" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyCsBvMi8XojeCy6ROiUlhBhjf54rw062Xc"/>
+        <activity android:name="me.entri.entrime.activities.FlashCardActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="me.entri.entrime.activities.FlashStackList" android:parentActivityName="me.entri.entrime.activities.Home" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activities.Home"/>
+        </activity>
+        <activity android:name="me.entri.entrime.activities.QuestionWebview" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="me.entri.entrime.activities.BookmarkDetails" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="me.entri.entrime.activities.Answers" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/title_activity_player_web_view" android:name="me.entri.entrime.activities.PlayerWebView" android:screenOrientation="landscape" android:theme="@style/FullscreenTheme" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="me.entri.entrime.activities.CameraActivity" android:screenOrientation="portrait" android:theme="@style/FullscreenTheme" android:windowSoftInputMode="stateHidden"/>
+        <receiver android:exported="true" android:name="me.entri.entrime.receivers.SMSBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="me.entri.entrime.receivers.TabPassCodeReciever">
+            <intent-filter>
+                <action android:name="DEVICE_UNLOCK_EVENT"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:enabled="true" android:exported="true" android:name="me.entri.entrime.activities.VideoActivity" android:theme="@style/OverScrollColorChangeTheme"/>
+        <activity android:enabled="true" android:exported="true" android:name="me.entri.entrime.activities.Playlist" android:screenOrientation="portrait"/>
+        <activity android:name="me.entri.entrime.activities.VideoBookmarks" android:screenOrientation="portrait" android:theme="@style/OverScrollColorChangeTheme" android:windowSoftInputMode="stateHidden"/>
+        <activity android:exported="true" android:name="me.entri.entrime.activities.ExtrasActivity" android:screenOrientation="portrait" android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="me.entri.entrime.activities.DiscussRepliesActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="me.entri.entrime.activities.FlashcardSeeMore" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <provider android:authorities="me.entri.entrime.crashlyticsinitprovider" android:exported="false" android:initOrder="100" android:name="com.crashlytics.android.CrashlyticsInitProvider"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <provider android:authorities="me.entri.entrime.firebaseperfprovider" android:exported="false" android:initOrder="101" android:name="com.google.firebase.perf.provider.FirebasePerfProvider"/>
+        <service android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.component.FirebasePerfRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.dynamiclinks.internal.FirebaseDynamicLinkRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <activity android:excludeFromRecents="true" android:exported="true" android:launchMode="singleTask" android:name="com.google.firebase.auth.internal.FederatedSignInActivity" android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:exported="true" android:name="com.google.android.gms.appinvite.PreviewActivity" android:theme="@style/Theme.AppInvite.Preview">
+            <intent-filter>
+                <action android:name="com.google.android.gms.appinvite.ACTION_PREVIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="me.entri.entrime.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.android.billingclient.api.ProxyBillingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="me.entri.entrime.workmanager-init" android:directBootAware="false" android:exported="false" android:multiprocess="true" android:name="androidx.work.impl.WorkManagerInitializer"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="me.entri.entrime.lifecycle-trojan" android:exported="false" android:multiprocess="true" android:name="android.arch.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <provider android:authorities="me.entri.entrime.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.razorpay.RzpTokenReceiver">
+            <intent-filter>
+                <action android:name="rzp.device_token.share"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

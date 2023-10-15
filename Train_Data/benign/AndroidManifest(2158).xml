@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.seeclickfix.cumberland311.app">
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:xlargeScreens="true"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <permission android:name="com.seeclickfix.cumberland311.app.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.seeclickfix.cumberland311.app.permission.C2D_MESSAGE"/>
+    <meta-data android:name="android.support.VERSION" android:value="25.3.1"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="com.seeclickfix.ma.android.MyApplication" android:theme="@style/SCF">
+        <service android:exported="false" android:name="com.seeclickfix.ma.android.services.ReverseGeocodeService"/>
+        <service android:exported="false" android:name="com.seeclickfix.ma.android.services.ReportUploadService"/>
+        <service android:exported="false" android:name="com.seeclickfix.ma.android.services.CityLoadingService"/>
+        <activity android:name="com.seeclickfix.ma.android.boot.presentation.BootActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/SCF">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="seeclickfix.com" android:pathPattern="/report" android:scheme="http"/>
+                <data android:host="seeclickfix.com" android:pathPattern="/report" android:scheme="https"/>
+                <data android:host="seeclickfix.com" android:pathPattern="/issues/.*" android:scheme="http"/>
+                <data android:host="seeclickfix.com" android:pathPattern="/issues/.*" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="com.seeclickfix.ma.android.SeeclickfixActivity" android:screenOrientation="portrait" android:theme="@style/SCF" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/app_name" android:name="com.seeclickfix.ma.android.activities.WebviewActivity"/>
+        <provider android:authorities="com.seeclickfix.cumberland311.app.providers.SuggestionsProvider" android:exported="false" android:name="com.seeclickfix.ma.android.providers.SuggestionsProvider"/>
+        <provider android:authorities="com.seeclickfix.cumberland311.app.providers.DataProvider" android:exported="false" android:name="com.seeclickfix.ma.android.providers.DataProvider"/>
+        <provider android:authorities="com.seeclickfix.cumberland311.app.providers.FileProvider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="@string/google_maps_api_key"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <activity android:launchMode="singleTask" android:name="com.seeclickfix.ma.android.login.presentation.LoginActivity" android:theme="@style/SCF">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:pathPrefix="/oauth/callback" android:scheme="com.seeclickfix.cumberland311.app"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.seeclickfix.ma.android.issues.detail.IssueDetailActivity" android:parentActivityName="com.seeclickfix.ma.android.boot.presentation.BootActivity" android:theme="@style/SCF">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".boot.presentation.BootActivity"/>
+        </activity>
+        <activity android:name="com.seeclickfix.ma.android.activities.ServiceRequestTypeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.seeclickfix.ma.android.about.AboutActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.seeclickfix.ma.android.help.HelpActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.seeclickfix.ma.android.activities.ReportMapActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.seeclickfix.ma.android.issues.filter.presentation.FilterIssuesActivity" android:parentActivityName="com.seeclickfix.ma.android.SeeclickfixActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".SeeclickfixActivity"/>
+        </activity>
+        <service android:name="com.seeclickfix.ma.android.SCFFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.seeclickfix.ma.android.SCFFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <provider android:authorities="com.seeclickfix.cumberland311.app.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.seeclickfix.cumberland311.app"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.seeclickfix.cumberland311.app.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <provider android:authorities="com.seeclickfix.cumberland311.app.lifecycle-trojan" android:exported="false" android:multiprocess="true" android:name="android.arch.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <provider android:authorities="com.seeclickfix.cumberland311.app.crashlyticsinitprovider" android:exported="false" android:initOrder="100" android:name="com.crashlytics.android.CrashlyticsInitProvider"/>
+    </application>
+</manifest>

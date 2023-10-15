@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="tw.com.gamer.android.activecenter">
+    <permission android:name="tw.com.gamer.android.activecenter.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <permission android:name="tw.com.gamer.android.activecenter.permission.COLLECTOR" android:protectionLevel="signature"/>
+    <uses-permission android:name="tw.com.gamer.android.activecenter.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="tw.com.gamer.android.activecenter.permission.COLLECTOR"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <application android:allowBackup="true" android:fullBackupContent="@xml/backup" android:icon="@mipmap/ic_launcher" android:label="@string/bahamut" android:name="tw.com.gamer.android.bahamut.BahamutApplication" android:supportsRtl="false" android:theme="@style/BahamutTheme">
+        <activity android:label="@string/bahamut" android:name="tw.com.gamer.android.bahamut.BahamutActivity" android:theme="@style/BahamutTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="forum.gamer.com.tw"/>
+                <data android:host="home.gamer.com.tw"/>
+                <data android:host="gnn.gamer.com.tw"/>
+                <data android:host="m.gamer.com.tw"/>
+                <data android:host="guild.gamer.com.tw"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/forum" android:launchMode="singleTop" android:name="tw.com.gamer.android.forum.ForumActivity"/>
+        <activity android:label="@string/gnn" android:launchMode="singleTop" android:name="tw.com.gamer.android.gnn.GnnActivity"/>
+        <activity android:label="@string/creation" android:launchMode="singleTop" android:name="tw.com.gamer.android.home.CreationActivity"/>
+        <activity android:label="@string/guild_lobby" android:launchMode="singleTop" android:name="tw.com.gamer.android.guild.GuildActivity"/>
+        <activity android:label="@string/bahamut" android:name="tw.com.gamer.android.guild.GuildDetailActivity"/>
+        <activity android:label="@string/navi_myguild" android:name="tw.com.gamer.android.guild.MyGuildActivity"/>
+        <activity android:label="@string/bahamut" android:name="tw.com.gamer.android.guild.AcgGuildActivity"/>
+        <activity android:label="@string/navi_myboard" android:launchMode="singleTop" android:name="tw.com.gamer.android.forum.MyBoardActivity"/>
+        <activity android:label="@string/menu_kind_manage" android:name="tw.com.gamer.android.setting.KindManageActivity"/>
+        <activity android:label="@string/setting" android:name="tw.com.gamer.android.setting.SettingActivity"/>
+        <activity android:label="@string/custom_tab" android:name="tw.com.gamer.android.setting.CustomTabActivity"/>
+        <activity android:name="tw.com.gamer.android.acg.LeaderboardDetailActivity"/>
+        <activity android:label="@string/navi_bala" android:launchMode="singleTop" android:name="tw.com.gamer.android.activecenter.BahabookActivity"/>
+        <activity android:label="@string/navi_bala" android:name="tw.com.gamer.android.activecenter.OthersActivity"/>
+        <activity android:label="@string/navi_bala" android:name="tw.com.gamer.android.activecenter.BalaDetailActivity" android:windowSoftInputMode="stateUnchanged"/>
+        <activity android:label="@string/bala_title_navigate_list" android:name="tw.com.gamer.android.activecenter.NavigateListActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/bala_title_post" android:name="tw.com.gamer.android.activecenter.BalaPostActivity" android:windowSoftInputMode="adjustResize|stateUnchanged">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/png"/>
+                <data android:mimeType="image/jpeg"/>
+                <data android:mimeType="text/plain"/>
+                <data android:mimeType="text/html"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/bahamut" android:name="tw.com.gamer.android.forum.BActivity" android:theme="@style/BahamutTheme.NoActionBar">
+            <meta-data android:name="android.app.default_searchable" android:value="tw.com.gamer.android.forum.TopicSearchActivity"/>
+        </activity>
+        <activity android:name="tw.com.gamer.android.forum.CActivity">
+            <meta-data android:name="android.app.default_searchable" android:value="tw.com.gamer.android.forum.TopicSearchActivity"/>
+        </activity>
+        <activity android:name="tw.com.gamer.android.forum.CoActivity">
+            <meta-data android:name="android.app.default_searchable" android:value="tw.com.gamer.android.forum.TopicSearchActivity"/>
+        </activity>
+        <activity android:label="@string/g_list_title" android:name="tw.com.gamer.android.forum.GListActivity">
+            <meta-data android:name="android.app.default_searchable" android:value="tw.com.gamer.android.forum.ExtractSearchActivity"/>
+        </activity>
+        <activity android:label="@string/g_list_title" android:name="tw.com.gamer.android.forum.GContentActivity">
+            <meta-data android:name="android.app.default_searchable" android:value="tw.com.gamer.android.forum.ExtractSearchActivity"/>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="tw.com.gamer.android.forum.post.PostActivity" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:name="tw.com.gamer.android.forum.BoardListActivity">
+            <meta-data android:name="android.app.default_searchable" android:value="tw.com.gamer.android.forum.BoardSearchActivity"/>
+        </activity>
+        <activity android:label="@string/forum" android:name="tw.com.gamer.android.forum.MyBoardChooserActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/png"/>
+                <data android:mimeType="image/jpeg"/>
+                <data android:mimeType="text/plain"/>
+                <data android:mimeType="text/html"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:launchMode="singleTop" android:name="tw.com.gamer.android.forum.TopicSearchActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable_topic"/>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:launchMode="singleTop" android:name="tw.com.gamer.android.forum.ExtractSearchActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable_extract"/>
+        </activity>
+        <activity android:label="@string/title_choice_image" android:name="tw.com.gamer.android.truth.TruthChooserActivity"/>
+        <activity android:launchMode="singleTop" android:name="tw.com.gamer.android.forum.BoardSearchActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable_board"/>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:launchMode="singleTop" android:name="tw.com.gamer.android.bahamut.SearchActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable_bahamut"/>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:launchMode="singleTop" android:name="tw.com.gamer.android.bahamut.WebViewActivity"/>
+        <activity android:launchMode="singleTask" android:name="tw.com.gamer.android.util.BahamutSleepActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:label="@string/bahamut" android:name="tw.com.gamer.android.account.LoginActivity" android:theme="@style/BahamutAccount.NoActionBar"/>
+        <activity android:label="@string/bahamut" android:name="tw.com.gamer.android.forum.admin.AdminTopActivity"/>
+        <activity android:label="@string/bahamut" android:name="tw.com.gamer.android.forum.admin.AdminLockActivity"/>
+        <activity android:label="@string/bahamut" android:name="tw.com.gamer.android.forum.admin.AdminDeleteActivity"/>
+        <activity android:label="@string/admin_accuse_manage" android:name="tw.com.gamer.android.forum.admin.AccuseActivity"/>
+        <activity android:label="@string/bahamut" android:name="tw.com.gamer.android.forum.admin.WaterpotEditActivity"/>
+        <activity android:label="@string/gnn" android:name="tw.com.gamer.android.gnn.GnnDetailActivity"/>
+        <activity android:label="@string/creation" android:name="tw.com.gamer.android.home.CreationDetailActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="tw.com.gamer.android.home.CreationPostActivity" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:label="@string/creation_post_preference" android:name="tw.com.gamer.android.home.CreationPostPreferenceActivity"/>
+        <activity android:label="@string/creation_post_tag_preference" android:name="tw.com.gamer.android.home.CreationPostTagActivity"/>
+        <activity android:label="@string/bahamut" android:name="tw.com.gamer.android.home.HomeActivity"/>
+        <activity android:label="@string/action_edit_board" android:name="tw.com.gamer.android.forum.list.ListActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/bahamut" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <receiver android:exported="true" android:name="com.google.android.gms.gcm.GcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="tw.com.gamer.android.activecenter"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="tw.com.gamer.android.gcm.BahamutGcmListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="tw.com.gamer.android.gcm.BahamutInstanceIDListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="tw.com.gamer.android.gcm.BahamutRegistrationIntentService"/>
+        <receiver android:name="tw.com.gamer.android.util.CollectorReceiver" android:permission="tw.com.gamer.android.activecenter.permission.COLLECTOR">
+            <intent-filter>
+                <action android:name="tw.com.gamer.android.activecenter.intent.COLLECTOR_APP_LIST"/>
+                <category android:name="tw.com.gamer.android.activecenter"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="tw.com.gamer.android.bahamut.SuggestionsProvider" android:exported="false" android:name="tw.com.gamer.android.bahamut.SuggestionsProvider"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <provider android:authorities="com.facebook.app.FacebookContentProvider668497826514848" android:exported="true" android:name="com.facebook.FacebookContentProvider"/>
+        <meta-data android:name="tw.com.gamer.android.gcm.sender_id" android:value="@string/gcm_sender_id"/>
+        <provider android:authorities="tw.com.gamer.android.activecenter.FileProvider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:name="com.facebook.CustomTabActivity"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="tw.com.gamer.android.activecenter.lifecycle-trojan" android:exported="false" android:multiprocess="true" android:name="android.arch.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="tw.com.gamer.android.activecenter.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

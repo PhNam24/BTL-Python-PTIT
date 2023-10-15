@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" android:installLocation="auto" package="org.buffer.android" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission android:name="org.buffer.android.remix.USER_PERMISSION"/>
+    <uses-feature android:name="android.hardware.location" android:required="false"/>
+    <queries>
+        <package android:name="com.authy.authy"/>
+        <package android:name="com.google.android.apps.authenticator2"/>
+        <package android:name="com.instagram.android"/>
+        <package android:name="org.buffer.android.remix"/>
+        <package android:name="com.facebook.orca"/>
+    </queries>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:icon="@mipmap/ic_launcher_round" android:isSplitRequired="true" android:label="@string/app_name" android:largeHeap="true" android:logo="@drawable/icon_black" android:name="org.buffer.android.BufferApp" android:networkSecurityConfig="@xml/network_security_config" android:supportsRtl="true" android:theme="@style/Theme.Publish">
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <provider android:authorities="org.buffer.android.provider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <meta-data android:name="org.buffer.android.util.BufferGlideModule" android:value="AppGlideModule"/>
+        <meta-data android:name="com.bugsnag.android.API_KEY" android:value="f0c59837adf381d08e634e1e1d16f6b4"/>
+        <service android:exported="false" android:name="org.buffer.android.receivers.FcmListenerServiceBuffer">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="org.buffer.android.core.InstagramNotificationDismissButtonReceiver"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:label="@string/title_activity_pending" android:name="org.buffer.android.activities.MainActivity" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:name="org.buffer.android.ui.splash.SplashScreenActivity" android:screenOrientation="portrait" android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts"/>
+        </activity>
+        <activity android:name="org.buffer.android.instagram.InstagramPreviewActivity" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:label="@string/title_activity_oauth_webview" android:name="org.buffer.android.oauth.OAuthWebviewActivity" android:noHistory="false" android:screenOrientation="portrait" android:theme="@style/Theme.Publish.NoActionBar"/>
+        <activity android:label="@string/title_push_settings" android:name="org.buffer.android.ui.settings.push.PushSettingsActivity" android:screenOrientation="portrait" android:theme="@style/Publish.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.NOTIFICATION_PREFERENCES"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_add_profile" android:launchMode="singleTop" android:name="org.buffer.android.addprofile.AddProfileActivity" android:screenOrientation="portrait" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:exported="true" android:launchMode="singleTask" android:name="org.buffer.android.addprofile.ResultReceiverActivity" android:noHistory="true" android:theme="@style/Publish.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="bufferappoauth"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="org.buffer.android.addprofile.multi_channel_connection.MultiChannelConnectionActivity" android:parentActivityName="org.buffer.android.addprofile.AddProfileActivity" android:screenOrientation="portrait" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:name="org.buffer.android.ui.schedule.manage.ManageScheduleActivity" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:name="org.buffer.android.ui.schedule.timezone.SelectTimezoneActivity" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:name="org.buffer.android.ui.main.FacebookGroupAuthorizationActivity" android:theme="@style/App.Theme.NoActionBar"/>
+        <activity android:name="org.buffer.android.ui.schedule.PostingScheduleActivity" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:name="org.buffer.android.ui.NoticeActivity" android:theme="@style/App.Theme.NoActionBar"/>
+        <activity android:name="org.buffer.android.composer.location.SelectLocationActivity" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:name="org.buffer.android.addprofile.ig_auth_explainer.InstagramAuthExplainerActivity" android:screenOrientation="portrait" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:name="org.buffer.android.DeepLinkActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="bufferapp"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="org.buffer.android.calendar.CalendarActivity" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:name="org.buffer.android.campaigns_dashboard.CampaignsActivity" android:theme="@style/Publish.NoActionBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/schedule_pin" android:launchMode="singleTask" android:name="org.buffer.android.pinterest_composer.PinterestComposerActivity" android:theme="@style/Publish.NoActionBar" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/*"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="org.buffer.android.composer.comment.FirstCommentActivity" android:theme="@style/Publish.NoActionBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="org.buffer.android.composer.content.picker.RemotePhotoPickerActivity" android:theme="@style/App.Theme.NoActionBar.StyledText" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTask" android:name="org.buffer.android.composer.extension.ComposerExtensionActivity" android:theme="@style/Publish.NoActionBar" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <action android:name="org.buffer.android.DYNAMIC_SHORTCUT_ACTIVITY_ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/*"/>
+                <data android:mimeType="image/*"/>
+                <data android:mimeType="video/*"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="org.buffer.android.composer.ComposerActivity" android:theme="@style/Publish.NoActionBar" android:windowSoftInputMode="adjustResize"/>
+        <service android:exported="false" android:name="org.buffer.android.composer.service.CreateUpdateService"/>
+        <service android:exported="false" android:name="org.buffer.android.composer.service.EditUpdateService"/>
+        <activity android:name="org.buffer.android.composer.ScheduleActivity" android:theme="@style/TransparentActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="org.buffer.android.composer.customise.preview.CustomisePreviewActivity" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:name="org.buffer.android.composer.user_tag.UserTagActivity" android:screenOrientation="portrait" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:name="org.buffer.android.thumby.ThumbyActivity"/>
+        <activity android:name="org.buffer.android.composer.customise.status.CustomiseStatusActivity" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:name="org.buffer.android.composer.customise.compose.presentation.MultipleComposerActivity" android:theme="@style/Publish.NoActionBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="org.buffer.android.authentication.AuthenticationActivity" android:theme="@style/Publish.NoActionBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="org.buffer.android.blog.BlogActivity" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:name="org.buffer.android.shopgrid.ManageShopGridActivity" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:name="org.buffer.android.product_selector.ProductSelectionActivity" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:name="org.buffer.android.overview.OverviewActivity" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:name="org.buffer.android.campaigns_overview.CampaignsOverviewActivity" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:label="@string/title_activity_finish_later" android:name="org.buffer.android.finish_later.FinishLaterActivity" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:name="org.buffer.android.media_preview.MediaGalleryActivity" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:name="org.buffer.android.media_preview.VideoActivity" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:name="org.buffer.android.story_composer.StoryComposerActivity" android:screenOrientation="portrait" android:theme="@style/Publish.NoActionBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="org.buffer.android.timetopost.TimeToPostActivity" android:theme="@style/Publish.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="org.buffer.android.snippet_groups.view.HashtagManagerActivity" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:name="org.buffer.android.snippet_groups.manage.ManageSnippetGroupActivity" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:name="org.buffer.android.upgrade.UpgradeActivity" android:screenOrientation="portrait" android:theme="@style/App.Theme.NoActionBar"/>
+        <activity android:name="org.buffer.android.getting_started.OnboardingDashboard" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:name="org.buffer.android.billing.BillingActivity" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:name="org.buffer.android.campaigns_create.ManageCampaignActivity" android:theme="@style/TransparentActivity"/>
+        <activity android:label="@string/label_select_profiles" android:name="org.buffer.android.profile_selection.ProfileSelectionActivity" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:name="org.buffer.android.onboarding.OnboardingActivity" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:name="org.buffer.android.image_editor.ImageCropActivity" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:name="org.buffer.android.stories_preview.PreviewActivity" android:screenOrientation="portrait" android:theme="@style/Publish.NoActionBar.DarkSystemBar"/>
+        <activity android:name="org.buffer.android.story_arrange.StoryArrangeActivity" android:theme="@style/Publish.NoActionBar"/>
+        <activity android:name="org.buffer.android.composer_shared.ScheduleActivity" android:theme="@style/TransparentActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:exported="false" android:name="org.buffer.android.widgets.widget_gallery.WidgetGalleryActivity"/>
+        <receiver android:label="@string/widgets_queue_counts" android:name="org.buffer.android.widgets.queue_count.QueueCountsMediumWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/queue_counts_medium_widget_info"/>
+        </receiver>
+        <receiver android:label="@string/widgets_queue_counts_xl" android:name="org.buffer.android.widgets.queue_count.QueueCountsXLWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/queue_counts_xl_widget_info"/>
+        </receiver>
+        <receiver android:label="@string/widgets_up_next" android:name="org.buffer.android.widgets.up_next.UpNextWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/up_next_widget_info"/>
+        </receiver>
+        <service android:name="org.buffer.android.widgets.queue_count.QueueCountsWidgetService" android:permission="android.permission.BIND_REMOTEVIEWS"/>
+        <uses-library android:name="android.test.runner" android:required="false"/>
+        <uses-library android:name="android.test.base" android:required="false"/>
+        <uses-library android:name="android.test.mock" android:required="false"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.unsplash.pickerandroid.photopicker.presentation.UnsplashPickerActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.unsplash.pickerandroid.photopicker.presentation.PhotoShowActivity" android:theme="@style/AppTheme.NoActionBar.Transparent"/>
+        <activity android:exported="true" android:name="androidx.biometric.DeviceCredentialHandlerActivity" android:theme="@style/DeviceCredentialHandlerTheme"/>
+        <activity android:enabled="false" android:exported="false" android:launchMode="singleInstance" android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true"/>
+        <activity android:enabled="false" android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
+        <service android:enabled="false" android:exported="true" android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService">
+            <meta-data android:name="com.google.android.play.core.assetpacks.versionCode" android:value="11000"/>
+        </service>
+        <service android:enabled="false" android:exported="false" android:name="com.google.android.play.core.assetpacks.ExtractionForegroundService"/>
+        <meta-data android:name="com.google.android.play.billingclient.version" android:value="4.0.0"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:name="com.android.billingclient.api.ProxyBillingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:exported="true" android:name="androidx.compose.ui.tooling.PreviewActivity"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="org.buffer.android.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="org.buffer.android.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:name="androidx.work.impl.foreground.SystemForegroundService"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <provider android:authorities="org.buffer.android.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+        <provider android:authorities="org.buffer.android.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
+            <meta-data android:name="androidx.profileinstaller.ProfileInstallerInitializer" android:value="androidx.startup"/>
+        </provider>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.profileinstaller.ProfileInstallReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE"/>
+            </intent-filter>
+        </receiver>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <activity android:name="com.mixpanel.android.mpmetrics.MixpanelNotificationRouteActivity"/>
+        <receiver android:name="com.mixpanel.android.mpmetrics.MixpanelPushNotificationDismissedReceiver"/>
+        <meta-data android:name="com.bugsnag.android.BUILD_UUID" android:value="7b333b16-fdd2-4dd9-aa7f-89412f0593bc"/>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="3"/>
+    </application>
+</manifest>

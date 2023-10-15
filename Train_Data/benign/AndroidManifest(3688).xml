@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="28" android:compileSdkVersionCodename="9" android:installLocation="auto" package="com.vocento.pisos" platformBuildVersionCode="28" platformBuildVersionName="9">
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <permission android:name="com.vocento.pisos.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.vocento.pisos.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <permission android:name="com.vocento.pisos.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.vocento.pisos.permission.MAPS_RECEIVE"/>
+    <uses-feature android:name="android.hardware.location" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false"/>
+    <uses-feature android:name="android.hardware.faketouch" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.network" android:required="false"/>
+    <uses-feature android:name="android.hardware.sensor.compass" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony.gsm" android:required="false"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-feature android:name="android.hardware.touchscreen.multitouch" android:required="false"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:clearTaskOnLaunch="true" android:fullBackupContent="false" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="com.vocento.pisos.PisosApplication" android:networkSecurityConfig="@xml/network_security_config" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/PisosTheme">
+        <activity android:label="@string/title_activity_splash" android:name="com.vocento.pisos.activity.LauncherActivity" android:theme="@style/PisosLaunchTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="homeactivity" android:scheme="pisos"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.vocento.pisos.activity.HomeActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="homeactivity" android:scheme="pisos"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.vocento.pisos.activity.PriceAlertRegisterFormActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.vocento.pisos.activity.PriceAlertRegisterConfirmationActivity" android:screenOrientation="sensorPortrait" android:theme="@style/PisosThemeNG" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.vocento.pisos.activity.LocationDrillActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:label="@string/title_activity_detail" android:name="com.vocento.pisos.activity.DetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:label="@string/title_activity_send_contact" android:name="com.vocento.pisos.activity.SendContactActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/title_activity_send_contact" android:name="com.vocento.pisos.activity.SendContactWhatsAppActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/title_activity_send_contact" android:name="com.vocento.pisos.activity.MultiContactActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/title_activity_disconected" android:name="com.vocento.pisos.activity.DisconnectedActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activity.HomeActivity"/>
+        </activity>
+        <activity android:label="@string/title_activity_disconected" android:name="com.vocento.pisos.activity.InactivePropertyActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activity.HomeActivity"/>
+        </activity>
+        <activity android:label="@string/title_activity_legal_notice" android:name="com.vocento.pisos.activity.LegalNoticeActivity" android:parentActivityName="com.vocento.pisos.activity.HomeActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activity.HomeActivity"/>
+            <intent-filter>
+                <data android:host="LegalNoticeActivity" android:scheme="pisos-activity"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/publish_your_ad" android:name="com.vocento.pisos.activity.WebViewActivity" android:parentActivityName="com.vocento.pisos.activity.HomeActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activity.HomeActivity"/>
+        </activity>
+        <activity android:label="@string/title_activity_who_we_are" android:name="com.vocento.pisos.activity.WhoWeAreActivity" android:parentActivityName="com.vocento.pisos.activity.HomeActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activity.HomeActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_contact" android:name="com.vocento.pisos.activity.ContactActivity" android:parentActivityName="com.vocento.pisos.activity.HomeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activity.HomeActivity"/>
+        </activity>
+        <activity android:label="@string/title_activity_place_map" android:name="com.vocento.pisos.activity.PlaceMapActivity"/>
+        <activity android:label="@string/title_activity_alert" android:name="com.vocento.pisos.activity.AlertActivity" android:parentActivityName="com.vocento.pisos.activity.HomeActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activity.HomeActivity"/>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:label="@string/recommend_app" android:name="com.vocento.pisos.activity.RecommendAppActivity" android:parentActivityName="com.vocento.pisos.activity.HomeActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activity.HomeActivity"/>
+        </activity>
+        <activity android:label="@string/title_activity_place_already_contacted" android:name="com.vocento.pisos.activity.PropertyAlreadyContactedActivity"/>
+        <activity android:name="com.vocento.pisos.activity.UrlParserActivity" android:theme="@style/PisosThemeNG">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.pisos.com" android:scheme="http"/>
+                <data android:host="www.pisos.com" android:scheme="https"/>
+            </intent-filter>
+            <meta-data android:name="default-url" android:value="https://www.pisos.com/"/>
+        </activity>
+        <activity android:name="com.vocento.pisos.activity.ImageViewPagerActivity" android:screenOrientation="portrait" android:theme="@style/PisosTheme.NoActionBar"/>
+        <activity android:name="com.vocento.pisos.activity.HomeSearchActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_legal_notice" android:name="com.vocento.pisos.activity.InfoLegalNoticeActivity" android:parentActivityName="com.vocento.pisos.activity.HomeActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activity.HomeActivity"/>
+        </activity>
+        <activity android:label="Reportar error" android:name="com.vocento.pisos.activity.ReportErrorActivity" android:parentActivityName="com.vocento.pisos.activity.HomeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activity.HomeActivity"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/title_activity_message" android:name="com.vocento.pisos.activity.MessageActivity" android:screenOrientation="portrait" android:theme="@style/FullscreenTheme"/>
+        <activity android:label="@string/recommend_app" android:name="com.vocento.pisos.activity.UnsubscribeUserReasonsActivity" android:parentActivityName="com.vocento.pisos.activity.HomeActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activity.HomeActivity"/>
+        </activity>
+        <activity android:label="@string/title_activity_filters" android:name="com.vocento.pisos.activity.FiltersActivity" android:parentActivityName="com.vocento.pisos.activity.HomeActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activity.HomeActivity"/>
+        </activity>
+        <activity android:name="com.vocento.pisos.activity.EditUserActivity"/>
+        <activity android:name="com.vocento.pisos.activity.ChangeLanguageActivity"/>
+        <activity android:name="com.vocento.pisos.activity.PostFavoriteAlertActivity" android:theme="@style/Theme.AppCompat.Transparent.NoActionBar"/>
+        <activity android:name="com.vocento.pisos.activity.ContactPollActivity" android:theme="@style/Theme.AppCompat.Transparent.NoActionBar" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.vocento.pisos.activity.EditMyPropertyActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activity.HomeActivity"/>
+        </activity>
+        <receiver android:exported="true" android:name="com.appsflyer.MultipleInstallBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.google.android.gms.analytics.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <uses-library android:name="com.google.android.maps" android:required="false"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyDEeEqPOEXkJmr_VjaqwXMYm_rvQMlRFFU"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="fa56e0aad6706e339b1cf82ed7d5590cc63c64f8"/>
+        <service android:name="com.vocento.pisos.FCMService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:name="com.vocento.pisos.activity.PromotionDetailActivity"/>
+        <activity android:name="com.vocento.pisos.activity.LegalConditionsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.vocento.pisos.activity.OnBoardingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.vocento.pisos.activity.SearchSaveAlertActivity" android:theme="@style/Theme.AppCompat.Transparent.NoActionBar"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <meta-data android:name="com.google.android.gms.ads.AD_MANAGER_APP" android:value="true"/>
+        <service android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.vocento.pisos.crashlyticsinitprovider" android:exported="false" android:initOrder="90" android:name="com.crashlytics.android.CrashlyticsInitProvider"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:name="com.facebook.CustomTabActivity"/>
+        <activity android:name="com.karumi.dexter.DexterActivity" android:theme="@style/Dexter.Internal.Theme.Transparent"/>
+        <provider android:authorities="com.vocento.pisos.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <provider android:authorities="com.vocento.pisos.mobileadsinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.android.gms.ads.MobileAdsInitProvider"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.vocento.pisos.MarketingInitProvider" android:exported="false" android:name="com.facebook.marketing.internal.MarketingInitProvider"/>
+        <provider android:authorities="com.vocento.pisos.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.brightcove.player.network.DownloadMonitorService"/>
+        <activity android:name="com.brightcove.player.captioning.BrightcoveCaptionPropertiesActivity"/>
+        <service android:enabled="true" android:name="com.brightcove.player.services.BrightcoveMediaPlayerService"/>
+        <service android:name="com.liulishuo.filedownloader.services.FileDownloadService$SharedMainProcessService"/>
+        <service android:name="com.liulishuo.filedownloader.services.FileDownloadService$SeparateProcessService" android:process=":filedownloader"/>
+    </application>
+</manifest>

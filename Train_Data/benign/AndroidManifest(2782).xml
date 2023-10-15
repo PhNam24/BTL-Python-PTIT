@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="33" android:compileSdkVersionCodename="13" android:installLocation="auto" package="com.drivequant.lostnfound" platformBuildVersionCode="33" platformBuildVersionName="13">
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+    <uses-permission android:maxSdkVersion="30" android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:maxSdkVersion="30" android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <uses-permission android:maxSdkVersion="32" android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION"/>
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:icon="@mipmap/ic_launcher" android:isSplitRequired="true" android:label="@string/app_name" android:name="com.drivequant.DriveQuantApplication" android:screenOrientation="portrait" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <meta-data android:name="com.drivequant.sdk.API_KEY" android:value="oQ81iVT12JuTy2f5NdmtaHj4"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyABS9JXMwt_2M4ilvAtOhw_kcKDxRqK5Wc"/>
+        <meta-data android:name="DATABASE" android:value="drivequant.db"/>
+        <meta-data android:name="VERSION" android:value="1"/>
+        <meta-data android:name="QUERY_LOG" android:value="true"/>
+        <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.drivequant"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/ic_notification"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/colorAccent"/>
+        <activity android:configChanges="orientation" android:exported="true" android:name="com.drivequant.view.splashscreen.activity.SplashScreenActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="dl.drivequant.com" android:scheme="http"/>
+                <data android:host="dl.drivequant.com" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation" android:name="com.drivequant.view.login.activity.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.drivequant.view.BaseActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.drivequant.view.home.activity.WebviewActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.drivequant.view.openidconnect.activity.OpenIdConnectActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.drivequant.view.cgu.CguActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.drivequant.view.home.activity.HomeActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:label="@string/title_activity_live" android:name="com.drivequant.view.live.activity.LiveActivity" android:parentActivityName="com.drivequant.view.home.activity.HomeActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:label="@string/title_activity_street_view" android:name="com.drivequant.view.trip.activity.StreetViewActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:configChanges="orientation" android:label="@string/title_activity_historic" android:name="com.drivequant.view.historic.activity.HistoricActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:configChanges="orientation" android:name="com.drivequant.view.settings.activity.SettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.drivequant.view.settings.activity.AccountSettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.drivequant.view.settings.activity.DeleteAccountActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:label="@string/title_activity_settings" android:name="com.drivequant.view.settings.activity.ModeAutoSettingsActivity" android:parentActivityName="com.drivequant.view.settings.activity.SettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.drivequant.view.settings.activity.NotificationSettingsActivity" android:parentActivityName="com.drivequant.view.settings.activity.SettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.drivequant.view.settings.activity.GroupsSettingsActivity" android:parentActivityName="com.drivequant.view.settings.activity.SettingsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:configChanges="orientation" android:name="com.drivequant.view.settings.activity.AboutHelpSettingsActivity" android:parentActivityName="com.drivequant.view.settings.activity.SettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.drivequant.view.settings.activity.AboutSettingsActivity" android:parentActivityName="com.drivequant.view.settings.activity.SettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.drivequant.view.login.activity.LoginChooserActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:label="@string/title_activity_signin" android:name="com.drivequant.view.login.activity.SigninActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:configChanges="orientation" android:label="@string/title_activity_faq" android:name="com.drivequant.view.settings.activity.FaqActivity" android:parentActivityName="com.drivequant.view.settings.activity.AboutHelpSettingsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:configChanges="orientation" android:label="@string/title_activity_tutorial" android:name="com.drivequant.view.tutorial.activity.TutorialActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:configChanges="orientation" android:name="com.drivequant.view.login.activity.TeamChooserActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:configChanges="orientation" android:name="com.drivequant.view.login.activity.ActivationCodeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:configChanges="orientation" android:name="com.drivequant.view.coaching.activity.CoachingMessageListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:configChanges="orientation" android:name="com.drivequant.view.coaching.activity.CoachingMessageDetailActivity" android:parentActivityName="com.drivequant.view.coaching.activity.CoachingMessageListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:configChanges="orientation" android:name="com.drivequant.view.home.activity.logbook.SortMyTripsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.drivequant.view.home.activity.logbook.FinancialReportActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.drivequant.view.settings.activity.RankingSettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.drivequant.view.settings.activity.ContactSettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.drivequant.view.trip.activity.ManualTripActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.drivequant.view.trip.activity.DriverBookTripDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.drivequant.view.common.activity.ForwardGeocodingActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.drivequant.view.home.activity.training.MediaDetailActivity" android:screenOrientation="portrait"/>
+        <service android:exported="false" android:name="com.drivequant.service.messaging.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="false" android:name="com.drivequant.receiver.GpsActivatedReceiver" android:permission="android.permission.LOCATION_SERVICE">
+            <intent-filter>
+                <action android:name="android.location.PROVIDERS_CHANGED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.drivequant.receiver.PackageReplacedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.drivequant.lostnfound.provider" android:exported="false" android:grantUriPermissions="true" android:name="com.drivequant.utils.AppFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_provider_paths"/>
+        </provider>
+        <activity android:name="com.drivequant.drivekit.tripanalysis.workinghours.activity.WorkingHoursActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:launchMode="singleTop" android:name="com.drivequant.drivekit.tripanalysis.crashfeedback.activity.CrashFeedbackStep1Activity" android:screenOrientation="portrait" android:showOnLockScreen="true" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:launchMode="singleTop" android:name="com.drivequant.drivekit.tripanalysis.crashfeedback.activity.CrashFeedbackStep2Activity" android:screenOrientation="portrait" android:showOnLockScreen="true" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.drivequant.drivekit.ui.tripdetail.activity.TripDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.drivequant.drivekit.ui.trips.activity.TripsListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.drivequant.drivekit.ui.transportationmode.activity.TransportationModeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.drivequant.drivekit.driverachievement.ui.rankings.activity.RankingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.drivequant.drivekit.driverachievement.ui.badges.activity.BadgeListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.drivequant.drivekit.driverachievement.ui.streaks.activity.StreaksListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.drivequant.drivekit.vehicle.ui.picker.activity.VehiclePickerActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.drivequant.drivekit.vehicle.ui.vehicles.activity.VehiclesListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.drivequant.drivekit.vehicle.ui.vehicledetail.activity.VehicleDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.drivequant.drivekit.vehicle.ui.bluetooth.activity.BluetoothActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.drivequant.drivekit.vehicle.ui.beacon.activity.BeaconActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.drivequant.drivekit.vehicle.ui.beacon.activity.BeaconDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.drivequant.drivekit.vehicle.ui.odometer.activity.OdometerVehicleListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.drivequant.drivekit.vehicle.ui.odometer.activity.OdometerVehicleDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.drivequant.drivekit.vehicle.ui.odometer.activity.OdometerHistoriesListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.drivequant.drivekit.vehicle.ui.odometer.activity.OdometerHistoryDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.drivequant.drivekit.vehicle.ui.odometer.activity.OdometerInitActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <provider android:authorities="com.drivequant.lostnfound.provider" android:exported="false" android:grantUriPermissions="true" android:name="com.drivequant.drivekit.vehicle.ui.utils.BaseFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_provider_paths"/>
+        </provider>
+        <activity android:name="com.drivequant.drivekit.permissionsutils.diagnosis.activity.AppDiagnosisActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.drivequant.drivekit.permissionsutils.permissions.activity.RequestPermissionActivity"/>
+        <activity android:name="com.drivequant.drivekit.permissionsutils.permissions.activity.BasePermissionActivity"/>
+        <activity android:name="com.drivequant.drivekit.permissionsutils.permissions.activity.NotificationsPermissionActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.drivequant.drivekit.permissionsutils.permissions.activity.LocationPermissionActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.drivequant.drivekit.permissionsutils.permissions.activity.BackgroundTaskPermissionActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.drivequant.drivekit.permissionsutils.permissions.activity.ActivityRecognitionPermissionActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.drivequant.drivekit.permissionsutils.permissions.activity.NearbyDevicesPermissionActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.drivequant.drivekit.challenge.ui.challengedetail.activity.ChallengeDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.drivequant.drivekit.challenge.ui.joinchallenge.activity.ChallengeRulesActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.drivequant.drivekit.challenge.ui.joinchallenge.activity.ChallengeParticipationActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.drivequant.drivekit.challenge.ui.challengelist.activity.ChallengeListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <service android:exported="false" android:name="com.drivequant.drivekit.tripanalysis.service.recorder.RecorderService"/>
+        <service android:exported="false" android:name="com.drivequant.drivekit.tripanalysis.service.crashdetection.feedback.CrashFeedbackService"/>
+        <receiver android:exported="false" android:name="com.drivequant.drivekit.tripanalysis.receiver.CancelReceiver"/>
+        <receiver android:exported="false" android:name="com.drivequant.drivekit.tripanalysis.service.autostart.ActivityRecognitionSamplingReceiver"/>
+        <receiver android:exported="false" android:name="com.drivequant.drivekit.tripanalysis.service.autostart.ActivityRecognitionTransitionReceiver"/>
+        <receiver android:exported="false" android:name="com.drivequant.drivekit.tripanalysis.receiver.RebootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.drivequant.drivekit.tripanalysis.receiver.GeofenceReceiver"/>
+        <receiver android:exported="false" android:name="com.drivequant.drivekit.tripanalysis.receiver.CrashSimulatorReceiver"/>
+        <receiver android:exported="false" android:name="com.drivequant.drivekit.tripanalysis.receiver.BluetoothSensorReceiver">
+            <intent-filter>
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.drivequant.lostnfound.provider" android:exported="false" android:grantUriPermissions="true" android:name="com.drivequant.drivekit.core.utils.LogFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_provider_paths"/>
+        </provider>
+        <receiver android:exported="false" android:name="com.drivequant.drivekit.core.receiver.UpdateUserIdReceiver"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.dynamiclinks.internal.FirebaseDynamicLinkRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <activity android:exported="true" android:name="com.google.android.gms.appinvite.PreviewActivity" android:theme="@style/Theme.AppInvite.Preview">
+            <intent-filter>
+                <action android:name="com.google.android.gms.appinvite.ACTION_PREVIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.drivequant.lostnfound.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="com.drivequant.lostnfound.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
+            <meta-data android:name="androidx.work.WorkManagerInitializer" android:value="androidx.startup"/>
+        </provider>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:name="androidx.work.impl.foreground.SystemForegroundService"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <provider android:authorities="com.drivequant.lostnfound.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="2"/>
+    </application>
+</manifest>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="28" android:compileSdkVersionCodename="9" android:installLocation="auto" package="com.pozitron.hepsiburada" platformBuildVersionCode="135" platformBuildVersionName="2.9.4">
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <permission android:name="com.pozitron.hepsiburada.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.pozitron.hepsiburada.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT"/>
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
+    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT"/>
+    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:label="@string/appName" android:name="com.hepsiburada.app.HbApplication" android:resizeableActivity="false" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <receiver android:name="com.hepsiburada.receiver.NotificationCenterGcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter android:priority="900">
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.pozitron.hepsiburada"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.hepsiburada.receiver.MyPackageReplacedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.analytics.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.hepsiburada.receiver.AnalyticsReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:name="com.hepsiburada.ui.startup.SplashActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="hbapp"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.hepsiburada.com" android:scheme="http"/>
+                <data android:host="www.hepsiburada.com" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:launchMode="singleTask" android:name="com.hepsiburada.ui.home.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.hepsiburada.ui.product.details.ProductDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.hepsiburada.ui.checkout.CheckoutActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.hepsiburada.oms.OmsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.hepsiburada.search.SearchActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:exported="false" android:name="com.hepsiburada.web.ui.WebActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.hepsiburada.user.favorites.FavoritesActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.hepsiburada.settings.SettingsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.hepsiburada.ui.product.list.recommendation.UserRecommendationsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.hepsiburada.ui.product.list.dealoftheday.DealOfTheDayActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.hepsiburada.ui.notificationcenter.NotificationCenterActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.hepsiburada.ui.compare.CompareActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.hepsiburada.ui.campaigns.home.CampaignsHomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:launchMode="singleTop" android:name="com.hepsiburada.ui.campaigns.group.CampaignGroupActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.hepsiburada.ui.campaigns.detail.CampaignDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.hepsiburada.ui.opc.OpcManageActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.hepsiburada.ui.user.UserProfileManagementActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.hepsiburada.ui.product.list.BrandResultActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.hepsiburada.ui.product.list.CategoryResultActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.hepsiburada.ui.product.list.CustomPageResultActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.hepsiburada.ui.product.list.GlobalFilterResultActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.hepsiburada.ui.product.list.MerchantPageActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.hepsiburada.ui.product.list.SearchResultActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.hepsiburada.ui.product.list.VisenzeResultActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:exported="false" android:name="com.hepsiburada.settings.UserTicketsActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.hepsiburada.settings.UserTicketDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.hepsiburada.settings.AboutPageActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.hepsiburada.search.ProductScanActivity" android:noHistory="true" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:exported="false" android:name="com.hepsiburada.ui.imagesearch.ImageSelectionBoxActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:exported="false" android:name="com.hepsiburada.ui.giftcards.GiftCardsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.hepsiburada.ui.customerservices.CustomerServicesActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.hepsiburada.ui.customerservices.AppFeedbackActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.hepsiburada.ui.customerservices.ContactUsHierarchyListActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.hepsiburada.ui.customerservices.ContactUsReasonListActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.hepsiburada.ui.customerservices.ContactUsReasonAnswerActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.hepsiburada.ui.customerservices.ContactUsCreateTicketActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.hepsiburada.ui.product.details.ProductAddReviewActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:exported="false" android:name="com.hepsiburada.ui.product.details.ProductImagesGalleryActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:exported="false" android:name="com.hepsiburada.settings.OtpActivity" android:theme="@style/HepsiburadaDarkTheme"/>
+        <activity android:exported="false" android:name="com.hepsiburada.settings.UpdatePasswordActivity" android:theme="@style/HepsiburadaDarkTheme"/>
+        <activity android:exported="false" android:name="com.hepsiburada.ui.user.LoginActivity" android:theme="@style/AppTheme.NoActionBar.Transparent"/>
+        <activity android:exported="false" android:name="com.hepsiburada.ui.user.RegisterActivity" android:theme="@style/HepsiburadaDarkTheme"/>
+        <activity android:name="com.hepsiburada.ui.user.ResetPasswordActivity" android:theme="@style/HepsiburadaDarkTheme"/>
+        <activity android:exported="false" android:name="com.hepsiburada.ui.user.RenewPasswordActivity" android:theme="@style/HepsiburadaDarkTheme"/>
+        <activity android:name="com.hepsiburada.stories.profile.StoryProfilesActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.hepsiburada.user.agreement.RenewUserAgreementActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.hepsiburada.ui.product.list.filters.category.CategorySelectionActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <meta-data android:name="com.google.android.gms.wallet.api.enabled" android:value="true"/>
+        <activity android:name="com.hepsiburada.user.account.support.CustomerSupportActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.hepsiburada.user.account.support.SupportWebActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.hepsiburada.ui.product.list.filters.item.FilterItemListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.hepsiburada.ui.product.list.filters.FiltersMainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <meta-data android:name="search-engine" android:resource="@xml/noindex"/>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="869c97fabcea0015a08e4cc7fdc03bbc51936dca"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="net.hockeyapp.android.appIdentifier" android:value="@string/appHockeyAppKey"/>
+        <meta-data android:name="com.google.android.awareness.API_KEY" android:value="AIzaSyAMpq-TPIwW6_3QTOyzO0WtwEV6pC_dMA8"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyAMpq-TPIwW6_3QTOyzO0WtwEV6pC_dMA8"/>
+        <service android:exported="false" android:name="com.hepsiburada.helper.location.LocationIntentService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.pozitron.hepsiburada.imageFileProvider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/image_file_provider_paths"/>
+        </provider>
+        <provider android:authorities="com.pozitron.hepsiburada.pdfFileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.hepsiburada.web.PdfFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/pdf_file_provider_paths"/>
+        </provider>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.pozitron.hepsiburada.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:name="com.facebook.CustomTabActivity"/>
+        <provider android:authorities="com.pozitron.hepsiburada.MarketingInitProvider" android:exported="false" android:name="com.facebook.marketing.internal.MarketingInitProvider"/>
+        <provider android:authorities="com.pozitron.hepsiburada.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.pozitron.hepsiburada.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+        <activity android:name="com.salesforce.marketingcloud.notifications.DefaultUrlPresenter"/>
+        <receiver android:exported="false" android:name="com.salesforce.marketingcloud.location.LocationReceiver"/>
+        <service android:exported="false" android:name="com.salesforce.marketingcloud.MCProximityService"/>
+        <service android:exported="false" android:name="com.salesforce.marketingcloud.MCService"/>
+        <service android:exported="false" android:name="com.salesforce.marketingcloud.MCJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.salesforce.marketingcloud.MCReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.ACTION_SHUTDOWN"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="com.pozitron.hepsiburada.com.salesforce.marketingcloud.NOTIFICATION_OPENED"/>
+                <action android:name="com.pozitron.hepsiburada.com.salesforce.marketingcloud.WAKE_FOR_ALARM"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.google.android.gms.gcm.GcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter android:priority="-999">
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.pozitron.hepsiburada"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.salesforce.marketingcloud.messages.push.MCGcmListenerService">
+            <intent-filter android:priority="-999">
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.salesforce.marketingcloud.messages.push.MCInstanceIdListenerService">
+            <intent-filter android:priority="-999">
+                <action android:name="com.google.android.gms.iid.InstanceID"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.pozitron.hepsiburada.com.salesforce.marketingcloud.initprovider" android:enabled="true" android:exported="false" android:name="com.salesforce.marketingcloud.MCInitContentProvider"/>
+        <activity android:name="net.hockeyapp.android.UpdateActivity"/>
+        <activity android:name="net.hockeyapp.android.FeedbackActivity"/>
+        <activity android:name="net.hockeyapp.android.PaintActivity"/>
+        <activity android:name="net.hockeyapp.android.LoginActivity"/>
+        <activity android:name="net.hockeyapp.android.ExpiryInfoActivity"/>
+        <provider android:authorities="com.pozitron.hepsiburada.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+    </application>
+</manifest>

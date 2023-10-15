@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="28" android:compileSdkVersionCodename="9" package="com.wallet.crypto.trustapp" platformBuildVersionCode="28" platformBuildVersionName="9">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:maxSdkVersion="18" android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="com.wallet.crypto.trustapp.App" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:testOnly="false" android:theme="@style/AppTheme.NoActionBar">
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/ic_push_notifications"/>
+        <activity android:exported="true" android:name="com.wallet.crypto.trustapp.ui.splash.activity.SplashActivity" android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.wallet.crypto.trustapp.ui.splash.activity.HandleLinkActivity" android:theme="@style/SplashTheme">
+            <intent-filter>
+                <data android:host="open" android:scheme="trust"/>
+                <data android:host="browser" android:scheme="trust"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="com.wallet.crypto.trustapp" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/settings.browser.title" android:name="com.wallet.crypto.trustapp.ui.settings.activity.BrowserSettingsActivity"/>
+        <activity android:label="@string/settings.browser.searchEngine.title" android:name="com.wallet.crypto.trustapp.ui.settings.activity.ChooseSearchEngineActivity"/>
+        <activity android:label="@string/settings.pushNotifications.title" android:name="com.wallet.crypto.trustapp.ui.settings.activity.PushNotificationsSettingsActivity"/>
+        <activity android:label="@string/settings.about.title" android:name="com.wallet.crypto.trustapp.ui.settings.activity.AboutActivity"/>
+        <activity android:label="@string/Wallets" android:name="com.wallet.crypto.trustapp.ui.wallets.activity.WalletsActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/importWallet.import.button.title" android:name="com.wallet.crypto.trustapp.ui.importwallet.activity.ImportWalletActivity" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.wallet.crypto.trustapp.ui.start.activity.MainActivity"/>
+        <activity android:label="@string/settings.currency.button.title" android:name="com.wallet.crypto.trustapp.ui.currency.CurrencySelectionActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/transaction.detail.navigation.title" android:name="com.wallet.crypto.trustapp.ui.transfer.activity.TransactionDetailActivity"/>
+        <activity android:label="@string/transactions.receive.button.title" android:name="com.wallet.crypto.trustapp.ui.receive.activity.ReceiveActivity"/>
+        <activity android:label="@string/Send" android:name="com.wallet.crypto.trustapp.ui.transfer.activity.SendActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/confirmPayment.confirm.button.title" android:name="com.wallet.crypto.trustapp.ui.transfer.activity.ConfirmationActivity">
+            <intent-filter>
+                <data android:host="sign-transaction" android:scheme="trust"/>
+                <data android:host="sign-message" android:scheme="trust"/>
+                <data android:host="sign-personal-message" android:scheme="trust"/>
+                <data android:host="sign-typed-message" android:scheme="trust"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/tokens.newtoken.navigation.title" android:name="com.wallet.crypto.trustapp.ui.token.activity.AddAssetActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="Barcode Scan" android:name="com.wallet.crypto.trustapp.ui.QRScannerActivity"/>
+        <activity android:label="@string/Tokens" android:name="com.wallet.crypto.trustapp.ui.token.activity.ManagingAssetsActivity"/>
+        <activity android:label="Passcode" android:name="com.wallet.crypto.trustapp.ui.passcode.activity.PasscodeActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.wallet.crypto.trustapp.ui.wallets.activity.ExportPhraseActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.wallet.crypto.trustapp.ui.wallets.activity.WalletInfoActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.wallet.crypto.trustapp.ui.wallets.activity.ExportPrivateKeyActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.wallet.crypto.trustapp.ui.market.activity.AssetMarketInfoActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.wallet.crypto.trustapp.ui.wallets.activity.AddWalletActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <provider android:authorities="com.wallet.crypto.trustapp.fileProvider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <meta-data android:name="firebase_analytics_collection_deactivated" android:value="true"/>
+        <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_lfvIpVeI9TFWxPCqwU8rZnogFqhnzs4D"/>
+        <receiver android:exported="true" android:name="io.branch.referral.InstallListener">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.wallet.crypto.trustapp.service.TrustFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:name="com.wallet.crypto.trustapp.service.TrustFirebaseInstanceService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:label="@string/Network" android:name="com.wallet.crypto.trustapp.ui.ChooseBlockchainActivity"/>
+        <activity android:label="@string/SwitchAsset" android:name="com.wallet.crypto.trustapp.ui.token.activity.ChooseAssetActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.wallet.crypto.trustapp.ui.token.activity.BuyCryptoActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/ExportAccountPublicKeys" android:name="com.wallet.crypto.trustapp.ui.wallets.activity.ExportExtendedKeyActivity"/>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.wallet.crypto.trustapp.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <service android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.wallet.crypto.trustapp.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>

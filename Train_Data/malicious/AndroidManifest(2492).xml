@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.zjhxsin.soin">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <application android:allowBackup="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:name="com.zjhxsin.framework.Application" android:theme="@style/AppTheme">
+        <meta-data android:name="com.amap.api.v2.apikey" android:value="@string/amap_key"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.zjhxsin.soin.activity.StartActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.zjhxsin.soin.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.zjhxsin.soin.activity.GalleryImageActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zjhxsin.soin.activity.SearchActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zjhxsin.soin.activity.NavActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Transparent"/>
+        <activity android:name="com.zjhxsin.soin.activity.LocationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zjhxsin.soin.activity.SettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.hemeone.amap.NaviCustomActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.hemeone.amap.AMAPAddressCheckerActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zjhxsin.framework.chat.TalkActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.zjhxsin.framework.activity.ImagePagerActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.zjhxsin.soin.activity.UserInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zjhxsin.soin.activity.UserInfoEditActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zjhxsin.soin.activity.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zjhxsin.soin.activity.RegisterActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zjhxsin.soin.activity.MessageDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zjhxsin.soin.activity.DetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zjhxsin.soin.activity.WebActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zjhxsin.soin.activity.AttestationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zjhxsin.soin.activity.FindPwdActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zjhxsin.soin.activity.PublishActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zjhxsin.soin.activity.MemberInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zjhxsin.soin.activity.WishActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zjhxsin.soin.activity.PayActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:name="com.zjhxsin.soin.wxapi.WXEntryActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:launchMode="singleTop" android:name="com.zjhxsin.soin.wxapi.WXPayEntryActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.zjhxsin.framework.activity.ImageActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zjhxsin.framework.activity.EmptyActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zjhxsin.framework.activity.ListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="me.nereo.multi_image_selector.MultiImageSelectorActivity" android:screenOrientation="portrait"/>
+        <receiver android:name="com.avos.avoscloud.AVBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.zjhxsin.framework.receiver.PushReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.zjhxsin.UPDATE_STATUS"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.avos.avoscloud.PushService"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mob.tools.MobUIShell" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <data android:scheme="tencent1104757878"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

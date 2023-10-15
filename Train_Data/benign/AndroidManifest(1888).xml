@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="ru.ds24.etalon">
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-feature android:name="android.hardware.camera" android:required="true"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <application android:allowBackup="true" android:icon="@mipmap/ic_launcher_etalon" android:label="@string/app_name" android:name="ru.ds24.yitplus.YitApp" android:roundIcon="@mipmap/ic_launcher_etalon_round" android:supportsRtl="true" android:theme="@style/AppThemeETALON" android:usesCleartextTraffic="true">
+        <activity android:label="@string/app_name" android:name="ru.ds24.yitplus.presentation.view.activity.StartActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="yitplus.page.link" android:scheme="http"/>
+                <data android:host="yitplus.page.link" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="ru.ds24.yitplus.presentation.view.activity.OnboardActivity" android:screenOrientation="portrait"/>
+        <activity android:name="ru.ds24.yitplus.presentation.view.activity.MenuActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/title_screen_confirm_phone_code" android:name="ru.ds24.yitplus.presentation.view.activity.AuthActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/title_screen_confirm_phone_code" android:name="ru.ds24.yitplus.presentation.view.activity.ConfirmCodeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/title_screen_qr" android:name="ru.ds24.yitplus.presentation.view.activity.QRReadActivity" android:screenOrientation="portrait" android:theme="@style/SomeActivityTheme"/>
+        <activity android:label="@string/title_order_step_1" android:name="ru.ds24.yitplus.presentation.view.activity.OrderStep1Activity" android:screenOrientation="portrait" android:theme="@style/SomeActivityTheme"/>
+        <activity android:name="ru.ds24.yitplus.presentation.view.activity.WebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="ru.ds24.yitplus.presentation.view.activity.OrderSuccessActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_screen_pay" android:name="ru.ds24.yitplus.presentation.view.activity.WebPayActivity" android:screenOrientation="portrait" android:theme="@style/SomeActivityTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/new_address" android:name="ru.ds24.yitplus.presentation.view.activity.AddressAddActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/search_house" android:name="ru.ds24.yitplus.presentation.view.activity.SearchHouseActivity" android:screenOrientation="portrait"/>
+        <activity android:name="ru.ds24.yitplus.presentation.view.activity.CounterActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/title_screen_email" android:name="ru.ds24.yitplus.presentation.view.activity.EmailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/title_bill" android:name="ru.ds24.yitplus.presentation.view.activity.BillDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_bill_detail" android:name="ru.ds24.yitplus.presentation.view.activity.BillDetailAmountActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/new_billac_title" android:name="ru.ds24.yitplus.presentation.view.activity.ProfileBillaccAddActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/external_call_title" android:name="ru.ds24.yitplus.presentation.view.activity.ExternalCallActivity" android:screenOrientation="portrait" android:theme="@style/EmergencyActivityTheme"/>
+        <activity android:label="@string/title_about" android:name="ru.ds24.yitplus.presentation.view.activity.AboutActivity" android:screenOrientation="portrait" android:theme="@style/SomeActivityTheme"/>
+        <activity android:label="@string/citys_title" android:name="ru.ds24.yitplus.presentation.view.activity.CitysActivity" android:screenOrientation="portrait" android:theme="@style/SomeActivityTheme"/>
+        <activity android:label="@string/docs_title" android:name="ru.ds24.yitplus.presentation.view.activity.DocumentsActivity" android:screenOrientation="portrait" android:theme="@style/SomeActivityTheme"/>
+        <provider android:authorities="@string/file_provider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths" android:value="26.0.0"/>
+        </provider>
+        <service android:name="ru.ds24.yitplus.presentation.fcm.YitFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="ru.ds24.etalon.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="ru.ds24.etalon.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+        <service android:enabled="true" android:exported="true" android:name="com.yandex.metrica.MetricaService" android:process=":Metrica">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="com.yandex.metrica.IMetricaService"/>
+                <data android:scheme="metrica"/>
+            </intent-filter>
+            <meta-data android:name="metrica:api:level" android:value="70"/>
+        </service>
+        <service android:enabled="true" android:exported="true" android:name="com.yandex.metrica.ConfigurationService" android:process=":Metrica">
+            <meta-data android:name="metrica:configuration:api:level" android:value="2"/>
+            <intent-filter>
+                <action android:name="com.yandex.metrica.configuration.ACTION_START"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="false" android:name="com.yandex.metrica.ConfigurationJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:process=":Metrica"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.yandex.metrica.MetricaEventHandler">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>

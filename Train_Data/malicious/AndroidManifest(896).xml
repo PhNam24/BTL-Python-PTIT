@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.baiying.lplay" platformBuildVersionCode="25" platformBuildVersionName="7.1.1">
+    <uses-permission android:name="12"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="MediaStore.Images.Media.INTERNAL_CONTENT_URI"/>
+    <uses-permission android:name="MediaStore.Images.Media.EXTERNAL_CONTENT_URI"/>
+    <uses-permission android:name="com.baiying.lplay.permission.JPUSH_MESSAGE"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true"/>
+    <permission android:name="com.baiying.lplay.permission.JPUSH_MESSAGE" android:protectionLevel="signature"/>
+    <permission android:name="com.baiying.lplay.permission.MIPUSH_RECEIVE" android:protectionLevel="signature"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="true" android:icon="@mipmap/app_icon" android:label="@string/app_name" android:name="com.tencent.StubShell.TxAppEntry" android:theme="@style/AnimationActivity">
+        <meta-data android:name="TxAppEntry" android:value="com.by.ui.MainApplication"/>
+        <activity android:icon="@mipmap/app_icon" android:label="@string/app_name" android:launchMode="singleTop" android:name="com.by.ui.activity.MainTabActivity" android:screenOrientation="portrait" android:theme="@style/WelcomeTheme" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="mycp"/>
+                <data android:host="iplay78"/>
+                <data android:path="/type"/>
+            </intent-filter>
+        </activity>
+        <service android:enabled="true" android:name="com.by.ui.service.DownLoadService"/>
+        <service android:enabled="true" android:name="com.by.service.InitializeService">
+            <intent-filter>
+                <action android:name="com.by.service.action.InitializeService"/>
+            </intent-filter>
+        </service>
+        <activity android:launchMode="singleTop" android:name="com.by.ui.poll.PollActivity" android:screenOrientation="portrait" android:theme="@style/NoticeTheme"/>
+        <activity android:name="com.by.ui.mine.setting.AboutActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.by.ui.mine.setting.ServiceActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="com.by.ui.mine.setting.SettingActivity" android:screenOrientation="portrait"/>
+        <service android:enabled="true" android:name="com.by.ui.poll.PollService"/>
+        <service android:enabled="true" android:name="com.by.ui.poll.DownloadService"/>
+        <receiver android:name="com.by.ui.poll.PollReceiver">
+            <intent-filter>
+                <action android:name="com.mycp.iplay78.Poll"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.by.ui.activity.ShowContentActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:exported="false" android:name="com.alipay.sdk.app.H5PayActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:exported="false" android:name="com.alipay.sdk.auth.AuthActivity" android:screenOrientation="behind"/>
+        <activity android:exported="true" android:name="com.baiying.lplay.wxapi.WXEntryActivity" android:theme="@android:style/Theme.NoDisplay"/>
+        <activity android:exported="true" android:name="com.baiying.lplay.wxapi.WXPayEntryActivity" android:theme="@android:style/Theme.NoDisplay"/>
+        <activity android:launchMode="singleTask" android:name="com.umeng.qq.tencent.AuthActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencent101399760"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.umeng.qq.tencent.AssistActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:excludeFromRecents="true" android:name="com.umeng.socialize.editorpage.ShareActivity" android:theme="@style/Theme.UMDefault"/>
+        <receiver android:name="com.by.broadcast.PushClickReceiver"/>
+        <service android:enabled="true" android:name="com.by.ui.service.DownH5PacketService"/>
+        <service android:enabled="true" android:name="com.xiaomi.push.service.XMPushService" android:process=":pushservice"/>
+        <service android:enabled="true" android:exported="true" android:name="com.xiaomi.mipush.sdk.PushMessageHandler"/>
+        <service android:enabled="true" android:name="com.xiaomi.mipush.sdk.MessageHandleService"/>
+        <receiver android:exported="true" android:name="com.xiaomi.push.service.receivers.NetworkStatusReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.xiaomi.push.service.receivers.PingReceiver" android:process=":pushservice">
+            <intent-filter>
+                <action android:name="com.xiaomi.push.PING_TIMER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.by.broadcast.XiaoMiPushReceiver">
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.MESSAGE_ARRIVED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.ERROR"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="cn.jpush.android.ui.PushActivity" android:theme="@android:style/Theme.Light.NoTitleBar">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.baiying.lplay"/>
+            </intent-filter>
+        </activity>
+        <service android:enabled="true" android:exported="false" android:name="cn.jpush.android.service.DownloadService"/>
+        <service android:enabled="true" android:exported="false" android:name="cn.jpush.android.service.PushService">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER"/>
+                <action android:name="cn.jpush.android.intent.REPORT"/>
+                <action android:name="cn.jpush.android.intent.PushService"/>
+                <action android:name="cn.jpush.android.intent.PUSH_TIME"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="true" android:name="cn.jpush.android.service.DaemonService">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.DaemonService"/>
+                <category android:name="com.baiying.lplay"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:name="cn.jpush.android.service.PushReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY"/>
+                <category android:name="com.baiying.lplay"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="cn.jpush.android.service.AlarmReceiver"/>
+        <receiver android:enabled="true" android:name="com.by.broadcast.PushMsgReceiver">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION"/>
+                <action android:name="cn.jpush.android.intent.UNREGISTRATION"/>
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED"/>
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED"/>
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED"/>
+                <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK"/>
+                <action android:name="cn.jpush.android.intent.CONNECTION"/>
+                <category android:name="com.baiying.lplay"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="JPUSH_CHANNEL" android:value="developer-default"/>
+        <meta-data android:name="JPUSH_APPKEY" android:value="@string/jpush_appkey_value"/>
+        <meta-data android:name="UMENG_APPKEY" android:value="@string/umeng_appkey_value"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="anbei"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.by.ui.activity.LotteryDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.by.ui.activity.DownLoadIncrementPackageActivity" android:screenOrientation="portrait"/>
+        <service android:enabled="true" android:name="com.by.service.H5PacketService"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.by.ui.activity.AccountDetailNewActivity" android:screenOrientation="portrait" android:theme="@style/AppCompatAnimationActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.by.ui.activity.BettingRecordNewActivity" android:screenOrientation="portrait" android:theme="@style/AppCompatAnimationActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.by.ui.activity.ChaseManagerNewActivity" android:screenOrientation="portrait" android:theme="@style/AppCompatAnimationActivity"/>
+        <activity android:launchMode="singleTop" android:name="com.by.ui.activity.MessageActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.by.ui.activity.LotteryInformationActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.by.ui.activity.SharePictureActivity" android:screenOrientation="portrait" android:theme="@style/SharePicTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.by.ui.activity.BuyLotteryRemindActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.by.ui.activity.PushDialogActivity" android:screenOrientation="portrait" android:theme="@style/SharePicTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mtdl.dlpaysdk.activity.DLwebViewActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mtdl.dlpaysdk.activity.NoViewActivity" android:theme="@android:style/Theme.Translucent" android:windowSoftInputMode="stateHidden"/>
+        <meta-data android:name="yfsdk_appid" android:value="1048"/>
+        <meta-data android:name="yfsdk_appkey" android:value="3sNnq4pnVJWBN8wjOn9VYxpq"/>
+        <meta-data android:name="yfsdk_appsecret" android:value="2Zx1oM4pTq3N0ow2vxXTKTcdSFDjkLj9"/>
+        <meta-data android:name="yfsdk_rec_channel" android:value="13347"/>
+        <meta-data android:name="yfsdk_business_channel" android:value="MYSF"/>
+        <provider android:authorities="com.baiying.lplay.fileProvider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <meta-data android:name="MAIN_URL" android:value="@string/main_url_value"/>
+        <meta-data android:name="TY_KEY" android:value="@string/ty_key_value"/>
+        <meta-data android:name="WV_DBG" android:value="@string/wv_dbg_value"/>
+        <meta-data android:name="AD_UPDATE" android:value="@string/ad_update_value"/>
+        <meta-data android:name="SHOW_LOG" android:value="@string/show_log_value"/>
+        <meta-data android:name="APP_TAG" android:value="@string/app_tag_value"/>
+        <meta-data android:name="LOCALH5_NAME" android:value="@string/localh5_name_value"/>
+    </application>
+</manifest>

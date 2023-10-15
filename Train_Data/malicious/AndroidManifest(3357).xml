@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="org.zhiboba.sports" platformBuildVersionCode="21" platformBuildVersionName="5.0.1-1624448">
+    <permission android:description="@string/permdesc_downloadManager" android:label="@string/permlab_downloadManager" android:name="org.zhiboba.permission.ACCESS_DOWNLOAD_MANAGER" android:protectionLevel="normal"/>
+    <permission android:description="@string/permdesc_downloadManagerAdvanced" android:label="@string/permlab_downloadManagerAdvanced" android:name="org.zhiboba.permission.ACCESS_DOWNLOAD_MANAGER_ADVANCED" android:protectionLevel="normal"/>
+    <permission android:description="@string/permdesc_downloadCompletedIntent" android:label="@string/permlab_downloadCompletedIntent" android:name="org.zhiboba.permission.SEND_DOWNLOAD_COMPLETED_INTENTS" android:protectionLevel="normal"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
+    <uses-permission android:name="org.zhiboba.permission.ACCESS_DOWNLOAD_MANAGER"/>
+    <uses-permission android:name="org.zhiboba.permission.ACCESS_DOWNLOAD_MANAGER_ADVANCED"/>
+    <uses-permission android:name="org.zhiboba.permission.SEND_DOWNLOAD_COMPLETED_INTENTS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:name="com.subo.sports.ZbbApplication" android:theme="@style/Subo.Theme.AppTheme">
+        <meta-data android:name="android.app.default_searchable" android:value="com.subo.sports.SearchResultActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.subo.sports.WelcomeActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.subo.sports.GuideActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="com.subo.sports.MainActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.ToolBarTheme"/>
+        <activity android:launchMode="singleTop" android:name="com.subo.sports.SearchResultActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <provider android:authorities="org.zhiboba.providers.ZbbSearchRecentSuggestionsProvider" android:exported="true" android:name="org.zhiboba.providers.ZbbSearchRecentSuggestionsProvider"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.subo.sports.IjkVideoPlayerActivity" android:screenOrientation="landscape" android:theme="@style/Theme.VLC.Player">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="video/*"/>
+                <data android:mimeType="audio/*"/>
+                <data android:scheme="http"/>
+                <data android:scheme="file"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.subo.sports.TestIjkVideoPlayerActivity" android:screenOrientation="landscape" android:theme="@style/FullscreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="video/*"/>
+                <data android:mimeType="audio/*"/>
+                <data android:scheme="http"/>
+                <data android:scheme="file"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.subo.sports.VideoSearchActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.subo.sports.UnitedSearchActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:name="com.subo.sports.GameDetailActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.subo.sports.MainActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:name="com.subo.sports.GuessDetailActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:name="com.umeng.soexample.wxapi.WXEntryActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.subo.sports.MatchPlayerStatActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.subo.sports.MatchPlayerRateActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.subo.sports.GuessWonActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.subo.sports.GuessCommentActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.subo.sports.GuessRankActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.subo.sports.GuessHistoryActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.subo.sports.FavTeamSelectActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.subo.sports.PlayerRateActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.subo.sports.PlayerRatingDetailActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.subo.sports.RecommendSubsetActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.subo.sports.MainActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:name="com.subo.sports.BonusDetailActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.subo.sports.RankActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.subo.sports.MainActivity"/>
+        </activity>
+        <activity android:name="com.subo.sports.NewsDetailActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.NoActionBar" android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.subo.sports.NativeNewsDetailActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.NativeNewsTheme" android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.subo.sports.VideoDetailActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.subo.sports.MainActivity"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.subo.sports.NewVideoDetailActivity" android:screenOrientation="portrait" android:theme="@style/Theme.VideoDetailPageIndicator">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.subo.sports.MainActivity"/>
+        </activity>
+        <activity android:name="com.subo.sports.ProfileActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack"/>
+        <activity android:name="com.subo.sports.NewProfileActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.TranslucentActionBar" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.subo.sports.CircleDetailActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.subo.sports.MainActivity"/>
+        </activity>
+        <activity android:name="com.subo.sports.TenPicDetailActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.subo.sports.MainActivity"/>
+        </activity>
+        <activity android:name="com.subo.sports.CircleListActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack"/>
+        <activity android:name="com.subo.sports.LoginActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack"/>
+        <activity android:name="com.subo.sports.RegisterActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack"/>
+        <activity android:name="com.subo.sports.CircleMsgCreateActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.subo.sports.CircleActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.ToolBarTheme"/>
+        <activity android:name="com.subo.sports.MyCircleActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack"/>
+        <activity android:name="com.subo.sports.NewCommentActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.subo.sports.CommentReplyActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.subo.sports.RecordingDetailActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.subo.sports.NewRecordingDetailActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack"/>
+        <activity android:name="com.subo.sports.TenPicsListActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.subo.sports.NicknameSetupActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.subo.sports.ZbbPreferenceActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard" android:name="com.subo.sports.CommentActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.subo.sports.ChannelDetailActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:name="com.subo.sports.DownloadListActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack" android:uiOptions="splitActionBarWhenNarrow"/>
+        <activity android:name="com.subo.sports.GalleryActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Gallery.Theme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.subo.sports.TenPicGalleryActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.subo.sports.ImageViewActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.subo.sports.VideoHistoryActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.subo.sports.MainActivity"/>
+        </activity>
+        <activity android:name="com.subo.sports.SettingActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.subo.sports.ChannelActivity" android:screenOrientation="portrait" android:theme="@style/Subo.Theme.AppTheme.SlidingBack">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.subo.sports.MessageManageActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.subo.sports.VideoTagActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.subo.sports.LeagueTeamSelectActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.subo.sports.WebViewActivity"/>
+        <activity android:alwaysRetainTaskState="true" android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.subo.sports.VideoWebpageActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.subo.sports.WizardActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name="com.umeng.fb.ConversationActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name="com.umeng.fb.ContactActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name="org.zhiboba.providers.downloads.ui.DownloadList"/>
+        <meta-data android:name="UMENG_APPKEY" android:value="51b04ea956240bb3f60087e3"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="zhiboba"/>
+        <activity android:configChanges="keyboard|orientation" android:launchMode="singleTask" android:name="com.umeng.socialize.view.ShareActivity" android:noHistory="true" android:theme="@style/Theme.UMDialog" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencent100415481"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.tencent.connect.common.AssistActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:label="@string/app_name" android:name="com.adchina.android.ads.views.AdBrowserView" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.adsmogo.adview.AdsMogoWebView"/>
+        <meta-data android:name="BaiduMobAd_DEBUG_TOKEN" android:value="baidu"/>
+        <receiver android:name="org.zhiboba.sports.pushservice.PushMessageReceiver">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.MESSAGE"/>
+                <action android:name="com.baidu.android.pushservice.action.RECEIVE"/>
+                <action android:name="com.baidu.android.pushservice.action.notification.CLICK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.baidu.android.pushservice.PushServiceReceiver" android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.baidu.android.pushservice.action.notification.SHOW"/>
+                <action android:name="com.baidu.android.pushservice.action.media.CLICK"/>
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.baidu.android.pushservice.RegistrationReceiver" android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.METHOD"/>
+                <action android:name="com.baidu.android.pushservice.action.BIND_SYNC"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.baidu.android.pushservice.PushService" android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.PUSH_SERVICE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.baidu.android.pushservice.CommandService"/>
+        <meta-data android:name="api_key" android:value="SF2THGSaVOjUKmoEUA5Y2Fzp"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="com.baidu.mobads.AppActivity"/>
+        <service android:exported="true" android:name="com.adsmogo.controller.service.UpdateService" android:process=":remote"/>
+        <service android:exported="true" android:name="com.adsmogo.controller.service.CountService" android:process=":remote"/>
+        <service android:name="com.umeng.update.net.DownloadingService" android:process=":DownloadingService"/>
+        <activity android:name="com.umeng.update.UpdateDialogActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="org.zhiboba.downloads" android:name="org.zhiboba.providers.downloads.DownloadProvider"/>
+        <receiver android:exported="false" android:name="org.zhiboba.providers.downloads.DownloadReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="org.zhiboba.sports.services.MatchStartAlarmReceiver" android:process=":remote"/>
+        <service android:name="org.zhiboba.providers.downloads.DownloadService"/>
+        <service android:enabled="true" android:name="org.zhiboba.sports.services.DownloadIntentService"/>
+        <service android:exported="false" android:name="com.qq.e.comm.DownloadService"/>
+        <activity android:name="com.qq.e.ads.AdActivity"/>
+        <activity android:name="com.qq.e.ads.GdtBrowserActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="com.qq.e.ads.InterstitialAdActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:label="RecyclerViewTestActivity" android:name="android.support.v7.widget.TestActivity"/>
+    </application>
+</manifest>

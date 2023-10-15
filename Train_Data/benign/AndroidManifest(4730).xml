@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="28" android:compileSdkVersionCodename="9" package="com.noliapp" platformBuildVersionCode="28" platformBuildVersionName="9">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="com.noliapp.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="com.noliapp.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:hardwareAccelerated="true" android:icon="@mipmap/ic_app_icon" android:label="@string/app_name" android:largeHeap="true" android:name="com.noliapp.NoliApp" android:resizeableActivity="false" android:roundIcon="@mipmap/ic_app_icon" android:supportsRtl="true" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
+        <activity android:name="com.noliapp.activity.ContactUsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateVisible"/>
+        <activity android:name="com.noliapp.activity.MyPhotosActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.noliapp.activity.HomeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.noliapp.activity.LocationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.noliapp.activity.ForgotPasswordActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.noliapp.activity.PhotosActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.noliapp.activity.SignUpActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.noliapp.activity.SignInActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.noliapp.activity.SplashActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.noliapp.activity.IntroScreenActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.noliapp.activity.SearchUsersActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.noliapp.activity.FAQActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.noliapp.activity.DeleteAccountActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.noliapp.activity.ChangePasswordActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.noliapp.activity.AccountSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.noliapp.activity.BlockedListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.noliapp.activity.ChatActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.noliapp.activity.PhotosAccessListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.noliapp.activity.AddPhotosAccessListActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.noliapp.activity.CompleteProfileActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.noliapp.activity.ViewMyProfileActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.noliapp.activity.OtherUserProfileActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.noliapp.activity.EditProfileActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.noliapp.activity.AboutNoliActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.noliapp.activity.PrivacyPolicyActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.noliapp.activity.TermAndConditionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.noliapp.activity.QuestionAnswerActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.noliapp.activity.ReportUserActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.noliapp.cropper.CropImageActivity" android:screenOrientation="portrait" android:theme="@style/Base.Theme.AppCompat"/>
+        <activity android:name="com.noliapp.activity.MaintenanceActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.noliapp.activity.ErrorFiveHundredActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.noliapp.activity.UpdateAppActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.noliapp.activity.InterestActivity" android:screenOrientation="portrait"/>
+        <receiver android:name="com.noliapp.fcm.FcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.noliapp"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.noliapp.fcm.FirebaseInstanceID">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.noliapp.fcm.FirebaseMessageHandleService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/ic_notification_icon"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/appColor"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="@string/google_api_key"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:exported="false" android:hardwareAccelerated="true" android:label="@string/places_autocomplete_label" android:name="com.google.android.libraries.places.widget.AutocompleteActivity" android:theme="@style/PlacesAutocompleteThemeOverlay" android:windowSoftInputMode="stateAlwaysVisible|adjustPan"/>
+        <service android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.noliapp.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.noliapp.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+        <provider android:authorities="com.noliapp.crashlyticsinitprovider" android:exported="false" android:initOrder="90" android:name="com.crashlytics.android.CrashlyticsInitProvider"/>
+        <provider android:authorities="com.noliapp.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+    </application>
+</manifest>

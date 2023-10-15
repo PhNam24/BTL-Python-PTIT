@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.zerista.mineentra" platformBuildVersionCode="23" platformBuildVersionName="6.0-2438415">
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_SYNC_STATS"/>
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission android:maxSdkVersion="18" android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.landscape" android:required="false"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <activity android:configChanges="orientation|screenSize" android:name="com.janrain.android.engage.ui.JRFragmentHostActivity" android:theme="@style/Theme.Janrain.Dialog.Light" android:windowSoftInputMode="adjustResize|stateHidden"/>
+    <activity android:configChanges="orientation|screenSize" android:name="com.janrain.android.engage.ui.JRFragmentHostActivity$Fullscreen" android:theme="@style/Theme.Janrain.Light" android:windowSoftInputMode="adjustResize|stateHidden"/>
+    <application android:icon="@drawable/icon" android:label="@string/app_name" android:name="com.zerista.application.ZeristaApplication" android:theme="@style/Material.AppTheme">
+        <meta-data android:name="io.branch.sdk.ApplicationId" android:value="@string/bnc_app_key"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <receiver android:name="com.zerista.receivers.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.zerista.mineentra"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.zerista.services.GcmIntentService"/>
+        <provider android:authorities="com.zerista.mineentra.contentproviders.ConferenceProvider" android:exported="false" android:grantUriPermissions="true" android:label="Conferences" android:name="com.zerista.mineentra.contentproviders.ConferenceProvider"/>
+        <service android:exported="false" android:name="com.zerista.services.ZeristaDataSyncService"/>
+        <service android:exported="false" android:name="com.zerista.services.NotificationSyncService"/>
+        <service android:exported="true" android:name="com.zerista.services.AuthenticationService" android:process=":auth">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@xml/authenticator"/>
+        </service>
+        <service android:exported="true" android:name="com.zerista.services.ConferenceSyncService">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter"/>
+            </intent-filter>
+            <meta-data android:name="android.content.SyncAdapter" android:resource="@xml/conference_sync_adapter"/>
+        </service>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.zerista.activities.MainActivity" android:screenOrientation="portrait" android:theme="@style/Material.SplashScreenTheme">
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <data android:host="open" android:scheme="com.zerista.mineentra"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:label="@string/app_name" android:name="com.zerista.activities.LoginActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.zerista.activities.AuthenticatorActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/signup" android:name="com.zerista.activities.UserEditActivity" android:noHistory="true" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.zerista.activities.LoginHelpActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.zerista.activities.ConferenceDataDownloadActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/Material.SplashScreenTheme"/>
+        <activity android:label="@string/conference_listing_page_title" android:launchMode="singleTop" android:name="com.zerista.activities.ConferenceListActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable_conferences"/>
+        </activity>
+        <activity android:name="com.zerista.activities.HomeActivity1" android:theme="@style/Material.AppTheme"/>
+        <activity android:label="@string/title_activity_home" android:launchMode="singleTop" android:name="com.zerista.activities.TabbedActivity" android:theme="@style/Material.AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable_default"/>
+        </activity>
+        <activity android:label="@string/qr_scanner" android:name="com.zerista.activities.BarcodeScannerActivity" android:theme="@style/Material.AppOverlayTheme"/>
+        <activity android:label="@string/app_name" android:name="com.zerista.activities.ZMenuItemActivity" android:theme="@style/Material.AppTheme"/>
+        <activity android:label="@string/app_name" android:name="com.zerista.activities.ZFragmentActivity" android:theme="@style/Material.AppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.zerista.activities.UrlHandlerActivity"/>
+        <activity android:label="@string/actions_search" android:launchMode="singleTop" android:name="com.zerista.activities.ItemSearchActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable_items"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.zerista.activities.BarcodeHandlerActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/manage_social_accounts" android:name="com.zerista.activities.JanrainProviderListActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/profile_edit" android:name="com.zerista.activities.UserProfileActivity"/>
+        <activity android:label="@string/resources_user_change_password_title" android:name="com.zerista.activities.ChangePasswordActivity"/>
+        <activity android:label="@string/web_page" android:name="com.zerista.activities.WebViewActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/map" android:name="com.zerista.activities.MapActivity">
+            <intent-filter>
+                <data android:host="localhost" android:path="/map_feature" android:scheme="com.zerista.mineentra"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/message_one" android:name="com.zerista.activities.MessageActivity"/>
+        <activity android:label="@string/resources_message_editor_title" android:name="com.zerista.activities.MessageComposeActivity" android:noHistory="true" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/resources_meeting_editor_title" android:name="com.zerista.activities.MeetingEditorActivity"/>
+        <activity android:label="@string/benefits" android:name="com.zerista.activities.BenefitsActivity"/>
+        <activity android:label="@string/confirmation" android:name="com.zerista.activities.AccountConfirmationActivity" android:theme="@style/BenefitsTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/social_login" android:name="com.zerista.activities.SocialLoginActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.janrain.android.engage.ui.JRFragmentHostActivity" android:theme="@style/Theme.Janrain.Dialog.Light" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.janrain.android.engage.ui.JRFragmentHostActivity$Fullscreen" android:theme="@style/Theme.Janrain.Light" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/tag_user_other" android:name="com.zerista.activities.InterestTagListActivity"/>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="296e353b1d724299ae91c527f01c44e594557222"/>
+        <activity android:label="@string/title_activity_home" android:launchMode="singleTop" android:name="com.zerista.activities.HomeActivity" android:theme="@style/Material.AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable_default"/>
+        </activity>
+        <provider android:authorities="com.zerista.mineentra.google_measurement_service" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+    </application>
+</manifest>

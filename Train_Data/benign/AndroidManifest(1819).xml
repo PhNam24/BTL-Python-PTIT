@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="internalOnly" package="br.com.kiwano.cuke">
+    <uses-permission android:name="com.android.vending.CHECK_LICENSE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_SYNC_STATS"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="br.com.kiwano.cuke.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="br.com.kiwano.cuke.permission.C2D_MESSAGE"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="true" android:icon="@drawable/launch_icon" android:label="@string/cuke" android:name="br.com.kiwano.cuke.CukeApp" android:supportsRtl="true" android:theme="@style/Theme.cuke2">
+        <provider android:authorities="br.com.kiwano.cuke.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <receiver android:name="br.com.kiwano.cuke.notification.LocalAppNotification"/>
+        <receiver android:exported="true" android:name="com.localytics.android.ReferralReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="LOCALYTICS_APP_KEY" android:value="afce698c23114b01d2f5770-cc585dc0-41da-11e5-6874-00736b041834"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <receiver android:name="br.com.kiwano.cuke.notification.NotificationSystemReceiver"/>
+        <service android:name="br.com.kiwano.cuke.gcm.CukeInstanceIDListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="br.com.kiwano.cuke.gcm.CukeFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="br.com.kiwano.cuke.autenticacao.AuthenticationService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@xml/authenticator"/>
+        </service>
+        <receiver android:name="br.com.kiwano.cuke.syncadapter.WifiReceiver">
+            <intent-filter android:priority="100">
+                <action android:name="android.net.wifi.STATE_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="br.com.kiwano.cuke.syncadapter.DadosSyncAdapterService">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter"/>
+            </intent-filter>
+            <meta-data android:name="android.content.SyncAdapter" android:resource="@xml/sync_dados"/>
+        </service>
+        <provider android:authorities="br.com.kiwano.cuke.syncadapter.provider" android:enabled="true" android:label="Dados" android:name="br.com.kiwano.cuke.syncadapter.provider.DadosProvider"/>
+        <activity android:exported="true" android:name="com.localytics.android.PushTrackingActivity"/>
+        <activity android:name="br.com.kiwano.cuke.autenticacao.CukeAccountAuthenticatorActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
+        <activity android:name="br.com.kiwano.cuke.autenticacao.SignUpActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
+        <activity android:name="br.com.kiwano.cuke.autenticacao.ForgotPasswordActivity" android:theme="@android:style/Theme.Holo.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="br.com.kiwano.cuke.SplashScreen" android:theme="@android:style/Theme.Holo.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="br.com.kiwano.cuke.Licenciamento" android:theme="@android:style/Theme.Holo.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:label="@string/cuke" android:launchMode="singleTask" android:name="br.com.kiwano.cuke.home.TelaHome">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/cuke" android:name="br.com.kiwano.cuke.inbox.NotificationReceiver" android:theme="@android:style/Theme.Holo.NoActionBar"/>
+        <activity android:icon="@drawable/ab_clientes" android:label="@string/clientes" android:name="br.com.kiwano.cuke.clientes.TelaClientes"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:icon="@drawable/launch_icon" android:label="Planos" android:name="br.com.kiwano.cuke.PlansActivity"/>
+        <activity android:label="@string/cuke" android:name="br.com.kiwano.cuke.eventos.TelaEventos"/>
+        <activity android:label="@string/cuke" android:name="br.com.kiwano.cuke.home.IntroActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:icon="@drawable/ic_resultado" android:label="@string/resultados" android:name="br.com.kiwano.cuke.financeiro.TelaFinanceiro"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:icon="@drawable/ic_clientes" android:name="br.com.kiwano.cuke.clientes.ReadOnlyCliente"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:icon="@drawable/ic_produtos" android:name="br.com.kiwano.cuke.produtos.ReadOnlyProduto"/>
+        <activity android:name="br.com.kiwano.cuke.financeiro.resultados.Resultados"/>
+        <activity android:name="br.com.kiwano.cuke.financeiro.contas.ContasListaReceber"/>
+        <activity android:name="br.com.kiwano.cuke.financeiro.contas.ContasListaPagar"/>
+        <activity android:icon="@drawable/ab_vendas" android:label="@string/resultados" android:name="br.com.kiwano.cuke.financeiro.resultados.DetalhesVendas" android:windowSoftInputMode="adjustResize"/>
+        <activity android:icon="@drawable/ab_compras" android:label="@string/resultados" android:name="br.com.kiwano.cuke.financeiro.resultados.DetalhesCompras"/>
+        <activity android:name="br.com.kiwano.cuke.financeiro.extrato.Extrato"/>
+        <activity android:name="br.com.kiwano.cuke.financeiro.extrato.ExtratoDetalheActivity"/>
+        <activity android:icon="@drawable/ab_resultados_no_up" android:label="@string/resultados" android:name="br.com.kiwano.cuke.financeiro.contas.ContasDetalhesPagar"/>
+        <activity android:icon="@drawable/ab_resultados_no_up" android:label="@string/resultados" android:name="br.com.kiwano.cuke.financeiro.contas.ContasDetalhesReceber"/>
+        <activity android:icon="@drawable/ab_produtos" android:label="@string/produtos" android:name="br.com.kiwano.cuke.produtos.TelaProdutos"/>
+        <activity android:icon="@drawable/ab_produtos" android:label="@string/produtos" android:name="br.com.kiwano.cuke.produtos.ListaProdutosFragment"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:icon="@drawable/ab_produtos" android:label="@string/produtos_titulo_novo" android:name="br.com.kiwano.cuke.produtos.NovoProduto"/>
+        <activity android:icon="@drawable/ab_produtos" android:label="@string/produtos_titulo_detalhes" android:name="br.com.kiwano.cuke.produtos.DetalhesProdutoActivity"/>
+        <activity android:icon="@drawable/ab_produtos" android:label="@string/produtos" android:name="br.com.kiwano.cuke.produtos.DetalhesProdutoFragment"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:icon="@drawable/ab_produtos" android:name="br.com.kiwano.cuke.produtos.EditarProduto"/>
+        <activity android:icon="@drawable/ab_produtos" android:label="@string/produtos" android:name="br.com.kiwano.cuke.produtos.TopClientes"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:icon="@drawable/ab_produtos" android:label="@string/produtos" android:name="br.com.kiwano.cuke.produtos.ListaProdutoSelecao" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:icon="@drawable/ab_vendas" android:label="@string/produtos" android:name="br.com.kiwano.cuke.produtos.ListaProdutoSelecaoVenda" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:icon="@drawable/ab_compras" android:label="@string/produtos" android:name="br.com.kiwano.cuke.produtos.ListaProdutoSelecaoCompra" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:icon="@drawable/ab_produtos" android:label="@string/produtos" android:name="br.com.kiwano.cuke.produtos.ListaProdutoSelecaoEstoque" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:label="@string/clientes" android:name="br.com.kiwano.cuke.clientes.ListaClientesFragment"/>
+        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" android:theme="@style/Base.Theme.AppCompat"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:icon="@drawable/ab_clientes" android:label="@string/clientes_tela_novo_titulo" android:name="br.com.kiwano.cuke.clientes.NovoCliente" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:icon="@drawable/ab_clientes" android:label="@string/clientes_tela_selecionar_contatos_titulo" android:name="br.com.kiwano.cuke.clientes.RelacaoContatos"/>
+        <activity android:icon="@drawable/ab_clientes" android:label="@string/clientes_tela_detalhes_titulo" android:name="br.com.kiwano.cuke.clientes.DetalhesClienteActivity"/>
+        <activity android:name="br.com.kiwano.cuke.clientes.DetalhesClienteFragment"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:icon="@drawable/ab_clientes" android:label="@string/clientes_tela_editar_titulo" android:name="br.com.kiwano.cuke.clientes.EditarCliente"/>
+        <activity android:icon="@drawable/ab_clientes" android:label="@string/clientes" android:name="br.com.kiwano.cuke.clientes.HistoricoVendas"/>
+        <activity android:icon="@drawable/ab_clientes" android:label="Selecionar Cliente" android:name="br.com.kiwano.cuke.clientes.SelecaoClienteVenda"/>
+        <activity android:label="@string/eventos" android:name="br.com.kiwano.cuke.eventos.Hoje"/>
+        <activity android:label="@string/eventos" android:name="br.com.kiwano.cuke.eventos.EstaSemana"/>
+        <activity android:label="@string/eventos" android:name="br.com.kiwano.cuke.eventos.ProximaSemana"/>
+        <activity android:configChanges="orientation|screenSize" android:icon="@drawable/ab_compras" android:label="@string/compras" android:name="br.com.kiwano.cuke.compras.TelaCompras"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:icon="@drawable/ab_compras" android:label="@string/compras_menu_titulo_historico" android:name="br.com.kiwano.cuke.compras.HistoricoCompras"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:icon="@drawable/ab_compras" android:name="br.com.kiwano.cuke.compras.DetalheHistoricoCompraActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:icon="@drawable/ab_vendas" android:label="@string/vendas" android:name="br.com.kiwano.cuke.vendas.NovaVenda" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:icon="@drawable/ab_vendas" android:label="@string/vendas" android:name="br.com.kiwano.cuke.vendas.EditarVenda"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:icon="@drawable/ab_vendas" android:label="@string/vendas_menu_titulo_historico" android:name="br.com.kiwano.cuke.vendas.HistoricoVendas"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:icon="@drawable/ab_vendas" android:name="br.com.kiwano.cuke.vendas.DetalheHistoricoVendaActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:icon="@drawable/ab_estoque" android:label="@string/estoque" android:name="br.com.kiwano.cuke.estoque.TelaEstoque"/>
+        <activity android:label="@string/sobre" android:name="br.com.kiwano.cuke.TelaAbout"/>
+        <meta-data android:name="android.support.VERSION" android:value="26.0.2"/>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="br.com.kiwano.cuke"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"/>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="br.com.kiwano.cuke.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <service android:exported="true" android:name="com.firebase.jobdispatcher.GooglePlayReceiver" android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE">
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+            </intent-filter>
+        </service>
+    </application>
+</manifest>

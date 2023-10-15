@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.see.beauty" platformBuildVersionCode="23" platformBuildVersionName="6.0-2704002">
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.SET_DEBUG_APP"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-permission android:name="android.permission.READ_USER_DICTIONARY"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-feature android:name="android.hardware.camera.flash"/>
+    <permission android:name="com.see.beauty.permission.RECEIVE_MSG" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.see.beauty.permission.RECEIVE_MSG"/>
+    <application android:allowBackup="true" android:debuggable="false" android:hardwareAccelerated="true" android:icon="@drawable/app_icon" android:label="@string/app_name" android:largeHeap="true" android:name="com.qihoo.util.StubApp798531389" android:qihoo="activity" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <receiver android:exported="false" android:name="com.see.beauty.controller.receiver.BroadcastReceiver_network">
+            <intent-filter android:priority="1000">
+                <action android:name="android.net.wifi.STATE_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.see.beauty.controller.receiver.LocalPushReceiver"/>
+        <service android:name="com.see.beauty.controller.service.PollingService"/>
+        <activity android:name="com.see.beauty.ui.activity.TestActivity"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.qihoo.util.CommonActivity" android:theme="@android:style/Theme.Wallpaper.NoTitleBar"/>
+        <service android:enabled="true" android:exported="true" android:name="com.qihoo.util.CommonService"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.qihoo.util.CommonReceiver"/>
+        <provider android:authorities="com.see.beauty.COMMONPROVIDER" android:exported="true" android:name="com.qihoo.util.CommonProvider"/>
+        <activity android:name="com.see.beauty.ui.activity.UserMyLikeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.see.beauty.ui.activity.ShareActivity" android:theme="@style/AppTheme.Transparent">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="see"/>
+                <data android:host="share"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.see.beauty.ui.activity.DiscoverActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="see"/>
+                <data android:host="discover"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.see.beauty.ui.activity.ShortContentActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="see"/>
+                <data android:host="themeDetail"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.see.beauty.ui.activity.LocalPushDlgActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.see.beauty.ui.activity.DanmakuActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.see.beauty.ui.activity.VideoLiveActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.see.beauty.ui.activity.LaunchAnimActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.FullScreen"/>
+        <activity android:name="com.see.beauty.ui.activity.MonkeyActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.see.beauty.ui.activity.SearchMoreActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.see.beauty.ui.activity.GoodsListActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="see"/>
+                <data android:host="goodsList"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.see.beauty.ui.activity.TopRankListActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="see"/>
+                <data android:host="topRankList"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.see.beauty.ui.activity.AddToCartActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Transparent" android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="see"/>
+                <data android:host="addToCart"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.see.beauty.ui.activity.UserWishActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.see.beauty.ui.activity.CollectionDetailNativeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="see"/>
+                <data android:host="collectionDetail"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.see.beauty.ui.activity.CouponActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="see"/>
+                <data android:host="coupon"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.see.beauty.ui.activity.CartActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="see"/>
+                <data android:host="shoppingCart"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.see.beauty.ui.activity.TransportRepositoryActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.see.beauty.ui.activity.LogisticsSelectActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.see.beauty.ui.activity.SingleSelectActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.see.beauty.ui.activity.SpecSelectActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.see.beauty.ui.activity.CategorySelectActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.see.beauty.ui.activity.im.ChatActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="privateChat" android:scheme="see"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.see.beauty.ui.activity.GoodsRepositoryActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.see.beauty.ui.activity.TopicDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.see.beauty.ui.activity.DailySeeWebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.see.beauty.baseclass.CommonFragmentActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.see.beauty.ui.activity.CollectionDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.see.beauty.ui.activity.VideoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.see.beauty.ui.activity.UserInfoActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="see"/>
+                <data android:host="userCenter"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.see.beauty.ui.activity.SplashActivity" android:screenOrientation="portrait" android:theme="@style/SplashTheme">
+`
+<intent-filter>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.see.beauty.ui.activity.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="see"/>
+                <data android:host="seego"/>
+                <data android:host="tabIndex"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.see.beauty.ui.activity.LoginRegisterActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="see"/>
+                <data android:host="userLogin"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.see.beauty.ui.activity.GoodsBuyActivity" android:screenOrientation="portrait" android:theme="@style/activity_dialog" android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="see"/>
+                <data android:host="directBuy"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.see.beauty.ui.activity.OrderCenterActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="standard" android:name="com.see.beauty.ui.activity.TakePhotoActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Transparent" android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+.
+<category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="see"/>
+                <data android:host="postTheme"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.see.beauty.ui.activity.SearchAllActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateVisible">
+            <intent-filter>
+.
+<category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="see"/>
+                <data android:host="search"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.see.beauty.ui.activity.WebViewActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.see.beauty.ui.activity.WebViewWithShareActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+.
+<category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="see"/>
+                <data android:host="openUrl"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.see.beauty.ui.activity.circlenew.SelectCityActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.see.beauty.ui.activity.SelectCountryActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.see.beauty.ui.activity.ThemeNewListActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="newestThemes" android:scheme="see"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.see.beauty.ui.activity.ThemeHotListActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="hotThemes" android:scheme="see"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.see.beauty.ui.activity.ImagePagerActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.see.beauty.ui.activity.ConsigneeManageActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.see.beauty.ui.activity.CompilationsListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.see.beauty.ui.activity.EditActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.see.beauty.ui.activity.CompleteMyInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.see.beauty.ui.activity.SelectShipCountryActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.see.beauty.ui.activity.ChangeBindPhoneActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.see.beauty.ui.activity.ImgSelectorActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:launchMode="singleTop" android:name="com.see.beauty.ui.activity.UseCameraActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:exported="false" android:name="com.alipay.sdk.app.H5PayActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:exported="false" android:name="com.alipay.sdk.auth.AuthActivity" android:screenOrientation="behind"/>
+        <receiver android:name="com.see.beauty.controller.receiver.CustomPushReceiver">
+            <intent-filter>
+                <action android:name="com.tencent.android.tpush.action.PUSH_MESSAGE"/>
+                <action android:name="com.tencent.android.tpush.action.FEEDBACK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.tencent.android.tpush.XGPushReceiver" android:process=":xg_service_v2">
+            <intent-filter android:priority="0x7FFFFFFF">
+                <action android:name="com.tencent.android.tpush.action.SDK"/>
+                <action android:name="com.tencent.android.tpush.action.INTERNAL_PUSH_MESSAGE"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.tencent.android.tpush.XGPushActivity">
+            <intent-filter>
+                <action android:name="android.intent.action"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="true" android:name="com.tencent.android.tpush.service.XGPushService" android:persistent="true" android:process=":xg_service_v2"/>
+        <service android:exported="true" android:name="com.tencent.android.tpush.rpc.XGRemoteService">
+            <intent-filter>
+                <action android:name="com.see.beauty.PUSH_ACTION"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="XG_V2_ACCESS_ID" android:value="2100129046"/>
+        <meta-data android:name="XG_V2_ACCESS_KEY" android:value="A1X12JMV9U1M"/>
+        <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="jSXWEIvsCkfu7rc3Hh5oH05cL2hepGpu"/>
+        <service android:enabled="true" android:name="com.baidu.location.f" android:process=":remote"/>
+        <meta-data android:name="com.netease.nim.appKey" android:value="bb8b129da067fd3e70a8521c56883a94"/>
+        <meta-data android:name="UMENG_APPKEY" android:value="5503b6fdfd98c50749000451"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="baidu"/>
+        <meta-data android:name="UMENG_MESSAGE_SECRET" android:value="582a754bfdbcecb0400f0b30d6d249fd"/>
+        <service android:name="com.netease.nimlib.service.NimService" android:process=":core"/>
+        <service android:name="com.netease.nimlib.service.NimService$Aux" android:process=":core"/>
+        <receiver android:name="com.netease.nimlib.service.ResponseReceiver"/>
+        <service android:name="com.netease.cosine.core.CosineService" android:process=":cosine"/>
+        <receiver android:exported="true" android:name="com.netease.cosine.target.CosineReceiver" android:process=":cosine"/>
+        <meta-data android:name="com.netease.cosine.target" android:value=""/>
+        <meta-data android:name="com.netease.cosine.target.receiver" android:value="com.netease.nimlib.service.NimReceiver"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:name="com.see.beauty.wxapi.WXEntryActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.FullScreen"/>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.see.beauty.wxapi.WXPayEntryActivity"/>
+        <activity android:launchMode="singleTask" android:name="sdk.meizu.auth.ui.AuthActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.see.beauty.WBShareActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser" android:windowSoftInputMode="adjustResize"/>
+    </application>
+</manifest>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.weedoo.app" platformBuildVersionCode="140" platformBuildVersionName="1.4.0">
+    <permission android:name="com.weedoo.app.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.weedoo.app.permission.MAPS_RECEIVE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="com.weedoo.app.base.App" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="false" android:theme="@style/AppTheme">
+        <activity android:name="com.weedoo.app.activity.SplashActivity" android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.weedoo.app.base.ActivityBase"/>
+        <activity android:name="com.weedoo.app.activity.LoginActivity"/>
+        <activity android:name="com.weedoo.app.activity.creditActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="gw" android:scheme="weedoo"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.weedoo.app.activity.mapActivity"/>
+        <activity android:name="com.weedoo.app.activity.WebviewActivity"/>
+        <activity android:name="com.weedoo.app.activity.HistoryActivity"/>
+        <activity android:name="com.weedoo.app.activity.HistoryGetActivity"/>
+        <activity android:name="com.weedoo.app.activity.FactorActivity"/>
+        <activity android:name="com.weedoo.app.activity.UserGetActivity"/>
+        <activity android:name="com.weedoo.app.activity.AddressActivity"/>
+        <activity android:name="com.weedoo.app.activity.TransactionActivity"/>
+        <activity android:name="com.weedoo.app.activity.ReviewActivity"/>
+        <activity android:name="com.weedoo.app.activity.ContactActivity"/>
+        <activity android:name="com.weedoo.app.activity.FirstActivity"/>
+        <activity android:name="com.weedoo.app.activity.GiftActivity"/>
+        <activity android:name="com.weedoo.app.activity.Top10Activity"/>
+        <activity android:name="com.weedoo.app.activity.UserInfoActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.weedoo.app.activity.AddressAddEdit" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.weedoo.app.activity.ChatActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.weedoo.app.activity.ReviewCommentActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.weedoo.app.activity.ServiceActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.weedoo.app.activity.MainActivity"/>
+        <activity android:name="com.weedoo.app.activity.SearchActivity"/>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyB-gfHR1HLfSMAEoXuCmXAP-fmRK_r30N4"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="co.ronash.pushe.token" android:value="PUSHE_686920012114"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.esafirm.imagepicker.features.ImagePickerActivity" android:theme="@style/ef_AppTheme"/>
+        <provider android:authorities="com.weedoo.app.imagepicker.provider" android:exported="false" android:grantUriPermissions="true" android:name="com.esafirm.imagepicker.helper.ImagePickerFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/image_picker_provider_paths"/>
+        </provider>
+        <receiver android:name="co.ronash.pushe.receiver.BootAndScreenReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="co.ronash.pushe.service.ScreenStateService">
+            <intent-filter>
+                <action android:name="co.ronash.pushe.service.ScreenStateService"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="co.ronash.pushe.receiver.ConnectivityReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="co.ronash.pushe.receiver.AddReceiver">
+            <intent-filter>
+                <action android:name="com.evernote.android.job.ADD_JOB_CREATOR"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="co.ronash.pushe.service.IntentTaskRunner" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:name="co.ronash.pushe.activities.PopupDialogActivity" android:theme="@style/PusheTransparent"/>
+        <activity android:name="co.ronash.pushe.activities.WebviewActivity"/>
+        <activity android:name="co.ronash.pushe.activities.RequestAccessDialogActivity" android:theme="@style/PusheTransparent"/>
+        <service android:name="co.ronash.pushe.service.PusheActivityService"/>
+        <provider android:authorities="com.weedoo.app.co.ronash.pushe.pusheprovider" android:enabled="true" android:exported="false" android:grantUriPermissions="true" android:name="co.ronash.pushe.provider.PusheProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <service android:name="co.ronash.pushe.task.tasks.NetworkConnect" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="co.ronash.pushe.fcm.FcmService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="co.ronash.pushe.receiver.UpdateReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <data android:path="com.weedoo.app" android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.weedoo.app.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <provider android:authorities="com.weedoo.app.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+        <meta-data android:name="ignore" android:value="ignore"/>
+        <activity android:name="pl.brightinventions.slf4android.NotifyDeveloperDialogDisplayActivity" android:theme="@android:style/Theme.NoDisplay"/>
+        <service android:exported="false" android:name="com.evernote.android.job.v21.PlatformJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.evernote.android.job.v14.PlatformAlarmService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.evernote.android.job.v14.PlatformAlarmServiceExact"/>
+        <receiver android:exported="false" android:name="com.evernote.android.job.v14.PlatformAlarmReceiver">
+            <intent-filter>
+                <action android:name="com.evernote.android.job.v14.RUN_JOB"/>
+                <action android:name="net.vrallev.android.job.v14.RUN_JOB"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.evernote.android.job.JobBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="false" android:exported="true" android:name="com.evernote.android.job.gcm.PlatformGcmService" android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE">
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.evernote.android.job.JobRescheduleService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+    </application>
+</manifest>

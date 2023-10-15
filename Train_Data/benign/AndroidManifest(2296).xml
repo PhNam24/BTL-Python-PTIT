@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" package="com.prizmbit" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:fullBackupOnly="false" android:icon="@mipmap/ic_prizm_final_logo" android:isSplitRequired="true" android:label="@string/app_name" android:name="com.prizmbit.App" android:roundIcon="@mipmap/ic_prizm_final_logo_round" android:supportsRtl="true" android:theme="@style/AppThemeDark">
+        <activity android:name="com.prizmbit.ui.activity.loginactivity.recoverypassword.RestorePasswordActivity"/>
+        <activity android:name="com.prizmbit.ui.activity.advertisement_activity.AdvertisementActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.prizmbit.ui.activity.webviewactivity.BrowserActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.prizmbit.ui.activity.orderactivity.OrderActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.prizmbit.ui.activity.urlredirectactivity.UrlRedirectActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeDark.Launcher">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.Browser"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="&quot;prizmbit&quot;.com" android:scheme="https"/>
+                <data android:host="&quot;prizmbit&quot;.com" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/confirm_transaction" android:name="com.prizmbit.ui.activity.walletactivity.WebViewActivity" android:parentActivityName="com.prizmbit.ui.activity.walletactivity.WalletActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.prizmbit.ui.activity.wizard.WizardActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar.Wizard"/>
+        <provider android:authorities="com.prizmbit.provider" android:exported="false" android:grantUriPermissions="true" android:name="com.prizmbit.base.ImageFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="com.prizmbit.ui.activity.mainactivity.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.prizmbit.ui.activity.splashscreen.SplashScreenActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeDark.Launcher">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/search" android:name="com.prizmbit.ui.activity.searchactivity.SearchActivity" android:parentActivityName="com.prizmbit.ui.activity.mainactivity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/account" android:name="com.prizmbit.ui.activity.settingsactivity.SettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.prizmbit.ui.activity.loginactivity.LoginActivity" android:parentActivityName="com.prizmbit.ui.activity.mainactivity.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/user_orders" android:name="com.prizmbit.ui.activity.userordersactivity.UserOrdersActivity" android:parentActivityName="com.prizmbit.ui.activity.mainactivity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/wallets" android:name="com.prizmbit.ui.activity.walletactivity.WalletActivity" android:parentActivityName="com.prizmbit.ui.activity.mainactivity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.prizmbit.ui.activity.qr.QrCodeReaderActivity"/>
+        <activity android:label="@string/change_password" android:name="com.prizmbit.ui.activity.changepassactivity.ChangePasswordActivity" android:parentActivityName="com.prizmbit.ui.activity.mainactivity.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/two_fa" android:name="com.prizmbit.ui.activity.enabletwofaactivity.EnableTwoFaActivity" android:parentActivityName="com.prizmbit.ui.activity.mainactivity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/transaction" android:name="com.prizmbit.ui.activity.transactionsactivity.TransactionsActivity" android:parentActivityName="com.prizmbit.ui.activity.mainactivity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/login_history" android:name="com.prizmbit.ui.activity.loginhistoryactivity.LoginHistoryActivity" android:parentActivityName="com.prizmbit.ui.activity.mainactivity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/send_verification" android:name="com.prizmbit.ui.activity.verificationactivity.SendVerificationActivity" android:parentActivityName="com.prizmbit.ui.activity.mainactivity.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/notification_settings" android:name="com.prizmbit.ui.activity.notificationsettingactivity.NotificationSettingsActivity" android:parentActivityName="com.prizmbit.ui.activity.mainactivity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/charts" android:name="com.prizmbit.ui.activity.chartactivity.ChartActivity" android:parentActivityName="com.prizmbit.ui.activity.mainactivity.MainActivity"/>
+        <activity android:label="@string/ip_white_list" android:name="com.prizmbit.ui.activity.whitelist.WhiteListActivity" android:parentActivityName="com.prizmbit.ui.activity.mainactivity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/codes" android:name="com.prizmbit.ui.activity.codesactivity.CodesActivity" android:parentActivityName="com.prizmbit.ui.activity.mainactivity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/messages" android:name="com.prizmbit.ui.activity.conversationactivity.ConversationsActivity" android:parentActivityName="com.prizmbit.ui.activity.mainactivity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/chat" android:name="com.prizmbit.ui.activity.chatactivity.ChatActivity" android:parentActivityName="com.prizmbit.ui.activity.conversationactivity.ConversationsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.prizmbit.ui.activity.securitydialogs.SecurityActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.prizmbit.ui.activity.search_p2p_activity.SearchP2PActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.prizmbit.ui.activity.search_advertisements_activity.SearchAdvertisementsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.prizmbit.ui.activity.group_chat_activity.GroupChatActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.prizmbit.ui.activity.activity_public_user_p2p.PublicUserActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.prizmbit.ui.activity.settingsactivity.referralProgram.ReferralProgramActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.prizmbit.ui.activity.advertisement_editor.AdvertisementEditorActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.prizmbit.ui.activity.loginactivity.recoverypassword.RecoverPasswordActivity"/>
+        <activity android:name="com.prizmbit.ui.activity.select_location.SelectLocationActivity" android:screenOrientation="portrait"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="ed882d646c892d5190b978a27d71eec9084f6859"/>
+        <service android:exported="false" android:name="com.prizmbit.service.pushnotifications.FcmListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.google.android.gms.tagmanager.InstallReferrerService"/>
+        <receiver android:exported="true" android:name="com.google.android.gms.tagmanager.InstallReferrerReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="true" android:name="androidx.biometric.DeviceCredentialHandlerActivity" android:theme="@style/DeviceCredentialHandlerTheme"/>
+        <activity android:name="cat.ereza.customactivityoncrash.activity.DefaultErrorActivity" android:process=":error_activity"/>
+        <provider android:authorities="com.prizmbit.customactivityoncrashinitprovider" android:exported="false" android:initOrder="101" android:name="cat.ereza.customactivityoncrash.provider.CaocInitProvider"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.database.ktx.FirebaseDatabaseKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <provider android:authorities="com.prizmbit.crashlyticsinitprovider" android:exported="false" android:initOrder="90" android:name="com.crashlytics.android.CrashlyticsInitProvider"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.prizmbit.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:enabled="false" android:exported="false" android:launchMode="singleInstance" android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true"/>
+        <activity android:enabled="false" android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
+        <service android:enabled="false" android:exported="true" android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService"/>
+        <provider android:authorities="com.prizmbit.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="2"/>
+    </application>
+</manifest>

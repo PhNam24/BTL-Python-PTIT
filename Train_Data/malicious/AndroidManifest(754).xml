@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.yx">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true"/>
+    <application android:debuggable="true" android:icon="@drawable/icon" android:label="@string/app_name" android:name="com.yx.MainApplocation" android:persistent="true" android:screenOrientation="portrait">
+        <provider android:authorities="com.yx.provider.customprovider" android:name=".db.YXContentProvider"/>
+        <provider android:authorities="com.yx.provider.yxmessage" android:exported="false" android:initOrder="254" android:name=".db.im.YxMessageProvider"/>
+        <activity android:name=".friend.FriendDebugActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name=".friend.FriendActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".friend.FriendSettingActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name=".friend.FriendSearchActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.yx.ui.im.FindAty" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name=".friend.FriendRemarkActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name=".friend.FriendInviteActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:launchMode="singleTop" android:name=".friend.FriendRecommendActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:launchMode="singleTop" android:name=".ui.calllog.ContactInfomationActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name=".ui.other.Splash" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.other.RegisterLoginActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:name=".ui.im.ImageActivity"/>
+        <activity android:name=".ui.other.SendMsgInviteActivity"/>
+        <activity android:name=".ui.other.GuideActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.im.ImageBrowerActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:configChanges="keyboardHidden|orientation" android:name=".ui.im.MessageComposeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="standard" android:name=".ui.im.MessageConversationListActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.im.CreateNewMsgSelectYxUserActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name=".ui.other.PasswordActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name=".ui.make_money.UserSetingActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:name=".ui.setting.TelSettingActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:clearTaskOnLaunch="true" android:name=".ui.calllog.ContactInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:clearTaskOnLaunch="true" android:launchMode="singleTop" android:name=".ui.calllog.FeedbackActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleInstance" android:name=".ui.contact.MailListAcitivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:alwaysRetainTaskState="true" android:launchMode="singleTop" android:name=".ui.contact.YxFriendlListAcitivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".ui.contact.ContactSelectActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.dialog.CallendInviteDialogActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:name=".friend.FriendDialogActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name=".ui.other.UserLoginActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.other.RegisterActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.other.RegisterMainActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.other.ContactMatchSynActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:configChanges="keyboardHidden|orientation" android:name=".ui.other.BindPhoneNumberActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name=".ActivityYxMain" android:screenOrientation="portrait" android:theme="@style/NoTitle" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".ui.setting.AboutUxAty" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.setting.IMTestActivity" android:screenOrientation="portrait"/>
+        <activity android:alwaysRetainTaskState="true" android:configChanges="keyboardHidden|orientation" android:name=".ui.setting.NewAboutYXDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name=".callend.distributary.BrancitemsActivity" android:screenOrientation="portrait" android:theme="@style/FullScreenDialog"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".ui.blessing.BlessingEnterActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".ui.blessing.BlessingWebViewGroup" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".ui.blessing.BlessingWebViewActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".ui.blessing.StartInterfaceActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".ui.blessing.BlessIngActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".ui.make_money.CheckBalanceActivityGroup1" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.setting.ManageDialModeActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.setting.InformationRemindSetActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.setting.DialBackSetActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.make_money.RechargeActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.make_money.RechargeState" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.make_money.RechargesActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.other.DynamicBusinessActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:name=".ui.make_money.WeiboActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:launchMode="singleTask" android:name=".weibo.tencent.TencentAuthView">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencentauth"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:name=".ui.make_money.WeiboShareActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".weibo.sina.BindSinaWebActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".weibo.SendShareActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:name=".ui.setting.ChoiceProvinceActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.setting.ChoiceCityActivity" android:screenOrientation="portrait"/>
+        <service android:name=".service.RecoverCoverService">
+            <intent-filter>
+                <action android:name="action.com.yx.recoverService"/>
+                <category android:name="android.intent.category.default"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name=".net.tcp.aidl.CorService" android:priority="1000" android:process=":push">
+            <intent-filter>
+                <action android:name="action.com.yx.corservice"/>
+            </intent-filter>
+        </service>
+        <service android:name=".service.AutoRegisterService">
+            <intent-filter>
+                <action android:name="com.yx.intent.action.AUTO_REGISTER"/>
+            </intent-filter>
+        </service>
+        <service android:name=".service.AutoBindPhoneNumberService">
+            <intent-filter>
+                <action android:name="com.yx.intent.action.AUTO_BIND_PHONE"/>
+            </intent-filter>
+        </service>
+        <service android:name=".service.ConnectionService" android:priority="1000">
+            <intent-filter>
+                <action android:name="action.com.yx.connectservice"/>
+                <category android:name="android.intent.category.default"/>
+            </intent-filter>
+        </service>
+        <activity android:excludeFromRecents="true" android:name=".ui.setting.audio.AudioTestSettingActivity"/>
+        <activity android:name=".ui.setting.audio.ShowCallTestDialogActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="org.linphone.NewUiCallAnimActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="com.yx.intent.action.RING_UP"/>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.CALL_BUTTON"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.CALL_PRIVILEGED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tel"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:name="com.yx.weibo.sina.ThirdAccountSinaWebActivity" android:process=":web" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".weibo.tencent.TencentWBAuthorize" android:process=":web" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <receiver android:name=".service.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".service.PhoneBroadcastReceiver">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.PHONE_STATE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name=".ui.calllog.DialActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.dialog.ShowUpdateVersionDialogActivity" android:screenOrientation="portrait" android:theme="@style/Transparents"/>
+        <activity android:name=".ui.dialog.CleanUpdateVersionDialogActivity" android:screenOrientation="portrait" android:theme="@style/Transparents"/>
+        <receiver android:exported="false" android:name=".service.AlarmReceiver" android:process=":push"/>
+        <receiver android:exported="false" android:name=".service.TcpBackReceiver" android:process=":push"/>
+        <receiver android:exported="false" android:name=".service.TcpLoginBackReceiver" android:process=":push"/>
+        <receiver android:name=".service.ReportedLogReceiver"/>
+        <receiver android:name=".service.ReportedAppReceiver"/>
+        <receiver android:name=".service.ClockReceiver"/>
+        <receiver android:name=".service.ThirdInstallReceiver"/>
+        <receiver android:name=".service.DeleteFriendReceiver"/>
+        <activity android:name=".ui.dialog.TerminalLoginDialogActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:name=".ui.im.BaiduMapDownloadActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:name=".ui.im.JZappstoreDownloadActivity" android:screenOrientation="portrait" android:theme="@style/DownDialog"/>
+        <activity android:name=".ui.other.PassWordSetActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:name="com.unionpay.uppay.PayActivityEx" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout" android:excludeFromRecents="true" android:name="com.unionpay.uppay.PayActivity" android:theme="@style/Theme.UPPay"/>
+        <activity android:name=".ui.other.subscribe.SubscribeListActivity"/>
+        <activity android:name=".ui.other.subscribe.SubscribeInfoActivity"/>
+        <activity android:name=".ui.make_money.JzAppActivity"/>
+        <activity android:name=".ui.make_money.UgameAppActivity"/>
+        <activity android:name="com.tencent.plus.ImageActivity"/>
+        <activity android:name=".ui.setting.BindAccount" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.setting.NewSettingAty"/>
+        <activity android:name=".ui.setting.UpdatePwdAty"/>
+        <activity android:name=".ui.setting.ContactsManagerAty"/>
+        <activity android:name=".ui.im.randomcall.RandomCallActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name=".ui.im.randomcall.StartRandomCallActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name=".ui.im.randomcall.MatchingCallActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.tencent.connect.common.AssistActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencent100363673"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="APP_ID" android:value="25ea7a3d8fb6f1ba0a975792bb725193"/>
+        <meta-data android:name="APP_PID" android:value="uxin"/>
+        <activity android:name=".ui.setting.SignatureAty"/>
+        <activity android:name=".ui.setting.RecordOfMonthAty"/>
+        <activity android:name=".ui.make_money.AboutMeAty"/>
+        <activity android:name=".ui.setting.ShowImageAty"/>
+        <activity android:name=".ui.make_money.MyWalletAty"/>
+        <activity android:name=".ui.setting.PhoneSettingAty"/>
+        <activity android:name=".ui.make_money.RechargeAty"/>
+        <activity android:name=".ui.make_money.ChargePageActivity"/>
+        <activity android:name=".ui.setting.WifiManagerAty"/>
+        <activity android:name=".ui.setting.HelpCenterAty"/>
+        <activity android:name=".ui.setting.ContactSettingAty"/>
+        <activity android:name=".ui.setting.ContactsBackupAty"/>
+        <activity android:name=".ui.calllog.CallingSaveMoneyAty"/>
+        <activity android:name=".ui.make_money.ShowVIPAty"/>
+        <activity android:name="com.qq.e.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <service android:exported="false" android:name="com.qq.e.comm.DownloadService"/>
+        <activity android:name="com.haoduo.appshop.views.HDTabActivity"/>
+        <activity android:name="com.haoduo.appshop.views.HDTabAppFragActivity"/>
+        <activity android:name="com.haoduo.appshop.views.HDDetailActivity"/>
+        <activity android:excludeFromRecents="true" android:name="com.haoduo.appshop.views.HDBrowserActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.haoduo.appshop.views.HD30ViewActivity"/>
+        <activity android:name="com.haoduo.appshop.views.HDSearchActivity"/>
+        <activity android:name="com.haoduo.appshop.views.CheckNetActivity"/>
+        <activity android:name="com.haoduo.appshop.views.HDCateFragActivity"/>
+        <activity android:name="com.haoduo.actives.HDActiveThemeActivity"/>
+        <activity android:name="com.haoduo.actives.HDTurnTableActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.haoduo.actives.HDActiveResultActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.haoduo.information.Information"/>
+        <activity android:name="com.haoduo.appshop.views.HDInterestActivity"/>
+        <activity android:name="com.haoduo.appshop.views.HDInterestListFragActivity"/>
+        <receiver android:enabled="true" android:name="com.haoduo.common.service.HDSetupBC">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_INSTALL"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <action android:name="android.intent.action.PACKAGE_CHANGED"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <action android:name="android.intent.action.PACKAGE_RESTARTED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.HOME"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.haoduo.common.service.HDALMBC">
+            <intent-filter>
+                <action android:name="com.haoduo.hdSDK.action.ELITOR_CLOCK"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.REBOOT"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.AIRPLANE_MODE"/>
+                <action android:name="android.intent.action.INPUT_METHOD_CHANGED"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+                <action android:name="android.intent.action.SCREEN_ON"/>
+                <action android:name="android.intent.action.SCREEN_OFF"/>
+                <action android:name="com.haoduo.hdSDK.action.DOWNPUSHEND"/>
+                <action android:name="com.haoduo.hdSDK.action.DOWNLOAD"/>
+                <action android:name="com.haoduo.hdSDK.action.ENTERJZ"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.zhuanba.yy.activity.ZBMainActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:launchMode="singleTask" android:name="com.zhuanba.yy.activity.ZBXCoinMall" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:launchMode="singleTask" android:name="com.zhuanba.yy.activity.ZBEarnXCoin" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:launchMode="singleTask" android:name="com.zhuanba.yy.activity.ZBMyZB" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.zhuanba.yy.activity.ZBExchangeDetail" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.zhuanba.yy.activity.ZBInviteFriends" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.zhuanba.yy.activity.ZBFreeback" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:excludeFromRecents="true" android:name="com.zhuanba.yy.activity.ZBBrowserActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.zhuanba.yy.activity.ZBInfoActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.zhuanba.yy.activity.ZBEveryDaySignActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.zhuanba.yy.activity.ZBEveryDayWarnActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.zhuanba.yy.activity.ZBBigImageActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.zhuanba.yy.activity.ZBDetailActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.zhuanba.yy.activity.ZBSetting" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <receiver android:enabled="true" android:name="com.zhuanba.yy.service.HDSetupBC">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_INSTALL"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <action android:name="android.intent.action.PACKAGE_CHANGED"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <action android:name="android.intent.action.PACKAGE_RESTARTED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.HOME"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.zhuanba.yy.service.HDALMBC">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.REBOOT"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.AIRPLANE_MODE"/>
+                <action android:name="android.intent.action.INPUT_METHOD_CHANGED"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+                <action android:name="android.intent.action.SCREEN_ON"/>
+                <action android:name="android.intent.action.SCREEN_OFF"/>
+                <action android:name="com.zb.SDK.action.ELITOR_CLOCK"/>
+                <action android:name="com.zb.SDK.action.DOWNPUSHEND"/>
+                <action android:name="com.zb.SDK.action.DOWNLOAD"/>
+                <action android:name="com.zb.SDK.action.ENTERJZ"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.zhuanba.yy.service.WarnReceiver">
+            <action android:name="com.zhuanba.yy.service.WarnReceiver"/>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.ugame.activity.tab.UGMainActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.ugame.activity.UGTodayRecomActivity" android:theme="@style/Theme.ShareDialog"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.ugame.activity.tab.UGPortalActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.ugame.activity.tab.UGTopListActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.ugame.activity.tab.UGOnlineActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.ugame.activity.UGDetailActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.ugame.activity.UGSpeicalActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.ugame.activity.UGWapActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.ugame.activity.UGBigImageActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.ugame.activity.UGUserReviewActivity" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.ugame.activity.UGSearchActivity" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.ugame.activity.UGListActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.ugame.activity.UGDownManagActivity" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.ugame.activity.UGActInformationActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.ugame.activity.UGOnlineGiftActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.ugame.activity.UGNewAreasActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.ugame.activity.UGFeedbackActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.ugame.activity.UGPersonalGiftActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.ugame.activity.UGPersonalMsgActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <receiver android:name="com.ugame.common.broadcaset.UGReplacementBroadcast">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.REBOOT"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.AIRPLANE_MODE"/>
+                <action android:name="android.intent.action.INPUT_METHOD_CHANGED"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+                <action android:name="android.intent.action.SIG_STR"/>
+                <action android:name="android.intent.action.ACTION_SCREEN_ON"/>
+                <action android:name="android.intent.action.ACTION_SCREEN_OFF"/>
+                <action android:name="com.ugame.upsend.REPLACEMENT"/>
+            </intent-filter>
+        </receiver>
+    </application>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.DELETE_PACKAGES"/>
+    <uses-permission android:name="android.permission.DELETE_CACHE_FILES"/>
+    <uses-permission android:name="android.permission.SET_TIME_ZONE"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.CONTROL_LOCATION_UPDATES"/>
+    <uses-permission android:name="android.permission.ACCESS_SURFACE_FLINGER"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.SIM_STATE_READY"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.BROADCAST_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses_permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.browser.permission.WRITE_HISTORY_BOOKMARKS"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+</manifest>

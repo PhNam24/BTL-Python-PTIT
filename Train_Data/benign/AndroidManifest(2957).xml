@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="jp.co.aquarium.tsi" platformBuildVersionCode="23" platformBuildVersionName="6.0-2438415">
+    <application android:debuggable="false" android:icon="@drawable/appicon" android:label="鳥羽水族館スマートガイド" android:name="TsiApplication" android:theme="@style/Theme.NoActionBar">
+        <activity android:alwaysRetainTaskState="true" android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name=".TsiActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="org.appcelerator.titanium.TiActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="org.appcelerator.titanium.TiTranslucentActivity" android:theme="@style/Theme.AppCompat.Translucent"/>
+        <activity android:configChanges="screenSize" android:name="ti.modules.titanium.ui.android.TiPreferencesActivity"/>
+        <activity android:configChanges="screenSize" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="br.com.arlsoft.pushclient.PendingNotificationActivity" android:taskAffinity=""/>
+        <service android:exported="false" android:name="com.appcelerator.analytics.APSAnalyticsService"/>
+        <service android:name="com.logicallabs.beacons.ScanService"/>
+        <service android:name="br.com.arlsoft.pushclient.GCMIntentService"/>
+        <receiver android:exported="true" android:name="bencoding.android.receivers.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+            </intent-filter>
+            <meta-data android:name="bootType" android:value="SERVICE"/>
+            <meta-data android:name="serviceInterval" android:value="60"/>
+        </receiver>
+        <receiver android:label="BootReceiver" android:name="com.logicallabs.beacons.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="br.com.arlsoft.pushclient.GCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="jp.co.aquarium.tsi"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.google.android.gms.version" android:value="6171000"/>
+    </application>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="jp.co.aquarium.tsi.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="false"/>
+    <permission android:name="jp.co.aquarium.tsi.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+</manifest>

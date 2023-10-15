@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="28" android:compileSdkVersionCodename="9" package="com.xander.developer.idcard" platformBuildVersionCode="84" platformBuildVersionName="13.4">
+    <permission android:name="com.xander.developer.idcard.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.xander.developer.idcard.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="ANDROID.PERMISSION.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.REAL_GET_TASKS"/>
+    <uses-feature android:name="android.hardware.location" android:required="true"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <application android:allowBackup="true" android:appComponentFactory="android.support.v4.app.CoreComponentFactory" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="com.xander.developer.idcard.app.IdCard" android:theme="@style/AppTheme">
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="@string/map_key"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="1e8f5bef4d4759f48128c67b4b404c2c26c82ba4"/>
+        <activity android:label="@string/app_name" android:name="com.xander.developer.idcard.SplashActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <provider android:authorities="com.xander.developer.idcard.provider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <activity android:label="@string/app_name" android:name="com.xander.developer.idcard.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.xander.developer.idcard.ActivityHome" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.xander.developer.idcard.ActivityMenu" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.xander.developer.idcard.ActivityLocation" android:theme="@style/Location_Dialog_Theme"/>
+        <activity android:name="com.xander.developer.idcard.ActivityFavorites" android:screenOrientation="portrait"/>
+        <activity android:name="com.xander.developer.idcard.ActivityReward" android:screenOrientation="portrait"/>
+        <activity android:name="com.xander.developer.idcard.ActvityYourLocation" android:screenOrientation="portrait"/>
+        <activity android:name="com.xander.developer.idcard.ActvityAds" android:screenOrientation="portrait"/>
+        <service android:name="com.xander.developer.idcard.services.AlertService"/>
+        <receiver android:name="com.xander.developer.idcard.receiver.Receivers"/>
+        <receiver android:name="com.xander.developer.idcard.receiver.AdsReceiver"/>
+        <receiver android:name="com.xander.developer.idcard.receiver.UserLocationReceivers"/>
+        <activity android:name="com.xander.developer.idcard.ActivityUserVerification" android:screenOrientation="portrait"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.xander.developer.idcard.receiver.GcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.xander.developer.idcard"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.xander.developer.idcard.receiver.BootCompleteReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.xander.developer.idcard.services.PushNotificationListenerService">
+            <intent-filter android:icon="@drawable/ideals_push_icon" android:priority="10000">
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.xander.developer.idcard.services.AppInstanceIdListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.xander.developer.idcard.services.RegistrationIntentService"/>
+        <service android:exported="false" android:name="com.xander.developer.idcard.services.SocketTokenService"/>
+        <activity android:name="com.xander.developer.idcard.priceLocking.ActivityPriceLock" android:screenOrientation="portrait"/>
+        <activity android:name="com.xander.developer.idcard.priceLocking.ActivityWebLock" android:screenOrientation="portrait"/>
+        <activity android:name="com.xander.developer.idcard.ActivityCampaignAd" android:screenOrientation="portrait">
+            <intent-filter>
+                <category android:name="android.intent.category.ALTERNATIVE"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="theidcard" android:scheme="theidcardapp"/>
+            </intent-filter>
+        </activity>
+        <provider android:authorities="com.xander.developer.idcard.crashlyticsinitprovider" android:exported="false" android:initOrder="90" android:name="com.crashlytics.android.CrashlyticsInitProvider"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+    </application>
+</manifest>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="a2z.Mobile.Event2053">
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-permission android:name="android.permission.SET_DEBUG_APP"/>
+    <permission android:name="a2z.Mobile.Event2053.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="a2z.Mobile.Event2053.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <permission android:name="com.google.android.c2dm.permission.RECEIVE" android:protectionLevel="signature"/>
+    <permission android:name="android.permission.INTERNET" android:protectionLevel="signature"/>
+    <permission android:name="android.permission.GET_ACCOUNTS" android:protectionLevel="signature"/>
+    <permission android:name="android.permission.WAKE_LOCK" android:protectionLevel="signature"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <application android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/app_name" android:largeHeap="true" android:name="a2z.Mobile.Event2053.base.A2zApplication" android:theme="@style/AppTheme">
+        <receiver android:name="com.google.android.gcm.GCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="a2z.Mobile.Event2053"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="a2z.Mobile.Event2053.GCMIntentService"/>
+        <service android:exported="false" android:name="a2z.Mobile.Event2053.services.CacheService"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="a2z.Mobile.Event2053.SplashActivity" android:noHistory="true" android:theme="@style/NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTask" android:name="a2z.Mobile.Event2053.NavigationActivity" android:theme="@style/NoActionBar" android:uiOptions="splitActionBarWhenNarrow">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="a2z.Mobile.Event2053.exhibitors.ExhibitorListActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="a2z.Mobile.Event2053.schedule.SessionListActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="a2z.Mobile.Event2053.speakers.SpeakerListActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="a2z.Mobile.Event2053.FloorplanActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="a2z.Mobile.Event2053.BuzzListActivity"/>
+        <activity android:name="a2z.Mobile.Event2053.EventInfoActivity"/>
+        <activity android:name="a2z.Mobile.Event2053.MapListActivity"/>
+        <activity android:name="a2z.Mobile.Event2053.planner.PlannerActivity"/>
+        <activity android:name="a2z.Mobile.Event2053.schedule.TrackListActivity"/>
+        <activity android:name="a2z.Mobile.Event2053.LocalInfoActivity"/>
+        <activity android:name="a2z.Mobile.Event2053.LoginActivity"/>
+        <activity android:name="a2z.Mobile.Event2053.SyncActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="a2z.Mobile.Event2053.TwitterFeedActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="a2z.Mobile.Event2053" android:scheme="oauth"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="a2z.Mobile.Event2053.exhibitors.ExhibitorProfileActivity"/>
+        <activity android:name="a2z.Mobile.Event2053.speakers.SpeakerProfileActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="a2z.Mobile.Event2053.ContentPageActivity"/>
+        <activity android:name="a2z.Mobile.Event2053.schedule.SessionDetailActivity"/>
+        <activity android:name="a2z.Mobile.Event2053.NewProfileActivity"/>
+        <activity android:name="a2z.Mobile.Event2053.exhibitors.ExhibitorCategoryListActivity"/>
+        <activity android:name="a2z.Mobile.Event2053.schedule.SessionDateListActivity"/>
+        <activity android:name="a2z.Mobile.Event2053.VideoGalleryActivity" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:name="a2z.Mobile.Event2053.RateThisSessionActivity"/>
+        <activity android:name="a2z.Mobile.Event2053.MyNotesActivity"/>
+        <activity android:name="a2z.Mobile.Event2053.WalkingMapActivity"/>
+        <activity android:name="a2z.Mobile.Event2053.TwitterLoginActivity"/>
+        <activity android:name="a2z.Mobile.Event2053.TwitterViewTweetDetailsActivity"/>
+        <activity android:name="a2z.Mobile.Event2053.base.BaseSearchActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="a2z.Mobile.Event2053.products.ProductsListActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="a2z.Mobile.Event2053.products.ProductDetailsActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="a2z.Mobile.Event2053.images.ImageActivity" android:theme="@style/NoActionBar"/>
+        <activity android:label="@string/title_activity_schedule" android:name="a2z.Mobile.Event2053.schedule.ScheduleActivity"/>
+        <activity android:label="@string/title_activity_schedule_tab" android:name="a2z.Mobile.Event2053.schedule.ScheduleTabActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="a2z.Mobile.Event2053.images.SVGActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="a2z.Mobile.Event2053.FloorPlanViewerActivity"/>
+        <activity android:name="a2z.Mobile.Event2053.qrscanner.QRScannerActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="a2z.Mobile.Event2053.MultiEventActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="a2z.Mobile.Event2053.LaunchActivity" android:noHistory="true" android:theme="@style/NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="44dd16add0f010bc24356f6229705f639501fb95"/>
+    </application>
+</manifest>

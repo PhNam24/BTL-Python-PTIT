@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="org.cchl.Moon">
+    <uses-feature android:glEsVersion="0x00020000"/>
+    <application android:icon="@drawable/icon" android:label="@string/app_name" android:name="com.bangcle.protect.ApplicationWrapper">
+        <activity android:configChanges="orientation" android:label="@string/app_name" android:name=".Moon" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.quyou.Splash" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="cn.egame.terminal.paysdk.EgamePayActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:exported="true" android:name="cn.play.dserv.EmpActivity"/>
+        <service android:enabled="true" android:exported="false" android:label="dservice" android:name="cn.play.dserv.DService" android:process=":dservice_v1"/>
+        <receiver android:name="cn.play.dserv.DsReceiver" android:process=":dservice_v1">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.play.dservice"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="BANGCLE_SDK_VERSION" android:value="\ 1003"/>
+        <meta-data android:name="BANGCLE_APP_KEY" android:value="assi_110065"/>
+        <receiver android:exported="false" android:name="neo.proxy.DistributeReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="com.secneo.plugin.action.HOURLY"/>
+                <action android:name="com.secneo.plugin.action.DAILY"/>
+                <action android:name="com.secneo.plugin.action.APP_STARTED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.secneo.proxy.action.CUSTOM"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="neo.proxy.FastService"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="neo.proxy.ToolActivity" android:theme="@android:style/Theme.Dialog">
+            <intent-filter>
+                <action android:name="com.secneo.proxy.action.CUSTOM"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+    </application>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+</manifest>

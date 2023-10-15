@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="31" android:compileSdkVersionCodename="12" package="jp.co.yamap" platformBuildVersionCode="31" platformBuildVersionName="12">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+    <uses-permission android:maxSdkVersion="30" android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+    <uses-feature android:name="android.hardware.location.gps"/>
+    <queries>
+        <package android:name="com.google.android.apps.maps"/>
+        <package android:name="com.google.android.contacts"/>
+        <package android:name="jp.naver.line.android"/>
+        <package android:name="com.twitter.android"/>
+        <package android:name="com.facebook.katana"/>
+        <package android:name="com.instagram.android"/>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.BROWSABLE"/>
+            <data android:scheme="https"/>
+        </intent>
+    </queries>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+    <uses-permission android:maxSdkVersion="20" android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:icon="@mipmap/ic_launcher" android:isSplitRequired="true" android:label="@string/app_name" android:largeHeap="true" android:name="jp.co.yamap.YamapApp" android:roundIcon="@mipmap/ic_launcher_round" android:supportsPictureInPicture="false" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.mapbox.EnableEvents" android:value="false"/>
+        <meta-data android:name="com.google.android.gms.ads.AD_MANAGER_APP" android:value="true"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/fb_login_protocol_scheme"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="cct.jp.co.yamap" android:scheme="fbconnect"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:launchMode="singleTask" android:name="jp.co.yamap.presentation.activity.LoginActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="yj-2acft"/>
+                <data android:host="yamap-in"/>
+                <data android:host="yamap-up"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:launchMode="singleTop" android:name="jp.co.yamap.presentation.activity.ReceptionActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="jp.co.yamap.presentation.activity.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.TransparentStatusBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="yamap"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="yamap.com" android:pathPrefix="/maps" android:scheme="http"/>
+                <data android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="yamap.com" android:pathPrefix="/activities" android:scheme="http"/>
+                <data android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="yamap.com" android:pathPrefix="/users" android:scheme="http"/>
+                <data android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="yamap.com" android:pathPrefix="/officials" android:scheme="http"/>
+                <data android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="yamap.com" android:pathPrefix="/conversations/" android:scheme="http"/>
+                <data android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="yamap.com" android:pathPrefix="/coupons" android:scheme="http"/>
+                <data android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="yamap.com" android:pathPrefix="/plans/new" android:scheme="http"/>
+                <data android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="yamap.com" android:pathPrefix="/domo" android:scheme="http"/>
+                <data android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="yamap.com" android:pathPrefix="/support-projects" android:scheme="http"/>
+                <data android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="yamap.com" android:pathPrefix="/search/maps" android:scheme="http"/>
+                <data android:host="yamap.com" android:pathPrefix="/search/moments" android:scheme="http"/>
+                <data android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="yamap.com" android:pathPrefix="/model-courses" android:scheme="http"/>
+                <data android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="yamap.com" android:pathPrefix="/mountains" android:scheme="http"/>
+                <data android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.IntroActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.TransparentStatusBarAndBlackNavigationBar"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.LogActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.TransparentStatusBarAndBlackNavigationBar"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.LogPreviewActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.TransparentStatusBarAndBlackNavigationBar"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.LogSettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.HelloCommunicationSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:name="jp.co.yamap.presentation.activity.UserDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.TransparentStatusBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="yamap.com" android:pathPrefix="/settings/profile" android:scheme="http"/>
+                <data android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.SettingsAboutAppActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.MapDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.ActivityDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.TransparentStatusBar"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.ActivityEditActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.EditPublicTypeActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.EditAveragePacePublicTypeActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.EditAllAveragePacePublicTypeActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.ActivityEditTitleMemoActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.ActivityEditPhotoActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.ActivityEditPointActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.ActivityEditDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:name="jp.co.yamap.presentation.activity.WebViewActivity" android:screenOrientation="portrait">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="yamap.com" android:pathPrefix="/communities" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="mimamori.yamap.com" android:pathPattern="/events/.*/entry" android:scheme="https"/>
+                <data android:pathPattern="/events/.*/staff-entry"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:name="jp.co.yamap.presentation.activity.PremiumLpActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.TransparentStatusBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="yamap.com" android:path="/premium" android:scheme="http"/>
+                <data android:host="yamap.com" android:path="/supporter" android:scheme="http"/>
+                <data android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.SettingsAccountDeleteActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.AccountEditActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.UserListActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.PremiumPurchaseActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.PremiumBenefitLpActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.OtherTrackListActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.ActivityListActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.MyActivityListActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.ActivityFilterActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.CheckableTagListActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.EditSelectImagesActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.BlackNavigationBar"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.ImageActivity" android:theme="@style/AppTheme.BlackNavigationBar.Transparent"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.ImageViewPagerActivity" android:theme="@style/AppTheme.BlackNavigationBar.Transparent"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.ActivityEditBestShotActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.CheckableHaveListActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.SettingsAccountEditMailPasswordActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.BatteryInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.OfficialDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.MessageDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.ActivityDetailMapActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.TransparentStatusBar"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.AccountEditCalorieActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.LandmarkDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.ClimbedMountainListActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.PlanEditActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.PlanEditInsuranceAndGroupActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.PlanEditEquipmentActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.PlanEditFoodAndWaterActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.PlanEditNameAndAddressActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.PlanEditEmergencyActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.PlanEditMemberActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.PlanEditExternalMemberDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.PlanEditExternalMemberEditActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.PlanEditYamapMemberActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.PlanIntroActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.PlanDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.QrCodeActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.view.barcode.BarcodeCaptureActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.BlackNavigationBar"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.PlanEditCheckpointActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.TransparentStatusBar"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.SearchActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.SearchMapActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.MessageListActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.SettingsNotificationActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.SettingsNotificationMailActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.SettingsNotificationPushActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.SettingsNotificationNewsActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.SettingsCalendarActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.MountainListActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.PlanEditMapChangeActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.ModelCourseListActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.AndesAPiErrorHandlingActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.MountainAreaDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.SettingsAccountActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.SettingsAccountMessageActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.MountainEmergencyGuideActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.HowToReadMapActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.SettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.SettingsSnsMediaActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.LoginPasswordResetActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.LoginHelpActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.UserBadgeListActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.PlanDetailOfflineActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.SelectableImageViewPagerActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.BlackNavigationBar.Transparent"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.LivingPlaceInputActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.AllowUsersListDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.AllowUsersListEditActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.AllowUsersListsActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.DownloadedMapListSelectActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.DownloadedMapListDeleteActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.EmergencyContactDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.EmergencyContactEditActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.PersonalInformationEditActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.PersonalInformationActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.PlanCompletedListActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.ActivityDetailMoreActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.ClimbedPrefectureListActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.ReportActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.ReportSelectCategoryActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.ReportMemoActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.SafeWatchRecipientActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.SafeWatchRecipientEditActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.SafeWatchInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.HelloCommInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.ThreeDimensionMapActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.BlackNavigationBar"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.LogSettingsCourseDepartureActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.PlanDetailMapActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.DashboardActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.FootprintActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.TransparentStatusBar"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.ActivityShareActivity" android:screenOrientation="behind" android:theme="@style/AppTheme.Transparent"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.JournalDetailActivity" android:screenOrientation="behind"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.JournalEditActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.JournalListActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.MemoSubCategoryListActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.MemoListActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.MemoEditActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.MemoSettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.ArrivalTimeSettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.MemoIntroActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.MemoMapActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.TransparentStatusBar"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.DomoDashboardActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.DomoHistoryListActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.DomoExpirationDateListActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.ReactionCommentActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.ReactionDomoActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.DomoIntroActivity" android:screenOrientation="behind" android:theme="@style/AppTheme.TransparentStatusBar"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.SupportDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.TransparentStatusBar"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.SupportSelectPaymentActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.SupportCompleteActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.TransparentStatusBar"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.SupportPaymentDomoActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.SupportEnterCreditCardActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.SupportPaymentCreditCardActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.SupportListActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.CourseDepartureIntroActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.LogSettingsCourseDepartureRouteActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.PhoneNumberInputActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.PhoneAuthCodeInputActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.WalkingPaceIntroActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.PlanSelectActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.DebugRidgeDesignActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.CampaignListActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.DownloadedMapHistoryActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.ModelCourseDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.TransparentStatusBar"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.ModelCourseDetailMapActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.TransparentStatusBar"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.CheckpointDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.RentalMapPurchaseActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.MemoCategorySelectActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.MemoLaterReviewActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.TransparentStatusBar"/>
+        <activity android:name="jp.co.yamap.presentation.activity.SettingsAccountRegisterPasswordActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:exported="false" android:name="jp.co.yamap.presentation.activity.LicenseActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.google.android.gms.oss.licenses.OssLicensesActivity" android:theme="@style/LightBackToolbar"/>
+        <activity android:label="@string/oss_license_title" android:name="com.google.android.gms.oss.licenses.OssLicensesMenuActivity" android:theme="@style/LightBackToolbar"/>
+        <provider android:authorities="jp.co.yamap.provider.share" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_provider_paths"/>
+        </provider>
+        <provider android:authorities="@string/facebook_content_provider_key" android:exported="true" android:name="com.facebook.FacebookContentProvider"/>
+        <service android:exported="false" android:foregroundServiceType="location" android:name="jp.co.yamap.presentation.service.LogService"/>
+        <service android:exported="false" android:name="jp.co.yamap.presentation.service.MapDownloadService"/>
+        <service android:exported="false" android:foregroundServiceType="mediaProjection" android:name="jp.co.yamap.presentation.service.ScreenRecordingService"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_channel_id" android:value="@string/fcm_default_notification_channel"/>
+        <service android:exported="true" android:name="jp.co.yamap.presentation.service.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="jp.co.yamap.presentation.service.WearService">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService"/>
+                <action android:name="com.google.android.gms.wearable.DATA_CHANGED"/>
+                <action android:name="com.google.android.gms.wearable.MESSAGE_RECEIVED"/>
+                <action android:name="com.google.android.gms.wearable.CHANNEL_EVENT"/>
+                <data android:host="*" android:scheme="wear"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="false" android:name="jp.co.yamap.presentation.receiver.MapDownloadCancelReceiver"/>
+        <activity android:name="com.linecorp.linesdk.openchat.ui.CreateOpenChatActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name="com.linecorp.linesdk.auth.internal.LineAuthenticationActivity" android:theme="@style/LineSdk_AuthenticationActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:name="com.linecorp.linesdk.auth.internal.LineAuthenticationCallbackActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="lineauth"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:visibleToInstantApps="true"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="jp.co.yamap.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <provider android:authorities="jp.co.yamap.mapboxtelemetryinitprovider" android:exported="false" android:initOrder="100" android:name="com.mapbox.android.telemetry.provider.MapboxTelemetryInitProvider"/>
+        <service android:exported="false" android:name="com.mapbox.android.telemetry.errors.ErrorReporterJobIntentService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.mapbox.android.telemetry.MapboxTelemetryService"/>
+        <provider android:authorities="jp.co.yamap.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.facebook.AuthenticationTokenManager$CurrentAuthenticationTokenChangedBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_AUTHENTICATION_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="jp.co.yamap.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:name="androidx.work.impl.foreground.SystemForegroundService"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize" android:exported="false" android:hardwareAccelerated="true" android:name="com.socdm.d.adgeneration.video.ADGPlayerFullscreenActivity"/>
+        <meta-data android:name="com.google.android.play.billingclient.version" android:value="4.0.0"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:name="com.android.billingclient.api.ProxyBillingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="2"/>
+    </application>
+</manifest>

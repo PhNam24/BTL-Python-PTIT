@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:hardwareAccelerated="true" package="com.runtrack.app">
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-feature android:name="android.hardware.location.gps"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION"/>
+    <application android:hardwareAccelerated="true" android:icon="@mipmap/icon" android:label="@string/app_name" android:supportsRtl="true">
+        <activity android:configChanges="keyboard|keyboardHidden|locale|orientation|screenSize" android:label="@string/activity_name" android:launchMode="singleTop" android:name="com.runtrack.app.MainActivity" android:theme="@android:style/Theme.DeviceDefault.NoActionBar" android:windowSoftInputMode="adjustResize">
+            <intent-filter android:label="@string/launcher_name">
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="true" android:name="com.transistorsoft.cordova.backgroundfetch.HeadlessJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:name="com.transistorsoft.cordova.backgroundfetch.HeadlessBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.runtrack.app.event.BACKGROUND_FETCH"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.transistorsoft.locationmanager.license" android:value="184201a86f658b636d8f92fb33bd9be5a79e245e25ebad9d258c278f40943745"/>
+        <service android:exported="true" android:name="com.transistorsoft.cordova.bggeo.HeadlessJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:name="com.transistorsoft.cordova.bggeo.HeadlessBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.runtrack.app.tslocationmanager.event.LOCATION"/>
+                <action android:name="com.runtrack.app.tslocationmanager.event.MOTIONCHANGE"/>
+                <action android:name="com.runtrack.app.tslocationmanager.event.ACTIVITYCHANGE"/>
+                <action android:name="com.runtrack.app.tslocationmanager.event.PROVIDERCHANGE"/>
+                <action android:name="com.runtrack.app.tslocationmanager.event.POWERSAVECHANGE"/>
+                <action android:name="com.runtrack.app.tslocationmanager.event.HEARTBEAT"/>
+                <action android:name="com.runtrack.app.tslocationmanager.event.GEOFENCE"/>
+                <action android:name="com.runtrack.app.tslocationmanager.event.HTTP"/>
+                <action android:name="com.runtrack.app.tslocationmanager.event.SCHEDULE"/>
+                <action android:name="com.runtrack.app.tslocationmanager.event.BOOT"/>
+                <action android:name="com.runtrack.app.tslocationmanager.event.TERMINATE"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="de.appplant.cordova.plugin.background.ForegroundService"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/fb_app_id"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationName" android:value="@string/fb_app_name"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/fb_app_name" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <receiver android:name="com.transistorsoft.tsbackgroundfetch.FetchAlarmReceiver"/>
+        <service android:exported="true" android:name="com.transistorsoft.tsbackgroundfetch.FetchJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:name="com.transistorsoft.tsbackgroundfetch.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.transistorsoft.locationmanager.BackgroundGeolocationService"/>
+        <service android:name="com.transistorsoft.locationmanager.LocationService"/>
+        <service android:name="com.transistorsoft.locationmanager.ActivityRecognitionService"/>
+        <service android:name="com.transistorsoft.locationmanager.geofence.GeofenceService"/>
+        <receiver android:name="com.transistorsoft.locationmanager.scheduler.ScheduleAlarmReceiver"/>
+        <service android:exported="true" android:name="com.transistorsoft.locationmanager.scheduler.ScheduleJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:name="com.transistorsoft.locationmanager.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.runtrack.app.tslocationmanager.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.transistorsoft.locationmanager.util.LogFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/tslocationmanager_file_provider_path"/>
+        </provider>
+        <activity android:excludeFromRecents="true" android:name="com.intentfilter.androidpermissions.PermissionsActivity" android:theme="@style/AppTheme.Transparent"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:name="com.facebook.CustomTabActivity"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="com.runtrack.app.MarketingInitProvider" android:exported="false" android:name="com.facebook.marketing.internal.MarketingInitProvider"/>
+        <provider android:authorities="com.runtrack.app.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

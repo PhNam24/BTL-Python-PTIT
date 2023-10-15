@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="net.topicit.android" platformBuildVersionCode="609" platformBuildVersionName="2.0.8">
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <permission android:name="fr.appsolute.topicit.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="false" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="fr.appsolute.e_toxic.activities.TopicApplication" android:supportsRtl="true" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
+        <activity android:label="@string/app_name" android:name="fr.appsolute.e_toxic.activities.ServiceTest"/>
+        <activity android:label="@string/title_activity_tptlk_test" android:name="fr.appsolute.e_toxic.activities.TptlkTest"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_id"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="0150312c9f65cb3c858cdc6b6892d4904696af05"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:screenOrientation="portrait" android:theme="@style/TransparentFB"/>
+        <provider android:authorities="com.facebook.app.FacebookContentProvider1635921926661902" android:exported="true" android:name="com.facebook.FacebookContentProvider"/>
+        <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-4611033286433817~1349626103"/>
+        <meta-data android:name="com.google.android.gms.ads.AD_MANAGER_APP" android:value="true"/>
+        <provider android:authorities="net.topicit.android.provider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <service android:exported="false" android:name="fr.appsolute.e_toxic.network.RequestDispatcher"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:label="@string/title_activity_home" android:launchMode="singleTask" android:name="fr.appsolute.e_toxic.activities.Home" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="fr.appsolute.e_toxic.activities.Registration" android:screenOrientation="portrait" android:theme="@style/AppThemeWhiteCustom" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="fr.appsolute.e_toxic.activities.tablet.TabletRegistration" android:screenOrientation="sensorLandscape" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/title_activity_quick_access" android:name="fr.appsolute.e_toxic.activities.QuickAccess" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_quick_access" android:name="fr.appsolute.e_toxic.activities.tablet.TabletQuickAccess" android:screenOrientation="sensorLandscape"/>
+        <activity android:label="@string/menu_view_discover_title" android:name="fr.appsolute.e_toxic.activities.Discover" android:screenOrientation="portrait"/>
+        <activity android:label="@string/menu_view_discover_title" android:name="fr.appsolute.e_toxic.activities.tablet.TabletDiscover" android:screenOrientation="sensorLandscape"/>
+        <activity android:label="@string/app_name" android:name="fr.appsolute.e_toxic.activities.SplashScreen" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="fr.appsolute.e_toxic.activities.DummyScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <data android:host="open" android:scheme="topicit"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="go.topicit.net" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="net.topicit.android" android:pathPrefix="/topicit" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_olCyHYnzG59nACMBi58BzcnjtrkmZ27Y"/>
+        <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_ggAvLXWbhPuVQN2ghciOegigCBbZhGIk"/>
+        <meta-data android:name="io.branch.sdk.TestMode" android:value="false"/>
+        <receiver android:exported="true" android:name="io.branch.referral.InstallListener">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:label="@string/app_name" android:name="fr.appsolute.e_toxic.activities.tablet.TabletSplashScreen" android:screenOrientation="sensorLandscape"/>
+        <activity android:name="fr.appsolute.e_toxic.activities.Login" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="fr.appsolute.e_toxic.activities.tablet.TabletLogin" android:screenOrientation="sensorLandscape" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/forgot_password" android:name="fr.appsolute.e_toxic.activities.ForgotPassword" android:screenOrientation="portrait" android:theme="@style/AppThemeWhiteCustom"/>
+        <activity android:label="@string/forgot_password" android:name="fr.appsolute.e_toxic.activities.tablet.TabletForgotPassword" android:screenOrientation="sensorLandscape"/>
+        <activity android:configChanges="orientation" android:label="@string/title_activity_topic" android:name="fr.appsolute.e_toxic.activities.TopicReply"/>
+        <activity android:label="@string/title_activity_topic" android:name="fr.appsolute.e_toxic.activities.tablet.TabletTopicReply" android:screenOrientation="sensorLandscape" android:theme="@style/AppThemeWhiteCustom" android:windowSoftInputMode="stateVisible"/>
+        <activity android:label="@string/title_activity_topic_view" android:name="fr.appsolute.e_toxic.activities.TopicView" android:screenOrientation="portrait" android:theme="@style/AppThemeWhiteCustom" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/title_activity_topic_view" android:name="fr.appsolute.e_toxic.activities.tablet.TabletTopicView" android:screenOrientation="sensorLandscape" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/title_activity_profile" android:name="fr.appsolute.e_toxic.activities.ProfileActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_profile" android:name="fr.appsolute.e_toxic.activities.tablet.TabletProfileActivity" android:screenOrientation="sensorLandscape"/>
+        <activity android:label="@string/title_activity_directory" android:name="fr.appsolute.e_toxic.activities.Directory" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_directory" android:name="fr.appsolute.e_toxic.activities.tablet.TabletDirectory" android:screenOrientation="sensorLandscape"/>
+        <activity android:label="@string/title_activity_directory" android:name="fr.appsolute.e_toxic.activities.DirectorySearch" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_directory" android:name="fr.appsolute.e_toxic.activities.tablet.TabletDirectorySearch" android:screenOrientation="sensorLandscape"/>
+        <activity android:label="@string/title_activity_category_detail" android:name="fr.appsolute.e_toxic.activities.CategoryDetail" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_category_detail" android:name="fr.appsolute.e_toxic.activities.tablet.TabletCategoryDetail" android:screenOrientation="sensorLandscape"/>
+        <activity android:exported="true" android:launchMode="singleTask" android:name="fr.appsolute.e_toxic.activities.ForumView" android:screenOrientation="portrait" android:theme="@style/AppThemeWhite"/>
+        <activity android:launchMode="singleTask" android:name="fr.appsolute.e_toxic.activities.tablet.TabletForumView" android:screenOrientation="sensorLandscape"/>
+        <activity android:label="@string/settings_title" android:name="fr.appsolute.e_toxic.activities.SettingsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/settings_title" android:name="fr.appsolute.e_toxic.activities.tablet.TabletSettingsActivity" android:screenOrientation="sensorLandscape" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="ForumView" android:name="fr.appsolute.e_toxic.activities.ForumProfileActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeWhiteCustom"/>
+        <activity android:label="ForumView" android:name="fr.appsolute.e_toxic.activities.tablet.TabletForumProfileActivity" android:screenOrientation="sensorLandscape" android:theme="@style/AppThemeWhiteCustom"/>
+        <activity android:label="@string/menu_view_discover_title" android:name="fr.appsolute.e_toxic.activities.DiscoverySearch" android:screenOrientation="portrait"/>
+        <activity android:label="@string/menu_view_discover_title" android:name="fr.appsolute.e_toxic.activities.tablet.TabletDiscoverySearch" android:screenOrientation="sensorLandscape"/>
+        <activity android:label="" android:name="fr.appsolute.e_toxic.activities.ActivityForumSearch" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name="fr.appsolute.e_toxic.activities.tablet.TabletForumSearch" android:screenOrientation="sensorLandscape" android:theme="@style/AppThemeWhiteCustom"/>
+        <activity android:label="" android:name="fr.appsolute.e_toxic.activities.ForumTopicsView" android:screenOrientation="portrait" android:theme="@style/AppThemeWhiteCustom"/>
+        <activity android:label="" android:name="fr.appsolute.e_toxic.activities.tablet.TabletForumTopicsView" android:screenOrientation="sensorLandscape" android:theme="@style/AppThemeWhiteCustom"/>
+        <activity android:label="@string/forum_new_post_title" android:name="fr.appsolute.e_toxic.activities.NewTopicActivity" android:theme="@style/AppThemeWhiteCustom"/>
+        <activity android:label="@string/forum_new_post_title" android:name="fr.appsolute.e_toxic.activities.tablet.TabletNewTopicActivity" android:screenOrientation="sensorLandscape" android:theme="@style/AppThemeTopic"/>
+        <activity android:label="@string/menu_view_notifications_title" android:name="fr.appsolute.e_toxic.activities.NotificationsActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/menu_view_read_later" android:name="fr.appsolute.e_toxic.activities.ReadLaterActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/menu_view_notifications_title" android:name="fr.appsolute.e_toxic.activities.tablet.TabletNotificationsActivity" android:screenOrientation="sensorLandscape"/>
+        <activity android:label="@string/menu_view_read_later" android:name="fr.appsolute.e_toxic.activities.tablet.TabletReadLaterActivity" android:screenOrientation="sensorLandscape" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="" android:name="fr.appsolute.e_toxic.activities.ActivityUserProfile" android:screenOrientation="portrait" android:theme="@style/AppThemeWhiteCustom"/>
+        <activity android:label="" android:name="fr.appsolute.e_toxic.activities.tablet.TabletActivityUserProfile" android:screenOrientation="sensorLandscape" android:theme="@style/AppThemeWhiteCustom"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="ForumView" android:name="fr.appsolute.e_toxic.activities.ActivityInternalWeb" android:theme="@style/AppThemeWhiteCustom"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:name="fr.appsolute.e_toxic.activities.WebViewYoutube" android:theme="@style/AppThemeWhiteCustom"/>
+        <activity android:label="ForumView" android:name="fr.appsolute.e_toxic.activities.ActivityForumLoginRegisterPage" android:screenOrientation="portrait" android:theme="@style/AppThemeWhiteCustom" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="ForumView" android:name="fr.appsolute.e_toxic.activities.tablet.TabletForumLoginRegisterPage" android:screenOrientation="sensorLandscape" android:theme="@style/AppThemeWhiteCustom" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/members" android:name="fr.appsolute.e_toxic.activities.ActivityMemberList" android:theme="@style/AppThemeWhiteCustom"/>
+        <activity android:label="Membres" android:name="fr.appsolute.e_toxic.activities.ForumMpActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeWhiteCustom"/>
+        <activity android:name="fr.appsolute.e_toxic.activities.ActivityPMChat" android:screenOrientation="portrait" android:theme="@style/AppThemeWhiteCustom" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="fr.appsolute.e_toxic.activities.tablet.TabletActivityPMChat" android:screenOrientation="sensorLandscape" android:theme="@style/AppThemeWhiteCustom" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <receiver android:exported="true" android:name="com.google.android.gms.analytics.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <service android:exported="true" android:name="fr.appsolute.e_toxic.youtube.UploadService"/>
+        <service android:exported="false" android:name="fr.appsolute.e_toxic.activities.TopicitInstanceIDListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID"/>
+            </intent-filter>
+        </service>
+        <service android:name="fr.appsolute.e_toxic.activities.GcmIntentService"/>
+        <service android:exported="false" android:name="fr.appsolute.e_toxic.activities.TopicitRegistrationIntentService"/>
+        <receiver android:exported="true" android:name="fr.appsolute.e_toxic.activities.TopicitGcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="fr.appsolute.topicit"/>
+            </intent-filter>
+        </receiver>
+        <activity android:label="@string/title_activity_home" android:launchMode="singleTask" android:name="fr.appsolute.e_toxic.activities.tablet.TabletHome" android:screenOrientation="sensorLandscape" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="fr.appsolute.e_toxic.activities.HierarchyActivity" android:theme="@style/MyDialog"/>
+        <activity android:configChanges="orientation" android:name="com.rfm.sdk.HTMLBrowserView"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.rfm.sdk.MraidVideoPlayerActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.rfm.sdk.RFMActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.RewardedMraidActivity"/>
+        <provider android:authorities="net.topicit.android.crashlyticsinitprovider" android:exported="false" android:initOrder="90" android:name="com.crashlytics.android.CrashlyticsInitProvider"/>
+        <meta-data android:name="android.support.VERSION" android:value="26.0.0"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.facebook.ads.AudienceNetworkActivity"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:name="com.facebook.CustomTabActivity"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:exported="false" android:name="com.twitter.sdk.android.tweetcomposer.ComposerActivity" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <service android:enabled="true" android:exported="false" android:name="com.twitter.sdk.android.tweetcomposer.TweetUploadService"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.twitter.sdk.android.tweetui.PlayerActivity" android:theme="@style/MediaTheme"/>
+        <activity android:name="com.twitter.sdk.android.tweetui.GalleryActivity" android:theme="@style/MediaTheme"/>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:exported="false" android:name="com.twitter.sdk.android.core.identity.OAuthActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:exported="false" android:icon="@drawable/tw__transparent" android:label="@string/kit_name" android:name="com.twitter.sdk.android.core.identity.ShareEmailActivity"/>
+        <provider android:authorities="net.topicit.android.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="net.topicit.android.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <provider android:authorities="net.topicit.android.mobileadsinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.android.gms.ads.MobileAdsInitProvider"/>
+        <activity android:launchMode="singleTop" android:name="com.instabug.survey.ui.SurveyActivity" android:theme="@style/InstabugSdkTheme" android:windowSoftInputMode="adjustResize"/>
+        <service android:name="com.instabug.survey.network.service.InstabugSurveysSubmitterService"/>
+        <service android:name="com.instabug.crash.network.InstabugCrashesUploaderService"/>
+        <activity android:launchMode="singleTop" android:name="com.instabug.library.InstabugFeedbackActivity" android:theme="@style/InstabugSdkTheme" android:windowSoftInputMode="adjustResize"/>
+        <service android:name="com.instabug.library.network.worker.uploader.InstabugSessionUploaderService"/>
+        <service android:name="com.instabug.library.bugreporting.network.InstabugBugsUploaderService"/>
+        <service android:name="com.instabug.library.messaging.InstabugMessageUploaderService"/>
+        <service android:name="com.instabug.library.network.worker.fetcher.InstabugFeaturesFetcherService"/>
+        <service android:name="com.instabug.library.internal.video.VideoProcessingService"/>
+        <service android:name="com.instabug.library.analytics.network.InstabugAnalyticsUploaderService"/>
+        <receiver android:name="com.instabug.library.network.InstabugNetworkReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.android.dynamic.apk.fused.modules" android:value="base"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="14"/>
+    </application>
+</manifest>

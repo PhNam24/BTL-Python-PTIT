@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="28" android:compileSdkVersionCodename="9" package="br.com.zalf.prolog" platformBuildVersionCode="28" platformBuildVersionName="9">
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="br.com.zalf.prolog.app.ProLogApplication" android:supportsRtl="true" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <provider android:authorities="@string/file_provider_authority" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_provider_paths"/>
+        </provider>
+        <provider android:authorities="br.com.zalf.prolog" android:exported="false" android:name="com.raizlabs.android.dbflow.runtime.StubContentProvider"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="@string/maps_api_key"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="ede11825a9e57bfd2060c5b715027f7f4ac99a0b"/>
+        <receiver android:exported="false" android:name="br.com.zalf.prolog.commons.receivers.NetworkReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="br.com.zalf.prolog.commons.receivers.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="br.com.zalf.prolog.commons.receivers.CleanDatabaseReceiver">
+            <intent-filter>
+                <action android:name="br.com.zalf.prolog.CLEAN_DATABASE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="br.com.zalf.prolog.gente.treinamento.TreinamentoService"/>
+        <service android:exported="false" android:name="br.com.zalf.prolog.commons.services.CleanDatabaseService"/>
+        <service android:exported="false" android:name="br.com.zalf.prolog.commons.services.RemoveTokenService"/>
+        <service android:exported="false" android:name="br.com.zalf.prolog.frota.checklist.services.DownloadImagesChecklistService"/>
+        <service android:exported="false" android:name="br.com.zalf.prolog.frota.checklist.services.DeleteImagesChecklistService"/>
+        <service android:exported="false" android:name="br.com.zalf.prolog.frota.checklist.offline.services.SaveModelosChecklistOfflineService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="br.com.zalf.prolog.commons.log.SendLogService"/>
+        <service android:exported="false" android:name="br.com.zalf.prolog.floating.ProLogFloatingViewService"/>
+        <activity android:exported="false" android:label="@string/app_name" android:name="br.com.zalf.prolog.commons.ui.MainActivity" android:theme="@style/AppTheme.NavDrawer"/>
+        <activity android:name="br.com.zalf.prolog.login.LoginActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Launcher">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:label="@string/text_relato_envio_relato_detalhes" android:name="br.com.zalf.prolog.seguranca.relato.RelatoActivity" android:parentActivityName="br.com.zalf.prolog.commons.ui.MainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".commons.ui.MainActivity"/>
+        </activity>
+        <activity android:exported="false" android:label="@string/text_checklist_novo_checklist" android:name="br.com.zalf.prolog.frota.checklist.novo.NovoChecklistActivity" android:parentActivityName="br.com.zalf.prolog.commons.ui.MainActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".commons.ui.MainActivity"/>
+        </activity>
+        <activity android:exported="false" android:label="@string/text_checklist_carregando_dots" android:name="br.com.zalf.prolog.frota.checklist.ChecklistRespostasActivity"/>
+        <activity android:exported="false" android:name="br.com.zalf.prolog.commons.ui.fullscreen_image.FullscreenImageActivity" android:theme="@style/FullScreenImage"/>
+        <activity android:exported="false" android:label="@string/text_solicitacao_folga_operacional_nova_solicitacao" android:name="br.com.zalf.prolog.gente.solicitacao_folga.operacional.nova.NovaSolicitacaoFolgaActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:exported="false" android:label="@string/text_indicador_relatorio_graficos" android:name="br.com.zalf.prolog.entrega.indicadores.relatorios.graficos.GraficosEntregaActivity" android:theme="@style/FullScreen"/>
+        <activity android:exported="false" android:name="br.com.zalf.prolog.entrega.indicadores.relatorios.dia_estratificado.DiaEstratificadoActivity"/>
+        <activity android:exported="false" android:label="Extrato Mapas" android:name="br.com.zalf.prolog.entrega.indicadores.relatorios.dia_estratificado.mapas_dia.MapasDiaActivity"/>
+        <activity android:exported="false" android:label="@string/text_solicitacao_folga_operacional_detalhes" android:name="br.com.zalf.prolog.gente.solicitacao_folga.operacional.SolicitacaoFolgaOperacionalActivity"/>
+        <activity android:exported="false" android:label="Itens com problema" android:name="br.com.zalf.prolog.frota.checklist.ordemservico.listagem.itens.ItensOsPlacaPrioridadeTabActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:label="@string/nav_drawer_solicitacao_folga" android:name="br.com.zalf.prolog.gente.solicitacao_folga.supervisor.feedback.FeedbackSolicitacaoFolgaActivity"/>
+        <activity android:exported="false" android:label="@string/text_relato_fechamento_fechamento_relato" android:name="br.com.zalf.prolog.seguranca.relato.fechamento.FechamentoRelatoActivity"/>
+        <activity android:exported="false" android:label="@string/text_relato_minhas_classificacoes_classifique_relato" android:name="br.com.zalf.prolog.seguranca.relato.classificacao.ClassificacaoRelatoActivity"/>
+        <activity android:exported="false" android:label="@string/text_pneu_afericao_resumo_caps" android:name="br.com.zalf.prolog.frota.pneu.afericao.nova.ResumoAfericaoActivity" android:screenOrientation="sensorLandscape"/>
+        <activity android:exported="false" android:name="br.com.zalf.prolog.frota.pneu.servicos.abertos.veiculo.ServicosAbertosVeiculoTabActivity" android:screenOrientation="landscape"/>
+        <activity android:exported="false" android:name="br.com.zalf.prolog.frota.pneu.SelecaoAferidorActivity" android:screenOrientation="sensorLandscape" android:theme="@style/BlackStatusBar"/>
+        <activity android:exported="false" android:name="br.com.zalf.prolog.frota.pneu.servicos.abertos.veiculo.conserto.ServicoConsertoActivity" android:screenOrientation="sensorLandscape"/>
+        <activity android:exported="false" android:name="br.com.zalf.prolog.frota.pneu.servicos.abertos.veiculo.conserto.SelecaoPneuDisponivelActivity" android:screenOrientation="sensorLandscape"/>
+        <activity android:exported="false" android:label="@string/text_pneu_relatorio_faixas_sulco" android:name="br.com.zalf.prolog.frota.pneu.relatorios.faixas.FaixasSulcoRelatorioActivity"/>
+        <activity android:exported="false" android:label="@string/text_fale_conosco_novo" android:name="br.com.zalf.prolog.gente.fale_conosco.novo.NovoFaleConoscoActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:exported="false" android:label="@string/text_fale_conosco_detalhes" android:name="br.com.zalf.prolog.gente.fale_conosco.FaleConoscoActivity"/>
+        <activity android:exported="false" android:label="@string/text_verificacao_dados_estratificado" android:name="br.com.zalf.prolog.entrega.verificacao_dados.estratificado.MapaTrackingDiaActivity"/>
+        <activity android:exported="false" android:name="br.com.zalf.prolog.frota.checklist.ordemservico.listagem.itens.ItensOrdemServicoTabActivity"/>
+        <activity android:exported="false" android:name="br.com.zalf.prolog.entrega.indicadores.IndicadorItemActivity"/>
+        <activity android:exported="false" android:name="br.com.zalf.prolog.entrega.indicadores.relatorios.dia_estratificado.mapas_dia.MapaEstratificadoActivity"/>
+        <activity android:exported="false" android:label="@string/text_commons_carregando_dots" android:name="br.com.zalf.prolog.frota.pneu.afericao.realizadas.AfericaoActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="br.com.zalf.prolog.gente.quiz.novo.NovoQuizActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="br.com.zalf.prolog.gente.quiz.realizados.DetalhesQuizActivity"/>
+        <activity android:exported="false" android:label="@string/text_quiz_selecione_quiz" android:name="br.com.zalf.prolog.gente.quiz.novo.selecao_modelo.SelecaoModeloQuizActivity"/>
+        <activity android:exported="false" android:name="br.com.zalf.prolog.commons.relatorios.report.ReportActivity"/>
+        <activity android:exported="false" android:label="@string/text_privacy_policy" android:name="br.com.zalf.prolog.PrivacyPolicyActivity"/>
+        <activity android:exported="false" android:name="br.com.zalf.prolog.frota.pneu.calibragem.SulcoActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="br.com.zalf.prolog.frota.pneu.calibragem.PressaoActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:label="Estoque" android:name="br.com.zalf.prolog.frota.pneu.movimentacao.estoque.MovimentacaoEstoqueActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:label="Veículo" android:name="br.com.zalf.prolog.frota.pneu.movimentacao.veiculo.MovimentacaoVeiculoActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:label="Análise" android:name="br.com.zalf.prolog.frota.pneu.movimentacao.analise.MovimentacaoAnaliseActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:label="Resumo" android:name="br.com.zalf.prolog.frota.pneu.movimentacao.resumo.ResumoMovimentacaoActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:label="Cadastro de Banda" android:name="br.com.zalf.prolog.frota.pneu.movimentacao.banda.CadastroBandaActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateVisible"/>
+        <activity android:exported="false" android:label="@string/text_indicador_relatorio_relatorios" android:name="br.com.zalf.prolog.entrega.indicadores.relatorios.RelatoriosIndicadoresActivity"/>
+        <activity android:exported="false" android:label="@string/text_produtividade_individual_resultado_indicadores" android:name="br.com.zalf.prolog.entrega.produtividade.individual.AtalhoIndicadoresProdutividadeActivity"/>
+        <activity android:exported="false" android:name="br.com.zalf.prolog.gente.prontuario_condutor.ProntuarioCondutorActivity"/>
+        <activity android:exported="false" android:label="@string/nav_drawer_controle_jornada" android:launchMode="singleTask" android:name="br.com.zalf.prolog.gente.intervalo.autenticacao.AutenticacaoMarcacaoIntervaloActivity" android:screenOrientation="portrait" android:taskAffinity=""/>
+        <activity android:exported="false" android:label="@string/nav_drawer_controle_jornada" android:name="br.com.zalf.prolog.gente.intervalo.selecao_tipo.SelecaoTipoIntervaloActivity" android:noHistory="true"/>
+        <activity android:exported="false" android:name="br.com.zalf.prolog.gente.intervalo.marcacao.MarcacaoIntervaloActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:label="@string/text_intervalo_minhas_marcacoes" android:name="br.com.zalf.prolog.gente.intervalo.listagem.ListagemMarcacoesActivity"/>
+        <activity android:exported="false" android:label="@string/text_pneu_os_detalhes_servico" android:name="br.com.zalf.prolog.frota.pneu.servicos.fechados.ServicoActivity"/>
+        <activity android:exported="false" android:label="Listagem de Serviços" android:name="br.com.zalf.prolog.frota.pneu.servicos.fechados.ListagemServicosPorPlacaPneuActivity"/>
+        <activity android:exported="false" android:label="" android:name="br.com.zalf.prolog.frota.pneu.cadastro_edicao.CadastroEdicaoPneuActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:label="" android:name="br.com.zalf.prolog.commons.camera.PreviewActivity" android:screenOrientation="portrait" android:theme="@style/FullScreen.NoStatusBar"/>
+        <activity android:exported="false" android:label="" android:name="br.com.zalf.prolog.commons.camera.CameraActivity" android:screenOrientation="portrait" android:theme="@style/FullScreen.NoStatusBar"/>
+        <activity android:exported="false" android:name="br.com.zalf.prolog.dashboard.DashboardComponentActivity"/>
+        <activity android:exported="false" android:label="@string/text_pneu_movimentacao_movidos_para_estoque" android:name="br.com.zalf.prolog.frota.pneu.movimentacao.analise.AnaliseParaEstoqueActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:label="@string/text_pneu_movimentacao_movidos_para_descarte" android:name="br.com.zalf.prolog.frota.pneu.movimentacao.descarte.AnaliseParaDescarteActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:label="@string/text_pneu_movimentacao_movidos_para_descarte" android:name="br.com.zalf.prolog.frota.pneu.movimentacao.descarte.EstoqueParaDescarteActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:label="@string/text_pneu_movimentacao_movidos_para_descarte" android:name="br.com.zalf.prolog.frota.pneu.movimentacao.descarte.VeiculoParaDescarteActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:label="Movimentações Enviadas" android:name="br.com.zalf.prolog.frota.pneu.movimentacao.MovimentacaoEnviadaActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:label="" android:name="br.com.zalf.prolog.login.contato.EntreEmContatoActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:label="Entre Em Contato" android:name="br.com.zalf.prolog.login.contato.FormularioContatoActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:label="@string/nav_drawer_realizar_afericao_pneu" android:name="br.com.zalf.prolog.frota.pneu.afericao.nova.placa.NovaAfericaoPlacaActivity" android:screenOrientation="landscape"/>
+        <activity android:exported="false" android:label="" android:name="br.com.zalf.prolog.frota.pneu.afericao.nova.avulsa.NovaAfericaoAvulsaActivity" android:screenOrientation="landscape"/>
+        <activity android:exported="false" android:label="@string/text_pneu_medicao_avulsa_medicoes" android:name="br.com.zalf.prolog.frota.pneu.afericao.MedicaoAvulsaActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:label="@string/text_pneu_afericao_cronograma_afericao" android:name="br.com.zalf.prolog.frota.pneu.afericao.nova.cronograma.CronogramaAfericaoActivity"/>
+        <activity android:exported="false" android:label="@string/text_afericao_avulsa" android:name="br.com.zalf.prolog.frota.pneu.afericao.nova.avulsa.AfericaoAvulsaActivity" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:exported="false" android:label="@string/text_pneu_afericao_afericoes_veiculos" android:name="br.com.zalf.prolog.frota.pneu.afericao.realizadas.AfericoesActivity"/>
+        <activity android:exported="false" android:label="" android:name="br.com.zalf.prolog.frota.checklist.ordemservico.resolucao.ResolucaoItensOsActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:label="@string/text_checklist_funcionalidade_listagem" android:name="br.com.zalf.prolog.frota.checklist.listagem.ChecklistsActivity"/>
+        <activity android:exported="false" android:label="@string/text_checklist_farol" android:name="br.com.zalf.prolog.frota.checklist.farol.FarolChecklistActivity"/>
+        <activity android:exported="false" android:label="@string/text_checklist_funcionalidade_checklists_offline" android:name="br.com.zalf.prolog.frota.checklist.offline.listagem.ChecklistsOfflineActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:label="@string/nav_drawer_ordens_servicos_checklist" android:name="br.com.zalf.prolog.frota.checklist.ordemservico.OrdensServicosHolderActivity"/>
+        <activity android:exported="false" android:label="@string/text_checklist_funcionalidade_realizar" android:launchMode="singleTask" android:name="br.com.zalf.prolog.frota.checklist.offline.autenticacao.AutenticacaoChecklistActivity" android:screenOrientation="portrait" android:taskAffinity=""/>
+        <activity android:exported="false" android:label="@string/text_checklist_configurar_checklist" android:name="br.com.zalf.prolog.frota.checklist.offline.configuracao.ModeloCheckConfiguracaoActivity"/>
+        <activity android:exported="false" android:label="@string/text_floating_selecione_uma_opcao" android:launchMode="singleTask" android:name="br.com.zalf.prolog.floating.ProLogFloatingViewActivity" android:screenOrientation="portrait" android:taskAffinity=""/>
+        <service android:exported="false" android:name="com.evernote.android.job.v21.PlatformJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.evernote.android.job.v14.PlatformAlarmService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.evernote.android.job.v14.PlatformAlarmServiceExact"/>
+        <receiver android:exported="false" android:name="com.evernote.android.job.v14.PlatformAlarmReceiver">
+            <intent-filter>
+                <action android:name="com.evernote.android.job.v14.RUN_JOB"/>
+                <action android:name="net.vrallev.android.job.v14.RUN_JOB"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.evernote.android.job.JobBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="false" android:exported="true" android:name="com.evernote.android.job.gcm.PlatformGcmService" android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE">
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.evernote.android.job.JobRescheduleService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+    </application>
+</manifest>

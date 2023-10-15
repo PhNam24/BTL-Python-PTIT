@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.tagtual.trackd" platformBuildVersionCode="26" platformBuildVersionName="8.0.0">
+    <supports-screens android:smallScreens="true"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="barcode"/>
+    <uses-permission android:name="android.hardware.location.gps"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <permission android:name="com.tagtual.trackd.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.tagtual.trackd.permission.C2D_MESSAGE"/>
+    <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="com.tagtual.trackd.Support.Trakd" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <provider android:authorities="com.tagtual.trackd" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_path"/>
+        </provider>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/notification_icon"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/myPrimaryColor"/>
+        <activity android:label="@string/app_name" android:name="com.tagtual.trackd.Activities.Splash" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="app.trakd.in" android:scheme="http"/>
+                <data android:host="beta.app.trakd.in" android:scheme="http"/>
+                <data android:host="beta.app.trakd.in" android:scheme="https"/>
+                <data android:host="beta.app.gopazo.com" android:scheme="http"/>
+                <data android:host="app.gopazo.com" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.tagtual.trackd.Activities.LicenceLogin" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.tagtual.trackd.Activities.TermsActivity" android:screenOrientation="portrait"/>
+        <activity android:label="Issue" android:name="com.tagtual.trackd.Issues.IssuesListActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:launchMode="singleInstance" android:name="com.tagtual.trackd.Menu.OldMainMenu" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.tagtual.trackd.Activities.SelectLocation" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.tagtual.trackd.Issues.NewIssue" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/app_name" android:name="com.tagtual.trackd.Issues.IssueConversation" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.tagtual.trackd.Issues.FilteredLocationIssues" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.tagtual.trackd.Issues.Closed_Issues" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.tagtual.trackd.Activities.Dashboard" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="trakd"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.TrakdCamera.CameraActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.TrakdCamera.RuntimePermissionActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.tagtual.trackd.Checklist.ChecklistReport" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/app_name" android:name="com.tagtual.trackd.Checklist.NewChecklist" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <service android:name="com.tagtual.trackd.Services.SyncService"/>
+        <service android:name="com.tagtual.trackd.Services.UserTrackService"/>
+        <service android:name="com.tagtual.trackd.Services.UnsyncDataNotifier"/>
+        <service android:name="com.tagtual.trackd.Services.AppSettingsService"/>
+        <service android:name="com.tagtual.trackd.Services.DownloadImageService"/>
+        <service android:name="com.tagtual.trackd.Services.ScheduleSettingsService"/>
+        <service android:name="com.tagtual.trackd.Messaging.MessageServiceSavingDB"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="@string/GOOGLE_API_KEY"/>
+        <receiver android:name="com.tagtual.trackd.Receiver.NetworkReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.tagtual.trackd.Receiver.BootStartupReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.tagtual.trackd.Receiver.ScheduleNotification"/>
+        <receiver android:name="com.tagtual.trackd.Receiver.shiftNotification"/>
+        <receiver android:enabled="true" android:name="com.tagtual.trackd.Receiver.NotificationReplyReceiver"/>
+        <receiver android:enabled="true" android:name="com.tagtual.trackd.Receiver.ReviewPendingReceiver"/>
+        <activity android:label="@string/app_name" android:name="com.tagtual.trackd.Checklist.ChecklListAttachActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.tagtual.trackd.Checklist.AttachChecklistActivitry" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/app_name" android:name="com.tagtual.trackd.Activities.BarcodeScannerActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:label="Beat Patrol" android:name="com.tagtual.trackd.BeatPatrol.BeatLocations" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:name="com.tagtual.trackd.BeatPatrol.SingleLocationBeat" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/app_name" android:name="com.tagtual.trackd.Checklist.beatMap" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.tagtual.trackd.Activities.ForgotPin" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.tagtual.trackd.Activities.PinPhoneLogin" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/app_name" android:name="com.tagtual.trackd.Activities.PinEmailLogin" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/app_name" android:name="com.tagtual.trackd.Activities.ResetPin" android:screenOrientation="portrait"/>
+        <activity android:name="com.tagtual.trackd.Activities.issueBot"/>
+        <activity android:label="@string/app_name" android:name="com.tagtual.trackd.Schedules.ScheduleLocations" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.tagtual.trackd.Schedules.ScheduleDashboard" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.tagtual.trackd.Schedules.ScheduleFirstLayer" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.tagtual.trackd.Schedules.ScheduleSecondLayer" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.tagtual.trackd.Schedules.Scheduleinfo" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.tagtual.trackd.Activities.SelectDepartment" android:screenOrientation="portrait"/>
+        <activity android:name="com.tagtual.trackd.Schedules.SchedulesForToday" android:screenOrientation="portrait"/>
+        <activity android:name="com.tagtual.trackd.Checklist.ChecklistSubmitted" android:screenOrientation="portrait"/>
+        <activity android:name="com.tagtual.trackd.Schedules.ScheduleComment" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.tagtual.trackd.Issues.Location_Details" android:screenOrientation="portrait"/>
+        <activity android:name="com.tagtual.trackd.Schedules.SchedulesLocFiltered" android:screenOrientation="portrait"/>
+        <service android:name="com.tagtual.trackd.Services.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.tagtual.trackd.Services.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:name="com.tagtual.trackd.Schedules.AllSchedulestoSubmit" android:screenOrientation="portrait"/>
+        <activity android:name="com.tagtual.trackd.Schedules.AdhocLocations" android:screenOrientation="portrait"/>
+        <activity android:name="com.tagtual.trackd.Activities.SiteList"/>
+        <activity android:label="" android:name="com.tagtual.trackd.Checklist.ChecklistCommentActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.tagtual.trackd.Activities.Departments"/>
+        <activity android:name="com.tagtual.trackd.Messaging.NewMessage" android:screenOrientation="portrait"/>
+        <activity android:name="com.tagtual.trackd.Messaging.MessageAssign" android:screenOrientation="portrait"/>
+        <activity android:name="com.tagtual.trackd.Messaging.MessageChat" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.tagtual.trackd.Messaging.Messages" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_message_stats" android:name="com.tagtual.trackd.Messaging.MessageStats" android:screenOrientation="portrait"/>
+        <activity android:name="com.tagtual.trackd.Messaging.MessageDetails" android:screenOrientation="portrait"/>
+        <activity android:label="@string/ChangePin" android:name="com.tagtual.trackd.Activities.ChangePin" android:screenOrientation="portrait"/>
+        <activity android:name="com.tagtual.trackd.Activities.ImageViewUrlActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.tagtual.trackd.Messaging.GroupInfo" android:screenOrientation="portrait"/>
+        <activity android:name="com.tagtual.trackd.Messaging.ArchivedChats" android:screenOrientation="portrait"/>
+        <activity android:name="com.tagtual.trackd.Documents.Sections"/>
+        <activity android:name="com.tagtual.trackd.Documents.Files"/>
+        <activity android:name="com.tagtual.trackd.Documents.DocsViewer"/>
+        <activity android:name="com.tagtual.trackd.Messaging.quote"/>
+        <service android:name="com.tagtual.trackd.ServicesJobIntent.SyncServiceJobIntent" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:enabled="true" android:name="com.tagtual.trackd.ServicesJobIntent.ReceiversJobIntent.JobIntentServiceReceiver"/>
+        <receiver android:enabled="true" android:name="com.tagtual.trackd.ServicesJobIntent.ReceiversJobIntent.UserTrackJobIntentReceiver"/>
+        <service android:name="com.tagtual.trackd.ServicesJobIntent.AppSettingsServiceJobIntent" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.tagtual.trackd.ServicesJobIntent.ScheduleSettingServiceJobIntent" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.tagtual.trackd.ServicesJobIntent.DownloadImageServiceJobIntent" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.tagtual.trackd.ServicesJobIntent.UserTrackServiceJobIntent" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="orientation|screenSize" android:name="droidninja.filepicker.FilePickerActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="droidninja.filepicker.MediaDetailsActivity"/>
+        <provider android:authorities="com.tagtual.trackd.droidninja.filepicker.provider" android:exported="false" android:grantUriPermissions="true" android:name="droidninja.filepicker.utils.FilePickerProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.tagtual.trackd"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"/>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.tagtual.trackd.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="android.support.VERSION" android:value="26.0.0"/>
+    </application>
+</manifest>

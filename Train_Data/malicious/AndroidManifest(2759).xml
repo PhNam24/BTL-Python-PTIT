@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.reader.duoduxs">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <permission android:name="com.reader.duoduxs.permission.JPUSH_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.reader.duoduxs.permission.JPUSH_MESSAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <permission android:name="com.reader.duoduxs.permission.PROCESS_PUSH_MSG" android:protectionLevel="signatureOrSystem"/>
+    <uses-permission android:name="com.reader.duoduxs.permission.PROCESS_PUSH_MSG"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE "/>
+    <permission android:name="com.reader.duoduxs.permission.MIPUSH_RECEIVE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.reader.duoduxs.permission.MIPUSH_RECEIVE"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <application android:allowBackup="true" android:icon="@mipmap/icon" android:label="@string/APP_NAME" android:largeHeap="true" android:name="com.stub.StubApp" android:networkSecurityConfig="@xml/network_security_config" android:resizeableActivity="true" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <activity android:launchMode="singleTop" android:name="com.reader.hailiangxs.page.splash.SplashActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.reader.hailiangxs.page.main.MainActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.reader.hailiangxs.page.read.ReadActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.reader.hailiangxs.page.search.SearchActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="standard" android:name="com.reader.hailiangxs.page.detail.BookDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.reader.hailiangxs.page.readsettings.ReadSettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.reader.hailiangxs.page.fontsettings.FontSettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.reader.hailiangxs.page.readflipmodeselect.FlipModeActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.reader.hailiangxs.page.website.WebsiteActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.reader.hailiangxs.page.login.LoginActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysVisible|adjustPan"/>
+        <activity android:launchMode="singleTop" android:name="com.reader.hailiangxs.page.history.HistoryActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.reader.hailiangxs.page.userPrefs.UserPrefsActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.reader.hailiangxs.page.zone.ZoneActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.reader.hailiangxs.page.detail.moreComment.MoreCommentActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.reader.hailiangxs.page.bookshelfedit.BookShelfEditActivity" android:screenOrientation="portrait"/>
+        <service android:name="com.reader.hailiangxs.service.DownloadBookService"/>
+        <service android:name="com.reader.hailiangxs.service.UpgradeService"/>
+        <service android:name="com.reader.hailiangxs.service.DownloadFontService"/>
+        <provider android:authorities="com.reader.duoduxs.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <meta-data android:name="android.max_aspect" android:value="2.1"/>
+        <activity android:launchMode="singleTop" android:name="com.reader.hailiangxs.page.userinfo.UpDateUserInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.reader.hailiangxs.page.userinfo.UserInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.reader.hailiangxs.page.settings.SettingActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.reader.hailiangxs.page.wallet.WalletActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.reader.hailiangxs.page.feedback.FeedbackListActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.reader.hailiangxs.page.main.shucheng.TabEditorActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.reader.hailiangxs.page.news.NewsActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.reader.hailiangxs.page.giftcode.GiftCodeActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.reader.hailiangxs.page.videoad.FullScreenVideoActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.reader.hailiangxs.page.videoad.RewardVideoActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.reader.hailiangxs.page.read.listen.ListenBookActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.reader.hailiangxs.page.fenlei.FenLeiActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.reader.hailiangxs.page.rank.RankActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.reader.hailiangxs.page.cash.CashAccountActivity" android:screenOrientation="portrait"/>
+        <receiver android:name="com.reader.hailiangxs.receiver.LocalPushReceiver">
+            <intent-filter>
+                <action android:name="com.jiuwei.open.SHUJIA"/>
+            </intent-filter>
+        </receiver>
+        <activity android:launchMode="singleTop" android:name="com.reader.hailiangxs.page.wakeup.H5WakUPActivity" android:theme="@style/TransitionTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="zrjrhlxs" android:path="/wakeapp" android:scheme="hlxs"/>
+            </intent-filter>
+        </activity>
+        <service android:name="com.reader.hailiangxs.service.InitializeService"/>
+        <activity android:launchMode="singleTop" android:name="com.reader.hailiangxs.page.readearnings.ReadEarningsAct" android:screenOrientation="portrait"/>
+        <meta-data android:name="MTA_CHANNEL" android:value="qihu360"/>
+        <service android:name="com.talkingdata.sdk.TDAntiCheatingService" android:process="com.talkingdata.sdk.TDAntiCheatingService">
+            <intent-filter>
+                <action android:name="com.talkingdata.sdk.TDAntiCheatingService"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="TD_APP_ID" android:value="27B92C5ABA5847038926896A83909A6D"/>
+        <meta-data android:name="TD_CHANNEL_ID" android:value="qihu360"/>
+        <activity android:exported="false" android:name="cn.jpush.android.ui.PopWinActivity" android:theme="@style/MyDialogStyle"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="cn.jpush.android.ui.PushActivity" android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.reader.duoduxs"/>
+            </intent-filter>
+        </activity>
+        <service android:enabled="true" android:exported="false" android:name="cn.jpush.android.service.PushService" android:process=":pushcore">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER"/>
+                <action android:name="cn.jpush.android.intent.REPORT"/>
+                <action android:name="cn.jpush.android.intent.PushService"/>
+                <action android:name="cn.jpush.android.intent.PUSH_TIME"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.reader.duoduxs.DataProvider" android:exported="false" android:name="cn.jpush.android.service.DataProvider" android:process=":pushcore"/>
+        <provider android:authorities="com.reader.duoduxs.DownloadProvider" android:exported="true" android:name="cn.jpush.android.service.DownloadProvider"/>
+        <receiver android:enabled="true" android:exported="false" android:name="cn.jpush.android.service.PushReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY"/>
+                <category android:name="com.reader.duoduxs"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="cn.jpush.android.service.AlarmReceiver"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.reader.hailiangxs.page.push.JPushReceiver">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION"/>
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED"/>
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED"/>
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED"/>
+                <action android:name="cn.jpush.android.intent.CONNECTION"/>
+                <category android:name="com.reader.duoduxs"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="true" android:launchMode="singleTask" android:name="cn.jiguang.share.android.ui.JiguangShellActivity" android:theme="@style/NoTranslucent" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <data android:scheme="tencent101567820"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="sinaweibo" android:scheme="jsharesdk"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:name="com.reader.hailiangxs.wxapi.WXEntryActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="false" android:name="com.qq.e.comm.DownloadService"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.qq.e.ads.ADActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.qq.e.ads.PortraitADActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.qq.e.ads.LandscapeADActivity" android:screenOrientation="landscape"/>
+        <provider android:authorities="com.reader.duoduxs.TTFileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.bytedance.sdk.openadsdk.TTFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <provider android:authorities="com.reader.duoduxs.TTMultiProvider" android:exported="false" android:name="com.bytedance.sdk.openadsdk.multipro.TTMultiProvider"/>
+        <meta-data android:name="com.huawei.hms.client.appid" android:value="appid=100707553"/>
+        <activity android:configChanges="fontScale|layoutDirection|locale|orientation|screenSize" android:excludeFromRecents="true" android:exported="false" android:hardwareAccelerated="true" android:name="com.huawei.hms.activity.BridgeActivity" android:theme="@android:style/Theme.Translucent">
+            <meta-data android:name="hwc-theme" android:value="androidhwext:style/Theme.Emui.Translucent"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="com.huawei.updatesdk.service.otaupdate.AppUpdateActivity" android:theme="@style/upsdkDlDialog">
+            <meta-data android:name="hwc-theme" android:value="androidhwext:style/Theme.Emui.Translucent.NoTitleBar"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:name="com.huawei.updatesdk.support.pm.PackageInstallerActivity" android:theme="@style/upsdkDlDialog">
+            <meta-data android:name="hwc-theme" android:value="androidhwext:style/Theme.Emui.Translucent"/>
+        </activity>
+        <provider android:authorities="com.reader.duoduxs.hms.update.provider" android:exported="false" android:grantUriPermissions="true" android:name="com.huawei.hms.update.provider.UpdateProvider"/>
+        <provider android:authorities="com.reader.duoduxs.updateSdk.fileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.huawei.updatesdk.fileprovider.UpdateSdkFileProvider"/>
+        <service android:exported="false" android:name="com.huawei.updatesdk.service.deamon.download.DownloadService"/>
+        <receiver android:name="com.reader.hailiangxs.page.push.HuaweiPushRevicer" android:permission=".permission.PROCESS_PUSH_MSG">
+            <intent-filter>
+                <action android:name="com.huawei.android.push.intent.REGISTRATION"/>
+                <action android:name="com.huawei.android.push.intent.RECEIVE"/>
+                <action android:name="com.huawei.intent.action.PUSH_DELAY_NOTIFY"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="true" android:name="com.huawei.hms.support.api.push.service.HmsMsgService" android:process=":pushservice">
+            <intent-filter>
+                <action android:name="com.huawei.push.msg.NOTIFY_MSG"/>
+                <action android:name="com.huawei.push.msg.PASSBY_MSG"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="fontScale|layoutDirection|locale|orientation|screenSize" android:excludeFromRecents="true" android:exported="false" android:hardwareAccelerated="true" android:name="com.huawei.android.hms.agent.common.HMSAgentActivity" android:theme="@android:style/Theme.Translucent">
+            <meta-data android:name="hwc-theme" android:value="androidhwext:style/Theme.Emui.Translucent"/>
+        </activity>
+        <activity android:name="com.reader.hailiangxs.page.push.HuaweiPushCustomActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="com.reader.duoduxs" android:path="/notification" android:scheme="wonderfullpush"/>
+            </intent-filter>
+        </activity>
+        <service android:enabled="true" android:name="com.xiaomi.push.service.XMPushService" android:process=":pushservice"/>
+        <service android:enabled="true" android:exported="false" android:name="com.xiaomi.push.service.XMJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:process=":pushservice"/>
+        <service android:enabled="true" android:exported="true" android:name="com.xiaomi.mipush.sdk.PushMessageHandler"/>
+        <service android:enabled="true" android:name="com.xiaomi.mipush.sdk.MessageHandleService"/>
+        <receiver android:exported="true" android:name="com.xiaomi.push.service.receivers.NetworkStatusReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.xiaomi.push.service.receivers.PingReceiver" android:process=":pushservice">
+            <intent-filter>
+                <action android:name="com.xiaomi.push.PING_TIMER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.reader.hailiangxs.page.push.XiaoMiPushReceiver">
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.MESSAGE_ARRIVED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.ERROR"/>
+            </intent-filter>
+        </receiver>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:exported="false" android:name="com.alipay.sdk.app.H5PayActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:exported="false" android:name="com.alipay.sdk.app.H5AuthActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:exported="true" android:launchMode="singleInstance" android:name="com.alipay.sdk.app.PayResultActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:launchMode="singleTask" android:name="com.alipay.sdk.app.AlipayResultActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="alipaysdk"/>
+            </intent-filter>
+        </activity>
+        <activity android:hardwareAccelerated="true" android:label="@string/app_name" android:name="com.hz.yl.b.HHActivity"/>
+        <activity android:hardwareAccelerated="true" android:name="com.hz.yl.b.HHVideoActivity" android:theme="@android:style/Theme.DeviceDefault.NoActionBar"/>
+        <receiver android:name="com.hz.yl.b.McReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.bytedance.sdk.openadsdk.activity.TTLandingPageActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.bytedance.sdk.openadsdk.activity.TTVideoLandingPageActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.bytedance.sdk.openadsdk.activity.TTRewardVideoActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.bytedance.sdk.openadsdk.activity.TTFullScreenVideoActivity"/>
+        <activity android:launchMode="singleTask" android:name="com.bytedance.sdk.openadsdk.activity.TTDelegateActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:name="com.bytedance.sdk.openadsdk.multipro.aidl.BinderPoolService"/>
+        <service android:name="com.ss.android.socialbase.downloader.notification.DownloadNotificationService"/>
+        <service android:name="com.ss.android.socialbase.downloader.downloader.DownloadService"/>
+        <service android:name="com.ss.android.socialbase.downloader.downloader.IndependentProcessDownloadService" android:process=":downloader">
+            <intent-filter>
+                <action android:name="com.ss.android.socialbase.downloader.remote"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.ss.android.socialbase.downloader.impls.DownloadHandleService"/>
+        <service android:name="com.ss.android.socialbase.appdownloader.AppDownloadHandleService"/>
+        <activity android:launchMode="singleTask" android:name="com.ss.android.socialbase.appdownloader.view.DownloadSizeLimitActivity" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:launchMode="singleTask" android:name="com.ss.android.socialbase.appdownloader.view.DownloadTaskDeleteActivity" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:launchMode="standard" android:name="com.ss.android.downloadlib.activity.InteractionMiddleActivity"/>
+        <receiver android:name="com.ss.android.downloadlib.core.download.DownloadReceiver"/>
+        <service android:enabled="true" android:exported="true" android:name="com.ss.sys.ces.ClientService"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="standard" android:name="com.yanzhenjie.permission.PermissionActivity" android:theme="@style/permission_PermissionActivity" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:multiprocess="true" android:name="com.blankj.utilcode.util.PermissionUtils$PermissionActivity" android:theme="@style/ActivityTranslucent" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <provider android:authorities="com.reader.duoduxs.utilcode.provider" android:exported="false" android:grantUriPermissions="true" android:multiprocess="true" android:name="com.blankj.utilcode.util.Utils$FileProvider4UtilCode">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/util_code_provider_paths"/>
+        </provider>
+        <service android:enabled="true" android:exported="true" android:name="cn.jpush.android.service.DaemonService">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.DaemonService"/>
+                <category android:name="com.reader.duoduxs"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="JPUSH_CHANNEL" android:value="ddmfxs"/>
+        <meta-data android:name="JPUSH_APPKEY" android:value="41405c55d92ae0f578115837"/>
+        <activity android:exported="true" android:name="com.reader.duoduxs.wxapi.WXEntryActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+    </application>
+</manifest>

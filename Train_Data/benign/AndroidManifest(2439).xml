@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" android:installLocation="auto" package="wp.wpbeta" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="false"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission-sdk-23 android:name="android.permission.FOREGROUND_SERVICE"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="true" android:fullBackupContent="@xml/backup_config" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:isSplitRequired="true" android:label="@string/app_name" android:name="wp.wattpad.AppState" android:networkSecurityConfig="@xml/network_security_config" android:requestLegacyExternalStorage="true" android:supportsRtl="@bool/support_rtl" android:theme="@style/Theme.Wattpad" android:usesCleartextTraffic="true">
+        <provider android:authorities="wp.wpbeta.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="a6732cdbbecc0374a87ac593be64b1805ec13de0"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@style/Theme.Wattpad.NoActionBar"/>
+        <provider android:authorities="wp.wpbeta.facebook.FacebookContentProvider2582347323" android:exported="true" android:name="com.facebook.FacebookContentProvider"/>
+        <receiver android:exported="true" android:name="io.branch.referral.InstallListener">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_pgerP08EdSp0oA8BT3aZqbhoqzgSpodT"/>
+        <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_pehCM17qfJl4kCYzMXfWDknbCBkRcgaE"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="wp.wattpad.ui.activities.WelcomeActivity" android:theme="@style/Theme.Wattpad.Launcher">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="open" android:scheme="wattpad"/>
+            </intent-filter>
+        </activity>
+        <activity-alias android:name="wp.wattpad.ui.activities.LoginActivity" android:targetActivity="wp.wattpad.ui.activities.WelcomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="wp.wattpad.authenticate.ui.activities.AuthenticationActivity" android:theme="@style/Theme.Wattpad.NoActionBar"/>
+        <activity android:name="wp.wattpad.authenticate.ui.activities.VerifyAccountActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="wp.wattpad.onboarding.ui.activities.OnBoardingRequiredInfoActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="wp.wattpad.onboarding.ui.activities.OnBoardingUserInfoActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="wp.wattpad.onboarding.ui.activities.OnBoardingReaderWriterPreferenceActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="wp.wattpad.onboarding.ui.activities.OnBoardingWriterJourneyActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="wp.wattpad.onboarding.ui.activities.OnBoardingWriterCompletedStoriesActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/updates" android:name="wp.wattpad.social.SocialHubActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/notification_settings" android:name="wp.wattpad.social.ui.ChildNotificationActivity" android:parentActivityName="wp.wattpad.social.SocialHubActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/library" android:launchMode="singleTop" android:name="wp.wattpad.library.activities.LibraryActivity" android:theme="@style/Theme.Wattpad.LibraryFragmentActivity"/>
+        <activity android:label="@string/reading_lists" android:name="wp.wattpad.ui.activities.ReadingListsActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/reading_lists" android:name="wp.wattpad.ui.activities.ReadingListStoriesActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/edit_reading_lists" android:name="wp.wattpad.ui.activities.ReadingListManagementActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/title_activity_library_story_selection" android:name="wp.wattpad.ui.activities.LibraryStorySelectionActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/story_info_similar_stories" android:name="wp.wattpad.ui.activities.LibrarySimilarStoriesActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="" android:name="wp.wattpad.profile.ProfileActivity" android:parentActivityName="wp.wattpad.discover.home.HomeActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/title_activity_edit_public_message" android:name="wp.wattpad.profile.ProfilePublicMessageEditActivity" android:parentActivityName="wp.wattpad.profile.ProfileActivity" android:theme="@style/Theme.Wattpad" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/native_profile_title" android:name="wp.wattpad.profile.ProfileFollowDetailsActivity" android:parentActivityName="wp.wattpad.profile.ProfileActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="" android:name="wp.wattpad.profile.ProfileUserWorksListActivity" android:parentActivityName="wp.wattpad.profile.ProfileActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_message_chat" android:launchMode="singleTop" android:name="wp.wattpad.ui.activities.MessageChatActivity" android:parentActivityName="wp.wattpad.social.SocialHubActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/title_activity_message_contacts" android:name="wp.wattpad.ui.activities.MessageContactsActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/select_story_title" android:name="wp.wattpad.ui.activities.SelectStoryActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/select_reading_list_title" android:name="wp.wattpad.ui.activities.SelectReadingListActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:name="wp.wattpad.discover.tag.TagActivity" android:parentActivityName="wp.wattpad.discover.search.ui.DiscoverSearchActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/filters" android:name="wp.wattpad.discover.tag.TagFiltersActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/home" android:name="wp.wattpad.discover.home.HomeActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/home_content_preferences" android:name="wp.wattpad.settings.content.ContentSettingsActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/story_info" android:name="wp.wattpad.discover.storyinfo.activities.StoryInfoActivity" android:parentActivityName="wp.wattpad.discover.home.HomeActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/story_rankings" android:name="wp.wattpad.discover.storyinfo.activities.StoryTagRankingActivity" android:parentActivityName="wp.wattpad.discover.storyinfo.activities.StoryInfoActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/search" android:name="wp.wattpad.discover.search.ui.DiscoverSearchActivity" android:parentActivityName="wp.wattpad.discover.home.HomeActivity" android:theme="@style/Theme.Wattpad">
+            <intent-filter>
+                <action android:name="com.google.android.gms.actions.SEARCH_ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/search" android:name="wp.wattpad.discover.search.ui.DiscoverSearchFiltersActivity" android:parentActivityName="wp.wattpad.discover.search.ui.DiscoverSearchActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/paid_stories" android:name="wp.wattpad.vc.activities.PaidStoriesActivity" android:parentActivityName="wp.wattpad.discover.home.HomeActivity" android:theme="@style/Theme.Wattpad" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="wp.wattpad.util.social.OAuthWebViewActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/chat_support" android:name="wp.wattpad.report.ChatSupportWebviewActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/read" android:name="wp.wattpad.reader.ReaderActivity" android:parentActivityName="wp.wattpad.discover.home.HomeActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/read" android:name="wp.wattpad.create.reader.CreateReaderActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/reader_media_title" android:name="wp.wattpad.media.activities.MediaSlideshowActivity" android:parentActivityName="wp.wattpad.reader.ReaderActivity" android:theme="@style/Theme.Wattpad.Black"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/reader_media_title" android:name="wp.wattpad.reader.interstitial.YouTubeVideoInterstitialActivity" android:parentActivityName="wp.wattpad.reader.ReaderActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:configChanges="orientation|screenSize" android:name="wp.wattpad.ads.video.custom.NativeCustomVideoActivity" android:parentActivityName="wp.wattpad.reader.ReaderActivity" android:resizeableActivity="false" android:theme="@style/Theme.Wattpad"/>
+        <activity android:configChanges="orientation|screenSize" android:name="wp.wattpad.ads.nimbusstatic.NimbusStaticAdActivity" android:parentActivityName="wp.wattpad.reader.ReaderActivity" android:resizeableActivity="false" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/about_wattpad_ads" android:name="wp.wattpad.ads.AboutWattpadAdsActivity" android:parentActivityName="wp.wattpad.reader.ReaderActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:name="wp.wattpad.ui.activities.QuoteActivity" android:theme="@style/Theme.Wattpad.NoActionBar"/>
+        <activity android:name="wp.wattpad.reader.ui.PaywallActivity" android:parentActivityName="wp.wattpad.reader.ReaderActivity" android:screenOrientation="nosensor" android:theme="@style/Theme.Wattpad.NoActionBar"/>
+        <activity android:name="wp.wattpad.vc.activities.CurrencyCenterActivity" android:screenOrientation="nosensor" android:theme="@style/Theme.Wattpad.NoActionBar"/>
+        <activity android:label="@string/create" android:name="wp.wattpad.create.ui.activities.MyStoriesActivity" android:parentActivityName="wp.wattpad.discover.home.HomeActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/part_revision_title" android:name="wp.wattpad.create.revision.ui.PartTextRevisionActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/part_revision_preview_title" android:name="wp.wattpad.create.revision.ui.PartTextRevisionPreviewActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/story_settings_title" android:launchMode="singleTask" android:name="wp.wattpad.create.ui.activities.CreateStorySettingsActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/story_settings_add_tags" android:name="wp.wattpad.create.ui.activities.CreateStoryTagsActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/story_settings_story_title" android:name="wp.wattpad.create.ui.activities.CreateStoryTitleActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/story_settings_story_desc" android:name="wp.wattpad.create.ui.activities.CreateStoryDescriptionActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/story_settings_story_genre" android:name="wp.wattpad.create.ui.activities.CreateStoryCategoryListActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/story_settings_more_info_title" android:name="wp.wattpad.create.ui.activities.CreateStorySettingsMoreActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/story_settings_story_language" android:name="wp.wattpad.create.ui.activities.CreateStoryLanguageListActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/story_settings_story_copyright" android:name="wp.wattpad.create.ui.activities.CreateStoryCopyrightListActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/story_edit_parts_title" android:name="wp.wattpad.create.ui.activities.CreateEditPartsActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/add_story_info" android:name="wp.wattpad.create.ui.activities.CreateNewStoryActivity" android:theme="@style/Theme.Wattpad" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:label="@string/create" android:name="wp.wattpad.create.ui.activities.WriteActivity" android:theme="@style/Theme.Wattpad.WriteActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/search" android:name="wp.wattpad.media.video.VideoSearchActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:configChanges="orientation|screenSize" android:name="wp.wattpad.media.video.VideoPreviewActivity" android:theme="@style/Theme.Wattpad" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:label="@string/congratulations" android:name="wp.wattpad.create.ui.activities.CreatePartPublishedActivity" android:theme="@style/Theme.Wattpad" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/create_shared_activity_title" android:launchMode="singleTask" android:name="wp.wattpad.create.ui.activities.CreateCoverUploadDeeplinkActivity" android:parentActivityName="wp.wattpad.create.ui.activities.MyStoriesActivity" android:theme="@style/Theme.Wattpad">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="wp.wattpad.create.ui.activities.MyStoriesActivity"/>
+        </activity>
+        <activity android:label="" android:name="wp.wattpad.create.ui.activities.WattysEntryActivity" android:theme="@style/Theme.Wattpad" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="wp.wattpad.onboarding.ui.activities.invite.InviteFriendsActivity" android:parentActivityName="wp.wattpad.discover.home.HomeActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/send_report" android:name="wp.wattpad.report.ReportActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/settings" android:name="wp.wattpad.ui.activities.settings.RootPreferencesActivity" android:parentActivityName="wp.wattpad.discover.home.HomeActivity" android:theme="@style/Theme.Wattpad.Preference"/>
+        <activity android:label="@string/account_settings" android:name="wp.wattpad.ui.activities.settings.AccountPreferencesActivity" android:parentActivityName="wp.wattpad.ui.activities.settings.RootPreferencesActivity" android:theme="@style/Theme.Wattpad.Preference"/>
+        <activity android:label="@string/muted_accounts" android:name="wp.wattpad.profile.mute.MutedAccountsActivity" android:parentActivityName="wp.wattpad.ui.activities.settings.RootPreferencesActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/subscription_settings" android:name="wp.wattpad.ads.subscription.views.activities.SubscriptionSettingsActivity" android:parentActivityName="wp.wattpad.ui.activities.settings.RootPreferencesActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/subscription_management" android:name="wp.wattpad.ads.subscription.views.activities.SubscriptionManagementActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/notification_settings" android:name="wp.wattpad.ui.activities.settings.NotificationPreferencesActivity" android:parentActivityName="wp.wattpad.ui.activities.settings.RootPreferencesActivity" android:theme="@style/Theme.Wattpad.Preference"/>
+        <activity android:label="@string/reading_settings" android:name="wp.wattpad.ui.activities.settings.ReadingPreferencesActivity" android:parentActivityName="wp.wattpad.ui.activities.settings.RootPreferencesActivity" android:theme="@style/Theme.Wattpad.Preference"/>
+        <activity android:label="@string/subscription_theme" android:name="wp.wattpad.ads.subscription.views.activities.SubscriptionThemeActivity" android:parentActivityName="wp.wattpad.ui.activities.settings.RootPreferencesActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/help_center" android:name="wp.wattpad.report.HelpCenterActivity" android:parentActivityName="wp.wattpad.ui.activities.settings.RootPreferencesActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="@string/about_wattpad" android:name="wp.wattpad.ui.activities.settings.AboutPreferencesActivity" android:parentActivityName="wp.wattpad.ui.activities.settings.RootPreferencesActivity" android:theme="@style/Theme.Wattpad.Preference"/>
+        <activity android:label="@string/licenses" android:name="wp.wattpad.ui.activities.settings.LicensesActivity" android:parentActivityName="wp.wattpad.ui.activities.settings.AboutPreferencesActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:label="" android:name="wp.wattpad.policy.PoliciesWebViewActivity" android:theme="@style/Theme.Wattpad"/>
+        <activity android:launchMode="singleTask" android:name="wp.wattpad.linking.ui.activities.ParseDeepLinkActivity" android:theme="@style/Theme.Wattpad.Launcher">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="home" android:scheme="wattpad"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/home" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/home" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="library" android:scheme="wattpad"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/library" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/library" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="discover" android:scheme="wattpad"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/stories" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/stories" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/stories/1.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/stories/1.*" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/stories/2.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/stories/2.*" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/stories/3" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/stories/3" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/stories/4" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/stories/4" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/stories/5" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/stories/5" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/stories/6" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/stories/6" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/stories/7" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/stories/7" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/stories/8" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/stories/8" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/stories/9" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/stories/9" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/tags/.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/tags/.*" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="help" android:scheme="wattpad"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="user" android:scheme="wattpad"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="myprofile" android:scheme="wattpad"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/user/.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/user/.*" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="premium-pricing" android:scheme="wattpad"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/premium-pricing" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/premium-pricing" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="story" android:scheme="wattpad"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/story/1.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/story/1.*" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/story/2.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/story/2.*" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/story/3.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/story/3.*" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/story/4.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/story/4.*" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/story/5.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/story/5.*" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/story/6.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/story/6.*" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/story/7.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/story/7.*" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/story/8.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/story/8.*" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/story/9.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/story/9.*" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/1.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/1.*" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/2.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/2.*" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/3.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/3.*" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/4.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/4.*" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/5.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/5.*" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/6.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/6.*" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/7.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/7.*" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/8.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/8.*" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/9.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/9.*" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="myworks" android:scheme="wattpad"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/myworks.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/myworks.*" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="reading-list" android:scheme="wattpad"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/list/1.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/list/1.*" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/list/2.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/list/2.*" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/list/3.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/list/3.*" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/list/4.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/list/4.*" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/list/5.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/list/5.*" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/list/6.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/list/6.*" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/list/7.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/list/7.*" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/list/8.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/list/8.*" android:scheme="https"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/list/9.*" android:scheme="http"/>
+                <data android:host="www.wattpad.com" android:pathPattern="/list/9.*" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="paid-stories" android:scheme="wattpad"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="coins" android:scheme="wattpad"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="false" android:name="wp.wattpad.util.notifications.push.FCMReceiver">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="wp.wattpad.util.notifications.push.PushNotificationClickReceiver"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/ic_notification"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/base_1"/>
+        <activity android:exported="false" android:name="com.amazon.device.ads.DTBActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="intent" android:scheme="amazonmobile"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MoPubActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.common.MoPubBrowser"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidVideoPlayerActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.common.privacy.ConsentDialogActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.RewardedMraidActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:launchMode="singleTop" android:name="com.vungle.warren.ui.VungleActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:launchMode="singleTop" android:name="com.vungle.warren.ui.VungleFlexViewActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="applovin.sdk.key" android:value="deaXmVgRlAf17Rci7diGnpMQRFKtKb51rWm-426dU41ErV-i1aFBuvTy_2ZSpfItFHFGT_52yhBAmMP1PSeFzi"/>
+        <activity android:configChanges="orientation|screenSize" android:hardwareAccelerated="true" android:name="com.applovin.adview.AppLovinInterstitialActivity" android:screenOrientation="behind"/>
+        <receiver android:name="wp.wattpad.util.notifications.local.LocalNotificationAlarmReceiver"/>
+        <receiver android:name="wp.wattpad.util.notifications.local.LocalNotificationClickReceiver"/>
+        <activity android:launchMode="singleTop" android:name="wp.wattpad.migration.ui.MigrationActivity" android:screenOrientation="nosensor" android:theme="@style/Theme.Wattpad.NoActionBar"/>
+        <service android:icon="@drawable/ic_notification" android:name="wp.wattpad.migration.MigrationService"/>
+        <activity android:label="Developer Settings" android:name="wp.wattpad.dev.DeveloperSettingsActivity" android:theme="@style/Theme.Wattpad.Preference"/>
+        <receiver android:name="wp.wattpad.dev.DeveloperSettingsReceiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SECRET_CODE"/>
+                <data android:host="9288338" android:scheme="android_secret_code"/>
+            </intent-filter>
+        </receiver>
+        <activity android:label="Developer Ad Settings" android:name="wp.wattpad.dev.DeveloperMonetizationSettingsActivity" android:theme="@style/Theme.Wattpad.Preference"/>
+        <receiver android:name="wp.wattpad.dev.DeveloperMonetizationSettingsReceiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SECRET_CODE"/>
+                <data android:host="9288666" android:scheme="android_secret_code"/>
+            </intent-filter>
+        </receiver>
+        <activity android:label="Feature Flags" android:name="wp.wattpad.dev.FeatureFlagSettingsActivity" android:theme="@style/Theme.Wattpad.Preference"/>
+        <activity android:name="wp.wattpad.dev.ServerABTestSettingsActivity" android:theme="@style/Theme.Wattpad.Preference"/>
+        <activity android:label="Ads Testing Playground" android:name="wp.wattpad.dev.ads.AdsTestingPlaygroundActivity" android:theme="@style/Theme.Wattpad.Preference"/>
+        <meta-data android:name="asset_statements" android:resource="@string/asset_statements"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.inappmessaging.display.FirebaseInAppMessagingDisplayRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.inappmessaging.FirebaseInAppMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <service android:enabled="true" android:exported="false" android:name="com.leanplum.LeanplumPushFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.leanplum.LeanplumFcmRegistrationJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:enabled="true" android:exported="false" android:name="com.leanplum.LeanplumPushFcmListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="com.leanplum.LeanplumPushReceiver">
+            <intent-filter>
+                <action android:name="com.leanplum.LeanplumPushFirebaseMessagingService"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.leanplum.LeanplumPushRegistrationService"/>
+        <service android:name="com.leanplum.LeanplumLocalPushListenerService"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.android.billingclient.api.ProxyBillingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="wp.wpbeta.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:launchMode="singleTop" android:name="com.vungle.warren.ui.VungleWebViewActivity"/>
+        <receiver android:enabled="false" android:name="com.vungle.warren.NetworkProviderReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <service android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="wp.wpbeta.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <provider android:authorities="wp.wpbeta.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <activity android:enabled="false" android:exported="false" android:launchMode="singleInstance" android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true"/>
+        <activity android:enabled="false" android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:process=":playcore_dialog_wrapper_activity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
+        <provider android:authorities="wp.wpbeta.crashlyticsinitprovider" android:exported="false" android:initOrder="90" android:name="com.crashlytics.android.CrashlyticsInitProvider"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:hardwareAccelerated="true" android:name="com.inmobi.ads.rendering.InMobiAdActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:hardwareAccelerated="true" android:name="com.facebook.ads.AudienceNetworkActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:name="com.facebook.ads.internal.ipc.RemoteANActivity" android:process=":adnw" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="false" android:name="com.facebook.ads.internal.ipc.AdsProcessPriorityService"/>
+        <service android:exported="false" android:name="com.facebook.ads.internal.ipc.AdsMessengerService" android:process=":adnw"/>
+        <provider android:authorities="wp.wpbeta.AudienceNetworkContentProvider" android:exported="false" android:name="com.facebook.ads.AudienceNetworkContentProvider"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.applovin.sdk.AppLovinWebViewActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.applovin.mediation.MaxDebuggerActivity" android:theme="@style/com.applovin.mediation.MaxDebuggerActivity.Theme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.applovin.mediation.MaxDebuggerDetailActivity" android:theme="@style/com.applovin.mediation.MaxDebuggerActivity.Theme"/>
+        <activity android:configChanges="density|fontScale|keyboard|keyboardHidden|layoutDirection|locale|mcc|mnc|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:launchMode="singleTop" android:name="com.smaato.sdk.interstitial.InterstitialAdActivity"/>
+        <activity android:configChanges="density|fontScale|keyboard|keyboardHidden|layoutDirection|locale|mcc|mnc|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:launchMode="singleTop" android:name="com.smaato.sdk.rewarded.widget.RewardedInterstitialAdActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:name="com.smaato.sdk.core.browser.SmaatoSdkBrowserActivity"/>
+        <provider android:authorities="wp.wpbeta.smaato-lifecycle-process" android:exported="false" android:name="com.smaato.sdk.core.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="29"/>
+    </application>
+</manifest>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.openvacs.android.roaming" platformBuildVersionCode="19" platformBuildVersionName="4.4.2-1456859">
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
+    <uses-permission android:name="android.permission.UPDATE_DEVICE_STATS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.CALL_PRIVILEGED"/>
+    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE"/>
+    <permission android:name="com.openvacs.android.roaming.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.openvacs.android.roaming.permission.MAPS_RECEIVE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <permission android:name="com.openvacs.android.roaming.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.openvacs.android.roaming.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true"/>
+    <application android:allowBackup="true" android:debuggable="false" android:hardwareAccelerated="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:name="OTORoamingApplication" android:theme="@style/AppTheme">
+        <activity android:name="com.openvacs.android.roaming.activity.EmptyActivity" android:theme="@style/noAnimTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="com.openvacs.android.roaming" android:scheme="otoroaming"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.openvacs.android.roaming.activity.LoadingActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.openvacs.android.roaming.activity.MainActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.openvacs.android.roaming.activity.CallLogActivity" android:screenOrientation="portrait" android:theme="@style/CustomTitleTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.openvacs.android.roaming.activity.ContactActivity" android:screenOrientation="portrait" android:theme="@style/CustomTitleTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.openvacs.android.roaming.activity.DialActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.openvacs.android.roaming.activity.RegistActivity" android:screenOrientation="portrait" android:theme="@style/CustomTitleTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.openvacs.android.roaming.activity.TermsActivity" android:screenOrientation="portrait" android:theme="@style/CustomTitleTheme"/>
+        <activity android:name="com.openvacs.android.roaming.activity.UsedActivity" android:screenOrientation="portrait" android:theme="@style/CustomTitleTheme"/>
+        <activity android:name="com.openvacs.android.roaming.activity.WarningsAndPayInfoActivity" android:screenOrientation="portrait" android:theme="@style/CustomTitleTheme"/>
+        <activity android:name="com.openvacs.android.roaming.activity.SettingsActivity" android:screenOrientation="portrait" android:theme="@style/CustomTitleTheme"/>
+        <activity android:name="com.openvacs.android.roaming.activity.CountrySelectActivity" android:screenOrientation="portrait" android:theme="@style/CustomTitleTheme"/>
+        <activity android:name="com.openvacs.android.roaming.activity.InputSerialNumberActivity" android:screenOrientation="portrait" android:theme="@style/CustomTitleTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.openvacs.android.roaming.activity.VoiceQuality" android:screenOrientation="portrait" android:theme="@style/CustomTitleTheme"/>
+        <activity android:name="com.openvacs.android.roaming.activity.ChangeInboundInfoActivity" android:screenOrientation="portrait" android:theme="@style/CustomTitleTheme"/>
+        <activity android:name="com.openvacs.android.roaming.activity.ChargeWebView" android:screenOrientation="portrait" android:theme="@style/CustomTitleTheme"/>
+        <activity android:name="com.openvacs.android.roaming.activity.ConfirmMyCreditActivity" android:screenOrientation="portrait" android:theme="@style/CustomTitleTheme"/>
+        <activity android:name="com.openvacs.android.roaming.activity.PossibleUsedCountryActivity" android:screenOrientation="portrait" android:theme="@style/CustomTitleTheme"/>
+        <activity android:name="com.openvacs.android.roaming.activity.QNAListActivity" android:screenOrientation="portrait" android:theme="@style/CustomTitleTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.openvacs.android.roaming.activity.QNAListDetailActivity" android:screenOrientation="portrait" android:theme="@style/CustomTitleTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.openvacs.android.roaming.activity.CommonWebView" android:screenOrientation="portrait" android:theme="@style/CustomTitleTheme"/>
+        <activity android:name="com.openvacs.android.roaming.activity.UserKillActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.openvacs.android.roaming.activity.ServiceSetting" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:name="com.openvacs.android.roaming.activity.PromotionWebView" android:screenOrientation="portrait" android:theme="@style/CustomTitleTheme"/>
+        <activity android:name="com.openvacs.android.roaming.activity.IntroActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.openvacs.android.roaming.activity.ManualWebView" android:screenOrientation="portrait" android:theme="@style/CustomTitleTheme"/>
+        <activity android:launchMode="singleTask" android:name="com.openvacs.android.roaming.activity.PollingSettingActivity" android:screenOrientation="portrait" android:theme="@style/CustomTitleTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.openvacs.android.roaming.activity.inbound.CallingActivity" android:screenOrientation="portrait" android:taskAffinity="com.openvacs.android.roaming.activity.MainActivity" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.openvacs.android.roaming.activity.mvoip.MvoipCalling" android:screenOrientation="portrait" android:taskAffinity="com.openvacs.android.roaming.activity.MainActivity" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <receiver android:name="com.google.android.gcm.GCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.openvacs.android.roaming"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.openvacs.android.roaming.GCMIntentService"/>
+        <service android:name="com.openvacs.android.roaming.service.RoamingService"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.openvacs.android.roaming.receiver.ServiceRestartReceiver" android:process=":remote">
+            <intent-filter>
+                <action android:name="ACTION.RESTART.OTORoaming"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.callgate.launcher.FccReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.openvacs.android.otog"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.callgate.launcher.view.LauncherView" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.callgate.launcher.view.LauncherWebView" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.callgate.launcher.fcc.FCCServicePopUp" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:name="com.callgate.launcher.NotificationReceiver"/>
+        <service android:name="com.callgate.launcher.FCCIntentService"/>
+    </application>
+</manifest>

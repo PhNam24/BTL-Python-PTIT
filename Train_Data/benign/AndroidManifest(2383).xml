@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.qodeSter.global.dsp">
+    <application android:debuggable="false" android:icon="@drawable/icon" android:installLocation="auto" android:label="@string/app_name" android:largeHeap="true" android:theme="@style/MyCustomTheme">
+        <activity android:label="@string/app_name" android:name="com.facebook.LoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:finishOnTaskLaunch="true" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.qodeSter.global.dsp.Preferences" android:theme="@style/Theme.Sherlock"/>
+        <activity android:launchMode="singleTask" android:name="com.qodeSter.global.dsp.SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <service android:name="BoomServiceX"/>
+        <receiver android:name="com.qodeSter.global.dsp.AddOnBroadcaster">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_INSTALL"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <action android:name="android.intent.action.PACKAGE_RESTARTED"/>
+                <action android:name="android.intent.action.PACKAGE_CHANGED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <action android:name="android.intent.action.PACKAGE_DATA_CLEARED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.qodeSter.global.dsp.About" android:screenOrientation="unspecified" android:theme="@style/Theme.Sherlock"/>
+        <activity android:name="com.qodeSter.global.dsp.Help" android:screenOrientation="portrait" android:theme="@style/Theme.Sherlock"/>
+        <activity android:finishOnTaskLaunch="true" android:launchMode="singleInstance" android:name="com.qodeSter.global.dsp.LockScreen" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/Theme.Transparent"/>
+        <activity android:finishOnTaskLaunch="true" android:launchMode="singleInstance" android:name="com.qodeSter.global.dsp.LockScreen_Intent" android:noHistory="true" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <meta-data android:name="ADMOB_PUBLISHER_ID" android:value="a14d38ef30b9f60"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden" android:finishOnTaskLaunch="true" android:launchMode="singleInstance" android:name="com.qodeSter.global.dsp.Effects" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation" android:finishOnTaskLaunch="true" android:launchMode="singleTask" android:name="com.qodeSter.global.dsp.GraphicEQ_Options" android:theme="@style/GraphicEQTheme">
+            <intent-filter>
+                <action android:name="android.media.action.DISPLAY_AUDIO_EFFECT_CONTROL_PANEL"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.CATEGORY_CONTENT_MUSIC"/>
+            </intent-filter>
+        </activity>
+        <activity android:clearTaskOnLaunch="true" android:launchMode="singleInstance" android:name="com.qodeSter.global.dsp.AdsScreen" android:noHistory="true" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:clearTaskOnLaunch="true" android:launchMode="singleInstance" android:name="com.qodeSter.global.dsp.AdsCrossPromo" android:noHistory="true" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:name="com.qodeSter.global.dsp.GlobalAlarmReceiver"/>
+        <service android:name=".Input_Service" android:permission="android.permission.BIND_INPUT_METHOD">
+            <intent-filter>
+                <action android:name="android.view.InputMethod"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.ads.AdActivity"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.qodeSter.global.media.receivers.AndroidMusicReceiver">
+            <intent-filter>
+                <action android:name="com.android.music.metachanged"/>
+                <action android:name="com.android.music.playstatechanged"/>
+                <action android:name="com.android.music.playbackcomplete"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.qodeSter.global.media.receivers.HTCMusicReceiver">
+            <intent-filter>
+                <action android:name="com.htc.music.metachanged"/>
+                <action android:name="com.htc.music.playstatechanged"/>
+                <action android:name="com.htc.music.playbackcomplete"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.qodeSter.global.media.receivers.SEMCMusicReceiver">
+            <intent-filter>
+                <action android:name="com.sonyericsson.music.playbackcontrol.ACTION_TRACK_STARTED"/>
+                <action android:name="com.sonyericsson.music.playbackcontrol.ACTION_PAUSED"/>
+                <action android:name="com.sonyericsson.music.TRACK_COMPLETED"/>
+                <action android:name="com.sonyericsson.music.metachanged"/>
+                <action android:name="com.sonyericsson.music.playstatechanged"/>
+                <action android:name="com.sonyericsson.music.playbackcomplete"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.qodeSter.global.media.receivers.MIUIMusicReceiver">
+            <intent-filter>
+                <action android:name="com.miui.player.metachanged"/>
+                <action android:name="com.miui.player.playbackcomplete"/>
+                <action android:name="com.miui.player.playstatechanged"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.qodeSter.global.media.receivers.WinampMusicReceiver">
+            <intent-filter>
+                <action android:name="com.nullsoft.winamp.metachanged"/>
+                <action android:name="com.nullsoft.winamp.playbackcomplete"/>
+                <action android:name="com.nullsoft.winamp.playstatechanged"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.qodeSter.global.media.receivers.MyTouch4GMusicReceiver">
+            <intent-filter>
+                <action android:name="com.real.IMP.metachanged"/>
+                <action android:name="com.real.IMP.playbackcomplete"/>
+                <action android:name="com.real.IMP.playstatechanged"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.qodeSter.global.media.receivers.SamsungMusicReceiver">
+            <intent-filter>
+                <action android:name="com.samsung.sec.android.MusicPlayer.metachanged"/>
+                <action android:name="com.samsung.sec.android.MusicPlayer.playbackcomplete"/>
+                <action android:name="com.samsung.sec.android.MusicPlayer.playstatechanged"/>
+                <action android:name="com.samsung.music.metachanged"/>
+                <action android:name="com.samsung.music.playbackcomplete"/>
+                <action android:name="com.samsung.music.playstatechanged"/>
+                <action android:name="com.samsung.sec.metachanged"/>
+                <action android:name="com.samsung.sec.playbackcomplete"/>
+                <action android:name="com.samsung.sec.playstatechanged"/>
+                <action android:name="com.samsung.sec.android.metachanged"/>
+                <action android:name="com.samsung.sec.android.playbackcomplete"/>
+                <action android:name="com.samsung.sec.android.playstatechanged"/>
+                <action android:name="com.samsung.MusicPlayer.metachanged"/>
+                <action android:name="com.samsung.MusicPlayer.playbackcomplete"/>
+                <action android:name="com.samsung.MusicPlayer.playstatechanged"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="EffectReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.ironsource.mobilcore.MobileCoreReport" android:process=":mcServiceProcess"/>
+        <receiver android:enabled="true" android:name="com.ironsource.mobilcore.InstallationTracker" android:process=":installationTracker"/>
+        <meta-data android:name="_screenid_std" android:value="621762850"/>
+        <meta-data android:name="_screenid_med" android:value="846888886"/>
+        <meta-data android:name="_screenid_lrg" android:value="875091682"/>
+        <meta-data android:name="_screenid_xlrg" android:value="649343454"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/app_id"/>
+    </application>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.RAISED_THREAD_PRIORITY"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+</manifest>

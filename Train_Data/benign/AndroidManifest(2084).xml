@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.easemytrip.android">
+    <uses-permission android:name="com.easemytrip.android.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="com.google.android.c2dm.cc.RECEIVE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <permission android:name="com.easemytrip.android.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.easemytrip.android.permission.MAPS_RECEIVE"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera" android:required="true"/>
+    <uses-feature android:name="android.permission.READ_PHONE_STATE" android:required="false"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <meta-data android:name="android.support.VERSION" android:value="25.3.1"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="com.easemytrip.android.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <application android:allowBackup="false" android:clearTaskOnLaunch="true" android:fullBackupContent="false" android:icon="@drawable/emt_logo_no_text_winter" android:label="@string/app_name" android:largeHeap="true" android:launchMode="singleInstance" android:name="com.easemytrip.common.EMTApplication" android:supportsRtl="true" android:theme="@style/AppBaseTheme">
+        <meta-data android:name="com.android.systemui.action_assist_icon" android:resource="@mipmap/ic_launcher"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="@string/google_maps_key"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.flight.activity.SplashScreenActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.easemytrip.com" android:scheme="https"/>
+                <data android:host="www.easemytrip.com" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter android:label="EaseMyTrip">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="SplashScreenActivity" android:scheme="easemytrip"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="9dd84f26ced175db83b1960d6ae20edb39c152fc"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.bus.activity.OneWayActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.bus.activity.BusSearchCityActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.cabs.Activity.CabSearchCityActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.hotel_new.activity.MoreRoomsListActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.hotel_new.activity.FullScreenImageActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.login.GuestBookingActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat" android:windowSoftInputMode="stateHidden"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.bus.activity.SelectBoardingPointActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.bus.activity.DropPointActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.bus.activity.SeatSelectorActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.bus.activity.BoardingPointActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.bus.activity.BusOperatorsActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.bus.activity.CouponDealActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.bus.activity.BusFilterActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.common.activity.CouponListActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.bus.activity.BusFareRuleActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.bus.activity.BusReviewActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.bus.activity.TimesSquareActivity_New" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.flight.TimesSquareActivity_Calender" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.custom_calendar.CalendarMainActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.custom_calendar.CalendarStatusActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.my_booking.bus.activity.BusETicketActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.my_booking.bus.activity.BusCancelBooking" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat" android:windowSoftInputMode="stateHidden"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.easemytrip.pushnotification.EMTBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.appsflyer.MultipleInstallBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.common.activity.OfferActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat">
+            <intent-filter android:label="testing">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="OfferActivity" android:scheme="easemytrip"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.common.activity.OfferActivitySearch" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.common.activity.OfferActivity_SearchEngine" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.login.OTPActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat" android:windowSoftInputMode="stateHidden"/>
+        <provider android:authorities="com.easemytrip.android.provider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <receiver android:exported="true" android:name="com.google.android.gms.analytics.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.flight.activity.FlightFareRuleActivityNew" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.flight.activity.MultiCityListingActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="com.easemytrip.common.activity.BaseSearchActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.flight.activity.SearchAirportActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.flight.activity.StatusAirportActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.flight.activity.SearchAirlineActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.flight.activity.RecentSearchActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/APP_ID"/>
+        <provider android:authorities="com.facebook.app.FacebookContentProvider926466540728084" android:exported="true" android:name="com.facebook.FacebookContentProvider"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.flight.activity.FlightListOneWay" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.cabs.Activity.CabListOneWay" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.flight.activity.ScanActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.flight.activity.TicketResultActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.flight.activity.WebCheckinActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.flight.activity.FlightListRoundTrip" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.flight.activity.FlightFilterActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:allowTaskReparenting="true" android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.amazon.pwain.sdk.PWAINActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <data android:host="amazonpay.amazon.in" android:path="/com.easemytrip.android" android:scheme="amzn"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.flight.activity.FlightReviewDetail" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.flight.activity.StatusDetail" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.flight.activity.OnClickBookingReveiw" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.login.SignUpActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.login.MyProfileActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.common.activity.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.common.activity.HelpSupport" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.common.activity.RateUs" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.payment.ThankYouNew" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.common.ViewTicket" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.hotel_new.activity.HotelListingActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.hotel_new.activity.HotelDetailsActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.hotel_new.activity.HotelFilterActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.common.activity.CommonWebActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.train.TrainWebViewActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.common.activity.CommonWebPDFActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.common.activity.CommonWebHotelActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.flight.activity.InsuranceConditionActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.payment.PaymentGateway" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.flight.activity.Addons" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.payment.PaymentGateWayNext" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.hotel_new.activity.HotelListMapActvity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.easemytrip.hotel_new.activity.HotelListingActivity"/>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.hotel_new.activity.HotelTypeActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.hotel_new.activity.AmenityActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.hotel_new.activity.LocationActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.hotel_new.activity.HotelSearchCityActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.common.activity.CommonWebView" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.hotel_new.activity.SortByActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.hotel_new.activity.HotelTravellerActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.common.ShareActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.cabs.Activity.CabTravellerActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.login.LoginActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.payment.PaymentCardView" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.hotel_new.activity.AttractionLocationActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.my_booking.hotel.activity.HotelCancellationRequestActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.my_booking.hotel.activity.HotelETicketActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.my_booking.all.activity.MyBookingActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.my_booking.all.activity.QuickPayActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.payment.CardAdd" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.hotel_new.activity.HotelCouponCodeListActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.my_booking.flight.activity.FlightETicketActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.my_booking.flight.activity.FlightCancelBookingSelectActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.my_booking.flight.activity.ReschduleBookingSelectActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.my_booking.flight.activity.FlightCancelBookingRefundActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.my_booking.flight.activity.FlightCancelBookingConfirmationActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.my_booking.flight.activity.RescheduleBookingConfirmationActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.flight.CalendarView" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.flight.activity.IntOneWayListActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.flight.activity.InternationalRoundTrip" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.flight.activity.InternationalRoundTripNew" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.flight.activity.InternationalRoundTripOption" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.chat.CreateFeed" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.chat.FeedCommentActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.chat.FeedMain" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.NoActionBar" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.soundcloud.android.crop.CropImageActivity"/>
+        <activity android:name="com.easemytrip.chat.MyImageSelectActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name="com.easemytrip.chat.MyAlbumSelectActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="com.darsh.multipleimageselect.activities.AlbumSelectActivity" android:theme="@style/MultipleImageSelectTheme">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.chat.ChatActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.chat.OneOnOneBluetoothChatActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.easemytrip.chat.SignInFeed" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.NoActionBar" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.holiday.activity.SendQueryActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat" android:windowSoftInputMode="stateHidden"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.easemytrip.android"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:label="@string/app_name" android:name="com.easemytrip.flight.activity.EditTravellerInfoActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeCompat" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <provider android:authorities="com.easemytrip.android.crashlyticsinitprovider" android:exported="false" android:initOrder="100" android:name="com.crashlytics.android.CrashlyticsInitProvider"/>
+        <service android:exported="true" android:name="in.netcore.smartechfcm.Registration" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="in.netcore.smartechfcm.FirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="in.netcore.smartechfcm.FirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:exported="true" android:name="in.netcore.smartechfcm.StateListener"/>
+        <receiver android:name="in.netcore.smartechfcm.carousel.CarouselEventReceiver"/>
+        <receiver android:directBootAware="true" android:exported="false" android:name="in.netcore.smartechfcm.receiver.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="android.intent.action.REBOOT"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="in.netcore.smartechfcm.amplifier.PushAmpService">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.firebase.jobdispatcher.GooglePlayReceiver" android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE">
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="com.darsh.multipleimageselect.activities.ImageSelectActivity" android:theme="@style/MultipleImageSelectTheme">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:name="com.facebook.CustomTabActivity"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:excludeFromRecents="true" android:exported="true" android:launchMode="singleInstance" android:name="com.google.firebase.auth.internal.FederatedSignInActivity" android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.easemytrip.android.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <provider android:authorities="com.easemytrip.android.MarketingInitProvider" android:exported="false" android:name="com.facebook.marketing.internal.MarketingInitProvider"/>
+        <provider android:authorities="com.easemytrip.android.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

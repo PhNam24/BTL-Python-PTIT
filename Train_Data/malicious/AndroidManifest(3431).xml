@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" package="com.qiutinghe.celiang" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="com.stub.StubApp" android:roundIcon="@mipmap/ic_launcher" android:supportsRtl="true" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <meta-data android:name="com.amap.api.v2.apikey" android:value="ab95b129833dd8e77eadc7c06e829942"/>
+        <service android:name="com.amap.api.location.APSService"/>
+        <provider android:authorities="com.qiutinghe.celiang.downloadProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.fanghe.measure.update.DownloadProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/download_file_paths"/>
+        </provider>
+        <activity android:name="com.fanghe.measure.ui.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.fanghe.measure.ui.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.fanghe.measure.ui.AboutUsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.fanghe.measure.ui.SettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.fanghe.measure.ui.FeedBackActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.fanghe.measure.ui.RulerActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.fanghe.measure.ui.ProtractorActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.fanghe.measure.ui.ProtractorActivity2" android:screenOrientation="portrait"/>
+        <activity android:name="com.fanghe.measure.ui.DecibelActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.fanghe.measure.ui.ConvertAreaActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.fanghe.measure.ui.ConvertBulkActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.fanghe.measure.ui.ConvertLengthActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.fanghe.measure.ui.ConvertWeightActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.fanghe.measure.ui.DistanceActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.fanghe.measure.ui.DistanceGuideActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.fanghe.measure.ui.DistanceDataActivity" android:screenOrientation="portrait"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="oppo"/>
+        <activity android:name="com.thl.thl_advertlibrary.activity.Fhad_WebPageActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="ssl.ptlogin2.qq.com" android:path="/jump" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <receiver android:enabled="true" android:exported="true" android:name="com.thl.thl_advertlibrary.downloadhelper.DownloadReceiver">
+            <intent-filter>
+                <action android:name="DownloadManager.ACTION_DOWNLOAD_COMPLETE"/>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+                <action android:name="android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.qiutinghe.celiang.downloadhelper.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.thl.thl_advertlibrary.downloadhelper.DownloadProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/fhad_download_provider"/>
+        </provider>
+        <provider android:authorities="com.qiutinghe.celiang.TTFileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.bytedance.sdk.openadsdk.TTFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/fhad_ttad_provider"/>
+        </provider>
+        <provider android:authorities="com.qiutinghe.celiang.TTMultiProvider" android:exported="false" android:name="com.bytedance.sdk.openadsdk.multipro.TTMultiProvider"/>
+        <service android:name="com.ss.android.socialbase.downloader.notification.DownloadNotificationService"/>
+        <service android:name="com.ss.android.socialbase.downloader.downloader.DownloadService"/>
+        <service android:name="com.ss.android.socialbase.downloader.downloader.IndependentProcessDownloadService" android:process=":downloader">
+            <intent-filter>
+                <action android:name="com.ss.android.socialbase.downloader.remote"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.ss.android.socialbase.downloader.impls.DownloadHandleService"/>
+        <service android:enabled="true" android:exported="true" android:name="com.ss.android.socialbase.downloader.impls.RetryJobSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.ss.android.socialbase.downloader.downloader.SqlDownloadCacheService"/>
+        <service android:name="com.ss.android.socialbase.appdownloader.DownloadHandlerService"/>
+        <activity android:launchMode="singleTask" android:name="com.ss.android.socialbase.appdownloader.view.DownloadTaskDeleteActivity" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:launchMode="singleTask" android:name="com.ss.android.socialbase.appdownloader.view.JumpUnknownSourceActivity" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:launchMode="singleTask" android:name="com.ss.android.downloadlib.activity.TTDelegateActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:name="com.ss.android.downloadlib.core.download.DownloadReceiver"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="standard" android:name="com.bytedance.sdk.openadsdk.activity.TTLandingPageActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="standard" android:name="com.bytedance.sdk.openadsdk.activity.TTPlayableLandingPageActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="standard" android:name="com.bytedance.sdk.openadsdk.activity.TTVideoLandingPageActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="standard" android:name="com.bytedance.sdk.openadsdk.activity.TTRewardVideoActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="standard" android:name="com.bytedance.sdk.openadsdk.activity.TTRewardExpressVideoActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="standard" android:name="com.bytedance.sdk.openadsdk.activity.TTFullScreenVideoActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="standard" android:name="com.bytedance.sdk.openadsdk.activity.TTFullScreenExpressVideoActivity"/>
+        <activity android:launchMode="singleTask" android:name="com.bytedance.sdk.openadsdk.activity.TTDelegateActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:name="com.bytedance.sdk.openadsdk.multipro.aidl.BinderPoolService"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.bytedance.embedapplog.collector.Collector"/>
+        <service android:name="com.bytedance.tea.crash.upload.CrashUploadService" android:process=":npth"/>
+        <provider android:authorities="com.qiutinghe.celiang.com.mob.MobProvider" android:exported="false" android:multiprocess="true" android:name="com.mob.MobProvider"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mob.tools.MobUIShell" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <meta-data android:name="TD_CHANNEL_ID" android:value="oppo"/>
+    </application>
+</manifest>

@@ -1,0 +1,845 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" package="com.catawiki2" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <permission android:name="com.catawiki2.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.catawiki2.permission.C2D_MESSAGE"/>
+    <queries>
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.GET_CONTENT"/>
+            <data android:mimeType="*/*"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.SEND"/>
+            <data android:mimeType="*/*"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="https"/>
+        </intent>
+    </queries>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="false"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <permission android:name="android.permission.MEDIA_CONTENT_CONTROL"/>
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:icon="@mipmap/ic_launcher" android:isSplitRequired="true" android:label="@string/app_name" android:largeHeap="true" android:name="com.catawiki2.App" android:requestLegacyExternalStorage="true" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/Theme.Catawiki">
+        <meta-data android:name="android.app.default_searchable" android:value="com.catawiki2.activity.MainActivity"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <activity android:label="@string/app_name" android:name="com.catawiki2.activity.SplashActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Catawiki.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.SELECTED_ALTERNATIVE"/>
+                <data android:host="activate" android:scheme="CatawikiBidApp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="reset_password" android:scheme="CatawikiBidApp"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.catawiki2.activity.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan">
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+            <intent-filter>
+                <action android:name="CatawikiBidApp"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="profile" android:scheme="CatawikiBidApp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="auction" android:scheme="CatawikiBidApp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="lot" android:scheme="CatawikiBidApp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="closed_lot" android:scheme="CatawikiBidApp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="bid" android:scheme="CatawikiBidApp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="winner" android:scheme="CatawikiBidApp"/>
+                <data android:host="confirm_picked_up" android:scheme="CatawikiBidApp"/>
+                <data android:host="orders" android:scheme="CatawikiBidApp"/>
+                <data android:host="buyer-paid-orders" android:scheme="CatawikiBidApp"/>
+                <data android:host="payment" android:scheme="CatawikiBidApp"/>
+                <data android:host="payment-methods" android:scheme="CatawikiBidApp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="winner-profile" android:scheme="CatawikiBidApp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="favorites" android:scheme="CatawikiBidApp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="allauctions" android:scheme="CatawikiBidApp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="home" android:scheme="CatawikiBidApp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="search_alert" android:scheme="CatawikiBidApp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="mobile_search" android:scheme="CatawikiBidApp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="payout_profile" android:scheme="CatawikiBidApp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https"/>
+                <data android:host="*catawiki.com"/>
+                <data android:host="*catawiki.cn"/>
+                <data android:host="*catawiki.hk"/>
+                <data android:host="*catawiki.nl"/>
+                <data android:host="*catawiki.de"/>
+                <data android:host="*catawiki.eu"/>
+                <data android:host="*catawiki.fr"/>
+                <data android:host="*catawiki.it"/>
+                <data android:host="*catawiki.es"/>
+                <data android:host="*catawiki.pt"/>
+                <data android:host="*catawiki.gr"/>
+                <data android:host="*catawiki.dk"/>
+                <data android:host="*catawiki.se"/>
+                <data android:host="*catawiki.no"/>
+                <data android:host="*catawiki.fi"/>
+                <data android:host="*catawiki.pl"/>
+                <data android:host="*catawiki.hu"/>
+                <data android:host="*catawiki.ro"/>
+                <data android:host="@string/adjust_attribution_deeplink_host"/>
+                <data android:pathPattern="/l/.*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https"/>
+                <data android:host="*catawiki.com"/>
+                <data android:pathPattern="/en/l/.*"/>
+                <data android:pathPattern="/nl/l/.*"/>
+                <data android:pathPattern="/fr/l/.*"/>
+                <data android:pathPattern="/de/l/.*"/>
+                <data android:pathPattern="/it/l/.*"/>
+                <data android:pathPattern="/es/l/.*"/>
+                <data android:pathPattern="/zh-Hans/l/.*"/>
+                <data android:pathPattern="/zh-Hant/l/.*"/>
+                <data android:pathPattern="/hk/l/.*"/>
+                <data android:pathPattern="/pt/l/.*"/>
+                <data android:pathPattern="/sv/l/.*"/>
+                <data android:pathPattern="/da/l/.*"/>
+                <data android:pathPattern="/pl/l/.*"/>
+                <data android:pathPattern="/no/l/.*"/>
+                <data android:pathPattern="/el/l/.*"/>
+                <data android:pathPattern="/hu/l/.*"/>
+                <data android:pathPattern="/ro/l/.*"/>
+                <data android:pathPattern="/fi/l/.*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https"/>
+                <data android:host="*catawiki.com"/>
+                <data android:host="*catawiki.cn"/>
+                <data android:host="*catawiki.hk"/>
+                <data android:host="*catawiki.nl"/>
+                <data android:host="*catawiki.de"/>
+                <data android:host="*catawiki.eu"/>
+                <data android:host="*catawiki.fr"/>
+                <data android:host="*catawiki.it"/>
+                <data android:host="*catawiki.es"/>
+                <data android:host="*catawiki.pt"/>
+                <data android:host="*catawiki.gr"/>
+                <data android:host="*catawiki.dk"/>
+                <data android:host="*catawiki.se"/>
+                <data android:host="*catawiki.no"/>
+                <data android:host="*catawiki.fi"/>
+                <data android:host="*catawiki.pl"/>
+                <data android:host="*catawiki.hu"/>
+                <data android:host="*catawiki.ro"/>
+                <data android:host="@string/adjust_attribution_deeplink_host"/>
+                <data android:pathPattern="/a/.*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https"/>
+                <data android:host="*catawiki.com"/>
+                <data android:pathPattern="/en/a/.*"/>
+                <data android:pathPattern="/nl/a/.*"/>
+                <data android:pathPattern="/fr/a/.*"/>
+                <data android:pathPattern="/de/a/.*"/>
+                <data android:pathPattern="/it/a/.*"/>
+                <data android:pathPattern="/es/a/.*"/>
+                <data android:pathPattern="/zh-Hans/a/.*"/>
+                <data android:pathPattern="/zh-Hant/a/.*"/>
+                <data android:pathPattern="/hk/a/.*"/>
+                <data android:pathPattern="/pt/a/.*"/>
+                <data android:pathPattern="/sv/a/.*"/>
+                <data android:pathPattern="/da/a/.*"/>
+                <data android:pathPattern="/pl/a/.*"/>
+                <data android:pathPattern="/no/a/.*"/>
+                <data android:pathPattern="/el/a/.*"/>
+                <data android:pathPattern="/hu/a/.*"/>
+                <data android:pathPattern="/ro/a/.*"/>
+                <data android:pathPattern="/fi/a/.*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https"/>
+                <data android:host="*catawiki.com"/>
+                <data android:host="*catawiki.cn"/>
+                <data android:host="*catawiki.hk"/>
+                <data android:host="*catawiki.nl"/>
+                <data android:host="*catawiki.de"/>
+                <data android:host="*catawiki.eu"/>
+                <data android:host="*catawiki.it"/>
+                <data android:host="*catawiki.es"/>
+                <data android:host="*catawiki.pt"/>
+                <data android:host="*catawiki.gr"/>
+                <data android:host="*catawiki.dk"/>
+                <data android:host="*catawiki.se"/>
+                <data android:host="*catawiki.no"/>
+                <data android:host="*catawiki.fi"/>
+                <data android:host="*catawiki.pl"/>
+                <data android:host="*catawiki.hu"/>
+                <data android:host="*catawiki.ro"/>
+                <data android:pathPattern="/accounts/emails/confirmations/.*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https"/>
+                <data android:host="*catawiki.com"/>
+                <data android:pathPattern="/en/accounts/emails/confirmations/.*"/>
+                <data android:pathPattern="/nl/accounts/emails/confirmations/.*"/>
+                <data android:pathPattern="/fr/accounts/emails/confirmations/.*"/>
+                <data android:pathPattern="/de/accounts/emails/confirmations/.*"/>
+                <data android:pathPattern="/it/accounts/emails/confirmations/.*"/>
+                <data android:pathPattern="/es/accounts/emails/confirmations/.*"/>
+                <data android:pathPattern="/zh-Hans/accounts/emails/confirmations/.*"/>
+                <data android:pathPattern="/zh-Hant/accounts/emails/confirmations/.*"/>
+                <data android:pathPattern="/hk/accounts/emails/confirmations/.*"/>
+                <data android:pathPattern="/pt/accounts/emails/confirmations/.*"/>
+                <data android:pathPattern="/sv/accounts/emails/confirmations/.*"/>
+                <data android:pathPattern="/da/accounts/emails/confirmations/.*"/>
+                <data android:pathPattern="/pl/accounts/emails/confirmations/.*"/>
+                <data android:pathPattern="/no/accounts/emails/confirmations/.*"/>
+                <data android:pathPattern="/el/accounts/emails/confirmations/.*"/>
+                <data android:pathPattern="/hu/accounts/emails/confirmations/.*"/>
+                <data android:pathPattern="/ro/accounts/emails/confirmations/.*"/>
+                <data android:pathPattern="/fi/accounts/emails/confirmations/.*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https"/>
+                <data android:host="*catawiki.com"/>
+                <data android:host="*catawiki.cn"/>
+                <data android:host="*catawiki.hk"/>
+                <data android:host="*catawiki.nl"/>
+                <data android:host="*catawiki.de"/>
+                <data android:host="*catawiki.eu"/>
+                <data android:host="*catawiki.it"/>
+                <data android:host="*catawiki.es"/>
+                <data android:host="*catawiki.pt"/>
+                <data android:host="*catawiki.gr"/>
+                <data android:host="*catawiki.dk"/>
+                <data android:host="*catawiki.se"/>
+                <data android:host="*catawiki.no"/>
+                <data android:host="*catawiki.fi"/>
+                <data android:host="*catawiki.pl"/>
+                <data android:host="*catawiki.hu"/>
+                <data android:host="*catawiki.ro"/>
+                <data android:pathPattern="/s/.*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https"/>
+                <data android:host="*catawiki.com"/>
+                <data android:pathPattern="/en/s/.*"/>
+                <data android:pathPattern="/nl/s/.*"/>
+                <data android:pathPattern="/fr/s/.*"/>
+                <data android:pathPattern="/de/s/.*"/>
+                <data android:pathPattern="/it/s/.*"/>
+                <data android:pathPattern="/es/s/.*"/>
+                <data android:pathPattern="/zh-Hans/s/.*"/>
+                <data android:pathPattern="/zh-Hant/s/.*"/>
+                <data android:pathPattern="/hk/s/.*"/>
+                <data android:pathPattern="/pt/s/.*"/>
+                <data android:pathPattern="/sv/s/.*"/>
+                <data android:pathPattern="/da/s/.*"/>
+                <data android:pathPattern="/pl/s/.*"/>
+                <data android:pathPattern="/no/s/.*"/>
+                <data android:pathPattern="/el/s/.*"/>
+                <data android:pathPattern="/hu/s/.*"/>
+                <data android:pathPattern="/ro/s/.*"/>
+                <data android:pathPattern="/fi/s/.*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https"/>
+                <data android:host="*catawiki.com"/>
+                <data android:host="*catawiki.cn"/>
+                <data android:host="*catawiki.hk"/>
+                <data android:host="*catawiki.nl"/>
+                <data android:host="*catawiki.de"/>
+                <data android:host="*catawiki.eu"/>
+                <data android:host="*catawiki.it"/>
+                <data android:host="*catawiki.es"/>
+                <data android:host="*catawiki.pt"/>
+                <data android:host="*catawiki.gr"/>
+                <data android:host="*catawiki.dk"/>
+                <data android:host="*catawiki.se"/>
+                <data android:host="*catawiki.no"/>
+                <data android:host="*catawiki.fi"/>
+                <data android:host="*catawiki.pl"/>
+                <data android:host="*catawiki.hu"/>
+                <data android:host="*catawiki.ro"/>
+                <data android:path="/seller/overview"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https"/>
+                <data android:host="*catawiki.com"/>
+                <data android:pathPattern="/en/seller/overview"/>
+                <data android:pathPattern="/nl/seller/overview"/>
+                <data android:pathPattern="/fr/seller/overview"/>
+                <data android:pathPattern="/de/seller/overview"/>
+                <data android:pathPattern="/it/seller/overview"/>
+                <data android:pathPattern="/es/seller/overview"/>
+                <data android:pathPattern="/zh-Hans/seller/overview"/>
+                <data android:pathPattern="/zh-Hant/seller/overview"/>
+                <data android:pathPattern="/hk/seller/overview"/>
+                <data android:pathPattern="/pt/seller/overview"/>
+                <data android:pathPattern="/sv/seller/overview"/>
+                <data android:pathPattern="/da/seller/overview"/>
+                <data android:pathPattern="/pl/seller/overview"/>
+                <data android:pathPattern="/no/seller/overview"/>
+                <data android:pathPattern="/el/seller/overview"/>
+                <data android:pathPattern="/hu/seller/overview"/>
+                <data android:pathPattern="/ro/seller/overview"/>
+                <data android:pathPattern="/fi/seller/overview"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https"/>
+                <data android:host="*catawiki.com"/>
+                <data android:host="*catawiki.cn"/>
+                <data android:host="*catawiki.hk"/>
+                <data android:host="*catawiki.nl"/>
+                <data android:host="*catawiki.de"/>
+                <data android:host="*catawiki.eu"/>
+                <data android:host="*catawiki.it"/>
+                <data android:host="*catawiki.es"/>
+                <data android:host="*catawiki.pt"/>
+                <data android:host="*catawiki.gr"/>
+                <data android:host="*catawiki.dk"/>
+                <data android:host="*catawiki.se"/>
+                <data android:host="*catawiki.no"/>
+                <data android:host="*catawiki.fi"/>
+                <data android:host="*catawiki.pl"/>
+                <data android:host="*catawiki.hu"/>
+                <data android:host="*catawiki.ro"/>
+                <data android:path="/seller/lot"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https"/>
+                <data android:host="*catawiki.com"/>
+                <data android:pathPattern="/en/seller/lot"/>
+                <data android:pathPattern="/nl/seller/lot"/>
+                <data android:pathPattern="/fr/seller/lot"/>
+                <data android:pathPattern="/de/seller/lot"/>
+                <data android:pathPattern="/it/seller/lot"/>
+                <data android:pathPattern="/es/seller/lot"/>
+                <data android:pathPattern="/zh-Hans/seller/lot"/>
+                <data android:pathPattern="/zh-Hant/seller/lot"/>
+                <data android:pathPattern="/hk/seller/lot"/>
+                <data android:pathPattern="/pt/seller/lot"/>
+                <data android:pathPattern="/sv/seller/lot"/>
+                <data android:pathPattern="/da/seller/lot"/>
+                <data android:pathPattern="/pl/seller/lot"/>
+                <data android:pathPattern="/no/seller/lot"/>
+                <data android:pathPattern="/el/seller/lot"/>
+                <data android:pathPattern="/hu/seller/lot"/>
+                <data android:pathPattern="/ro/seller/lot"/>
+                <data android:pathPattern="/fi/seller/lot"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https"/>
+                <data android:host="*catawiki.com"/>
+                <data android:host="*catawiki.cn"/>
+                <data android:host="*catawiki.hk"/>
+                <data android:host="*catawiki.nl"/>
+                <data android:host="*catawiki.de"/>
+                <data android:host="*catawiki.eu"/>
+                <data android:host="*catawiki.it"/>
+                <data android:host="*catawiki.es"/>
+                <data android:host="*catawiki.pt"/>
+                <data android:host="*catawiki.gr"/>
+                <data android:host="*catawiki.dk"/>
+                <data android:host="*catawiki.se"/>
+                <data android:host="*catawiki.no"/>
+                <data android:host="*catawiki.fi"/>
+                <data android:host="*catawiki.pl"/>
+                <data android:host="*catawiki.hu"/>
+                <data android:host="*catawiki.ro"/>
+                <data android:pathPattern="/seller/lots/.*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https"/>
+                <data android:host="*catawiki.com"/>
+                <data android:pathPattern="/en/seller/lots/.*"/>
+                <data android:pathPattern="/nl/seller/lots/.*"/>
+                <data android:pathPattern="/fr/seller/lots/.*"/>
+                <data android:pathPattern="/de/seller/lots/.*"/>
+                <data android:pathPattern="/it/seller/lots/.*"/>
+                <data android:pathPattern="/es/seller/lots/.*"/>
+                <data android:pathPattern="/zh-Hans/seller/lots/.*"/>
+                <data android:pathPattern="/zh-Hant/seller/lots/.*"/>
+                <data android:pathPattern="/hk/seller/lots/.*"/>
+                <data android:pathPattern="/pt/seller/lots/.*"/>
+                <data android:pathPattern="/sv/seller/lots/.*"/>
+                <data android:pathPattern="/da/seller/lots/.*"/>
+                <data android:pathPattern="/pl/seller/lots/.*"/>
+                <data android:pathPattern="/no/seller/lots/.*"/>
+                <data android:pathPattern="/el/seller/lots/.*"/>
+                <data android:pathPattern="/hu/seller/lots/.*"/>
+                <data android:pathPattern="/ro/seller/lots/.*"/>
+                <data android:pathPattern="/fi/seller/lots/.*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="catawikisell"/>
+                <data android:host="conversations"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="search" android:scheme="CatawikiBidApp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="category-details" android:scheme="CatawikiBidApp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="seller" android:scheme="CatawikiBidApp"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.catawiki.mobile.deeplink.DeepLinkingActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="catawikisell"/>
+                <data android:host="edit_lot"/>
+                <data android:host="view_lot"/>
+                <data android:host="lot_sold"/>
+                <data android:host="order_details"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.catawiki.seller.notification.CANCEL"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:host="email.catawiki.com"/>
+                <data android:host="email.catawiki.de"/>
+                <data android:host="email.catawiki.fr"/>
+                <data android:host="email.catawiki.be"/>
+                <data android:host="email.catawiki.nl"/>
+                <data android:host="email.catawiki.eu"/>
+                <data android:host="email.catawiki.cn"/>
+                <data android:host="email.catawiki.it"/>
+                <data android:host="email.catawiki.es"/>
+                <data android:host="email.catawiki.hk"/>
+                <data android:host="email.catawiki.pt"/>
+                <data android:host="email.catawiki.gr"/>
+                <data android:host="email.catawiki.dk"/>
+                <data android:host="email.catawiki.se"/>
+                <data android:host="email.catawiki.no"/>
+                <data android:host="email.catawiki.pl"/>
+                <data android:host="email.catawiki.hu"/>
+                <data android:host="email.catawiki.fi"/>
+                <data android:host="email.catawiki.ro"/>
+                <data android:path="/wf/click"/>
+                <data android:pathPattern="/uni/wf/.*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:host="email.catawiki.com"/>
+                <data android:path="/en/wf/click"/>
+                <data android:pathPattern="/en/uni/wf/.*"/>
+                <data android:path="/nl/wf/click"/>
+                <data android:pathPattern="/nl/uni/wf/.*"/>
+                <data android:path="/fr/wf/click"/>
+                <data android:pathPattern="/fr/uni/wf/.*"/>
+                <data android:path="/de/wf/click"/>
+                <data android:pathPattern="/de/uni/wf/.*"/>
+                <data android:path="/it/wf/click"/>
+                <data android:pathPattern="/it/uni/wf/.*"/>
+                <data android:path="/es/wf/click"/>
+                <data android:pathPattern="/es/uni/wf/.*"/>
+                <data android:path="/zh-Hans/wf/click"/>
+                <data android:pathPattern="/zh-Hans/uni/wf/.*"/>
+                <data android:path="/zh-Hant/wf/click"/>
+                <data android:pathPattern="/zh-Hant/uni/wf/.*"/>
+                <data android:path="/hk/wf/click"/>
+                <data android:pathPattern="/hk/uni/wf/.*"/>
+                <data android:path="/pt/wf/click"/>
+                <data android:pathPattern="/pt/uni/wf/.*"/>
+                <data android:path="/sv/wf/click"/>
+                <data android:pathPattern="/sv/uni/wf/.*"/>
+                <data android:path="/da/wf/click"/>
+                <data android:pathPattern="/da/uni/wf/.*"/>
+                <data android:path="/pl/wf/click"/>
+                <data android:pathPattern="/pl/uni/wf/.*"/>
+                <data android:path="/no/wf/click"/>
+                <data android:pathPattern="/no/uni/wf/.*"/>
+                <data android:path="/el/wf/click"/>
+                <data android:pathPattern="/el/uni/wf/.*"/>
+                <data android:path="/hu/wf/click"/>
+                <data android:pathPattern="/hu/uni/wf/.*"/>
+                <data android:path="/ro/wf/click"/>
+                <data android:pathPattern="/ro/uni/wf/.*"/>
+                <data android:path="/fi/wf/click"/>
+                <data android:pathPattern="/fi/uni/wf/.*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https"/>
+                <data android:host="mailing.catawiki.com"/>
+                <data android:host="service.catawiki.com"/>
+                <data android:path="/optiext/optiextension.dll"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.catawiki.mobile.adminconsole.experimentsconsole.ExperimentsConsoleActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.catawiki2.activity.AuctioneerDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.catawiki2.activity.LotActivity" android:parentActivityName="com.catawiki2.activity.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.catawiki2.activity.MainActivity"/>
+        </activity>
+        <activity android:name="com.catawiki.mobile.activities.lot.LotImageViewerActivity"/>
+        <activity android:label="@string/app_name" android:name="com.catawiki2.activity.OrderPaymentFlowActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/app_name" android:name="com.catawiki2.activity.PaidAuctionOrdersActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/app_name" android:name="com.catawiki.mobile.seller.center.SellerCenterActivity" android:parentActivityName="com.catawiki2.activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.catawiki.mobile.activities.seller.CountryNotSupportedActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.catawiki.mobile.activities.profile.ProfilePhoneDetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.catawiki.mobile.activities.profile.ProfileAddressDetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.catawiki.mobile.activities.profile.ProfileChangePasswordDetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.catawiki.mobile.activities.seller.lot.LotDetailsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.catawiki.mobile.messages.detail.OrderMessagesActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateUnchanged"/>
+        <activity android:label="@string/app_name" android:name="com.catawiki.mobile.supportedcountry.buyer.BuyerCountryNotSupportedActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.catawiki.mobile.tinder.TinderOnboardingActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.catawiki.mobile.shipment.detail.ShipmentDetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.catawiki.mobile.seller.lot.shippingcosts.ReduceLotShippingActivity" android:screenOrientation="behind" android:theme="@style/CardDialogTheme"/>
+        <activity android:label="@string/app_name" android:name="com.catawiki.mobile.seller.lot.reserveprice.ReduceReservePriceActivity" android:screenOrientation="behind" android:theme="@style/CardDialogTheme"/>
+        <activity android:name="com.catawiki.mobile.seller.lot.reoffer.ReofferLotActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.catawiki.mobile.seller.lot.reservepricenegotiation.ReservePriceNegotiationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.catawiki2.seller.start.SellerCenterStartActivity" android:theme="@style/CardDialogTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.catawiki.mobile.seller.order.BarcodeCaptureActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateUnchanged"/>
+        <activity android:label="@string/app_name" android:name="com.catawiki.mobile.buyer.order.feedback.OrderFeedbackActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/app_name" android:name="com.catawiki.mobile.buyer.order.feedback.EditOrderFeedbackActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/app_name" android:name="com.catawiki.mobile.seller.center.sales.SalesOverviewActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.catawiki.mobile.seller.center.statistic.SellerStatisticOverviewActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.catawiki.mobile.utils.AppNeedsUpdateActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:label="@string/app_name" android:name="com.catawiki.mobile.adminconsole.paymentsconsole.PaymentsConsoleActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.catawiki.mobile.expresslotsubmission.hybrid.ExpressLotSubmissionActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/app_name" android:name="com.catawiki.mobile.messages.ConversationListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.catawiki.mobile.expertprofiles.genericpage.GenericExpertDetailsActivity" android:screenOrientation="portrait"/>
+        <provider android:authorities="com.catawiki.mobile.sdk.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_provider_path"/>
+        </provider>
+        <provider android:authorities="com.catawiki2;com.catawiki.mobile.sdk" android:enabled="true" android:exported="false" android:name="com.catawiki.mobile.utils.DummyContentProvider"/>
+        <service android:name="com.catawiki2.service.CatawikiFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.catawiki2.receiver.CatawikiFirebaseInstanceIdService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.catawiki2.service.ClearObservableCacheJobService">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/ic_notification"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/brand_electric_blue"/>
+        <meta-data android:name="firebase_performance_logcat_enabled" android:value="false"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:name="com.catawiki2.buyer.lot.UnsupportedCountryDeliveryActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.catawiki2.buyer.lot.shipping.LotShippingCostsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.catawiki.buyer.order.detail.BuyerOrderDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.catawiki.buyer.order.detail.invoices.ReceiptWebPageActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.catawiki.seller.order.detail.SellerOrderDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.catawiki.seller.order.vat.EditVatDetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.catawiki.payments.paymentrequest.detail.PaymentRequestActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.catawiki.payments.payment.PaymentMethodSelectionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.catawiki.payments.payment.ideal.IdealPaymentOptionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.catawiki.payments.payment.creditcard.CreditCardPaymentOptionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.catawiki.payments.payment.creditcard.CreditCardAuthorisationPaymentActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.catawiki.payments.payment.common.AccountHolderPaymentOptionActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.catawiki.payments.payment.sofort.SofortPaymentOptionActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.catawiki.payments.payment.transfer.SepaTransferIntroductionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.catawiki.payments.payment.transfer.TransferPaymentActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.catawiki.payments.payment.p24.P24PaymentOptionActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.catawiki.payments.payment.multibanco.MultibancoPaymentOptionActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.catawiki.payments.payment.status.PaymentStatusActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.catawiki.soldlot.detail.SoldLotDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.catawiki.feedbacks.lot.SellerFeedbackActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.catawiki.userregistration.login.SignInActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.catawiki.userregistration.register.RegistrationActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.catawiki.userregistration.resetpassword.ForgotPasswordActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.catawiki.userregistration.resetpassword.ResetPasswordActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.catawiki.userregistration.launcher.UserManagementProxyActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.catawiki.userregistration.sellerregistration.SellerRegistrationActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:label="@string/app_name" android:name="com.catawiki.userregistration.sellerintroduction.SellerIntroductionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.catawiki.user.settings.bankaccount.BankAccountDetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.catawiki.user.settings.profiledetail.SellerProfileDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.catawiki.customersupport.CustomerSupportActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.catawiki.filtervalues.FilterValuesActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.catawiki.filtersoverview.FiltersOverviewActivity" android:screenOrientation="portrait"/>
+        <service android:exported="false" android:name="com.catawiki.mobile.sdk.jobs.service.UpdateAccountDetailsJobService">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
+            </intent-filter>
+        </service>
+        <activity android:name="com.catawiki2.ui.widget.gallery.PictureViewerActivity"/>
+        <activity android:name="com.stripe.android.view.AddPaymentMethodActivity" android:theme="@style/StripeDefaultTheme"/>
+        <activity android:name="com.stripe.android.view.PaymentMethodsActivity" android:theme="@style/StripeDefaultTheme"/>
+        <activity android:name="com.stripe.android.view.PaymentFlowActivity" android:theme="@style/StripeDefaultTheme"/>
+        <activity android:name="com.stripe.android.view.PaymentAuthWebViewActivity" android:theme="@style/StripeDefaultTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.stripe.android.view.PaymentRelayActivity" android:theme="@style/StripeDefaultTheme"/>
+        <activity android:name="com.stripe.android.view.Stripe3ds2CompletionActivity" android:theme="@style/StripeDefaultTheme"/>
+        <activity android:name="com.stripe.android.paymentsheet.PaymentSheetActivity" android:theme="@style/StripePaymentSheetDefaultTheme"/>
+        <activity android:launchMode="singleTop" android:name="com.kustomer.ui.activities.KusMainActivity" android:theme="@style/KusAppTheme" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <provider android:authorities="com.catawiki2.kustomersdk" android:exported="false" android:grantUriPermissions="true" android:name="com.kustomer.ui.utils.KusFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/kus_file_paths"/>
+        </provider>
+        <service android:exported="false" android:name="com.kustomer.ui.fcm.KusFcmService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:name="com.stripe.android.stripe3ds2.views.ChallengeActivity" android:theme="@style/Stripe3DS2Theme"/>
+        <activity android:name="com.stripe.android.stripe3ds2.views.ChallengeProgressActivity" android:theme="@style/Stripe3DS2Theme"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.inappmessaging.display.FirebaseInAppMessagingDisplayRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.inappmessaging.FirebaseInAppMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <provider android:authorities="com.catawiki2.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+        <activity android:enabled="false" android:exported="false" android:launchMode="singleInstance" android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true"/>
+        <activity android:enabled="false" android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
+        <service android:enabled="false" android:exported="true" android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService">
+            <meta-data android:name="com.google.android.play.core.assetpacks.versionCode" android:value="10901"/>
+        </service>
+        <service android:enabled="false" android:exported="false" android:name="com.google.android.play.core.assetpacks.ExtractionForegroundService"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="cct.com.catawiki2" android:scheme="fbconnect"/>
+            </intent-filter>
+        </activity>
+        <provider android:authorities="com.catawiki2.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.firebase.jobdispatcher.GooglePlayReceiver" android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE">
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.catawiki2.firebaseperfprovider" android:exported="false" android:initOrder="101" android:name="com.google.firebase.perf.provider.FirebasePerfProvider"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.usabilla.sdk.ubform.net.FeedbackResubmissionService"/>
+        <activity android:name="com.usabilla.sdk.ubform.screenshot.UbScreenshotActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.catawiki2.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:visibleToInstantApps="true"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="com.catawiki2.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <service android:exported="false" android:name="com.selligent.sdk.SMMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.selligent.sdk.SMRegistrationIntentService"/>
+        <service android:exported="false" android:name="com.selligent.sdk.SMMediaPlayerService"/>
+        <receiver android:exported="false" android:name="com.selligent.sdk.SMPlotNotificationFilter">
+            <intent-filter>
+                <action android:name="com.catawiki2.plot.FilterNotifications"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.selligent.sdk.SMPlotNotificationEventReceiver">
+            <intent-filter>
+                <action android:name="com.catawiki2.plot.SentNotification"/>
+                <action android:name="com.catawiki2.plot.OpenedNotification"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.selligent.sdk.SMBackgroundGcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.selligent.sdk"/>
+            </intent-filter>
+        </receiver>
+        <activity android:label="@string/title_activity_notification" android:name="com.selligent.sdk.SMNotificationActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/title_activity_view" android:name="com.selligent.sdk.SMViewActivity"/>
+        <activity android:label="@string/title_activity_map" android:name="com.selligent.sdk.SMMapActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/title_activity_response" android:name="com.selligent.sdk.SMResponseActivity"/>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="3"/>
+    </application>
+</manifest>

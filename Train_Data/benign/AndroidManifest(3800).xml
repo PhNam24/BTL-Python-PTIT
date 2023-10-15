@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="deftsoft.virtual.attendance" platformBuildVersionCode="23" platformBuildVersionName="6.0-2438415">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <permission android:name="com.example.gcm.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.example.gcm.permission.C2D_MESSAGE"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.landscape" android:required="false"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <application android:allowBackup="true" android:icon="@drawable/app_icon" android:label="@string/app_name" android:largeHeap="true" android:name="deftsoft.virtual.attendance.activities.AppController" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <activity android:label="@string/app_name" android:name="deftsoft.virtual.attendance.activities.SplashScreenActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="deftsoft.virtual.attendance.activities.ScanQRCode" android:screenOrientation="portrait"/>
+        <activity android:name="deftsoft.virtual.attendance.activities.EditEmployeeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="deftsoft.virtual.attendance.activities.EditManagerActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="deftsoft.virtual.attendance.activities.ParticularShiftDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="deftsoft.virtual.attendance.activities.MarkAttandence" android:screenOrientation="portrait"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation" android:name="com.journeyapps.barcodescanner.CaptureActivity" android:screenOrientation="sensorLandscape" android:stateNotNeeded="true" android:theme="@style/zxing_CaptureTheme" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="com.google.zxing.client.android.SCAN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="deftsoft.virtual.attendance.activities.HomeScreenActivity" android:screenOrientation="portrait"/>
+        <activity android:name="deftsoft.virtual.attendance.activities.LogInActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:name="deftsoft.virtual.attendance.activities.ManualAttendance" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:name="deftsoft.virtual.attendance.activities.SignupAsCompanyActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:name="deftsoft.virtual.attendance.ActivateAcountPasscode" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="deftsoft.virtual.attendance.activities.ResendConfirmationCodeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="deftsoft.virtual.attendance.Help" android:screenOrientation="portrait" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:name="deftsoft.virtual.attendance.activities.ViewDepartmentFragment" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:name="deftsoft.virtual.attendance.activities.ViewParticularEmployee" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_dash_board" android:name="deftsoft.virtual.attendance.DashBoardActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_main" android:name="deftsoft.virtual.attendance.activities.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:label="@string/title_activity_manager_detail" android:name="deftsoft.virtual.attendance.activities.ManagerDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:label="@string/title_activity_particular_shift" android:name="deftsoft.virtual.attendance.activities.ParticularShiftActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:label="@string/title_activity_show_qr" android:name="deftsoft.virtual.attendance.activities.ShowQr" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_print_dialog" android:name="deftsoft.virtual.attendance.activities.PrintDialogActivity" android:screenOrientation="portrait"/>
+        <receiver android:name="com.android.virtualattendance.gcm.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="deftsoft.virtual.attendance.gcm"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.android.virtualattendance.gcm.GCMNotificationIntentService"/>
+        <activity android:label="@string/title_activity_add_depart_ment" android:name="deftsoft.virtual.attendance.activities.AddDepartMentActivit" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:label="@string/title_activity_add_shift" android:name="deftsoft.virtual.attendance.activities.AddShiftActivity" android:screenOrientation="portrait"/>
+        <activity android:name="deftsoft.virtual.attendance.activities.PayPalActivity" android:screenOrientation="portrait"/>
+        <meta-data android:name="com.google.android.gms.analytics.globalConfigResource" android:resource="@xml/global_tracker"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="deftsoft.virtual.attendance.google_measurement_service" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+    </application>
+</manifest>

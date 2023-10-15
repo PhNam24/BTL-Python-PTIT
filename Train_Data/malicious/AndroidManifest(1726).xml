@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="org.chromium.caster_receiver_apk">
+    <application android:icon="@drawable/icon" android:label="@string/App_TVname" android:logo="@drawable/icon">
+        <activity android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenSize" android:hardwareAccelerated="true" android:icon="@drawable/icon" android:launchMode="singleTask" android:name="org.chromium.caster_receiver_apk.CustomApp.TvMainActivityCustom" android:screenOrientation="sensorLandscape" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" android:windowSoftInputMode="adjustPan|stateUnchanged">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:scheme="about"/>
+                <data android:scheme="javascript"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="org.chromium.content.browser.NUM_SANDBOXED_SERVICES" android:value="6"/>
+        <service android:exported="false" android:name="org.chromium.content.app.SandboxedProcessService0" android:process=":sandboxed_process0"/>
+        <service android:exported="false" android:name="org.chromium.content.app.SandboxedProcessService1" android:process=":sandboxed_process1"/>
+        <service android:exported="false" android:name="org.chromium.content.app.SandboxedProcessService2" android:process=":sandboxed_process2"/>
+        <service android:exported="false" android:name="org.chromium.content.app.SandboxedProcessService3" android:process=":sandboxed_process3"/>
+        <service android:exported="false" android:name="org.chromium.content.app.SandboxedProcessService4" android:process=":sandboxed_process4"/>
+        <service android:exported="false" android:name="org.chromium.content.app.SandboxedProcessService5" android:process=":sandboxed_process5"/>
+        <meta-data android:name="org.chromium.content.browser.NUM_PRIVILEGED_SERVICES" android:value="1"/>
+        <service android:exported="false" android:name="org.chromium.content.app.PrivilegedProcessService0" android:process=":privileged_process0"/>
+        <service android:exported="true" android:name="org.chromium.service_server.CastLinkerServiceServer" android:process=":castlinkerservice">
+            <intent-filter>
+                <action android:name="qcast.service.Link_service"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="org.chromium.service_server.CastLinkerBootupReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="UMENG_APPKEY" android:value="5508e5cdfd98c506b2001efc"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="newtest2"/>
+        <meta-data android:name="PackageType" android:value="receiver"/>
+        <meta-data android:name="MarketCode" android:value="4"/>
+        <meta-data android:name="SvnRevision" android:value="5942"/>
+        <meta-data android:name="DisplayNameInPhone" android:value="快投电视"/>
+        <meta-data android:name="QCastContentId" android:value="QCastHall"/>
+        <meta-data android:name="ControlPageUrlInPhone" android:value="about:blank"/>
+        <meta-data android:name="ControlPageVerName" android:value="0.0.0"/>
+        <meta-data android:name="ChromiumLevel" android:value="49"/>
+        <service android:enabled="true" android:name="com.baidu.location.f" android:process=":remote"/>
+        <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="LncA4yow1iVVYrBNlGv81su7"/>
+    </application>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE"/>
+    <uses-permission android:name="android.permission.INJECT_EVENTS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-feature android:name="android.hardware.type.television" android:required="true"/>
+</manifest>

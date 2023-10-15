@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.qq.qcloud" platformBuildVersionCode="21" platformBuildVersionName="5.0.1-1624448">
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_OWNER_DATA"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS"/>
+    <uses-permission android:name="com.android.browser.permission.WRITE_HISTORY_BOOKMARKS"/>
+    <uses-permission android:name="oicq.wlogin.permission.shareService"/>
+    <uses-permission android:name="oicq.wlogin.permission.pushService"/>
+    <application android:allowBackup="false" android:icon="@drawable/icon" android:label="@string/app_name" android:largeHeap="true" android:name="com.qq.qcloud.WeiyunApplication">
+        <meta-data android:name="com.tencent.rdm.uuid" android:value="94e5285c-b5b0-40f9-bb66-7d409caa5e72"/>
+        <meta-data android:name="CHANNEL" android:value="1"/>
+        <service android:exported="false" android:name="com.tencent.wns.service.WnsMain" android:process=":wns">
+            <intent-filter>
+                <action android:name="com.tencent.wns.service.WnsMain"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="false" android:name="com.tencent.base.os.clock.AlarmClockReceiver">
+            <intent-filter>
+                <action android:name="wns.heartbeat"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.qq.qcloud.channel.PushChannel">
+            <intent-filter>
+                <action android:name="wns.push.to.com.qq.qcloud"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.qq.qcloud.receiver.BootCompletedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.qq.qcloud.receiver.NetworkReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.qq.qcloud.receiver.DownloadReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.tencent.imageservice.ImageProcessService" android:process=":imageservice"/>
+        <activity android:name="com.qq.qcloud.activity.WeiyunRootActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="weiyunweb"/>
+                <data android:scheme="weiyun"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|locale|navigation|orientation|screenSize" android:name="com.qq.qcloud.global.ui.MainFrameActivity" android:screenOrientation="portrait" android:theme="@style/main_frame_theme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.qq.qcloud.qrcode.CaptureActivity" android:screenOrientation="portrait" android:theme="@style/default_theme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|locale|navigation|orientation|screenSize" android:name="com.qq.qcloud.search.SearchActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:launchMode="singleTop" android:name="com.qq.qcloud.search.DetailActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.qq.qcloud.activity.GlobalAlertDialog" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:launchMode="singleInstance" android:name="com.qq.qcloud.activity.ReloginActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:label="@string/app_name" android:name="com.qq.qcloud.activity.SplashActivity" android:screenOrientation="portrait" android:theme="@style/default_theme.no_window_background"/>
+        <activity android:hardwareAccelerated="false" android:name="com.qq.qcloud.share.ui.ShareToQzoneActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.activity.taskman.TaskManageActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.notify.view.NotifyActivity" android:screenOrientation="portrait" android:theme="@style/default_theme.transparent.no_anima"/>
+        <activity android:name="com.qq.qcloud.activity.AgreementActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.login.LoginActivity" android:screenOrientation="portrait" android:theme="@style/default_theme.no_window_background" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.qq.qcloud.indept.ValidateIndependentPasswordActivity" android:screenOrientation="portrait" android:theme="@style/default_theme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.qq.qcloud.login.reg.MobileRegActivity" android:screenOrientation="portrait" android:theme="@style/default_theme.no_window_background"/>
+        <activity android:name="com.qq.qcloud.login.reg.MobileRegBindActivity" android:screenOrientation="portrait" android:theme="@style/default_theme.no_window_background"/>
+        <activity android:name="com.qq.qcloud.login.reg.MobileRegVerifyActivity" android:screenOrientation="portrait" android:theme="@style/default_theme.no_window_background"/>
+        <activity android:name="com.qq.qcloud.login.reg.MobileRegSelectAreaActivity" android:screenOrientation="portrait" android:theme="@style/default_theme.no_window_background"/>
+        <activity android:name="com.qq.qcloud.login.reg.MobileRegInputPswdActivity" android:screenOrientation="portrait" android:theme="@style/default_theme.no_window_background"/>
+        <activity android:name="com.qq.qcloud.login.reg.MobileRegResultActivity" android:screenOrientation="portrait" android:theme="@style/default_theme.no_window_background"/>
+        <activity android:name="com.qq.qcloud.login.reg.RegAgreementActivity" android:screenOrientation="portrait" android:theme="@style/default_theme.no_window_background"/>
+        <activity android:name="com.qq.qcloud.activity.NewFeaturesActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.activity.libImage.ImageGroupViewActivity" android:screenOrientation="portrait" android:theme="@style/default_theme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.qq.qcloud.activity.libImage.ImageGroupActivity" android:screenOrientation="portrait" android:theme="@style/default_theme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.qq.qcloud.activity.libImage.ImageGroupPickerActivity" android:screenOrientation="portrait" android:theme="@style/default_theme.transparent" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.qq.qcloud.activity.setting.SettingMainActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.activity.setting.DeviceNameSettingActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.activity.tools.FavoriteActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.activity.tools.ViewQRCodeActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.activity.taskman.AutoBackupActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.activity.setting.AboutActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.activity.setting.InviteFriendActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.lock.LockSettingActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.indept.IndeptPasswdSettingActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.indept.InputIndeptPasswdActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.activity.setting.SecurityPrivateActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.activity.setting.FeedbackActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.activity.setting.HelperActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:exported="false" android:name="com.qq.qcloud.lock.InputCodeActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.lock.ValidateCodeActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTop" android:name="com.qq.qcloud.plugin.clipboard.ClipboardActivity" android:screenOrientation="portrait" android:theme="@style/default_theme.no_window_background" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.qq.qcloud.plugin.clipboard.ClipboardMsgDetailActivity" android:screenOrientation="portrait" android:theme="@style/default_theme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.qq.qcloud.activity.picker.PickerLocalFolderActivity" android:screenOrientation="portrait" android:theme="@style/default_theme.no_window_background" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.qq.qcloud.activity.picker.PickerLocalImageWithPagerActivity" android:screenOrientation="portrait" android:theme="@style/default_theme.no_window_background"/>
+        <activity android:name="com.qq.qcloud.activity.picker.PickerActivity" android:screenOrientation="portrait" android:theme="@style/default_theme.no_window_background"/>
+        <activity android:name="com.qq.qcloud.activity.picker.PickerGalleryActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.activity.picker.PickerTakenPhotoConfirmActivity" android:screenOrientation="portrait" android:theme="@style/default_theme.no_window_background"/>
+        <activity android:name="com.qq.qcloud.activity.picker.AddNoteActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:configChanges="keyboard|keyboardHidden|locale|navigation|orientation|screenSize" android:name="com.qq.qcloud.activity.picker.PickerChooseLocalPathActivity" android:screenOrientation="portrait" android:theme="@style/dialog_activity"/>
+        <activity android:name="com.qq.qcloud.activity.picker.ImagePreviewActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.activity.picker.PickerWeiyunFolderActivity" android:screenOrientation="portrait" android:theme="@style/default_theme.transparent" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.qq.qcloud.note.UrlNoteEditActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.note.NotePickerGalleryActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.note.NotePickerPhotoActivity" android:screenOrientation="portrait" android:theme="@style/default_theme.no_window_background"/>
+        <activity android:name="com.qq.qcloud.note.NoteImagePreviewActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:configChanges="keyboard|keyboardHidden|locale|navigation|orientation|screenSize" android:name="com.qq.qcloud.activity.detail.ViewDetailActivity" android:screenOrientation="portrait" android:theme="@style/default_theme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboard|keyboardHidden|locale|navigation|orientation|screenSize" android:name="com.qq.qcloud.activity.detail.ViewImageActivity" android:screenOrientation="user" android:theme="@style/default_theme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboard|keyboardHidden|locale|navigation|orientation|screenSize" android:name="com.qq.qcloud.activity.detail.ViewVideoOfflineActivity" android:screenOrientation="user" android:theme="@style/default_theme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.qq.qcloud.activity.detail.BatchDownloadActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity-alias android:label="@string/save_to_weiyun_name" android:name="com.qq.qcloud.activity.OpenInWeiyunActivity" android:screenOrientation="portrait" android:targetActivity="com.qq.qcloud.activity.WeiyunRootActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.qq.qcloud.intent.action.OPENIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.qq.qcloud.intent.action.OPENIN_MULTIPLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:exported="true" android:label="@string/app_name" android:name="com.qq.qcloud.activity.OpenInAlbumBackupListActivity" android:screenOrientation="portrait" android:targetActivity="com.qq.qcloud.activity.WeiyunRootActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+        <activity android:name="com.qq.qcloud.openin.NoteWebViewActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.openin.OpenInRequestDispatchActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoDisplay"/>
+        <activity android:name="com.qq.qcloud.openin.OpenInActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.openin.ScanTextResultActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.openin.HandleOpenInActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.openin.ScanNoteResultActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.openin.ScanArticleResultActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.openin.ArticleWebViewActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.openin.OpenInViewFileActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:exported="true" android:label="@string/app_name" android:launchMode="singleTop" android:name="com.qq.qcloud.wxapi.WXEntryActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoDisplay"/>
+        <receiver android:name="com.qq.qcloud.wxapi.AppRegister">
+            <intent-filter>
+                <action android:name="com.tencent.mm.plugin.openapi.Intent.ACTION_REFRESH_WXAPP"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.qq.qcloud.wxpicker.WXPickerActivity" android:screenOrientation="portrait" android:theme="@style/default_theme.transparent.wxpicker" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.tencent.connect.common.AssistActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencent100720601"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.qq.qcloud.plugin.albumbackup.activity.AlbumBackupSettingActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:launchMode="singleTop" android:name="com.qq.qcloud.plugin.albumbackup.activity.AlbumBackupListActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.activity.WebViewActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.notify.view.NotifyWebviewActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.activity.ActivitiesWebViewActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.debug.LogActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.debug.EnvSwitchActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.debug.UploadEnvSwitchActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:name="com.qq.qcloud.debug.LeakTraceActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.midas.proxyactivity.APMidasPayProxyActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:exported="true" android:name="com.tencent.midas.wx.APMidasWXPayActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:name="com.qq.qcloud.activity.vip.ui.WeiyunOpenVipActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="com.qq.qcloud.activity.vip.ui.WeiyunVipPayActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.qq.qcloud.activity.vip.ui.HuangzhuanDetail" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.qq.qcloud.activity.vip.ui.VipUploadDialog" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.qq.qcloud.pim.PimActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <service android:enabled="true" android:name="com.qq.qcloud.pim.service.PimSyncService"/>
+        <service android:name="com.qq.qcloud.service.QCloudService"/>
+        <service android:exported="false" android:name="com.qq.qcloud.service.FileSystemService"/>
+        <activity android:name="com.qq.qcloud.recycle.RecycleActivity" android:screenOrientation="portrait" android:theme="@style/default_theme"/>
+        <receiver android:name="com.qq.qcloud.widget.launcher.LauncherWidget">
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_provider"/>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.qq.qcloud" android:exported="false" android:label="@string/app_name" android:name="com.qq.qcloud.provider.FileSystemProvider" android:syncable="true"/>
+    </application>
+</manifest>

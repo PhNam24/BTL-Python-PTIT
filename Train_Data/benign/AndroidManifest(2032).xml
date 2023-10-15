@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="28" android:compileSdkVersionCodename="9" android:sharedUserId="jettoast.user" package="jettoast.copyhistory" platformBuildVersionCode="28" platformBuildVersionName="9">
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:fullBackupContent="false" android:hardwareAccelerated="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="jettoast.copyhistory.App" android:networkSecurityConfig="@xml/network_security_config" android:roundIcon="@drawable/ic_launcher" android:supportsRtl="true" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="applovin.sdk.key" android:value="trI6kksh68xT3zGzmnSa6XccdOysRvJZ2-tFycf1FH2bIO-SHnQqtcBRRr2_1GP6HUFmfcbKxNnDkghlFgRttB"/>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="jettoast.copyhistory.screen.MainActivity" android:process="jettoast.copyhistory.screen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="com.adamrocker.android.simeji.ACTION_INTERCEPT"/>
+                <category android:name="com.adamrocker.android.simeji.REPLACE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:label="@string/process_text_name" android:launchMode="singleTop" android:name="jettoast.copyhistory.screen.Main2Activity" android:process="jettoast.copyhistory.screen">
+            <intent-filter>
+                <action android:name="android.intent.action.PROCESS_TEXT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="jettoast.copyhistory.screen.CustomButtonActivity" android:process="jettoast.copyhistory.screen"/>
+        <activity android:launchMode="singleTop" android:name="jettoast.copyhistory.screen.ChoiceAppActivity" android:process="jettoast.copyhistory.screen"/>
+        <activity android:launchMode="singleTop" android:name="jettoast.copyhistory.screen.ChoiceAppActivitySvc"/>
+        <activity android:launchMode="singleTop" android:name="jettoast.copyhistory.screen.EditActivity" android:process="jettoast.copyhistory.screen" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:launchMode="singleTop" android:name="jettoast.copyhistory.screen.EditActivitySvc" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTop" android:name="jettoast.copyhistory.screen.TransResultActivity" android:process="jettoast.copyhistory.screen" android:theme="@style/FullTransNoAnimation"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTop" android:name="jettoast.copyhistory.screen.TransResultActivitySvc" android:theme="@style/FullTransNoAnimation"/>
+        <activity android:launchMode="singleTop" android:name="jettoast.copyhistory.screen.MemoActivity" android:process="jettoast.copyhistory.screen" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:launchMode="singleTop" android:name="jettoast.copyhistory.screen.ReadTextActivity" android:process="jettoast.copyhistory.screen"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTop" android:name="jettoast.copyhistory.screen.InfoActivity" android:process="jettoast.copyhistory.screen"/>
+        <activity android:launchMode="singleTop" android:name="jettoast.copyhistory.screen.ScreenTextActivity" android:process="jettoast.copyhistory.screen"/>
+        <activity android:launchMode="singleTop" android:name="jettoast.copyhistory.screen.ScreenTextListActivity" android:process="jettoast.copyhistory.screen"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTop" android:name="jettoast.copyhistory.screen.DataLimitActivity" android:process="jettoast.copyhistory.screen"/>
+        <activity android:launchMode="singleTop" android:name="jettoast.copyhistory.screen.A10SetupActivity" android:process="jettoast.copyhistory.screen"/>
+        <activity android:launchMode="singleTop" android:name="jettoast.copyhistory.screen.A10SettingActivity" android:process="jettoast.copyhistory.screen"/>
+        <service android:label="@string/svc_name" android:name="jettoast.copyhistory.service.CopyService" android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter android:priority="999">
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+            <meta-data android:name="android.accessibilityservice" android:resource="@xml/accessibility_config"/>
+        </service>
+        <receiver android:name="jettoast.copyhistory.JAliveReceiverImpl">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="jettoast.copyhistory.sha2prv" android:exported="false" android:grantUriPermissions="true" android:name="jettoast.global.shared.SharedProvider"/>
+        <activity android:label="@string/light_mode" android:launchMode="singleTop" android:name="jettoast.global.screen.LightModeActivity" android:process="jettoast.copyhistory.screen"/>
+        <activity android:launchMode="singleInstance" android:name="jettoast.global.screen.OptimizeActivity" android:process="jettoast.copyhistory.screen" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:excludeFromRecents="true" android:exported="true" android:launchMode="singleInstance" android:name="jettoast.global.screen.GrantActivity" android:process="jettoast.copyhistory.screen" android:theme="@style/AppTheme.NoActionBar.Transparent"/>
+        <activity android:label="@string/gl_info_list" android:launchMode="singleTop" android:name="jettoast.global.screen.GLInfoActivity" android:process="jettoast.copyhistory.screen" android:theme="@style/InfoTheme"/>
+        <activity android:launchMode="singleTop" android:name="jettoast.global.screen.AppSelectActivity" android:process="jettoast.copyhistory.screen" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="jettoast.global.screen.TrialActivity" android:process="jettoast.copyhistory.screen" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:launchMode="singleTop" android:name="jettoast.global.screen.InterAdActivity" android:process="jettoast.copyhistory.screen" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:launchMode="singleTop" android:name="jettoast.global.screen.RewardActivity" android:process="jettoast.copyhistory.screen" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:enabled="@bool/debug" android:launchMode="singleTop" android:name="jettoast.global.screen.JDBGActivity" android:process="jettoast.copyhistory.screen" android:theme="@style/AppTheme.NoActionBar"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:name="com.facebook.ads.AudienceNetworkActivity" android:process="jettoast.copyhistory.screen" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.facebook.FacebookActivity" android:process="jettoast.copyhistory.screen" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:name="com.facebook.CustomTabMainActivity" android:process="jettoast.copyhistory.screen"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity" android:process="jettoast.copyhistory.screen">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="cct.jettoast.copyhistory" android:scheme="fbconnect"/>
+            </intent-filter>
+        </activity>
+        <provider android:authorities="jettoast.copyhistory.AudienceNetworkContentProvider" android:exported="false" android:name="com.facebook.ads.AudienceNetworkContentProvider" android:process="jettoast.copyhistory.screen"/>
+        <provider android:authorities="jettoast.copyhistory.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider" android:process="jettoast.copyhistory.screen"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver" android:process="jettoast.copyhistory.screen">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:hardwareAccelerated="true" android:name="com.applovin.adview.AppLovinInterstitialActivity" android:process="jettoast.copyhistory.screen" android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:hardwareAccelerated="true" android:launchMode="singleTop" android:name="com.applovin.adview.AppLovinFullscreenActivity" android:process="jettoast.copyhistory.screen" android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:name="com.applovin.sdk.AppLovinWebViewActivity" android:process="jettoast.copyhistory.screen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.applovin.mediation.MaxDebuggerActivity" android:process="jettoast.copyhistory.screen" android:theme="@style/com.applovin.mediation.MaxDebuggerActivity.Theme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.applovin.mediation.MaxDebuggerDetailActivity" android:process="jettoast.copyhistory.screen" android:theme="@style/com.applovin.mediation.MaxDebuggerActivity.Theme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.applovin.mediation.MaxDebuggerMultiAdActivity" android:process="jettoast.copyhistory.screen" android:screenOrientation="portrait" android:theme="@style/com.applovin.mediation.MaxDebuggerActivity.Theme"/>
+        <service android:exported="false" android:name="com.applovin.impl.sdk.utils.AppKilledService" android:process="jettoast.copyhistory.screen" android:stopWithTask="false"/>
+        <service android:exported="false" android:name="com.applovin.impl.adview.activity.FullscreenAdService" android:process="jettoast.copyhistory.screen" android:stopWithTask="false"/>
+        <activity android:hardwareAccelerated="true" android:name="net.nend.android.internal.ui.activities.fullboard.NendAdFullBoardActivity" android:process="jettoast.copyhistory.screen" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="net.nend.android.internal.ui.activities.interstitial.NendAdInterstitialActivity" android:process="jettoast.copyhistory.screen" android:screenOrientation="behind" android:theme="@style/Theme.NendAd.Interstitial"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:hardwareAccelerated="true" android:name="net.nend.android.internal.ui.activities.video.NendAdInterstitialVideoActivity" android:process="jettoast.copyhistory.screen" android:screenOrientation="behind" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:hardwareAccelerated="true" android:name="net.nend.android.internal.ui.activities.video.NendAdRewardedVideoActivity" android:process="jettoast.copyhistory.screen" android:screenOrientation="behind" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:hardwareAccelerated="true" android:name="net.nend.android.internal.ui.activities.formats.FullscreenVideoPlayingActivity" android:process="jettoast.copyhistory.screen" android:screenOrientation="user" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.amazon.device.ads.AdActivity" android:process="jettoast.copyhistory.screen"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:hardwareAccelerated="true" android:name="com.unity3d.services.ads.adunit.AdUnitActivity" android:process="jettoast.copyhistory.screen" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:hardwareAccelerated="true" android:name="com.unity3d.services.ads.adunit.AdUnitTransparentActivity" android:process="jettoast.copyhistory.screen" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:hardwareAccelerated="false" android:name="com.unity3d.services.ads.adunit.AdUnitTransparentSoftwareActivity" android:process="jettoast.copyhistory.screen" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:hardwareAccelerated="false" android:name="com.unity3d.services.ads.adunit.AdUnitSoftwareActivity" android:process="jettoast.copyhistory.screen" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:name="com.socdm.d.adgeneration.video.ADGPlayerFullscreenActivity" android:process="jettoast.copyhistory.screen"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="jp.supership.vamp.player.VAMPPlayerActivity" android:process="jettoast.copyhistory.screen"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="jp.supership.vamp.ar.ARActivity" android:process="jettoast.copyhistory.screen"/>
+        <activity android:configChanges="orientation|screenLayout|screenSize" android:hardwareAccelerated="true" android:name="jp.maio.sdk.android.AdFullscreenActivity" android:process="jettoast.copyhistory.screen" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="jp.maio.sdk.android.HtmlBasedAdActivity" android:process="jettoast.copyhistory.screen" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:name="com.tapjoy.TJAdUnitActivity" android:process="jettoast.copyhistory.screen" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:name="com.tapjoy.TJContentActivity" android:process="jettoast.copyhistory.screen" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:name="com.tapjoy.TapjoyReceiver" android:process="jettoast.copyhistory.screen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:name="com.glossomads.sdk.GlossomAdsFullScreen" android:process="jettoast.copyhistory.screen" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:name="com.glossomads.sdk.GlossomBillboardAdActivity" android:process="jettoast.copyhistory.screen" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:name="jp.tjkapp.adfurikunsdk.moviereward.AdfurikunInterAd" android:process="jettoast.copyhistory.screen" android:theme="@android:style/Theme.Dialog"/>
+        <meta-data android:name="adfurikun_test" android:value="@bool/debug"/>
+        <meta-data android:name="i-mobile_DebugLogging" android:value="@bool/debug"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.common.MoPubBrowser" android:process="jettoast.copyhistory.screen" android:theme="@style/MoPubFullscreenTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidVideoPlayerActivity" android:process="jettoast.copyhistory.screen" android:theme="@style/MoPubFullscreenTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.common.privacy.ConsentDialogActivity" android:process="jettoast.copyhistory.screen" android:theme="@style/MoPubFullscreenTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MoPubActivity" android:process="jettoast.copyhistory.screen" android:theme="@style/MoPubFullscreenTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidActivity" android:process="jettoast.copyhistory.screen" android:theme="@style/MoPubFullscreenTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.RewardedMraidActivity" android:process="jettoast.copyhistory.screen" android:theme="@style/MoPubFullscreenTheme"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:hardwareAccelerated="true" android:name="com.inmobi.ads.rendering.InMobiAdActivity" android:process="jettoast.copyhistory.screen" android:theme="@android:style/Theme.NoTitleBar"/>
+        <provider android:authorities="jettoast.copyhistory.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider" android:process="jettoast.copyhistory.screen"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:name="com.ad_stir.interstitial.AdstirInterstitialHtmlActivity" android:process="jettoast.copyhistory.screen" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:name="com.ad_stir.videoincentive.AdstirFullscreenActivity" android:process="jettoast.copyhistory.screen" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:name="com.adcolony.sdk.AdColonyInterstitialActivity" android:process="jettoast.copyhistory.screen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:name="com.adcolony.sdk.AdColonyAdViewActivity" android:process="jettoast.copyhistory.screen"/>
+        <provider android:authorities="jettoast.copyhistory.TTMultiProvider" android:exported="false" android:name="com.bytedance.sdk.openadsdk.multipro.TTMultiProvider" android:process="jettoast.copyhistory.screen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="standard" android:name="com.bytedance.sdk.openadsdk.activity.TTLandingPageActivity" android:process="jettoast.copyhistory.screen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="standard" android:name="com.bytedance.sdk.openadsdk.activity.TTPlayableLandingPageActivity" android:process="jettoast.copyhistory.screen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="standard" android:name="com.bytedance.sdk.openadsdk.activity.TTVideoLandingPageActivity" android:process="jettoast.copyhistory.screen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="standard" android:name="com.bytedance.sdk.openadsdk.activity.TTRewardVideoActivity" android:process="jettoast.copyhistory.screen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="standard" android:name="com.bytedance.sdk.openadsdk.activity.TTRewardExpressVideoActivity" android:process="jettoast.copyhistory.screen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="standard" android:name="com.bytedance.sdk.openadsdk.activity.TTFullScreenVideoActivity" android:process="jettoast.copyhistory.screen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="standard" android:name="com.bytedance.sdk.openadsdk.activity.TTFullScreenExpressVideoActivity" android:process="jettoast.copyhistory.screen"/>
+        <activity android:launchMode="standard" android:name="com.bytedance.sdk.openadsdk.activity.TTDelegateActivity" android:process="jettoast.copyhistory.screen" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:name="com.bytedance.sdk.openadsdk.multipro.aidl.BinderPoolService" android:process="jettoast.copyhistory.screen"/>
+        <receiver android:exported="true" android:name="com.com.bytedance.overseas.sdk.download.GooglePlayInstallReceiver" android:process="jettoast.copyhistory.screen">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.google.android.gms.ads.AD_MANAGER_APP" android:value="true"/>
+        <provider android:authorities="jettoast.copyhistory.tray" android:exported="false" android:multiprocess="false" android:name="net.grandcentrix.tray.provider.TrayContentProvider"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.android.billingclient.api.ProxyBillingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="jettoast.copyhistory.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>

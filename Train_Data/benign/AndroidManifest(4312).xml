@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="31" android:compileSdkVersionCodename="12" android:installLocation="auto" package="com.eduven.cc.autoimmuneRecipes" platformBuildVersionCode="31" platformBuildVersionName="12">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-feature android:name="android.hardware.camera2" android:required="false"/>
+    <queries>
+        <intent>
+            <action android:name="android.speech.RecognitionService"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.SENDTO"/>
+            <data android:scheme="*"/>
+        </intent>
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE"/>
+        </intent>
+        <intent>
+            <action android:name="com.google.android.youtube.api.service.START"/>
+        </intent>
+        <intent>
+            <action android:name="android.support.customtabs.action.CustomTabsService"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.BROWSABLE"/>
+            <data android:scheme="https"/>
+        </intent>
+    </queries>
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:configChanges="keyboardHidden|orientation|screenSize" android:extractNativeLibs="false" android:icon="@mipmap/ic_launcher" android:isSplitRequired="true" android:label="@string/app_name_manifest" android:largeHeap="true" android:name="cc.eduven.com.chefchili.application.GlobalApplication" android:requestLegacyExternalStorage="true" android:supportsRtl="true" android:theme="@style/toolbarTheme">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:label="@string/app_name_manifest" android:name="cc.eduven.com.chefchili.activity.SplashActivity" android:screenOrientation="portrait" android:theme="@style/splashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="@string/admob_app_id"/>
+        <provider android:authorities="com.eduven.cc.autoimmuneRecipes.provider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:launchMode="singleTask" android:name="cc.eduven.com.chefchili.activity.HomeActivity" android:screenOrientation="portrait" android:theme="@style/toolbarThemeHome"/>
+        <activity android:launchMode="singleTop" android:name="cc.eduven.com.chefchili.activity.RecipeDetailActivity" android:screenOrientation="portrait" android:theme="@style/toolbarTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:launchMode="singleTask" android:name="cc.eduven.com.chefchili.activity.RecipeListActivity" android:screenOrientation="portrait" android:theme="@style/toolbarTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:excludeFromRecents="true" android:name="cc.eduven.com.chefchili.activity.MenuPlannerActivity" android:screenOrientation="portrait" android:theme="@style/MyAppTheme" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="cc.eduven.com.chefchili.activity.TipsActivity" android:screenOrientation="portrait" android:theme="@style/MyAppTheme" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="cc.eduven.com.chefchili.activity.UserReviewsActivity" android:screenOrientation="portrait" android:theme="@style/MyAppTheme"/>
+        <activity android:launchMode="singleTask" android:name="cc.eduven.com.chefchili.activity.NutritionValuesActivity" android:screenOrientation="portrait" android:theme="@style/toolbarTheme"/>
+        <activity android:name="cc.eduven.com.chefchili.activity.HtmlOpener" android:screenOrientation="portrait" android:theme="@style/MyAppTheme"/>
+        <activity android:name="cc.eduven.com.chefchili.activity.PremiumActivity" android:theme="@style/MyAppTheme"/>
+        <activity android:name="cc.eduven.com.chefchili.activity.SearchActivity" android:screenOrientation="portrait" android:theme="@style/MyAppTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="cc.eduven.com.chefchili.activity.CookWithActivity" android:screenOrientation="portrait" android:theme="@style/MyAppTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="cc.eduven.com.chefchili.activity.FilterActivity" android:screenOrientation="portrait" android:theme="@style/MyAppTheme" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="cc.eduven.com.chefchili.activity.BenefitsActivity" android:screenOrientation="portrait" android:theme="@style/toolbarTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="cc.eduven.com.chefchili.activity.PreferenceActivity" android:screenOrientation="portrait" android:theme="@style/MyAppTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="cc.eduven.com.chefchili.activity.SettingsActivity" android:screenOrientation="portrait" android:theme="@style/MyAppTheme"/>
+        <activity android:name="cc.eduven.com.chefchili.activity.RestartDownloadActivity" android:screenOrientation="portrait" android:theme="@style/appCompatNoActionBar"/>
+        <activity android:name="cc.eduven.com.chefchili.activity.MenuPlannerListActivity" android:screenOrientation="portrait" android:theme="@style/MyAppTheme"/>
+        <activity android:name="cc.eduven.com.chefchili.activity.ContributeActivity" android:screenOrientation="portrait" android:theme="@style/MyAppTheme" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="cc.eduven.com.chefchili.activity.CourseListActivity" android:screenOrientation="portrait" android:theme="@style/toolbarTheme" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="cc.eduven.com.chefchili.activity.BmiCalculator" android:theme="@style/MyAppTheme" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="cc.eduven.com.chefchili.activity.AppliancesList" android:screenOrientation="portrait" android:theme="@style/toolbarTheme" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="cc.eduven.com.chefchili.activity.FullScreenViewActivity" android:theme="@style/fullscreenDialog" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="cc.eduven.com.chefchili.activity.FullScreenViewBitmapActivity" android:theme="@style/fullscreenDialog" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="cc.eduven.com.chefchili.activity.FullScreenViewUriActivity" android:theme="@style/fullscreenDialog" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="cc.eduven.com.chefchili.activity.YoutubePlayerActivity" android:theme="@style/youtubePlayer" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="cc.eduven.com.chefchili.activity.RecipeReviewsActivity" android:screenOrientation="portrait" android:theme="@style/MyAppTheme" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="cc.eduven.com.chefchili.activity.RecipePhotoVideoActivity" android:screenOrientation="portrait" android:theme="@style/MyAppTheme" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="cc.eduven.com.chefchili.activity.AppExitActivity" android:theme="@style/appExitTransparent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="cc.eduven.com.chefchili.activity.HomeLoginActivity" android:theme="@style/appExitTransparent"/>
+        <activity android:configChanges="keyboardHidden|screenSize" android:name="cc.eduven.com.chefchili.activity.LanguageLoader" android:screenOrientation="portrait" android:theme="@style/splashTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="cc.eduven.com.chefchili.activity.ShoppingListActivity" android:screenOrientation="portrait" android:theme="@style/MyAppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="cc.eduven.com.chefchili.activity.AnonymousLinkMigrateActivity" android:screenOrientation="portrait" android:theme="@style/MyAppTheme"/>
+        <activity android:name="cc.eduven.com.chefchili.activity.VideoPlayer" android:theme="@style/appCompatNoActionBar" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="cc.eduven.com.chefchili.activity.LumenPromoDialog" android:theme="@style/dialogThemeWithParentWidth" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="cc.eduven.com.chefchili.health.AboutYouActivity" android:theme="@style/MyAppTheme" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="cc.eduven.com.chefchili.health.DailyPerformResult" android:screenOrientation="portrait" android:theme="@style/MyAppTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="cc.eduven.com.chefchili.health.CaloriesActivity" android:screenOrientation="portrait" android:theme="@style/MyAppTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:exported="true" android:name="cc.eduven.com.chefchili.health.DailyPerformActivity" android:screenOrientation="portrait" android:theme="@style/MyAppTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="cc.eduven.com.chefchili.health.DailyActivities" android:screenOrientation="portrait" android:theme="@style/MyAppTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="cc.eduven.com.chefchili.health.DailyRecentActivities" android:screenOrientation="portrait" android:theme="@style/MyAppTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="cc.eduven.com.chefchili.activity.YogaActivity" android:screenOrientation="portrait" android:theme="@style/toolbarThemeHome" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="cc.eduven.com.chefchili.activity.YogaDetailActivity" android:screenOrientation="portrait" android:theme="@style/MyAppTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="cc.eduven.com.chefchili.activity.YogaListActivity" android:screenOrientation="portrait" android:theme="@style/MyAppTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <service android:exported="true" android:label="UnzipService" android:name="cc.eduven.com.chefchili.services.UnzipService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="true" android:label="RecipeOfTheDayJobService" android:name="cc.eduven.com.chefchili.services.RecipeOfTheDayJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:enabled="true" android:name="cc.eduven.com.chefchili.services.AlarmReceivedBroadcastReceiver" android:permission="android.permission.WAKE_LOCK"/>
+        <receiver android:exported="true" android:name="cc.eduven.com.chefchili.services.GetBootEventBroadcastReceiver" android:process=":remote">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="cc.eduven.com.chefchili.services.DownLoadCompleteBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="cc.eduven.com.chefchili.services.LocaleChangeBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="cc.eduven.com.chefchili.services.RecipeOfTheDayAlarmReceiver"/>
+        <receiver android:exported="false" android:name="cc.eduven.com.chefchili.services.StartEventBroadcastReceiver">
+            <intent-filter>
+                <action android:name="FireEventActivityBrodCast"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:label="ResetAlarmService" android:name="cc.eduven.com.chefchili.services.ResetAlarmsService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="cc.eduven.com.chefchili.services.SyncEdubankWithFirebaseService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="cc.eduven.com.chefchili.services.SyncCrossAppFirebaseService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="cc.eduven.com.chefchili.services.UploadContributionToFirebaseService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="cc.eduven.com.chefchili.services.MigrateAnonymousUserDataToPrimary" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="cc.eduven.com.chefchili.services.CompressAndUploadRecipeVideoService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="cc.eduven.com.chefchili.pushNotification.FcmRegistrationIntentService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="cc.eduven.com.chefchili.pushNotification.FcmIntentService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="cc.eduven.com.chefchili.pushNotification.FcmUpdateDbIntentService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="cc.eduven.com.chefchili.health.ServiceDailyActivityPerform" android:permission="android.permission.BIND_JOB_SERVICE" android:stopWithTask="false"/>
+        <receiver android:enabled="true" android:exported="true" android:label="RestartServiceWhenStopped" android:name="cc.eduven.com.chefchili.health.notification.SensorRestarterBroadcastReceiver">
+            <intent-filter>
+                <action android:name="ac.in.ActivityRecognition.RestartSensor"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="cc.eduven.com.chefchili.health.notification.NotificationReceiver"/>
+        <receiver android:exported="true" android:name="cc.eduven.com.chefchili.health.notification.TenMinuteStopActivityReceiver"/>
+        <receiver android:exported="true" android:name="cc.eduven.com.chefchili.health.notification.DelayNotificationReceiver"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_application_id"/>
+        <activity android:exported="false" android:label="" android:name="com.firebase.ui.auth.KickoffActivity" android:theme="@style/FirebaseUI.Transparent"/>
+        <activity android:exported="false" android:label="" android:name="com.firebase.ui.auth.ui.idp.SingleSignInActivity" android:theme="@style/FirebaseUI.Transparent"/>
+        <activity android:exported="false" android:label="" android:name="com.firebase.ui.auth.ui.credentials.CredentialSaveActivity" android:theme="@style/FirebaseUI.Transparent"/>
+        <activity android:exported="false" android:label="@string/fui_title_recover_password_activity" android:name="com.firebase.ui.auth.ui.email.RecoverPasswordActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:exported="false" android:label="@string/fui_sign_in_default" android:name="com.firebase.ui.auth.ui.email.EmailActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:exported="false" android:label="@string/fui_sign_in_with_phone_number" android:name="com.firebase.ui.auth.ui.phone.PhoneActivity" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:exported="false" android:label="@string/fui_title_welcome_back_idp_prompt" android:name="com.firebase.ui.auth.ui.idp.WelcomeBackIdpPrompt" android:windowSoftInputMode="adjustResize"/>
+        <activity android:exported="false" android:label="@string/fui_title_welcome_back_password_prompt" android:name="com.firebase.ui.auth.ui.email.WelcomeBackPasswordPrompt" android:windowSoftInputMode="adjustResize"/>
+        <activity android:exported="false" android:label="@string/fui_title_welcome_back_password_prompt" android:name="com.firebase.ui.auth.ui.email.WelcomeBackEmailLinkPrompt" android:windowSoftInputMode="adjustResize"/>
+        <activity android:exported="false" android:label="" android:name="com.firebase.ui.auth.ui.email.EmailLinkCatcherActivity" android:theme="@style/FirebaseUI.Transparent" android:windowSoftInputMode="adjustResize"/>
+        <activity android:exported="false" android:label="@string/fui_sign_in_default" android:name="com.firebase.ui.auth.ui.email.EmailLinkErrorRecoveryActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:exported="false" android:label="@string/fui_default_toolbar_title" android:name="com.firebase.ui.auth.ui.idp.AuthMethodPickerActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/facebook_login_protocol_scheme"/>
+            </intent-filter>
+        </activity>
+        <provider android:authorities="com.eduven.cc.autoimmuneRecipes.authuiinitprovider" android:exported="false" android:initOrder="90" android:name="com.firebase.ui.auth.data.client.AuthUiInitProvider"/>
+        <provider android:authorities="com.eduven.cc.autoimmuneRecipes.firebaseperfprovider" android:exported="false" android:initOrder="101" android:name="com.google.firebase.perf.provider.FirebasePerfProvider"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <activity android:excludeFromRecents="true" android:exported="true" android:launchMode="singleTask" android:name="com.google.firebase.auth.internal.GenericIdpActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="firebase.auth" android:path="/" android:scheme="genericidp"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:exported="true" android:launchMode="singleTask" android:name="com.google.firebase.auth.internal.RecaptchaActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="firebase.auth" android:path="/" android:scheme="recaptcha"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.google.android.play.billingclient.version" android:value="4.1.0"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:name="com.android.billingclient.api.ProxyBillingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <provider android:authorities="com.eduven.cc.autoimmuneRecipes.mobileadsinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.android.gms.ads.MobileAdsInitProvider"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.ads.AdService"/>
+        <provider android:authorities="com.eduven.cc.autoimmuneRecipes.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
+            <meta-data android:name="androidx.work.WorkManagerInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
+        </provider>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:name="androidx.work.impl.foreground.SystemForegroundService"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <activity android:enabled="false" android:exported="false" android:launchMode="singleInstance" android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true"/>
+        <activity android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
+        <service android:enabled="false" android:exported="true" android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService">
+            <meta-data android:name="com.google.android.play.core.assetpacks.versionCode" android:value="11003"/>
+        </service>
+        <service android:enabled="false" android:exported="false" android:name="com.google.android.play.core.assetpacks.ExtractionForegroundService"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:visibleToInstantApps="true"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <provider android:authorities="com.eduven.cc.autoimmuneRecipes.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="3"/>
+    </application>
+</manifest>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.major.ppl.yyh" platformBuildVersionCode="23" platformBuildVersionName="6.0-2438415">
+    <uses-feature android:glEsVersion="0x00020000"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE"/>
+    <application android:icon="@drawable/icon" android:label="@string/app_name" android:name="com.major.ppl.MyApplication">
+        <activity android:configChanges="orientation" android:label="@string/app_name" android:name="com.major.ppl.MainActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="cn.egame.terminal.paysdk.EgamePayActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:exported="true" android:name="cn.play.dserv.EmpActivity"/>
+        <service android:enabled="true" android:exported="false" android:label="dservice" android:name="cn.play.dserv.DService" android:process=":dservice_v1"/>
+        <receiver android:name="cn.play.dserv.DsReceiver" android:process=":dservice_v1">
+            <intent-filter>
+                <action android:name="cn.play.dservice"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="EGAME_CHANNEL" android:value="83010046"/>
+        <activity android:configChanges="orientation" android:exported="true" android:name="com.unicom.wostore.unipay.paysecurity.SecurityActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:name="com.unicom.wostore.unipay.paysecurity.SecurityServiceFramework"/>
+        <service android:name="com.unicom.wostore.unipay.paysecurity.UpdateService" android:process=":unicomuptsrv"/>
+        <meta-data android:name="wostore_billing_otherpay" android:value="false"/>
+        <meta-data android:name="wostore_billing_chinaunicom" android:value="true"/>
+        <meta-data android:name="wostore_billing_chinamobile" android:value="false"/>
+        <meta-data android:name="wostore_billing_chinatele" android:value="false"/>
+        <activity android:configChanges="keyboard|orientation|screenSize" android:name="cn.cmgame.billing.api.GameOpenActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.CHINAMOBILE_OMS_GAME"/>
+                <category android:name="android.intent.category.CHINAMOBILE_GAMES"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="cn.cmgame2_0.launch_model.shortcut.main.MiguHomeActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Dialog">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="cn.cmgame2_0.category.migu_home"/>
+            </intent-filter>
+        </activity>
+        <service android:name="cn.cmgame.billing.service.GameService"/>
+        <meta-data android:name="LY_APPID" android:value="100000002"/>
+        <meta-data android:name="LY_CHANNEL" android:value="10000240"/>
+        <activity android:configChanges="orientation" android:exported="false" android:name="com.alipay.sdk.app.H5PayActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <service android:name="com.hs.ckapi.services.HsApiPlateService"/>
+        <service android:enabled="true" android:name="com.baidu.location.f" android:process=":remote">
+            <intent-filter>
+                <action android:name="com.baidu.location.service_v2.2"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="g3HofEBWK7mCqTBLLdmOV0ybkqh7jLfC"/>
+        <meta-data android:name="UMENG_APPKEY" android:value="57df4f1de0f55ab6700012df"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="应用汇"/>
+    </application>
+</manifest>

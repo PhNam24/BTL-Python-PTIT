@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.neusoft.neuchild">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true"/>
+    <application android:allowBackup="true" android:icon="@drawable/ic_launcher" android:label="@string/neumedia_name" android:largeHeap="true" android:name="com.neusoft.neuchild.activity.MainApplication" android:theme="@style/AppTheme">
+        <meta-data android:name="UMENG_APPKEY" android:value="5339295356240b8e7001966a"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="Neu011"/>
+        <meta-data android:name="UMENG_MESSAGE_SECRET" android:value="f54ecfbce011e8a2e726e6e26f71223b"/>
+        <meta-data android:name="TD_APP_ID" android:value="05ECBCE26149F2A1DD549EDCA4A9AFD4"/>
+        <meta-data android:name="TD_CHANNEL_ID" android:value="Neu011"/>
+        <activity android:label="@string/neumedia_name" android:name="com.neusoft.neuchild.activity.StartPageActivity" android:theme="@style/Theme.datepicker">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.neusoft.neuchild.activity.BookShelfActivity" android:theme="@style/Theme" style="@style/activity_screen_orientation"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.neusoft.neuchild.activity.BookSearchActivity" android:theme="@style/Theme" android:windowSoftInputMode="adjustPan|stateVisible" style="@style/activity_screen_orientation"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.neusoft.neuchild.activity.RecommendDetailActivity" android:theme="@style/Theme" android:windowSoftInputMode="stateAlwaysHidden" style="@style/activity_screen_orientation"/>
+        <activity android:name="com.neusoft.neuchild.activity.SettingActivity" android:theme="@style/NobackDialog" android:windowSoftInputMode="stateAlwaysHidden" style="@style/activity_screen_orientation"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.neusoft.neuchild.activity.LoginActivity" android:theme="@style/Theme" android:windowSoftInputMode="stateAlwaysHidden" style="@style/activity_screen_orientation"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.neusoft.neuchild.activity.UserCentreActivity" android:theme="@style/Theme.datepicker" android:windowSoftInputMode="stateAlwaysHidden|adjustPan" style="@style/activity_screen_orientation"/>
+        <activity android:name="com.neusoft.neuchild.activity.PackageDetailActivity" android:theme="@style/NobackDialog" style="@style/activity_screen_orientation"/>
+        <activity android:name="com.neusoft.neuchild.activity.WebViewActivity" android:screenOrientation="landscape"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.neusoft.bookengine.engine.BookEngine" android:process="com.neusoft.engine" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:name="com.neusoft.bookengine.engine.VideoActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.neusoft.neuchild.utils.zxing.CaptureActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:windowSoftInputMode="stateAlwaysHidden" style="@style/activity_screen_orientation"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="com.neusoft.bookengine.engine.EngineWebViewActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <provider android:authorities="com.neusoft.neuchild.orm.OrmProvider" android:name="com.neusoft.neuchild.orm.OrmProvider"/>
+        <provider android:authorities="com.neusoft.neuchild" android:name="com.neusoft.bookengine.engine.orm.OrmProvider"/>
+        <service android:exported="true" android:name="com.neusoft.neuchild.onlineupdate.BookStatisticPageReadTimeService"/>
+        <service android:exported="true" android:name="com.neusoft.neuchild.downloadmanager.DownloadServices"/>
+        <service android:exported="true" android:name="com.neusoft.neuchild.onlineupdate.SoftWareUpdateService"/>
+        <receiver android:exported="false" android:name="com.umeng.message.NotificationProxyBroadcastReceiver"/>
+        <receiver android:name="com.umeng.message.RegistrationReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.umeng.message.UmengBroadcastReceiver">
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.RECEIVE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.neusoft.neuchild.intent.action.COMMAND"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.RE_ELECTION_V2"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.umeng.message.UmengService" android:process=":umengService_v1">
+            <intent-filter>
+                <action android:name="com.neusoft.neuchild.intent.action.START"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.neusoft.neuchild.intent.action.COCKROACH"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.PING"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="org.android.agoo.service.ElectionService" android:process=":umengService_v1">
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.ELECTION_V2"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.umeng.message.UmengIntentService"/>
+        <service android:name="com.neusoft.neuchild.pushservice.MyPushIntentService"/>
+        <activity android:configChanges="keyboard|orientation" android:launchMode="singleTask" android:name="com.umeng.socialize.view.ShareActivity" android:noHistory="true" android:theme="@style/Theme.UMDialog" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:name="com.neusoft.neuchild.wxapi.WXEntryActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:name="com.neusoft.neuchild.wxapi.WXPayEntryActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|orientation" android:name="com.umeng.socialize.view.CommentActivity" android:theme="@style/Theme.UMDefault"/>
+        <activity android:configChanges="keyboard|orientation" android:name="com.umeng.socialize.view.CommentDetail" android:noHistory="true" android:theme="@style/Theme.UMDefault"/>
+        <activity android:configChanges="keyboard|orientation" android:name="com.umeng.socialize.view.CommentDetailNoMap" android:noHistory="true" android:theme="@style/Theme.UMDefault"/>
+        <activity android:configChanges="keyboard|orientation" android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencent添加你的App Id"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.tencent.connect.common.AssistActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.neusoft.neuchild.epubreader.EpubReaderActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.neusoft.neuchild.epubreader.EpubCatalogActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_eyesight" android:name="com.neusoft.neuchild.activity.SeriesDialogActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:label="@string/title_activity_eyesight" android:name="com.neusoft.neuchild.activity.SeriesDialogForPadActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:label="@string/title_activity_eyesight" android:name="com.neusoft.neuchild.activity.EyesightActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" style="@style/MyDialogStyle"/>
+        <activity android:name="com.neusoft.neuchild.activity.SendCommentActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.neusoft.neuchild.activity.SendCommentForPadActivity" android:theme="@style/NobackDialog"/>
+        <service android:exported="true" android:name="mm.purchasesdk.iapservice.PurchaseService">
+            <intent-filter android:priority="312">
+                <action android:name="com.aspire.purchaseservice.BIND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter android:priority="312">
+                <action android:name="com.neusoft.neuchild.purchaseservice.BIND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter android:priority="312">
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.SAFIAP.COMPONENT"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="mm.purchasesdk.iapservice.BillingLayoutActivity" android:theme="@android:style/Theme.Translucent">
+            <intent-filter android:priority="310">
+                <action android:name="com.neusoft.neuchild.com.mmiap.activity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="true" android:name="safiap.framework.SafFrameworkManager" android:process="safiap.framework">
+            <intent-filter android:priority="630">
+                <action android:name="safiap.framework.sdk.ISAFFramework"/>
+            </intent-filter>
+            <intent-filter android:priority="630">
+                <action android:name="safiap.framework.ACTION_START_DOWNLOAD"/>
+            </intent-filter>
+            <intent-filter android:priority="630">
+                <action android:name="safiap.framework.ACTION_CHECK_UPDATE"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="safiap.framework.CheckUpdateReceiver">
+            <intent-filter>
+                <action android:name="safiap.framework.ACTION_CANCEL_NOTIFICATION"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="safiap.GET_SHARED_DATA"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="safiap.framework.ACTION_SET_TIMER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="orientation" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="safiap.framework.ui.UpdateHintActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="safiap.framework.ACTION_TO_INSTALL"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="safiap.framework.ACTION_TO_INSTALL_IAP"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="safiap.framework.ACTION_NETWORK_ERROR_IAP"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="safiap.framework.ACTION_NETWORK_ERROR_FRAMEWORK"/>
+            </intent-filter>
+        </activity>
+        <service android:name="safiap.framework.logreport.monitor.handler.LogreportHandler" android:process=":remote"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.neusoft.neuchild.activity.BookStoreMainActivity" android:theme="@style/Theme" android:windowSoftInputMode="adjustPan" style="@style/activity_screen_orientation">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="neuchild.app" android:scheme="neuchild"/>
+            </intent-filter>
+        </activity>
+        <service android:name="com.neusoft.neuchild.downloadmanager.FlashScreenService"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/title_activity_discover" android:launchMode="singleTask" android:name="com.neusoft.neuchild.activity.DiscoverActivity" android:theme="@style/Theme" android:windowSoftInputMode="stateHidden" style="@style/activity_screen_orientation"/>
+    </application>
+</manifest>

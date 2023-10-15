@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="31" android:compileSdkVersionCodename="12" package="mv.com.mib.faisamobile" platformBuildVersionCode="31" platformBuildVersionName="12">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.fingerprint" android:required="false"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="mv.com.mib.faisamobile.permission.WRITE_SCHEDULE"/>
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.SENDTO"/>
+            <data android:scheme="mailto"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+        </intent>
+    </queries>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="mv.com.mib.faisamobile.App" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="false" android:theme="@style/AppTheme">
+        <provider android:authorities="mv.com.mib.faisamobile.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_provider_paths"/>
+        </provider>
+        <service android:enabled="true" android:name="mv.com.mib.faisamobile.MediaDownloader" android:process=":mediadownloader" android:stopWithTask="false"/>
+        <receiver android:enabled="true" android:exported="true" android:label="RestartServiceWhenStopped" android:name="mv.com.mib.faisamobile.MediaDownloaderBroadcastReciever">
+            <intent-filter>
+                <action android:name="mv.com.mib.faisamobile.RestartMediaDownloader"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="@string/google_maps_key"/>
+        <activity android:exported="true" android:name="mv.com.mib.faisamobile.DH" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="banking" android:scheme="faisamobilesmarfs"/>
+                <data android:pathPattern="/.*"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="mv.com.mib.faisamobile.TermsAgreeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="mv.com.mib.faisamobile.TermsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="mv.com.mib.faisamobile.TermsSessionCompatActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="mv.com.mib.faisamobile.PrivacyActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="mv.com.mib.faisamobile.PrivacySessionCompatActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="mv.com.mib.faisamobile.SelfRegisterActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="mv.com.mib.faisamobile.ChangePasswordActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="mv.com.mib.faisamobile.ForgotPasswordActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="mv.com.mib.faisamobile.ZeroAccountActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="mv.com.mib.faisamobile.ZakathActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="mv.com.mib.faisamobile.CBReportActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="mv.com.mib.faisamobile.TransferActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="mv.com.mib.faisamobile.ChatActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="mv.com.mib.faisamobile.SplashActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeSplash.NoActionBar"/>
+        <activity android:exported="true" android:name="mv.com.mib.faisamobile.X0Activity" android:theme="@style/AppTheme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="mv.com.mib.faisamobile.X1Activity" android:screenOrientation="portrait" android:theme="@style/AppThemeDarkTransparent.NoActionBar"/>
+        <activity android:name="mv.com.mib.faisamobile.TabbedActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="mv.com.mib.faisamobile.UnlockActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeDarkTransparent.NoActionBar"/>
+        <activity android:name="mv.com.mib.faisamobile.cropper.CropImageActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="mv.com.mib.faisamobile.TrxHistoryActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeAccentInv.NoActionBar"/>
+        <activity android:name="mv.com.mib.faisamobile.CBLeavesActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeAccentInv.NoActionBar"/>
+        <activity android:name="mv.com.mib.faisamobile.BeneficiaryAddEditActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/title_activity_fullscreen" android:name="mv.com.mib.faisamobile.FullscreenActivity" android:theme="@style/FullscreenTheme"/>
+        <activity android:label="@string/title_activity_maps" android:name="mv.com.mib.faisamobile.Map2Activity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBarTransparent"/>
+        <activity android:label="@string/title_activity_maps" android:name="mv.com.mib.faisamobile.Map2SessionCompatActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBarTransparent"/>
+        <activity android:label="@string/title_activity_maps" android:name="mv.com.mib.faisamobile.PinChangeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBarTransparent"/>
+        <activity android:label="@string/title_activity_info" android:name="mv.com.mib.faisamobile.InfoSessionCompatActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBarTransparent"/>
+        <activity android:label="@string/title_activity_info" android:name="mv.com.mib.faisamobile.InfoActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBarTransparent"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.zoho.livechat.android.ui.activities.SalesIQActivity" android:theme="@style/Theme.SalesIQ.Base" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.zoho.livechat.android.ui.activities.ArticlesActivity" android:theme="@style/Theme.SalesIQ.Base" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.zoho.livechat.android.ui.activities.ChatActivity" android:theme="@style/Theme.SalesIQ.Base" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.zoho.livechat.android.ViewChatImagesActivity" android:theme="@style/SalesIQ.ChatImageView"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.zoho.livechat.android.ViewBotCardImageActivity" android:theme="@style/SalesIQ.ChatImageView"/>
+        <provider android:authorities="mv.com.mib.faisamobile.livechat" android:exported="false" android:name="com.zoho.livechat.android.provider.ZohoLDContentProvider" android:writePermission="mv.com.mib.faisamobile.permission.WRITE_SCHEDULE"/>
+        <provider android:authorities="mv.com.mib.faisamobile.siqfileprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.zoho.livechat.android.provider.MobilistenFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/siq_provider_paths"/>
+        </provider>
+        <receiver android:name="com.zoho.livechat.android.NotificationDeleteReceiver"/>
+        <receiver android:exported="false" android:name="com.zoho.salesiqembed.android.TriggerReceiver">
+            <intent-filter>
+                <action android:name="MOBILISTEN_TRIGGER_RECEIVER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="true" android:name="androidx.biometric.DeviceCredentialHandlerActivity" android:theme="@style/DeviceCredentialHandlerTheme"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="mv.com.mib.faisamobile.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+    </application>
+</manifest>

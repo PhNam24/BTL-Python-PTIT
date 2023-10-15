@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.iss.dezhoubank">
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.RECORD_VIDEO"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_STORAGE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <application android:allowBackup="true" android:debuggable="true" android:icon="@drawable/logo_launcher" android:label="@string/app_name" android:name="com.iss.dezhoubank.app.BankApp" android:theme="@android:style/Theme.NoTitleBar">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.iss.dezhoubank.activity.SplashActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.iss.dezhoubank.activity.MainActivity" android:screenOrientation="portrait" android:theme="@style/ThemeActivity" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:name="com.iss.dezhoubank.activity.WFCordovaActivity" android:screenOrientation="portrait" android:theme="@style/ThemeActivity" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.iss.dezhoubank.activity.GuideActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.iss.sdpersonalbank.activity.CaptureActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.iss.dezhoubank.activity.NoBottomBarActivity" android:screenOrientation="portrait" android:theme="@style/ThemeActivity" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:name="com.iss.loghandler.ErrorHandler" android:process=":issExeptionProcess" android:taskAffinity="system.ErrorHandler">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:mimeType="errors/itotemUnhandleCatcher"/>
+            </intent-filter>
+        </activity>
+        <service android:enabled="true" android:name="com.baidu.location.f" android:process=":remote">
+            <intent-filter>
+                <action android:name="com.baidu.location.service_v2.2"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.iss.sdpersonalbank.service.PreventHijackService" android:process="com.iss.sdbank.appservice">
+            <intent-filter>
+                <action android:name="COM.ISS.SDBANK.APPSERVICE"/>
+            </intent-filter>
+        </service>
+        <activity android:name="com.iss.sdpersonalbank.activity.PreventHijackActivity" android:process="com.iss.sdbank.appservice" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:name="com.iss.sdpersonalbank.activity.ContactListActivity" android:screenOrientation="portrait" android:theme="@style/ThemeActivity" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:name="com.iss.sdpersonalbank.activity.AccountBankActivity" android:screenOrientation="portrait" android:theme="@style/ThemeActivity" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:name="com.iss.sdpersonalbank.activity.UpdateAPKActivity" android:screenOrientation="portrait" android:theme="@style/ThemeActivity" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:launchMode="singleTask" android:name="com.iss.sdpersonalbank.activity.ICTransferActivity" android:screenOrientation="portrait" android:theme="@style/ThemeActivity" android:windowSoftInputMode="adjustNothing">
+            <intent-filter>
+                <action android:name="android.nfc.action.TECH_DISCOVERED"/>
+            </intent-filter>
+            <meta-data android:name="android.nfc.action.TECH_DISCOVERED" android:resource="@xml/nfc_tech_filter"/>
+        </activity>
+    </application>
+</manifest>

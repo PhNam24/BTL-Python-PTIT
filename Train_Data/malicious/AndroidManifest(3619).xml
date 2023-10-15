@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.mogujie">
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="android.permission.BATTERY_STATS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_NOTIFICATION"/>
+    <android:uses-permission android:maxSdkVersion="18" android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="true" android:icon="@drawable/app_icon" android:label="@string/app_name" android:largeHeap="true" android:name="com.mogujie.app.MGClientApp" android:theme="@style/MGJTheme">
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.mogujie.activity.MGInitAct" android:screenOrientation="portrait" android:theme="@style/InitActTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:icon="@drawable/app_icon" android:launchMode="singleTask" android:name="com.mogujie.activity.MGIndexAct" android:screenOrientation="portrait" android:theme="@style/MGIndexTheme" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:scheme="mogujie"/>
+                <data android:host="index"/>
+                <data android:host="push"/>
+                <data android:host="open"/>
+                <data android:host="cate"/>
+                <data android:host="fragment_im"/>
+                <data android:host="myprofile"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGNoteAct" android:screenOrientation="portrait" android:theme="@style/NoAnimation4NoteTheme" android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="note"/>
+                <data android:host="dapeidetail"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGStyleDetailAct" android:screenOrientation="portrait" android:theme="@style/NoAnimation4NoteTheme" android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="styledetail"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.detail.GeneralDetailActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="detail"/>
+                <data android:host="beautydetail"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGCommentAct" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGTuanWaterfallAct" android:screenOrientation="portrait">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="hometuan"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGCateWaterfallAct" android:screenOrientation="portrait" android:theme="@style/MGCateWallActTheme">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="search"/>
+                <data android:host="photowall"/>
+                <data android:host="albumwall"/>
+                <data android:host="shopgoodswall"/>
+                <data android:host="wall"/>
+                <data android:host="catewall"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGNoteLargePictureAct" android:screenOrientation="portrait" android:theme="@style/NoAnimationTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGLoginAct" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="login"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGRegisterAct" android:screenOrientation="portrait" android:windowSoftInputMode="stateVisible">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="register"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.beauty.activity.BeautyListAct" android:screenOrientation="portrait">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="beauty"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGAddressDetailAct" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="createaddress"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGAddressListAct" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="address"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.mogujie.activity.MGBillAct" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="order"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGSettingAct" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="setting"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGFragmentContainerAct" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="container"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGEditProfileAct" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="editprofile"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGSetPasswordAct" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGFeedbackAct" android:screenOrientation="portrait" android:theme="@style/SwipeTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="feedback"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGAboutAct" android:screenOrientation="portrait" android:theme="@style/SwipeTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGProtocolAct" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGFillCaptchaAct" android:screenOrientation="portrait" android:windowSoftInputMode="stateVisible"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGFillPasswordAct" android:screenOrientation="portrait" android:windowSoftInputMode="stateVisible"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGPhoneRegisterCompeleteAct" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGThirdBindingAct" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MOGUJIEServiceAct" android:screenOrientation="portrait" android:theme="@style/SwipeTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGDirectMsgDetailAct" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGTuanAct" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGTuanDetailAct" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGNewUserAct" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGWebViewAct" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="web"/>
+                <data android:host="pushweb"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.search.MGSearchAct" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.search.SearchShopListActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="shopsearch"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.mogujie.activity.MGSingleOrderAct" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="orderlist"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.mogujie.activity.MGTogetherOrderAct" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="togetherOrderAct"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGCouponAct" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="couponlist"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGPayWebViewAct" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGZoomWatchAct" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="zoomWatcher"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.mogujie.activity.MGCartAct" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="cart"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGShopAct" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="shop"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGShopInfoAct" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="shopdetail"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGOrderCommentAct" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="rate"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGAppendOrderCommentAct" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.trade.checkout.activity.MGPaymentBackAct" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGLastScanAct" android:screenOrientation="portrait" android:theme="@style/SwipeTheme" android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="lastscan"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGCollectionAct" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="collection"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGMyMagicBeanAct" android:screenOrientation="portrait" android:theme="@style/SwipeTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="magicbean"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGVIPIntroduceAct" android:screenOrientation="portrait" android:theme="@style/SwipeTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="vipinfo"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGVipOrderAct" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="viporder"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGOrderBackAct" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="viporderback"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.mogujie.activity.MGGoodsInfoAct" android:screenOrientation="portrait"/>
+        <receiver android:name="com.mogujie.notification.MGLockReceive">
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="com.mogujie.app.DownloadReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.mogujie.imgtag" android:name="com.mogujie.provider.ImgProvider"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGCpsBillAct" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="bill"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.activity.MGDeliverDetailAct" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="logistic"/>
+            </intent-filter>
+        </activity>
+        <receiver android:name="com.mogujie.notification.MGCinfoReceive">
+            <intent-filter>
+                <action android:name="com.mogujie.cinfo_action"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:name="com.mogujie.service.UninstallObserverService" android:process=":observer"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencent201293"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.connect.common.AssistActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="dP4hV8CEaERhPiYn1PGmOOGG"/>
+        <service android:enabled="true" android:name="com.baidu.location.f" android:process=":remote"/>
+        <meta-data android:name="UMENG_APPKEY" android:value="4f4b12ca5270151ea2000003"/>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.mogujie.wxapi.WXPayEntryActivity" android:theme="@android:style/Theme.NoDisplay"/>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.mogujie.wxapi.WXEntryActivity" android:theme="@android:style/Theme.NoDisplay"/>
+        <activity android:name="com.mo9.sdk.mo9pay.CallbackActivity" android:screenOrientation="portrait"/>
+        <receiver android:name="com.mogujie.app.GexinSdkMsgReceiver">
+            <intent-filter>
+                <action android:name="com.mogujie.mgsdk.action.push"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:label="@string/app_name" android:name="com.unionpay.uppay.PayActivity" android:screenOrientation="portrait" android:theme="@style/Theme.UPPay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:label="@string/app_name" android:name="com.unionpay.uppay.PayActivityEx" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.mogujie.activity.MGCaptureActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:launchMode="singleTask" android:name="com.mogujie.trade.checkout.activity.MGCheckoutCounterAct" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.mogujie.trade.checkout.activity.OldPayAct" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:launchMode="singleTask" android:name="com.mogujie.trade.checkout.activity.MGBankcardNumberAct" android:screenOrientation="portrait" android:windowSoftInputMode="stateVisible"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="com.mogujie.trade.checkout.activity.MGBankcardListAct" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:launchMode="singleTask" android:name="com.mogujie.trade.checkout.activity.MGBankcardInfoAct" android:screenOrientation="portrait" android:windowSoftInputMode="stateVisible"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="com.mogujie.trade.checkout.activity.MGBankcardCaptchaAct" android:screenOrientation="portrait" android:windowSoftInputMode="stateVisible"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="com.mogujie.trade.password.MGSafePWAct" android:screenOrientation="portrait" android:theme="@style/MGPayDialog"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="com.mogujie.trade.password.MGSettingPasswordAct" android:screenOrientation="portrait" android:theme="@style/MGPayDialog"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="com.mogujie.trade.checkout.activity.MGPasswordManageAct" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.mogujie.trade.checkout.activity.MGFindPayPasswordAct" android:screenOrientation="portrait">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="findpwd"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.mogujie.trade.password.MGChangePasswordAct" android:screenOrientation="portrait" android:theme="@style/MGPayDialog"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.mogujie.trade.checkout.activity.MGPayPassResultAct" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.mogujie.trade.password.MGResetPasswordAct" android:screenOrientation="portrait" android:theme="@style/MGPayDialog"/>
+        <service android:name="com.mogujie.utils.MGVersionDownService"/>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="1546cf0eeae2cc3dfde779e218f2494abd6a27dd"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.mogujie.activity.MGDarenAct" android:screenOrientation="portrait">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="daren"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="AA_DB_NAME" android:value="mg.db"/>
+        <meta-data android:name="AA_DB_VERSION" android:value="5"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.mogujie.activity.MGPersonalInfoAct" android:screenOrientation="portrait">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="personalinfo"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.mogujie.activity.MGDevDebugmodeAct">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="debug"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.mogujie.activity.MGTopShareWaterfallAct" android:screenOrientation="portrait">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="topdaren"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.mogujie.activity.MGStyleAct" android:screenOrientation="portrait">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="stylelist"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mogujie.ad.ADVideoActivity" android:theme="@style/videoTheme">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="mgjclient"/>
+                <data android:host="video"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name="com.mogujie.im.ui.activity.MessageActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="mgjim"/>
+                <data android:host="talk"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/contact_name" android:name="com.mogujie.im.ui.activity.ContactFragmentActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="mgjim"/>
+                <data android:host="list"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name="com.mogujie.im.ui.activity.DisplayImageActivity" android:screenOrientation="portrait"/>
+        <receiver android:name="com.mogujie.im.service.StartImServiceReceiver">
+            <intent-filter>
+                <action android:name="com.mougjie.im.startService"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.mogujie.im.service.IMService">
+            <intent-filter>
+                <action android:name="com.mogujie.im.framework.service.IMService"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.mogujie.im.ui.activity.PickPhotoActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.mogujie.im.ui.activity.ImageGridActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.mogujie.im.ui.activity.PreviewActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.mogujie.im.ui.activity.PreviewTextActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <meta-data android:name="appid" android:value="PaHXrLNmGn9bX4rYFGbW17"/>
+        <meta-data android:name="appkey" android:value="V95B0J23xb7qK5yoEReoR7"/>
+        <meta-data android:name="appsecret" android:value="i6SH8YfyVtAxuZLOkLulg9"/>
+        <activity android:excludeFromRecents="true" android:name="com.igexin.sdk.SdkActivity" android:process="com.mogujie.pushservice" android:taskAffinity="android.task.SdkActivityTask" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="com.igexin.action.popupact.com.mogujie"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="true" android:label="NotifyCenterAIDL" android:name="com.igexin.sdk.coordinator.SdkMsgService" android:process="com.mogujie.pushservice"/>
+        <service android:exported="false" android:label="NotifyCenter" android:name="com.igexin.sdk.SdkMainService" android:process="com.mogujie.pushservice"/>
+        <service android:name="sdk.download.DownloadService" android:process="com.mogujie.pushservice"/>
+        <receiver android:name="com.mogujie.mgsdk.MGPush">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.PaHXrLNmGn9bX4rYFGbW17"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.igexin.sdk.coordinator.NotificationCenterAIDLReceiver">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.refreshls"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.igexin.sdk.SdkReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="sdk.download.DownloadReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="sdk.download.com.mogujie" android:name="sdk.download.DownloadProvider" android:process="com.mogujie.pushservice"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.mogujie.framework.LoaderActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.mogujie.framework.MainActivity" android:screenOrientation="portrait" android:theme="@style/DyTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.mogujie.framework.singletask.TimeLineAct" android:screenOrientation="portrait" android:theme="@style/DyTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.mogujie.framework.singletask.PwdAct" android:screenOrientation="portrait" android:theme="@style/PwdTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.mogujie.framework.singletask.DialogAct" android:screenOrientation="portrait" android:theme="@style/PwdTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.mogujie.framework.singletask.MethodAct" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.mogujie.framework.ForwardActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="mgjloader"/>
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

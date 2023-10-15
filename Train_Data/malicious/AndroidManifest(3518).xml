@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.zxw.zxwhx" platformBuildVersionCode="9" platformBuildVersionName="v1.0.9">
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="com.zxw.zxwhx.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.zxw.zxwhx.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="getui.permission.GetuiService.com.zxw.zxwhx"/>
+    <permission android:name="getui.permission.GetuiService.com.zxw.zxwhx" android:protectionLevel="normal"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <permission android:name="com.zxw.zxwhx.permission.JPUSH_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.zxw.zxwhx.permission.JPUSH_MESSAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <application android:allowBackup="true" android:icon="@mipmap/push" android:label="@string/app_name" android:name="com.stub.StubApp" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <service android:enabled="true" android:exported="true" android:name="cn.jpush.android.service.DaemonService">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.DaemonService"/>
+                <category android:name="com.zxw.zxwhx"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.zxw.zxwhx.DownloadProvider" android:exported="true" android:name="cn.jpush.android.service.DownloadProvider"/>
+        <meta-data android:name="AA_DB_NAME" android:value="zxwhx.db"/>
+        <meta-data android:name="AA_MODELS" android:value="com.zxw.zxwhx.database.UserEntry, com.zxw.zxwhx.database.FriendEntry,              com.zxw.zxwhx.database.FriendRecommendEntry, com.zxw.zxwhx.database.ConversationEntry"/>
+        <meta-data android:name="AA_DB_VERSION" android:value="4"/>
+        <service android:enabled="true" android:exported="false" android:name="cn.jpush.android.service.PushService" android:process=":pushcore">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER"/>
+                <action android:name="cn.jpush.android.intent.REPORT"/>
+                <action android:name="cn.jpush.android.intent.PushService"/>
+                <action android:name="cn.jpush.android.intent.PUSH_TIME"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="cn.jpush.android.service.PushReceiver" android:process=":pushcore">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY"/>
+                <category android:name="com.zxw.zxwhx"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="cn.jpush.im.android.helpers.IMReceiver"/>
+        <receiver android:exported="false" android:name="cn.jpush.android.service.AlarmReceiver"/>
+        <provider android:authorities="com.zxw.zxwhx.DataProvider" android:exported="true" android:name="cn.jpush.android.service.DataProvider"/>
+        <meta-data android:name="JPUSH_CHANNEL" android:value="developer-default"/>
+        <meta-data android:name="JPUSH_APPKEY" android:value="a80ad94bd06d48a8be12c2e7"/>
+        <meta-data android:name="UMENG_APPKEY" android:value="5b2ddcd7f43e48038a00006d"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="yingyongbao"/>
+        <activity android:name="com.zxw.zxwhx.ChatActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.other.BaseActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.zxw.zxwhx.other.WelcomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:launchMode="singleTask" android:name="com.zxw.zxwhx.other.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.zxw.zxwhx.other.LoginActivity" android:screenOrientation="nosensor"/>
+        <activity android:name="com.zxw.zxwhx.other.RegistrationActivity" android:screenOrientation="nosensor"/>
+        <activity android:name="com.zxw.zxwhx.other.PerfectInfoActivity" android:screenOrientation="nosensor"/>
+        <activity android:name="com.zxw.zxwhx.other.ChangePasswordActivity" android:screenOrientation="nosensor"/>
+        <activity android:name="com.zxw.zxwhx.other.ForgetPasswordActivity" android:screenOrientation="nosensor"/>
+        <activity android:name="com.zxw.zxwhx.other.ActivitActivity" android:screenOrientation="nosensor"/>
+        <activity android:name="com.zxw.zxwhx.other.JumpShareActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.circle.CircleReleaseNormalActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.circle.CircleIndustryActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.circle.CircleIndustryMyInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.circle.CircleIndustryOriginalActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.circle.CircleIndustrySendShareActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.circle.CircleReportActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.circle.CirclePicActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.circle.LoadPicActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.releasepic.ImageGridActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.zxw.zxwhx.releasepic.TestPicActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.zxw.zxwhx.releasepic.PhotoActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:launchMode="singleTask" android:name="com.zxw.zxwhx.home.HomeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.zxw.zxwhx.home.HomeInformationListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.home.HomeInformationListInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.home.HomePurchaseListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.home.homePurchaseShareActivity" android:screenOrientation="nosensor"/>
+        <activity android:name="com.zxw.zxwhx.home.HomePurchaseListInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.home.HomeReleasePurchaseActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.home.HomePicActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.zxw.zxwhx.home.HomeVActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.zxw.zxwhx.home.HomeVOpenActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.home.WebviewActivity" android:screenOrientation="nosensor"/>
+        <activity android:name="com.zxw.zxwhx.my.MyShareListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.my.MyMoreInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.my.NewRechargeActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.zxw.zxwhx.my.MyActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.zxw.zxwhx.my.MyPurchaseActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.my.MyPurchaseRechargeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.my.MyPurchaseOneRechargeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.my.MyBombBox" android:theme="@style/mybomb_box"/>
+        <activity android:name="com.zxw.zxwhx.my.MyPersonInfoChangeActivity" android:screenOrientation="nosensor"/>
+        <activity android:name="com.zxw.zxwhx.my.MyIntroduceActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.my.MyProblemFeedback" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.my.MyShareActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.my.MySmsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.my.MyAboutActivity" android:screenOrientation="nosensor"/>
+        <activity android:name="com.zxw.zxwhx.other.ClauseActivity" android:screenOrientation="nosensor"/>
+        <activity android:exported="true" android:label="@string/app_name" android:name="com.zxw.zxwhx.wxapi.WXEntryActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:exported="false" android:name="com.alipay.sdk.app.H5PayActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <receiver android:name="com.zxw.zxwhx.wxapi.WXEntryActivity" android:permission="com.tencent.mm.plugin.permission.SEND">
+            <intent-filter>
+                <action android:name="com.tencent.mm.plugin.openapi.Intent.ACTION_REFRESH_WXAPP"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.tencent.connect.common.AssistActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencent1105923779"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.zxw.zxwhx.ui.untils.SharePopupWindow" android:screenOrientation="portrait" android:theme="@style/MyDialogStyleBottom"/>
+        <activity android:name="com.zxw.zxwhx.my.InviteContactsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.offerhome.OfferDetailsActivity" android:screenOrientation="nosensor"/>
+        <activity android:name="com.zxw.zxwhx.offerhome.MyOfferShareActivity" android:screenOrientation="nosensor"/>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.zxw.zxwhx.wxapi.WXPayEntryActivity"/>
+        <activity android:name="com.zxw.zxwhx.offerhome.ReceiveMessagesActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.home.HomeMallActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.home.HomeMallReleaseActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.home.HomeMallSearchActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.home.HomeMallDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.home.HomeMallShopActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.home.HomeMallApplicationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.my.MyMallActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.zxw.zxwhx.home.LoadPictureActivity" android:screenOrientation="portrait"/>
+        <service android:enabled="true" android:name="com.baidu.location.f" android:process=":remote">
+            <intent-filter>
+                <action android:name="com.baidu.location.service_v2.2"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="saSVMtW6INUIgpnmyp9Q3nsXfVMLSpWv"/>
+        <activity android:name="com.zxw.toolkit.util.permissions.PermissionActivity"/>
+        <activity android:name="com.zxw.imagelibrary.imagepicker.ImageBaseActivity" android:theme="@style/BaseThemes"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.zxw.imagelibrary.imagepicker.ImageGridActivity" android:theme="@style/ImagePickerTheme"/>
+        <activity android:configChanges="orientation|screenSize" android:hardwareAccelerated="false" android:name="com.zxw.imagelibrary.imagepicker.ImageCropActivity" android:theme="@style/ImagePickerTheme"/>
+        <activity android:name="com.zxw.imagelibrary.pickerimage.PickerAlbumActivity" android:theme="@style/BaseThemes"/>
+        <activity android:name="com.zxw.imagelibrary.pickerimage.PickerAlbumPreviewActivity"/>
+        <activity android:name="com.zxw.imagelibrary.pickerimage.PickImageActivity" android:theme="@style/BaseThemes"/>
+        <provider android:authorities="com.zxw.zxwhx.updateFileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.maning.updatelibrary.MNUpdateApkFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/mn_update_file_provider"/>
+        </provider>
+        <meta-data android:name="android.support.VERSION" android:value="26.1.0"/>
+        <meta-data android:name="android.arch.lifecycle.VERSION" android:value="27.0.0-SNAPSHOT"/>
+    </application>
+</manifest>

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" package="letsmakeadeal2018.android.app" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <permission android:name="letsmakeadeal2018.android.app.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="letsmakeadeal2018.android.app.permission.C2D_MESSAGE"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <permission android:name="letsmakeadeal2018.android.app.provider.READ"/>
+    <uses-permission android:name="letsmakeadeal2018.android.app.provider.READ"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:configChanges="layoutDirection|locale" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="letsmakeadeal2018.android.app.MyApplication" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <receiver android:exported="true" android:name="letsmakeadeal2018.android.app.ReferrerListener">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <meta-data android:name="CLEVERTAP_ACCOUNT_ID" android:value="@string/clever_tap_account_id"/>
+        <meta-data android:name="CLEVERTAP_TOKEN" android:value="@string/clever_tap_token"/>
+        <meta-data android:name="CLEVERTAP_INAPP_EXCLUDE" android:value="SplashActivity"/>
+        <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="barcode"/>
+        <service android:exported="false" android:name="letsmakeadeal2018.android.app.background.PAFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="keyboardHidden" android:name="com.clevertap.android.sdk.InAppNotificationActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="CLEVERTAP_NOTIFICATION_ICON" android:value="ic_stat_red_star"/>
+        <meta-data android:name="com.google.android.gms.wallet.api.enabled" android:value="true"/>
+        <activity android:label="@string/label_android_pay" android:name="letsmakeadeal2018.android.app.activities.AndroidPayCheckoutActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="layoutDirection|locale" android:label="@string/app_name" android:name="letsmakeadeal2018.android.app.activities.SplashActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="app-2122.appdeep.link" android:scheme="http"/>
+                <data android:host="app-2122.appdeep.link" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="app-2122.appdeep.link" android:pathPrefix="/collections" android:scheme="http"/>
+                <data android:host="app-2122.appdeep.link" android:pathPrefix="/collections" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="app-2122.appdeep.link" android:pathPrefix="/products" android:scheme="http"/>
+                <data android:host="app-2122.appdeep.link" android:pathPrefix="/products" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.mushostation.com" android:pathPrefix="/collections" android:scheme="http"/>
+                <data android:host="www.mushostation.com" android:pathPrefix="/collections" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.mushostation.com" android:pathPrefix="/products" android:scheme="http"/>
+                <data android:host="www.mushostation.com" android:pathPrefix="/products" android:scheme="https"/>
+            </intent-filter>
+            <meta-data android:name="android.app.default_searchable" android:value=".activities.ProductActivity"/>
+        </activity>
+        <activity android:configChanges="layoutDirection|locale" android:name="letsmakeadeal2018.android.app.activities.ProductActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:configChanges="layoutDirection|locale" android:label="@string/title_activity_filter2" android:name="letsmakeadeal2018.android.app.activities.FilterActivity2" android:screenOrientation="portrait"/>
+        <activity android:configChanges="layoutDirection|locale" android:label="@string/title_activity_filter2" android:name="letsmakeadeal2018.android.app.activities.FilterActivity3" android:screenOrientation="portrait"/>
+        <activity android:configChanges="layoutDirection|locale" android:label="@string/title_filter" android:name="letsmakeadeal2018.android.app.MainMenuContainerActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="letsmakeadeal2018.android.app.activities.ProductDetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="letsmakeadeal2018.android.app.activities.SearchProductActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="letsmakeadeal2018.android.app.activities.SearchProductNewActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="letsmakeadeal2018.android.app.activities.ForgotPasswordActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="layoutDirection|locale" android:launchMode="singleTask" android:name="letsmakeadeal2018.android.app.MainMenuTypeThree" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="layoutDirection|locale" android:launchMode="singleTask" android:name="letsmakeadeal2018.android.app.MainMenuTypeSeven" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="letsmakeadeal2018.android.app.activities.PaymentOptionsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="letsmakeadeal2018.android.app.activities.ShippingChargesActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="letsmakeadeal2018.android.app.vision.barcode.BarcodeCaptureActivity" android:screenOrientation="portrait"/>
+        <activity android:name="letsmakeadeal2018.android.app.vision.text.OcrCaptureActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="letsmakeadeal2018.android.app.activities.ProductFullScreenActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="letsmakeadeal2018.android.app.activities.ThankYouActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="letsmakeadeal2018.android.app.activities.MainActivityContainer" android:screenOrientation="portrait"/>
+        <activity android:configChanges="layoutDirection|locale" android:label="@string/title_order_confirm" android:name="letsmakeadeal2018.android.app.activities.OrderConfirmationActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="layoutDirection|locale" android:label="@string/contact_us" android:name="letsmakeadeal2018.android.app.activities.ContactUsActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_edit_profile" android:name="letsmakeadeal2018.android.app.activities.EditProfileActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="layoutDirection|locale" android:label="@string/title_edit_address" android:name="letsmakeadeal2018.android.app.activities.EditAddressActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="layoutDirection|locale" android:label="@string/title_login" android:name="letsmakeadeal2018.android.app.activities.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="layoutDirection|locale" android:label="@string/title_register" android:name="letsmakeadeal2018.android.app.activities.LoginRegisterActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="layoutDirection|locale" android:label="@string/title_checkout_as_guest" android:name="letsmakeadeal2018.android.app.activities.GuestLoginActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/settings" android:name="letsmakeadeal2018.android.app.activities.SettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/my_orders" android:name="letsmakeadeal2018.android.app.activities.MyOrdersActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/order_details" android:name="letsmakeadeal2018.android.app.activities.MyOrdersDetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="layoutDirection|locale" android:label="@string/my_addresses" android:name="letsmakeadeal2018.android.app.activities.MyAddressesActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="layoutDirection|locale" android:label="@string/title_checkout" android:name="letsmakeadeal2018.android.app.activities.OnePageCheckoutActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="letsmakeadeal2018.android.app.activities.CardDetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="layoutDirection|locale" android:label="@string/title_free_trial_expired" android:name="letsmakeadeal2018.android.app.activities.FreeTrialExpiredActivity" android:screenOrientation="portrait"/>
+        <service android:exported="false" android:name="letsmakeadeal2018.android.app.services.ShopifyService"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="plobalapps.android.uncaughtexception.ExceptionActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Dialog"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_id"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/fb_login_protocol_scheme"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="cct.letsmakeadeal2018.android.app" android:scheme="fbconnect"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCseWb8ZCaGWC8cEU2FUbLJrHvk8o47Ih8"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:configChanges="layoutDirection|locale" android:label="@string/title_activity_bank_deposit" android:name="letsmakeadeal2018.android.app.activities.BankDepositActivity" android:screenOrientation="portrait"/>
+        <activity android:name="letsmakeadeal2018.android.app.activities.WebViewTitleActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="letsmakeadeal2018.android.app.activities.HandleNotificationActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="layoutDirection|locale" android:label="@string/my_orders" android:name="letsmakeadeal2018.android.app.activities.TrackOrderActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="layoutDirection|locale" android:label="@string/title_subcategory" android:name="letsmakeadeal2018.android.app.activities.SubCategoryActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="layoutDirection|locale" android:label="@string/title_activity_review" android:name="letsmakeadeal2018.android.app.activities.ProductReviewActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.halilibo.bvpkotlin.activity.FullscreenActivity"/>
+        <activity android:name="letsmakeadeal2018.android.app.activities.LiveStreamingActivity"/>
+        <activity android:configChanges="layoutDirection|locale" android:label="@string/title_register" android:name="com.pierfrancescosoffritti.androidyoutubeplayer.core.activity.YoutubeFullScreenActivity"/>
+        <meta-data android:name="firebase_crashlytics_collection_enabled" android:value="true"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name="com.mikelau.croperino.CropImage" android:screenOrientation="portrait"/>
+        <provider android:authorities="letsmakeadeal2018.android.app.provider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider" android:readPermission="letsmakeadeal2018.android.app.provider.READ">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <activity android:exported="false" android:label="@string/places_autocomplete_label" android:name="com.google.android.libraries.places.widget.AutocompleteActivity" android:theme="@style/PlacesAutocompleteOverlay" android:windowSoftInputMode="adjustResize"/>
+        <service android:name="io.intercom.android.sdk.fcm.IntercomFcmMessengerService">
+            <intent-filter android:priority="-400">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name="io.intercom.android.sdk.activities.IntercomMessengerActivity" android:theme="@style/Intercom_PanelTheme" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="io.intercom.android.sdk.lightbox.LightBoxActivity" android:theme="@style/Intercom_LightBoxTheme" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:exported="false" android:launchMode="singleTop" android:name="io.intercom.android.sdk.activities.IntercomArticleActivity" android:theme="@style/Intercom_ModalActivityTheme" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name="io.intercom.android.sdk.activities.IntercomHelpCenterActivity" android:theme="@style/Intercom_ModalActivityTheme" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="io.intercom.android.sdk.activities.IntercomPostActivity" android:theme="@style/Intercom_PostTheme" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="io.intercom.android.sdk.activities.IntercomNoteActivity" android:theme="@style/Intercom_NoteTheme" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name="io.intercom.android.sdk.activities.IntercomSheetActivity" android:theme="@style/Intercom_ModalActivityTheme" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name="io.intercom.android.sdk.activities.IntercomVideoActivity" android:theme="@style/Intercom_PanelTheme" android:windowSoftInputMode="stateHidden"/>
+        <receiver android:exported="false" android:name="io.intercom.android.sdk.push.IntercomPushBroadcastReceiver">
+            <intent-filter>
+                <action android:name="io.intercom.android.sdk.INTERCOM_PUSH_OPENED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="io.intercom.android.sdk.INTERCOM_PUSH_DISMISSED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="letsmakeadeal2018.android.app.IntercomInitializeContentProvider" android:exported="false" android:name="io.intercom.android.sdk.IntercomInitializeContentProvider"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.clevertap.android.sdk.CTInboxActivity" android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.clevertap.android.sdk.pushnotification.CTPushNotificationReceiver"/>
+        <service android:exported="false" android:name="com.clevertap.android.sdk.pushnotification.amp.CTBackgroundIntentService" android:permission="android.permission.BIND_JOB_SERVICE">
+            <intent-filter>
+                <action android:name="com.clevertap.BG_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.clevertap.android.sdk.pushnotification.amp.CTBackgroundJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <provider android:authorities="letsmakeadeal2018.android.app.firebaseperfprovider" android:exported="false" android:initOrder="101" android:name="com.google.firebase.perf.provider.FirebasePerfProvider"/>
+        <service android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="letsmakeadeal2018.android.app.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="letsmakeadeal2018.android.app.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <provider android:authorities="letsmakeadeal2018.android.app.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <activity android:name="com.intercom.input.gallery.GalleryInputFullScreenActivity" android:theme="@style/intercom_composer_full_screen_theme"/>
+        <activity android:configChanges="density|orientation|screenLayout|screenSize" android:name="com.intercom.input.gallery.GalleryLightBoxActivity" android:theme="@style/intercom_composer_full_screen_theme"/>
+    </application>
+</manifest>

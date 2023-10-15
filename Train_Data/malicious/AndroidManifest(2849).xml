@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.zbx.ct.app.lolbox">
+    <permission android:name="com.zbx.ct.app.lolbox.permission.JPUSH_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.zbx.ct.app.lolbox.permission.JPUSH_MESSAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.SET_WALLPAPER_HINTS"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <application android:allowBackup="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:name="com.nqshield.NqApplication" android:theme="@android:style/Theme.Black.NoTitleBar">
+        <activity android:label="@string/app_name" android:name="SplanshActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="Exit" android:theme="@style/MyDialogStyle"/>
+        <activity android:name="WebViewActivity"/>
+        <activity android:name="AllHeroActivity"/>
+        <activity android:name="HeroDetialActivity"/>
+        <activity android:name="HeroItemActivity"/>
+        <activity android:name="ItemDetailActivity"/>
+        <activity android:name="HeroAbilityActivity"/>
+        <activity android:name="MainActivity"/>
+        <activity android:name="BindUserActivity"/>
+        <activity android:name="DuiZhanXinXiActivity"/>
+        <activity android:name="ItemGridActivity"/>
+        <activity android:name="SettingActivity"/>
+        <activity android:name="AboutActivity"/>
+        <activity android:name="ZbCategoryActivity"/>
+        <receiver android:enabled="true" android:name="MessageReceiver">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION"/>
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED"/>
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED"/>
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED"/>
+                <category android:name="com.zbx.ct.app.lolbox"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="cn.jpush.android.ui.PushActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.zbx.ct.app.lolbox"/>
+            </intent-filter>
+        </activity>
+        <service android:enabled="true" android:exported="false" android:name="cn.jpush.android.service.DownloadService"/>
+        <receiver android:name="cn.jpush.android.service.AlarmReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="cn.jpush.android.service.PushService">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER"/>
+                <action android:name="cn.jpush.android.intent.REPORT"/>
+                <action android:name="cn.jpush.android.intent.PushService"/>
+                <action android:name="cn.jpush.android.intent.PUSH_TIME"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:name="cn.jpush.android.service.PushReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY"/>
+                <category android:name="com.zbx.ct.app.lolbox"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="JPUSH_CHANNEL" android:value="developer-default"/>
+        <meta-data android:name="JPUSH_APPKEY" android:value="766c6ced0b484b1f9e40e529"/>
+        <activity android:name="ShowMessageActivity"/>
+        <activity android:name="DongTaiActivity"/>
+        <activity android:name="GongLueActivity"/>
+        <activity android:name="GongLueDitalActivity"/>
+        <activity android:name="FuWenActivity"/>
+        <activity android:name="HeroGongLueActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".FuWenMoniActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+        <service android:name=".LOLZhanDouLiService"/>
+        <activity android:name=".SkinActivity"/>
+        <activity android:name="ShowSkinActivity"/>
+        <activity android:name="VideoListActivity"/>
+        <activity android:name="HeroVideoActivity"/>
+        <activity android:name="Whatsnew"/>
+        <activity android:name="HelpActivity"/>
+        <activity android:name="VideoHestoryActivity"/>
+        <activity android:name="TianFuActivity"/>
+        <activity android:name="SkillActivity"/>
+        <activity android:name="SkillDitalActivity"/>
+        <activity android:name="NewMainActivity"/>
+        <activity android:name="HeroGridActivity"/>
+        <activity android:name="FightMessageActivity"/>
+        <activity android:name="DownLoadActivity"/>
+        <activity android:name="DownloadActivity2"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="VideoPlayActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:name="SoundListActivity"/>
+        <meta-data android:name="UMENG_APPKEY" android:value="50fa5235527015336f000039"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="anzhi"/>
+        <activity android:name="com.umeng.fb.ConversationActivity"/>
+        <activity android:name="com.umeng.fb.ContactActivity"/>
+        <service android:exported="true" android:name="com.umeng.common.net.DownloadingService" android:process=":DownloadingService"/>
+        <activity android:name="com.umeng.fb.ui.SendFeedback" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.umeng.fb.ui.FeedbackConversations"/>
+        <activity android:configChanges="keyboard" android:name="com.umeng.fb.ui.FeedbackConversation"/>
+        <service android:exported="true" android:name="com.umeng.common.net.DownloadingService" android:process=":DownloadingService"/>
+        <activity android:configChanges="keyboard|orientation" android:launchMode="singleTask" android:name="com.umeng.socialize.view.ShareActivity" android:noHistory="true" android:theme="@style/Theme.UMDialog" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:configChanges="keyboard|orientation" android:name="com.umeng.socialize.view.CommentActivity" android:theme="@style/Theme.UMDefault"/>
+        <activity android:configChanges="keyboard|orientation" android:name="com.umeng.socialize.view.CommentDetailNoMap" android:noHistory="true" android:theme="@style/Theme.UMDefault"/>
+        <activity android:name="GongGaoActivity"/>
+        <activity android:name="FaBiaoActivity"/>
+        <activity android:name="PingLunActivity"/>
+        <activity android:name="LunTanActivity"/>
+        <activity android:name="PiPeiActivity"/>
+        <activity android:name="JiFengDuiHuanActivity"/>
+        <service android:name="com.android.service.DownLoadService"/>
+        <activity android:name="GongLueOnLineActivity"/>
+        <activity android:name="VideoDitalActivity"/>
+        <activity android:name="ItemPropertyActivity"/>
+        <activity android:name="MyItemsEditActivity"/>
+        <activity android:name="LOLInfoActivity"/>
+        <activity android:name="ViewPagerActivity"/>
+        <activity android:name="com.zbx.ct.app.lolbox.ChoseHeroActivity"/>
+        <activity android:name="com.zbx.ct.app.lolbox.HeroPkActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.zbx.ct.app.lolbox.IamHeroActivity"/>
+        <activity android:name=".dzvo.DiscuzLoginActivity"/>
+        <activity android:name=".dzvo.DiscuzRegister"/>
+        <activity android:name=".dzvo.DiscuzPostThreadActivity"/>
+        <activity android:name=".dzvo.DiscuzUserInfoActivity"/>
+        <activity android:name=".dzvo.DiscuzUserCenterActivity"/>
+        <activity android:name="GoodsDetailActivity"/>
+        <activity android:name="ShangHaiActivity"/>
+        <activity android:name="YouKuDownActivity"/>
+        <service android:name=".service.DownLoadService"/>
+        <activity android:exported="true" android:label="PlayingActivity" android:name="com.baidu.cyberplayersdksample2.VideoViewPlayingActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencent100380359"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:label="@string/app_name" android:name="com.baidu.sharesdk.PlatformSsoCallBackActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:name="VideoMainActivity"/>
+        <activity android:name="DesktopActivity"/>
+        <activity android:name=".dzvo.DiscuzThreadActivity"/>
+        <activity android:name="JiShiActivity"/>
+        <activity android:name=".dzvo.DiscuzThreadListActivity2"/>
+        <activity android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenSize|smallestScreenSize" android:launchMode="singleTop" android:name="io.vov.vitamio.activity.InitActivity" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.zbx.ct.app.lolbox.play.VideoPlayerActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <service android:name="com.zbx.ct.app.lolbox.play.StandOutVideoView"/>
+        <activity android:name="com.zbx.ct.app.lolbox.play.VideoPlayerActivity5"/>
+        <activity android:name=".jf.JiFengActivity"/>
+        <activity android:name=".jf.JiFengDuiHuanActivity"/>
+        <activity android:name=".jf.JiFengJiLuActivity"/>
+        <activity android:name=".jf.JiFengShuoMingActivity"/>
+        <activity android:name="YCFActivity"/>
+        <activity android:name="PHBActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".yy.YYLivePlayerActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <receiver android:name="com.feiwo.receiver.InReceiver">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.feiwo.receiver.ConnectReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="true" android:launchMode="singleInstance" android:name="com.feiwo.activity.PA" android:theme="@android:style/Theme.Black.NoTitleBar"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.feiwo.view.IA" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+    </application>
+</manifest>

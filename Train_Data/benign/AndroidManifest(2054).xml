@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="internalOnly" package="com.hadithdo">
+    <application android:debuggable="false" android:icon="@drawable/logo10" android:label="Hadith.do" android:name="mono.android.app.Application">
+        <activity android:name="hadithdo.SplashScreen" android:noHistory="true" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="hadithdo.BookReader" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="hadithdo.Activity1"/>
+        </activity>
+        <activity android:name="hadithdo.Setting" android:screenOrientation="portrait"/>
+        <activity android:name="hadithdo.Pin" android:noHistory="true" android:screenOrientation="portrait"/>
+        <activity android:name="hadithdo.Activity1" android:screenOrientation="portrait"/>
+        <receiver android:name="hadithdo.OnBootNotificationAlertReciever">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <receiver android:name="hadithdo.NotificationAlertReciever"/>
+        <receiver android:name="hadithdo.OnBootCompleted"/>
+        <activity android:label="AboutUs" android:name="hadithdo.AboutUs"/>
+        <activity android:label="Feedback" android:name="hadithdo.Feedback"/>
+        <activity android:label="Help" android:name="hadithdo.Help"/>
+        <provider android:authorities="com.hadithdo.mono.MonoRuntimeProvider.__mono_init__" android:exported="false" android:initOrder="2147483647" android:name="mono.MonoRuntimeProvider"/>
+    </application>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+</manifest>

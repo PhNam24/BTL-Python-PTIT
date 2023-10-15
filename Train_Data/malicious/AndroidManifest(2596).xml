@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.bbt.ask" platformBuildVersionCode="24" platformBuildVersionName="7.0">
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <permission android:name="com.bbt.ask.permission.JPUSH_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.bbt.ask.permission.JPUSH_MESSAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_PROFILE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <application android:allowBackup="false" android:debuggable="true" android:icon="@drawable/about_icon" android:label="@string/app_name" android:name="com.qihoo.util.StubApp3002568456" android:qihoo="activity" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <meta-data android:name="UMENG_APPKEY" android:value="5844dddff5ade449e9000677"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="anzhi"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="cn.jpush.android.ui.PushActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.bbt.ask"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="false" android:name="com.qihoo.util.QhJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.qihoo.util.CommonActivity" android:theme="@android:style/Theme.Wallpaper.NoTitleBar"/>
+        <service android:enabled="true" android:exported="true" android:name="com.qihoo.util.CommonService"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.qihoo.util.CommonReceiver"/>
+        <provider android:authorities="com.bbt.ask.COMMONPROVIDER" android:exported="true" android:name="com.qihoo.util.CommonProvider"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:launchMode="singleTask" android:name="com.qihoo.ls.LsActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Wallpaper.NoTitleBar.Fullscreen"/>
+        <service android:exported="false" android:name="com.qihoo.ls.SoService"/>
+        <service android:enabled="true" android:exported="false" android:name="cn.jpush.android.service.DownloadService"/>
+        <service android:enabled="true" android:exported="false" android:name="cn.jpush.android.service.PushService" android:process=":pushcore">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER"/>
+                <action android:name="cn.jpush.android.intent.REPORT"/>
+                <action android:name="cn.jpush.android.intent.PushService"/>
+                <action android:name="cn.jpush.android.intent.PUSH_TIME"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="cn.jpush.android.service.PushReceiver" android:process=":pushcore">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY"/>
+                <category android:name="com.bbt.ask"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="cn.jpush.android.service.AlarmReceiver"/>
+        <meta-data android:name="JPUSH_CHANNEL" android:value="GooglePlay"/>
+        <meta-data android:name="JPUSH_APPKEY" android:value="38fe8332e341f12a6b968e5b"/>
+        <receiver android:enabled="true" android:name="com.bbt.ask.ui.receiver.JPushReceiver">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION"/>
+                <action android:name="cn.jpush.android.intent.UNREGISTRATION"/>
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED"/>
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED"/>
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED"/>
+                <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK"/>
+                <action android:name="cn.jpush.android.intent.CONNECTION"/>
+                <category android:name="com.bbt.ask"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="EASEMOB_APPKEY" android:value="1195161107115464#kpmapp"/>
+        <service android:exported="true" android:name="com.hyphenate.chat.EMChatService"/>
+        <receiver android:name="com.hyphenate.chat.EMMonitorReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.bbt.ask.ui.receiver.NotificationReceiver" android:process=":push"/>
+        <meta-data android:name="YZ_APP_ID" android:value="67be00b6094c78499b"/>
+        <meta-data android:name="YZ_APP_SECRET" android:value="5c25cf889d8c940e5e8e2d427d1938d2"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="com.bbt.ask.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_login" android:launchMode="singleTask" android:name="com.bbt.ask.ui.activity.LoginActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/app_name" android:name="com.bbt.ask.ui.activity.StartActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Start">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_base" android:name="com.bbt.ask.base.BaseActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_regist" android:name="com.bbt.ask.ui.activity.RegistActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_forget_pass_word" android:name="com.bbt.ask.ui.activity.ForgetPassWordActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_agreement" android:name="com.bbt.ask.ui.activity.AgreementActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <receiver android:name="com.bbt.ask.wxapi.AppRegister" android:permission="com.tencent.mm.plugin.permission.SEND">
+            <intent-filter>
+                <action android:name="com.tencent.mm.plugin.openapi.Intent.ACTION_REFRESH_WXAPP"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.bbt.ask.wxapi.WXPayEntryActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mob.tools.MobUIShell" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <data android:scheme="tencent100296097"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:name="com.bbt.ask.wxapi.WXEntryActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:label="@string/title_activity_regist_selector" android:name="com.bbt.ask.ui.activity.RegistSelectorActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_haiwai" android:name="com.bbt.ask.ui.activity.HaiwaiActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_circle_detail" android:name="com.bbt.ask.ui.activity.CircleDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_circle_more" android:name="com.bbt.ask.ui.activity.CircleMoreActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_splash" android:name="com.bbt.ask.ui.activity.SplashActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_h5_play" android:name="com.bbt.ask.ui.activity.H5PlayActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_qusetion" android:name="com.bbt.ask.ui.activity.QusetionActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_ask_question" android:name="com.bbt.ask.ui.activity.AskQuestionActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/title_activity_question_detail" android:name="com.bbt.ask.ui.activity.QuestionDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_question_reply_detail" android:name="com.bbt.ask.ui.activity.QuestionReplyDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_question_reply_more_detail" android:name="com.bbt.ask.ui.activity.QuestionReplyMoreDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_parenting_article" android:name="com.bbt.ask.ui.activity.ParentingArticleActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_article_detail" android:name="com.bbt.ask.ui.activity.ArticleDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_article_reply_detail" android:name="com.bbt.ask.ui.activity.ArticleReplyDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_article_reply_detail" android:name="com.bbt.ask.widget.pselect.ui.ImagePreviewActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_article_reply_detail" android:name="com.bbt.ask.widget.pselect.ui.ImageZoomActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_article_reply_detail" android:name="com.bbt.ask.widget.pselect.ui.KSelectImagesActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_article_reply_detail" android:name="com.bbt.ask.widget.pselect.ui.ReleaseImageActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_article_reply_detail" android:name="com.bbt.ask.widget.pselect.ui.TakePhotoPreview" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_search" android:name="com.bbt.ask.ui.activity.SearchActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_search_result" android:name="com.bbt.ask.ui.activity.SearchResultActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_search_question" android:name="com.bbt.ask.ui.activity.SearchQuestionActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_search_posts" android:name="com.bbt.ask.ui.activity.SearchPostsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_search_article" android:name="com.bbt.ask.ui.activity.SearchArticleActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_circle_posts_detail" android:name="com.bbt.ask.ui.activity.CirclePostsDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_ouch_detail" android:name="com.bbt.ask.ui.activity.OuchDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_ouch" android:name="com.bbt.ask.ui.activity.OuchActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/title_activity_ouch_reply_detail" android:name="com.bbt.ask.ui.activity.OuchReplyDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_best_mall" android:name="com.bbt.ask.ui.activity.BestMallActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_admin_notice" android:name="com.bbt.ask.ui.activity.AdminNoticeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_question_reply_notice" android:name="com.bbt.ask.ui.activity.QuestionReplyNoticeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_question_adopt" android:name="com.bbt.ask.ui.activity.QuestionAdoptActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_posts_reply" android:name="com.bbt.ask.ui.activity.PostsReplyActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_article_reply" android:name="com.bbt.ask.ui.activity.ArticleReplyActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_ouch_reply" android:name="com.bbt.ask.ui.activity.OuchReplyActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_question_agree" android:name="com.bbt.ask.ui.activity.QuestionAgreeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_new_notice" android:name="com.bbt.ask.ui.activity.NewNoticeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_new_notice" android:name="com.bbt.ask.ui.activity.ChatActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:label="@string/title_activity_circle" android:name="com.bbt.ask.ui.activity.CircleActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_ask_post" android:name="com.bbt.ask.ui.activity.AskPostActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/title_activity_circle_posts_reply_detail" android:name="com.bbt.ask.ui.activity.CirclePostsReplyDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_my_asked" android:name="com.bbt.ask.ui.activity.MyAskedActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/title_activity_edit_info" android:launchMode="singleTop" android:name="com.bbt.ask.ui.activity.EditInfoActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustPan|stateUnchanged">
+            <intent-filter>
+                <action android:name="android.ask.app.AccountManager"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_follow" android:name="com.bbt.ask.ui.activity.FollowActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_fans" android:name="com.bbt.ask.ui.activity.FansActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_task" android:name="com.bbt.ask.ui.activity.TaskActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_sign" android:name="com.bbt.ask.ui.activity.SignActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_badge" android:name="com.bbt.ask.ui.activity.BadgeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_collect" android:name="com.bbt.ask.ui.activity.CollectActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_gold" android:name="com.bbt.ask.ui.activity.GoldActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_master" android:name="com.bbt.ask.ui.activity.MasterActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_welfare_society" android:name="com.bbt.ask.ui.activity.WelfareSocietyActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_setting" android:name="com.bbt.ask.ui.activity.SettingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_gold_info" android:name="com.bbt.ask.ui.activity.GoldInfoActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_invitation" android:name="com.bbt.ask.ui.activity.InvitationActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_invitation" android:name="com.bbt.ask.ui.activity.CreditActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_other_home" android:name="com.bbt.ask.ui.activity.OtherHomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_gold_detail" android:name="com.bbt.ask.ui.activity.GoldDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_gold_policy_detail" android:name="com.bbt.ask.ui.activity.GoldPolicyDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_security" android:name="com.bbt.ask.ui.activity.SecurityActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_reset_password" android:name="com.bbt.ask.ui.activity.ResetPasswordActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_phonebinding" android:name="com.bbt.ask.ui.activity.PhonebindingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_feedback" android:name="com.bbt.ask.ui.activity.FeedbackActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_about" android:name="com.bbt.ask.ui.activity.AboutActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_black_list" android:name="com.bbt.ask.ui.activity.BlackListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_other_asked" android:name="com.bbt.ask.ui.activity.OtherAskedActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_baby_edit" android:name="com.bbt.ask.ui.activity.BabyEditActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_baby_add" android:name="com.bbt.ask.ui.activity.BabyAddActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_regist_user_info" android:name="com.bbt.ask.ui.activity.RegistUserInfoActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_notice" android:name="com.bbt.ask.ui.activity.NoticeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_test_home" android:name="com.bbt.ask.ui.activity.TestHomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_test_detail" android:name="com.bbt.ask.ui.activity.TestDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_show_answer" android:name="com.bbt.ask.ui.activity.ShowAnswerActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_test_top" android:name="com.bbt.ask.ui.activity.TestTopActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_circle_people_list" android:name="com.bbt.ask.ui.activity.CirclePeopleListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_task_policy" android:name="com.bbt.ask.ui.activity.TaskPolicyActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_admin_notice_detail" android:name="com.bbt.ask.ui.activity.AdminNoticeDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_announcement" android:name="com.bbt.ask.ui.activity.AnnouncementActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_sign_rule" android:name="com.bbt.ask.ui.activity.SignRuleActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.bbt.ask.ui.activity.ImageViewPager" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/title_activity_user_announcement" android:name="com.bbt.ask.ui.activity.UserAnnouncementActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_user_announcement" android:name="com.bbt.ask.alipay.H5PayDemoActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/title_activity_chongzhi_success" android:name="com.bbt.ask.ui.activity.ChongzhiSuccessActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_post_approve_list" android:name="com.bbt.ask.ui.activity.PostApproveListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:enabled="false" android:icon="@drawable/block_canary_icon" android:label="@string/display_activity_label" android:name="com.github.moduth.blockcanary.ui.DisplayBlockActivity" android:taskAffinity="com.github.moduth.blockcanary" android:theme="@style/block_canary_BlockCanary.Base">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:name="cn.jpush.android.ui.PopWinActivity" android:theme="@style/MyDialogStyle"/>
+        <service android:enabled="true" android:exported="true" android:name="cn.jpush.android.service.DaemonService">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.DaemonService"/>
+                <category android:name="com.bbt.ask"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.bbt.ask.updatefileprovider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/update_cache_path"/>
+        </provider>
+    </application>
+</manifest>

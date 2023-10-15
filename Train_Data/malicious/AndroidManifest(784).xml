@@ -1,0 +1,868 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.sina.weibo">
+    <application android:debuggable="false" android:icon="@drawable/logo" android:label="@string/app_name" android:name="WeiboApplication" android:taskAffinity="com.sina.weibo">
+        <activity android:configChanges="keyboardHidden|orientation" android:name="InterestProductList" android:theme="@style/ContentOverlay"/>
+        <activity android:alwaysRetainTaskState="true" android:configChanges="fontScale|keyboardHidden|locale|orientation" android:label="@string/app_name" android:launchMode="singleTask" android:name=".MainTabActivity" android:theme="@style/ContentOverlay" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="com.sina.weibo.intent.action.NOUSER"/>
+                <action android:name="con.sina.weibo.action.SWITCHMODE"/>
+                <action android:name="com.sina.weibo.action.SWITCHUSER"/>
+                <action android:name="sina.weibo.action.SWITCHUSERDONE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="application/com.sina.weibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="message" android:scheme="sinaweibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="weibo.cn" android:path="/qr/message" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="fontScale|keyboardHidden|locale|orientation" android:excludeFromRecents="true" android:label="@string/title_publish" android:name="EditActivity" android:taskAffinity="com.sina.weibo.newblog" android:theme="@style/ContentOverlay" android:windowSoftInputMode="adjustResize">
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="sendweibo" android:scheme="sinaweibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="weibo.cn" android:path="/qr/sendweibo" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.SEND"/>
+                <data android:mimeType="text/plain"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter android:label="@string/app_name">
+                <action android:name="com.sina.weibo.intent.action.NEW_BLOG"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter android:label="@string/app_name">
+                <action android:name="com.sina.weibo.sdk.action.ACTION_WEIBO_ACTIVITY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="fontScale|keyboardHidden|locale|orientation" android:exported="true" android:name="SwitchUser" android:theme="@style/ContentOverlay" android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            <intent-filter>
+                <action android:name="com.sina.weibo.intent.action.USER_SWITCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="fontScale|keyboardHidden|locale|orientation" android:exported="true" android:name="com.sina.weibo.UserLoginOverseaActivity" android:theme="@style/ContentOverlay" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="CommentBlog" android:theme="@style/ContentOverlay" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/menu_settings" android:name="SettingsPref" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/menu_settings" android:name="SettingsMainActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/menu_settings" android:name="SettingsLanguageActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/menu_settings" android:name="SettingsChooseBrowserActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/menu_settings" android:name="SettingsImageActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/menu_settings" android:name="SettingsAudioActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/menu_settings" android:name="com.sina.weibo.SilentTimeActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/menu_settings" android:name="com.sina.weibo.RemindFrequencyActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="MessageList" android:theme="@style/ContentOverlay" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="messagelist" android:scheme="sinaweibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="weibo.cn" android:path="/qr/messagelist" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="AccountManager" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="MessageGroup" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="com.sina.weibo.intent.action.SWITCHUSER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="MessageAtMeActivity" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="com.sina.weibo.intent.action.SWITCHUSER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="MessageCommentActivity" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="com.sina.weibo.intent.action.SWITCHUSER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="MessageMsgBoxActivity" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="com.sina.weibo.intent.action.SWITCHUSER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="MessageBoxActivity" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="com.sina.weibo.intent.action.SWITCHUSER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="HomeListActivity" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="com.sina.weibo.intent.action.SWITCHUSER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="SearchResultActivity" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="searchall" android:scheme="sinaweibo"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="LookAroundListActivity" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="nearbypeople" android:scheme="sinaweibo"/>
+                <data android:host="nearbyweibo" android:scheme="sinaweibo"/>
+                <data android:host="hotword" android:scheme="sinaweibo"/>
+                <data android:host="hotforward" android:scheme="sinaweibo"/>
+                <data android:host="hotcomment" android:scheme="sinaweibo"/>
+                <data android:host="usermark" android:scheme="sinaweibo"/>
+                <data android:host="userpopular" android:scheme="sinaweibo"/>
+                <data android:host="guess" android:scheme="sinaweibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="weibo.cn" android:path="/qr/nearbypeople" android:scheme="http"/>
+                <data android:host="weibo.cn" android:path="/qr/nearbyweibo" android:scheme="http"/>
+                <data android:host="weibo.cn" android:path="/qr/hotword" android:scheme="http"/>
+                <data android:host="weibo.cn" android:path="/qr/hotforward" android:scheme="http"/>
+                <data android:host="weibo.cn" android:path="/qr/hotcomment" android:scheme="http"/>
+                <data android:host="weibo.cn" android:path="/qr/usermark" android:scheme="http"/>
+                <data android:host="weibo.cn" android:path="/qr/userpopular" android:scheme="http"/>
+                <data android:host="weibo.cn" android:path="/qr/guess" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="FavoriteActivity" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="favorite" android:scheme="sinaweibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="weibo.cn" android:path="/qr/favorite" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="UserInfoActivity" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="userinfo" android:scheme="sinaweibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="weibo.cn" android:path="/qr/userinfo" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="MyInfoActivity2" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="EditUserInfoActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="UserInfoDetailActivity" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="userdetailinfo" android:scheme="sinaweibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="weibo.cn" android:path="/qr/userdetailinfo" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="UserWeiboAttentionFansList" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="com.sina.weibo.intent.action.BLOG_DELETE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="usertrends" android:scheme="sinaweibo"/>
+                <data android:host="weibolist" android:scheme="sinaweibo"/>
+                <data android:host="fanslist" android:scheme="sinaweibo"/>
+                <data android:host="followerslist" android:scheme="sinaweibo"/>
+                <data android:host="blacklist" android:scheme="sinaweibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="weibo.cn" android:path="/qr/usertrends" android:scheme="http"/>
+                <data android:host="weibo.cn" android:path="/qr/weibolist" android:scheme="http"/>
+                <data android:host="weibo.cn" android:path="/qr/fanslist" android:scheme="http"/>
+                <data android:host="weibo.cn" android:path="/qr/followerslist" android:scheme="http"/>
+                <data android:host="weibo.cn" android:path="/qr/blacklist" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="UserContactTabs" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="FillInfoActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="UserTopicAttentionList" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="ImageViewer" android:process="com.sina.weibo.image" android:theme="@style/ContentOverlayWithBg"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".WeiboBrowser" android:process="com.sina.weibo.browser" android:theme="@style/WBContentOverlay" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="browser" android:scheme="sinaweibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="weibo.cn" android:path="/qr/browser" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="map" android:scheme="sinaweibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="weibo.cn" android:path="/qr/map" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="ReadModeActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:name="cn.dx.mobileads.view.FlashAdActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleTask" android:name=".AccessCodeActivity" android:taskAffinity="com.sina.weibo.AccessCodeActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".ExceptionDialogActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <receiver android:icon="@drawable/logo" android:label="@string/app_name" android:name="WeiboWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED"/>
+                <action android:name="sina.weibo.action.NOUSER"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/weibo_widget_info1"/>
+        </receiver>
+        <service android:name=".WeiboWidgetProvider$WeiboWidgetService" android:process="com.sina.weibo.servant">
+            <intent-filter>
+                <action android:name="com.sina.weibo.service.action.ACTION_LOADING"/>
+                <action android:name="com.sina.weibo.service.action.ACTION_UP_BLOG"/>
+                <action android:name="com.sina.weibo.service.action.ACTION_DOWN_BLOG"/>
+                <action android:name="com.sina.weibo.service.action.ACTION_REFRESH_CACHE"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.sina.weibo.sendqueue.SendQueueService">
+            <intent-filter>
+                <action android:name="com.sina.weibo.action.SEND_QUEUE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:label="@string/title_mblog_content" android:name="DetailWeiboActivity" android:taskAffinity="com.sina.weibo.detail" android:theme="@style/ContentOverlay" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="detail" android:scheme="sinaweibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="weibo.cn" android:path="/qr/detail" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".RetrivePwdActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".DomainRetriveActivity" android:theme="@style/ContentOverlay" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".PhoneRetriveActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".MailRetriveActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".AboutActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="false" android:name="ChoiceActivity" android:noHistory="true" android:stateNotNeeded="true" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="LoadingActivity" android:noHistory="true" android:theme="@style/ContentOverlay" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="reg" android:scheme="sinaweibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="weibo.cn" android:path="/qr/reg" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="user" android:scheme="sinaweibo"/>
+                <data android:host="userblog" android:scheme="sinaweibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="weibo.cn" android:path="/qr/user" android:scheme="http"/>
+                <data android:host="weibo.cn" android:path="/qr/userblog" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="blog" android:scheme="sinaweibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="weibo.cn" android:path="/qr/blog" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="setting" android:scheme="sinaweibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="weibo.cn" android:path="/qr/setting" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="android.app.default_searchable" android:value=".LocalSearch"/>
+        <activity android:label="@string/menu_search" android:launchMode="singleTop" android:name=".LocalSearch">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:name=".MoreItemsActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:alwaysRetainTaskState="true" android:name=".SplashActivity" android:screenOrientation="portrait" android:theme="@style/FullScreenAndNoExitAnimStyle">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="splash" android:scheme="sinaweibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="weibo.cn" android:path="/qr/splash" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".AEditUserInfo" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".AEditText" android:theme="@style/ContentOverlay" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="RegisterHomeActivity" android:theme="@style/ContentOverlay" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="ForgetPwdActivity" android:theme="@style/ContentOverlay" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".NewAccountActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="RegisterSquareActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name=".NavigateViewPageActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="com.sina.weibo.action.shownavigater"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".NearByPeopleNavigator" android:theme="@style/Dialog_Fullscreen">
+            <intent-filter>
+                <action android:name="com.sina.weibo.action.shownearbypeoplenavigater"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTop" android:name=".GestureBackNavigator" android:theme="@style/Dialog_Fullscreen">
+            <intent-filter>
+                <action android:name="com.sina.weibo.action.GESTUREBACKNAVIGATOR"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name=".ImageViewerActivity" android:process="com.sina.weibo.image" android:theme="@style/Dialog_Fullscreen">
+            <intent-filter>
+                <action android:name="com.sina.weibo.action.showimagevieweractivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".SkinPreviewActivity" android:process="com.sina.weibo.image" android:screenOrientation="portrait" android:theme="@style/Dialog_Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="MessageContactActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name=".SSOActivity" android:theme="@style/ContentOverlay" android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            <intent-filter>
+                <action android:name="com.sina.weibo.action.ssoactivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name=".GetAccessTokenActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".ProjectModeActivity" android:theme="@style/ContentOverlay" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".POIListActivity" android:theme="@style/ContentOverlay" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="fontScale|keyboardHidden|locale|orientation" android:name=".PicFilterActivity" android:process="com.sina.weibo.image" android:screenOrientation="portrait" android:theme="@style/ContentOverlayWithBg"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".ContactsActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".EditGroupActivity" android:theme="@style/ContentOverlay" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".SelectGroupActivity" android:theme="@style/ContentOverlay" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".GetFriendActivity" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="shake" android:scheme="sinaweibo"/>
+                <data android:host="contact" android:scheme="sinaweibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="weibo.cn" android:path="/qr/shake" android:scheme="http"/>
+                <data android:host="weibo.cn" android:path="/qr/contact" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".InterestActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".DraftBox" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".NoticeListActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".CardLikeListActivity" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="pageuserlist" android:scheme="sinaweibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="weibo.cn" android:path="/qr/pageuserlist" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".CardMblogListActivity" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="pageweibolist" android:scheme="sinaweibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="weibo.cn" android:path="/qr/pageweibolist" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".CardProductListActivity" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="pageproductlist" android:scheme="sinaweibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="weibo.cn" android:path="/qr/pageproductlist" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".CardPicListActivity" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="pagephotolist" android:scheme="sinaweibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="weibo.cn" android:path="/qr/pagephotolist" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".CardInfoListActivity" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="infolist" android:scheme="sinaweibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="weibo.cn" android:path="/qr/infolist" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".UserGuideWelcomActivity" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="userguide" android:scheme="sinaweibo"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".UserGuideContactActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".UserGuideCategoryActivity" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="interestpeople" android:scheme="sinaweibo"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".UserGuideCategoryDetail" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".UserGuidFindFriendActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".MyThemeActivity" android:screenOrientation="portrait" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".OnlineThemeActivity" android:screenOrientation="portrait" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".AttachAppManagementActivity" android:screenOrientation="portrait" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".AttachAppDetailInfoActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="NewRegistHomeActivity" android:theme="@style/ContentOverlay" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="SelectCountryActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="VerificationCodeActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="NewFillInfoActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="InterestPeopleActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".YouMayKnowActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".NewRegistContact" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="NewRegistWebActivity" android:theme="@style/ContentOverlay" android:windowSoftInputMode="adjustResize"/>
+        <service android:name=".business.WeiboService">
+            <intent-filter>
+                <action android:name="com.sina.weibo.action.ATTENTION_OFFICALACCOUNT"/>
+                <action android:name="com.sina.weibo.action.POPUP"/>
+                <action android:name="com.sina.weibo.action.VERSION"/>
+                <action android:name="com.sina.weibo.action.SPEED"/>
+                <action android:name="com.sina.weibo.action.USERLOG"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <service android:name=".business.DownloadManager" android:process="com.sina.weibo.servant">
+            <intent-filter>
+                <action android:name="com.sina.weibo.action.DOWNLOAD"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <service android:name=".business.ImageUtilService" android:process="com.sina.weibo.imageservant">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.sina.weibo.FetchMeyouGuideService"/>
+        <service android:exported="false" android:name="com.sina.weibo.business.MessageBoxService"/>
+        <provider android:authorities="com.sina.weibo.blogProvider" android:exported="false" android:name=".datasource.SinaWeiboDBProvider"/>
+        <provider android:authorities="com.sina.weibo.sdkProvider" android:exported="true" android:name=".datasource.SinaWeiboSdkProvider"/>
+        <service android:name="com.sina.weibo.PushService">
+            <intent-filter>
+                <action android:name="sina.weibo.action.UPDATED"/>
+                <action android:name="sina.weibo.action.BACKGROUND"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:label="NotificationCenterAIDL" android:name="com.igexin.sdk.aidl.GexinMsgService" android:process="com.sina.weibo.servant">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.aidl.action.com.sina.weibo"/>
+            </intent-filter>
+        </service>
+        <service android:name=".business.RemoteSSOService">
+            <intent-filter>
+                <action android:name="com.sina.weibo.remotessoservice"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:label="NotificationCenter" android:name="com.igexin.sdk.GexinMainService" android:process="com.sina.weibo.servant">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.com.sina.weibo"/>
+            </intent-filter>
+        </service>
+        <receiver android:name=".LocaleChangedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.igexin.sdk.GexinSdkReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="WeiboMsgReceiver">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.4e6f4cf65647edc439882077675b21a2"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".BootCompletedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.sina.weibo.action.GET_PUSH_VALUE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:excludeFromRecents="true" android:name="com.igexin.sdk.GexinSdkActivity" android:process="com.sina.weibo.servant" android:taskAffinity="android.task.GexinSdkActivityTask" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="com.igexin.action.popupact.com.sina.weibo"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="appid" android:value="4e6f4cf65647edc439882077675b21a2"/>
+        <meta-data android:name="appsecret" android:value="j5byskrpop94l0jdhatna"/>
+        <meta-data android:name="appkey" android:value="110005"/>
+        <activity android:name="cn.dx.mobileads.AdActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.sina.qrcode.CaptureActivity" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="qrcode" android:scheme="sinaweibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="weibo.cn" android:path="/qr/qrcode" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.sina.qrcode.MyQRcodeActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.sina.popupad.PopupActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="PageActivity" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="pageinfo" android:scheme="sinaweibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="weibo.cn" android:path="/qr/pageinfo" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="InfoPageActivity" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="infopage" android:scheme="sinaweibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="weibo.cn" android:path="/qr/infopage" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="PageDetailActivity" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="pagedetailinfo" android:scheme="sinaweibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="weibo.cn" android:path="/qr/pagedetailinfo" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".RemindSettingsActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".SquareActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".PlainTextActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".InviteListActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".LikeListActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="ContactsSearchResultActivity" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="TopicSuggestionActivity" android:theme="@style/ContentOverlay" android:windowSoftInputMode="stateAlwaysVisible|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="AtSuggestionActivity" android:theme="@style/ContentOverlay" android:windowSoftInputMode="stateAlwaysVisible|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="AddCloseFriendsActivity" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="meyouinvite" android:scheme="sinaweibo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="weibo.cn" android:path="/qr/meyouinvite" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name=".appmarket.activity.HomePageActivity" android:screenOrientation="portrait" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="appshome" android:scheme="sinaweibo"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name=".appmarket.activity.DownloadMainActivity" android:screenOrientation="portrait" android:theme="@style/ContentOverlay"/>
+        <activity android:name=".appmarket.activity.AppDetailActivity" android:screenOrientation="portrait" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="appsmarket" android:scheme="sinaweibo"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".appmarket.activity.SubjectActivity" android:screenOrientation="portrait" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="appssubject" android:scheme="sinaweibo"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".appmarket.activity.ApplicationsListActivity" android:screenOrientation="portrait" android:theme="@style/ContentOverlay"/>
+        <activity android:name=".appmarket.activity.AppSearchActivity" android:screenOrientation="portrait" android:theme="@style/ContentOverlay" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".appmarket.activity.ReportActivity" android:screenOrientation="portrait" android:theme="@style/Transparent"/>
+        <activity android:name=".appmarket.activity.SubjectDetailActivity" android:screenOrientation="portrait" android:theme="@style/ContentOverlay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="appscat" android:scheme="sinaweibo"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".appmarket.activity.AppIgnoredActivity" android:screenOrientation="portrait" android:theme="@style/ContentOverlay"/>
+        <activity android:name=".appmarket.activity.BigPicActivity" android:screenOrientation="portrait" android:theme="@style/ContentOverlay"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".PhotoAlbumActivity" android:theme="@style/ContentOverlay" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <service android:label="@string/market_app_name" android:name=".appmarket.service.AppMarketService">
+            <intent-filter>
+                <action android:name="com.sina.weibo.appmarket_startservice_start_job"/>
+                <action android:name="com.sina.weibo.appmarket_startservice_start_pc_push_job"/>
+                <action android:name="com.sina.weibo.appmarket_startservice_start_pc_push_internal_job"/>
+                <action android:name="com.sina.weibo.appmarket_startservice_start_job_queue"/>
+                <action android:name="com.sina.weibo.appmarket_startservice_resume_job"/>
+                <action android:name="com.sina.weibo.appmarket_startservice_pause_job"/>
+                <action android:name="com.sina.weibo.appmarket_startservice_stop_all_job"/>
+                <action android:name="com.sina.weibo.appmarket_startservice_stop_job"/>
+                <action android:name="com.sina.weibo.appmarket_startservice_stop_job"/>
+                <action android:name="com.sina.weibo.appmarket_startservice_start_check_update"/>
+            </intent-filter>
+        </service>
+        <receiver android:name=".appmarket.notification.AppmarketReceiver">
+            <intent-filter>
+                <action android:name="com.sina.weibo.appmarket_alarm_start_check_update"/>
+                <action android:name="com.sina.weibo.appmarket_alarm_show_notify"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".appmarket.notification.PackageChangedReceiver">
+            <intent-filter android:priority="100">
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.sina.memory.server.MessengerService">
+            <intent-filter>
+                <action android:name="com.sina.memory.server.MessengerService"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <activity android:name="com.sina.memory.MonitorSettingActivity">
+            <intent-filter>
+                <action android:name="com.sina.memory.MonitorSettingActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service android:label="PushDataCenter" android:name="com.sina.push.service.SinaPushService" android:permission="com.sina.permission.SINA_PUSH" android:process=":remote">
+            <intent-filter>
+                <action android:name="sina.push.action.service.1004"/>
+                <category android:name="android.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.sina.push.PushSDKReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <service android:label="MpsRecService" android:name=".push.MpsRecService">
+            <intent-filter>
+                <action android:name="sina.push.action.msgreceive.1004"/>
+                <category android:name="android.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <receiver android:name=".sdk.internal.SdkRegisterReceiver">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.Intent.ACTION_WEIBO_REGISTER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name=".terminal.TerminalActivity" android:process="com.sina.weibo.terminal" android:theme="@style/Theme" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name=".terminal.Term" android:process="com.sina.weibo.terminal" android:theme="@style/Theme" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:name=".terminal.TermPreferences" android:process="com.sina.weibo.terminal"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".NewProjectModeActivity" android:theme="@style/ContentOverlay" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <service android:enabled="true" android:exported="true" android:name="com.sina.weibo.sdk.internal.SdkIdentityService">
+            <intent-filter>
+                <action android:name="com.sina.weibo.action.sdkidentity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+    </application>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+    <permission android:description="@string/weibo_permission_desc_broadcast_login_logout" android:icon="@drawable/logo" android:label="@string/weibo_permission_label_broadcast_login_logout" android:name="com.sina.weibo.permission.USER" android:permissionGroup="com.sina.weibo.permission-group" android:protectionLevel="dangerous"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+    <permission android:name="com.sina.permission.SINA_PUSH" android:protectionLevel="normal"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="com.sina.permission.SINA_PUSH"/>
+    <uses-permission android:name="com.sina.weibo.permission.WEIBO_SDK_PERMISSION"/>
+    <permission android:name="com.sina.weibo.permission.WEIBO_SDK_PERMISSION" android:protectionLevel="normal"/>
+    <permission-group android:description="@string/weibo_permission_group" android:icon="@drawable/logo" android:label="@string/app_name" android:name="com.sina.weibo.permission-group"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.location" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.network" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <uses-feature android:name="android.hardware.microphone" android:required="false"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.nfc" android:required="false"/>
+</manifest>

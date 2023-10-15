@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" android:installLocation="auto" package="com.unitedinternet.portal.android.onlinestorage.webde" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:maxSdkVersion="22" android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:label="@string/cloud_app_name" android:name="com.unitedinternet.portal.android.onlinestorage.application.SmartDriveApplication" android:networkSecurityConfig="@xml/network_security_config" android:requestLegacyExternalStorage="true" android:resizeableActivity="true" android:roundIcon="@mipmap/ic_launcher_round" android:theme="@style/Cloud_Theme.Android.File">
+        <activity android:excludeFromRecents="true" android:label="@string/cloud_share_target_label" android:name="com.unitedinternet.portal.android.onlinestorage.webde.WebDeTargetOperationActivity" android:theme="@style/Theme.Android.Material.Dialog">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter android:label="@string/cloud_app_name">
+                <action android:name="android.intent.action.GET_CONTENT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.OPENABLE"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="android.max_aspect" android:value="3.0"/>
+        <meta-data android:name="firebase_analytics_collection_deactivated" android:value="true"/>
+        <meta-data android:name="firebase_performance_collection_deactivated" android:value="true"/>
+        <meta-data android:name="firebase_messaging_auto_init_enabled" android:value="false"/>
+        <meta-data android:name="firebase_analytics_collection_enabled" android:value="false"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.unitedinternet.portal.android.onlinestorage.application.authentication.AuthActivity" android:screenOrientation="portrait" android:theme="@style/Cloud_Theme.Android.File.LoginScreen"/>
+        <activity android:launchMode="singleTop" android:name="com.unitedinternet.portal.android.onlinestorage.application.activity.NewSmartDriveActivity" android:theme="@style/Cloud_Theme.Android.File.Material">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.unitedinternet.portal.android.onlinestorage.application.activity.UnlockActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.unitedinternet.portal.android.onlinestorage.application.authentication.login.mfa.MfaLoginRedirectActivity"/>
+        <activity-alias android:enabled="false" android:name="com.unitedinternet.portal.android.onlinestorage.webde.MfaRedirectReceiverActivity" android:targetActivity="com.unitedinternet.portal.android.onlinestorage.application.authentication.login.mfa.MfaLoginRedirectActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="authorization_code_grant" android:scheme="de.web.androidcloud.redirect"/>
+            </intent-filter>
+        </activity-alias>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTop" android:name="com.unitedinternet.portal.android.onlinestorage.application.activity.MigrateOfflineFilesActivity" android:theme="@style/Theme.Android.Material.Dialog"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.unitedinternet.portal.android.onlinestorage.application.receiver.OnStandaloneAppUpdatedReceiver">
+            <intent-filter android:priority="100">
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.unitedinternet.portal.android.onlinestorage.application.tracking.IntervalTrackingReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.unitedinternet.portal.android.onlinestorage.application.receiver.OnAppStoreReferrerReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.unitedinternet.portal.android.onlinestorage.application.receiver.OnAccountsChangedReceiver">
+            <intent-filter android:priority="100">
+                <action android:name="android.accounts.LOGIN_ACCOUNTS_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.unitedinternet.portal.android.onlinestorage.webde.restfsprovider" android:exported="false" android:name="com.unitedinternet.portal.android.onlinestorage.module.cloudcore.smartdrive.business.db.RestFSContentProvider"/>
+        <service android:exported="true" android:name="com.unitedinternet.portal.android.onlinestorage.application.authenticator.AuthenticationService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@xml/authenticator"/>
+        </service>
+        <service android:exported="false" android:name="com.unitedinternet.portal.android.onlinestorage.application.messaging.CloudMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyB9jnKO6xiOHZVf9b5UPUIfy6PpQzJVYxQ"/>
+        <meta-data android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME" android:value="com.unitedinternet.portal.android.onlinestorage.cast.CastOptionsProvider"/>
+        <activity android:name="com.unitedinternet.portal.android.onlinestorage.preferences.general.GeneralPreferencesActivity" android:parentActivityName="com.unitedinternet.portal.android.onlinestorage.preferences.SettingsActivity" android:theme="@style/Cloud_Theme.Android.File.Material"/>
+        <activity android:name="com.unitedinternet.portal.android.onlinestorage.search.timeline.TimelineSearchActivity" android:theme="@style/Cloud_Theme.Android.File.Material"/>
+        <activity android:name="com.unitedinternet.portal.android.onlinestorage.preferences.autoupload.AutouploadPreferencesActivity" android:parentActivityName="com.unitedinternet.portal.android.onlinestorage.preferences.SettingsActivity" android:theme="@style/Cloud_Theme.Android.File.Material"/>
+        <activity android:label="@string/cloud_preferences_about_settings" android:name="com.unitedinternet.portal.android.onlinestorage.preferences.about.AboutActivity" android:theme="@style/Cloud_Theme.Android.File.Material"/>
+        <activity android:label="@string/cloud_settings_title" android:name="com.unitedinternet.portal.android.onlinestorage.preferences.SettingsActivity" android:theme="@style/Cloud_Theme.Android.File.Material"/>
+        <activity android:label="@string/cloud_faq_help_and_feedback" android:name="com.unitedinternet.portal.android.onlinestorage.preferences.help.HelpAndFeedbackActivity" android:theme="@style/Cloud_Theme.Android.File.Material"/>
+        <activity android:label="@string/cloud_settings_debug_title" android:name="com.unitedinternet.portal.android.onlinestorage.preferences.debugmenu.DebugViewerActivity"/>
+        <activity android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.unitedinternet.portal.android.onlinestorage.mediabrowser.MediaBrowserActivity" android:theme="@style/Cloud_Theme.Android.File.Material.MediaBrowserActivity"/>
+        <activity android:name="com.unitedinternet.portal.android.onlinestorage.mediabrowser.mediadetail.MediaDetailActivity" android:theme="@style/Cloud_Theme.Android.File.Material.MediaBrowserActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:excludeFromRecents="true" android:name="com.unitedinternet.portal.android.onlinestorage.activity.AccountInfoActivity" android:theme="@style/Cloud_Theme.Android.File.Material"/>
+        <activity android:name="com.unitedinternet.portal.android.onlinestorage.mediabackup.ui.BackupFolderListActivity" android:parentActivityName="com.unitedinternet.portal.android.onlinestorage.preferences.autoupload.AutouploadPreferencesActivity"/>
+        <activity android:name="com.unitedinternet.portal.android.onlinestorage.activity.ResourceBrowserActivity" android:theme="@style/Cloud_Theme.Android.File.Material"/>
+        <activity android:name="com.unitedinternet.portal.android.onlinestorage.search.search.SearchActivity" android:theme="@style/Cloud_Theme.Android.File.Material" android:windowSoftInputMode="adjustResize"/>
+        <activity android:excludeFromRecents="true" android:name="com.unitedinternet.portal.android.onlinestorage.activity.TargetOperationActivity" android:theme="@style/Cloud_Theme.Android.Material.Dialog.TargetOperation"/>
+        <activity android:excludeFromRecents="true" android:name="com.unitedinternet.portal.android.onlinestorage.shares.picker.SharingPickerActivity" android:theme="@style/Cloud_Theme.Android.File.Material.Transparent.BottomPanel"/>
+        <activity android:name="com.unitedinternet.portal.android.onlinestorage.shares.detail.ShareDetailActivity" android:theme="@style/Cloud_Theme.Android.File.Material" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.unitedinternet.portal.android.onlinestorage.onboarding.OnboardingActivity" android:screenOrientation="portrait" android:theme="@style/Cloud_Theme.Android.File.Material"/>
+        <activity android:launchMode="singleTop" android:name="com.unitedinternet.portal.android.onlinestorage.transfer.ui.DownloadQueueActivity" android:theme="@style/Cloud_Theme.Android.File.Material"/>
+        <activity android:launchMode="singleTop" android:name="com.unitedinternet.portal.android.onlinestorage.transfer.ui.UploadQueueActivity" android:theme="@style/Cloud_Theme.Android.File.Material"/>
+        <activity android:name="com.unitedinternet.portal.android.onlinestorage.shares.link.ExternalShareActivity" android:theme="@style/Cloud_Theme.Android.File.Material">
+            <intent-filter android:label="@string/cloud_app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="@string/cloud_share_url_host" android:pathPrefix="/@" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="false" android:name="com.unitedinternet.portal.android.onlinestorage.service.QueueWorkerService"/>
+        <service android:exported="false" android:foregroundServiceType="dataSync" android:name="com.unitedinternet.portal.android.onlinestorage.service.DownloadService"/>
+        <service android:exported="false" android:name="com.unitedinternet.portal.android.onlinestorage.mediabackup.MediaBackupService"/>
+        <service android:exported="false" android:foregroundServiceType="dataSync" android:name="com.unitedinternet.portal.android.onlinestorage.transfer.service.BulkDownloadService"/>
+        <service android:exported="false" android:foregroundServiceType="dataSync" android:name="com.unitedinternet.portal.android.onlinestorage.transfer.service.BulkUploadService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.unitedinternet.portal.android.onlinestorage.mediabackup.notification.NotificationIntentHandlingService"/>
+        <service android:name="com.unitedinternet.portal.android.onlinestorage.mediabackup.MediaContentObserverJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.unitedinternet.portal.android.onlinestorage.service.PurgeService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.unitedinternet.portal.android.onlinestorage.mediabackup.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.unitedinternet.portal.android.onlinestorage.transfer.notification.NotificationCancelReceiver">
+            <intent-filter android:priority="999">
+                <action android:name="com.unitedinternet.portal.android.onlinestorage.CANCEL_ACTION"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.unitedinternet.portal.android.onlinestorage.webde" android:exported="false" android:grantUriPermissions="true" android:name="com.unitedinternet.portal.android.onlinestorage.provider.ResourcesContentProvider"/>
+        <receiver android:name="com.unitedinternet.portal.android.onlinestorage.receiver.PurgeReceiver">
+            <intent-filter>
+                <action android:name="com.unitedinternet.portal.android.onlinestorage.PURGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.unitedinternet.portal.android.onlinestorage.receiver.OnModuleAppUpdateReceiver">
+            <intent-filter android:priority="100">
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.unitedinternet.portal.android.onlinestorage.module.cloudcore.slimclient.resourcebrowser.SmartDriveActivity" android:theme="@style/CloudCore.Theme">
+            <intent-filter>
+                <action android:name="com.unitedinternet.portal.android.onlinestorage.webde.ACTION_UPLOAD_BY_URI"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <provider android:authorities="com.unitedinternet.portal.android.onlinestorage.webde.SmartDriveContentProvider" android:exported="false" android:name="com.unitedinternet.portal.android.onlinestorage.module.cloudcore.slimclient.contentprovider.SmartDriveContentProvider"/>
+        <activity android:launchMode="singleTop" android:name="com.unitedinternet.portal.android.lib.forceupdate.ForceUpdateActivity"/>
+        <service android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.evernote.android.job.v21.PlatformJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.evernote.android.job.v14.PlatformAlarmService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.evernote.android.job.v14.PlatformAlarmServiceExact"/>
+        <receiver android:exported="false" android:name="com.evernote.android.job.v14.PlatformAlarmReceiver">
+            <intent-filter>
+                <action android:name="com.evernote.android.job.v14.RUN_JOB"/>
+                <action android:name="net.vrallev.android.job.v14.RUN_JOB"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.evernote.android.job.JobBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.evernote.android.job.JobRescheduleService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <meta-data android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule" android:value="GlideModule"/>
+        <receiver android:exported="false" android:name="com.google.android.gms.cast.framework.media.MediaIntentReceiver"/>
+        <service android:exported="false" android:name="com.google.android.gms.cast.framework.media.MediaNotificationService"/>
+        <service android:exported="false" android:name="com.google.android.gms.cast.framework.ReconnectionService"/>
+        <service android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <service android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.unitedinternet.portal.android.onlinestorage.webde.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="com.unitedinternet.portal.android.onlinestorage.webde.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>

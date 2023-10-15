@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="28" android:compileSdkVersionCodename="9" package="com.bt.mdd" platformBuildVersionCode="50000300" platformBuildVersionName="5.0.3">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.READ_USER_DICTIONARY"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:maxSdkVersion="18" android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <application android:allowBackup="true" android:fullBackupContent="true" android:icon="@null" android:isSplitRequired="true" android:label="@string/app_name" android:largeHeap="true" android:name="com.bt.mdd.MainApplication" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
+        <activity android:label="@string/app_name" android:name="com.bt.mdd.SplashScreenActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/tts_login_page" android:name="com.bt.mdd.setup.login.LoginScreenActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateVisible"/>
+        <activity android:name="com.bt.mdd.library.SSOActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/tts_registration_page" android:name="com.bt.mdd.setup.registration.RegistrationActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:label="@string/tts_search_lib" android:name="com.bt.mdd.setup.searchlibrary.SearchLibraryActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/tts_forgot_page" android:name="com.bt.mdd.setup.forgotpwd.ForgotPasswordActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/tts_magic_wall" android:launchMode="singleTop" android:name="com.bt.mdd.library.magicwall.MagicWallActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:label="@string/tts_search_page" android:launchMode="singleTop" android:name="com.bt.mdd.library.search.SearchBooksActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:label="@string/tts_browse_page" android:launchMode="singleTop" android:name="com.bt.mdd.library.browse.BrowseActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:label="@string/tts_item_details" android:name="com.bt.mdd.library.itemdetails.ItemDetailsActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:label="@string/tts_item_details" android:name="com.bt.mdd.acoustik.ChapterBookmarkActivity" android:noHistory="true" android:screenOrientation="portrait"/>
+        <activity android:label="@string/tts_search_filter" android:launchMode="singleTop" android:name="com.bt.mdd.library.search.SearchFilterActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:label="@string/tts_player_page" android:launchMode="singleTop" android:name="com.bt.mdd.acoustik.player.PlayerActivity" android:noHistory="true" android:parentActivityName="com.bt.mdd.library.magicwall.MagicWallActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".library.magicwall.MagicWallActivity"/>
+        </activity>
+        <activity android:label="@string/tts_manage_acc" android:name="com.bt.mdd.setup.account.ManageAccountsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTop" android:name="com.bt.mdd.library.WebViewActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="com.bt.mdd"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/tts_about_page" android:launchMode="singleTop" android:name="com.bt.mdd.library.AboutActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/tts_help_page" android:launchMode="singleTop" android:name="com.bt.mdd.library.HelpActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/tts_help_page" android:launchMode="singleTop" android:name="com.bt.mdd.library.HelperActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/tts_preference_page" android:launchMode="singleTop" android:name="com.bt.mdd.library.preferences.PreferencesActivity" android:noHistory="true" android:screenOrientation="portrait"/>
+        <activity android:label="@string/tts_legal_page" android:launchMode="singleTop" android:name="com.bt.mdd.library.LegalActivity" android:noHistory="true" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.bt.mdd.library.magicwall.SendAppFeedback" android:noHistory="true" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:launchMode="singleTop" android:name="com.bt.mdd.readNow.ReaderActivity"/>
+        <provider android:authorities="com.bt.mdd.BookDetails" android:exported="false" android:name="com.bt.mdd.library.search.SearchBooksProvider"/>
+        <receiver android:name="com.bt.mdd.acoustik.player.service.RemoteControlReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.bt.mdd.acoustik.player.service.HeadsetStatusReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.HEADSET_PLUG"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.bt.mdd.acoustik.player.service.AxisPlayerService" android:stopWithTask="false">
+            <intent-filter>
+                <action android:name="com.bt.mdd.acoustik.player.notification.play"/>
+                <action android:name="com.bt.mdd.acoustik.player.notification.pause"/>
+                <action android:name="com.bt.mdd.acoustik.player.notification.previous"/>
+                <action android:name="com.bt.mdd.acoustik.player.notification.next"/>
+                <action android:name="com.bt.mdd.acoustik.player.notification.close"/>
+                <action android:name="com.bt.mdd.acoustik.player.sleeptimer.timealarm"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.bt.mdd.datasync.AudioDataSyncService"/>
+        <service android:name="com.bt.mdd.datasync.EbookDataSyncService"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="ac0afe6e960c41ae3ff57dfdea229c05c3403f47"/>
+        <meta-data android:name="com.google.android.gms.analytics.globalConfigResource" android:resource="@xml/app_tracker"/>
+        <activity android:launchMode="singleTop" android:name="com.bt.mdd.library.mystuff.MyStuffActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <receiver android:label="@string/app_name" android:name="com.bt.mdd.widget.AppWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/app_widget_info"/>
+        </receiver>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <service android:name="com.bt.mdd.widget.MyWidgetRemoteViewsService" android:permission="android.permission.BIND_REMOTEVIEWS"/>
+        <meta-data android:name="net.hockeyapp.android.appIdentifier" android:value="f9f7ad8747344d6dbe5f07391773049c"/>
+        <provider android:authorities="com.bt.mdd.provider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_provider_path"/>
+        </provider>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.bt.mdd.crashlyticsinitprovider" android:exported="false" android:initOrder="90" android:name="com.crashlytics.android.CrashlyticsInitProvider"/>
+        <activity android:name="net.hockeyapp.android.UpdateActivity"/>
+        <activity android:name="net.hockeyapp.android.FeedbackActivity" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:name="net.hockeyapp.android.PaintActivity"/>
+        <activity android:name="net.hockeyapp.android.LoginActivity"/>
+        <activity android:name="net.hockeyapp.android.ExpiryInfoActivity"/>
+        <service android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.bt.mdd.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="29"/>
+    </application>
+</manifest>

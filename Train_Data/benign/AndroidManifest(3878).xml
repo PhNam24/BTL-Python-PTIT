@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.zxt.dota2database">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:name="com.zxt.dota2database.myview.MyApplication" android:theme="@style/MyActionBar">
+        <activity android:name="com.zxt.dota2database.LaunchActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="com.zxt.dota2database.MainActivity"/>
+        <activity android:name="com.zxt.dota2database.allhero.hero.HeroActivity" android:parentActivityName="com.zxt.dota2database.allhero.Dota2Hero">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.zxt.dota2database.allhero.Dota2Hero"/>
+        </activity>
+        <activity android:name="com.zxt.dota2database.allhero.Dota2Hero" android:parentActivityName="com.zxt.dota2database.MainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.zxt.dota2database.MainActivity"/>
+        </activity>
+        <activity android:name="com.zxt.dota2database.gondlve.Gondlve" android:parentActivityName="com.zxt.dota2database.MainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.zxt.dota2database.MainActivity"/>
+        </activity>
+        <activity android:name="com.zxt.dota2database.gondlve.OneGondlve" android:parentActivityName="com.zxt.dota2database.gondlve.Gondlve">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.zxt.dota2database.gondlve.Gondlve"/>
+        </activity>
+        <activity android:name="com.zxt.dota2database.other.NewVersion" android:parentActivityName="com.zxt.dota2database.MainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.zxt.dota2database.MainActivity"/>
+        </activity>
+        <activity android:name="com.zxt.dota2database.other.GameData" android:parentActivityName="com.zxt.dota2database.MainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.zxt.dota2database.MainActivity"/>
+        </activity>
+        <activity android:name="com.zxt.dota2database.other.OtherText" android:parentActivityName="com.zxt.dota2database.other.GameData">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.zxt.dota2database.other.GameData"/>
+        </activity>
+        <activity android:name="com.zxt.dota2database.other.Info" android:parentActivityName="com.zxt.dota2database.MainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.zxt.dota2database.MainActivity"/>
+        </activity>
+        <activity android:name="com.zxt.dota2database.other.Internet" android:parentActivityName="com.zxt.dota2database.MainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.zxt.dota2database.MainActivity"/>
+        </activity>
+        <activity android:name="com.zxt.dota2database.other.UserMessage" android:parentActivityName="com.zxt.dota2database.MainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.zxt.dota2database.MainActivity"/>
+        </activity>
+        <activity android:name="com.zxt.dota2database.warrecord.UserNameSearch" android:parentActivityName="com.zxt.dota2database.MainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.zxt.dota2database.MainActivity"/>
+        </activity>
+        <activity android:name="com.zxt.dota2database.warrecord.UserNameItem" android:parentActivityName="com.zxt.dota2database.warrecord.UserNameSearch">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.zxt.dota2database.other.Hero_WarInfo"/>
+        </activity>
+        <activity android:name="com.zxt.dota2database.warrecord.AllMatchDetails" android:parentActivityName="com.zxt.dota2database.warrecord.UserNameSearch">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.zxt.dota2database.warrecord.Hero_WarInfo"/>
+        </activity>
+        <activity android:name="com.zxt.dota2database.warrecord.MatchDetails" android:parentActivityName="com.zxt.dota2database.warrecord.UserNameSearch">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.zxt.dota2database.warrecord.Hero_WarInfo"/>
+        </activity>
+        <activity android:name="com.zxt.dota2database.test.CalculatorActivity" android:parentActivityName="com.zxt.dota2database.MainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.zxt.dota2database.MainActivity"/>
+        </activity>
+        <activity android:name="com.zxt.dota2database.test.HoverActivity" android:parentActivityName="com.zxt.dota2database.MainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.zxt.dota2database.MainActivity"/>
+        </activity>
+        <service android:name="com.zxt.dota2database.util.DownloadNewVerService"/>
+        <receiver android:name="com.zxt.dota2database.util.UpdataBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.zxt.dota2database.util.MyBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.zxt.downloadComplete"/>
+            </intent-filter>
+        </receiver>
+    </application>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
+</manifest>

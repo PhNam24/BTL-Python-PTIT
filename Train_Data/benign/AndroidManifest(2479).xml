@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="31" android:compileSdkVersionCodename="12" package="ag.bushel.scaletickets.encompass" platformBuildVersionCode="31" platformBuildVersionName="12">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="https"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="http"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.DIAL"/>
+            <data android:scheme="tel"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.SENDTO"/>
+            <data android:scheme="mailto"/>
+        </intent>
+        <intent>
+            <action android:name="android.support.customtabs.action.CustomTabsService"/>
+        </intent>
+    </queries>
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:icon="@null" android:isSplitRequired="true" android:label="@string/app_name" android:name="com.myriadmobile.scaletickets.ScaleTicketApplication" android:supportsRtl="true" android:theme="@style/AppTheme" android:usesCleartextTraffic="false">
+        <activity android:name="com.myriadmobile.scaletickets.view.auth.AppAuthActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.myriadmobile.scaletickets.view.auth.OldAuthActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:exported="true" android:name="com.myriadmobile.scaletickets.view.MainActivity" android:noHistory="true" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.myriadmobile.notify_firebase.PUSH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.myriadmobile.scaletickets.view.customentities.CustomEntitiesActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.myriadmobile.scaletickets.view.cashbid.CashPriceActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.myriadmobile.scaletickets.view.contract.ContractActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.myriadmobile.scaletickets.view.pricelater.PriceLaterActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.myriadmobile.scaletickets.view.futures.FuturesActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.myriadmobile.scaletickets.view.settings.SettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.myriadmobile.scaletickets.view.ticket.TicketActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.myriadmobile.scaletickets.view.prepaid.PrepaidActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.myriadmobile.scaletickets.view.commoditybalances.CommodityBalancesActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.myriadmobile.scaletickets.view.notification.NotificationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.myriadmobile.scaletickets.view.custom.selection.EntitySelectionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.myriadmobile.scaletickets.view.feedback.ReportIssueActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.myriadmobile.scaletickets.view.onboarding.welcome.WelcomeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.myriadmobile.scaletickets.view.onboarding.updates.UpdatesActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.myriadmobile.scaletickets.view.makeoffer.cqg.CreateOfferActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.myriadmobile.scaletickets.view.makeoffer.dtn.DtnCreateOfferActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.myriadmobile.scaletickets.view.offer.OfferActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.myriadmobile.scaletickets.view.esign.EsignActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.myriadmobile.scaletickets.view.esign.modal.EsignModalActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.myriadmobile.scaletickets.view.workorders.WorkOrderActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.myriadmobile.scaletickets.view.deliverytickets.DeliveryTicketsActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.myriadmobile.scaletickets.view.outboundtickets.OutboundTicketsActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.myriadmobile.scaletickets.view.settlement.WalletActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.myriadmobile.scaletickets.view.transactions.TransactionsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.myriadmobile.scaletickets.view.acknowledgements.AcknowledgementsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.myriadmobile.scaletickets.view.partners.rainandhail.RainAndHailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.myriadmobile.scaletickets.view.esign.webview.EsignWebViewActivity"/>
+        <activity android:name="com.myriadmobile.scaletickets.view.WebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.myriadmobile.scaletickets.view.failedlogin.FailedLoginActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.myriadmobile.scaletickets.view.payments.PaymentsActivity" android:screenOrientation="portrait"/>
+        <service android:exported="false" android:name="com.myriadmobile.scaletickets.data.BushelMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.myriadmobile.notify_firebase.NotifyFirebaseIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="ag.bushel.scaletickets.encompass.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/filepaths_bushel"/>
+        </provider>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/brand_primary"/>
+        <activity android:name="com.bushelpowered.debugtools.logging.logs.LogActivity"/>
+        <provider android:authorities="ag.bushel.scaletickets.encompass.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.bushelpowered.debugtools.logging.BushelFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_provider_paths"/>
+        </provider>
+        <activity android:name="com.myriadmobile.http_logging.view.LoggingActivity" android:screenOrientation="portrait"/>
+        <provider android:authorities="ag.bushel.scaletickets.encompass.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.myriadmobile.http_logging.data.BushelFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_provider_paths"/>
+        </provider>
+        <activity android:exported="false" android:launchMode="singleTask" android:name="net.openid.appauth.AuthorizationManagementActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:exported="true" android:name="net.openid.appauth.RedirectUriReceiverActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="com.bushel"/>
+            </intent-filter>
+        </activity>
+        <provider android:authorities="ag.bushel.scaletickets.encompass.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:visibleToInstantApps="true"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.tagmanager.TagManagerService"/>
+        <activity android:exported="true" android:name="com.google.android.gms.tagmanager.TagManagerPreviewActivity" android:noHistory="true">
+            <intent-filter>
+                <data android:scheme="tagmanager.c.ag.bushel.scaletickets.encompass"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <receiver android:exported="true" android:name="org.matomo.sdk.extra.InstallReferrerReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.rollbar.android._notifier.version" android:value="1.8.1"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="ag.bushel.scaletickets.encompass.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="ag.bushel.scaletickets.encompass.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
+            <meta-data android:name="androidx.work.WorkManagerInitializer" android:value="androidx.startup"/>
+        </provider>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:name="androidx.work.impl.foreground.SystemForegroundService"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.mattprecious.telescope.RequestCaptureActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="ag.bushel.scaletickets.encompass.telescope.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.mattprecious.telescope.TelescopeFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/telescope_file_paths"/>
+        </provider>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="3"/>
+    </application>
+</manifest>

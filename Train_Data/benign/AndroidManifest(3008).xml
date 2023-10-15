@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="at.mobilkom.android.meina1">
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.WRITE_GSERVICES"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
+    <uses-permission android:name="android.permission.READ_NETWORK_USAGE_HISTORY"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="at.mobilkom.android.meina1.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="at.mobilkom.android.meina1.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT"/>
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
+    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE"/>
+    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT"/>
+    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_APP_BADGE"/>
+    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ"/>
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="at.mobilkom.android.meina1.ui.core.MeinA1Application_" android:networkSecurityConfig="@xml/network_security_config" android:supportsRtl="false" android:theme="@style/MeinA1">
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="barcode"/>
+        <provider android:authorities="at.mobilkom.android.meina1.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <activity android:name="at.mobilkom.android.meina1.ui.login.SplashScreenActivity_" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/MeinA1blackStatusbar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="at.mobilkom.android.meina1.ui.login.LoginActivity_" android:screenOrientation="portrait" android:theme="@style/MeinA1blackStatusbar" android:windowSoftInputMode="adjustNothing|stateHidden"/>
+        <activity android:name="at.mobilkom.android.meina1.ui.login.OnboardingActivity_" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/MeinA1blackStatusbar"/>
+        <activity android:label="@string/app_name" android:name="at.mobilkom.android.meina1.ui.core.MainPageActivity_" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="@string/host_empty" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_dashboard" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_messages" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_shopFinder" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_settings" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_registration_reLogin" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_registration" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_registration2" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_registration_reg" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_registration_udr" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_registration_udm" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_addProduct" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_appStore" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_faq" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_myMobilpoints" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_myTariff" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_options" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_mycosts" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_myInvoices" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_changeInvoiceType" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_change_tariff" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_callsAndForwarding" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_myFreeUnits" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_my_credit" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_orderOptions" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_roaming" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_internet_options" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_internet_usage" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_videothek" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_videothek_options" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_service_locks" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_smile" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_web_detail" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_netperform_onboarding" android:scheme="@string/scheme_meina1"/>
+                <data android:host="@string/host_netperform_settings" android:scheme="@string/scheme_meina1"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="at.mobilkom.android.meina1.ui.help.HelpArticleGroupActivity_" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="@string/host_faq_group" android:scheme="@string/scheme_meina1"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="at.mobilkom.android.meina1.ui.help.HelpArticleActivity_" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="@string/host_faq_content" android:scheme="@string/scheme_meina1"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="at.mobilkom.android.meina1.ui.shop.ShopFinderActivity_" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="@string/host_shopFinderPublic" android:scheme="@string/scheme_meina1"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="at.mobilkom.android.meina1.ui.core.OverlayPageActivity_" android:screenOrientation="portrait"/>
+        <activity android:name="at.mobilkom.android.meina1.ui.smile.SmileInfoOverlayActivity_" android:screenOrientation="portrait"/>
+        <activity android:name="at.mobilkom.android.meina1.ui.options.OrderOptionActivity_" android:screenOrientation="portrait"/>
+        <activity android:name="at.mobilkom.android.meina1.ui.options.CancelOptionActivity_" android:screenOrientation="portrait"/>
+        <activity android:name="at.mobilkom.android.meina1.ui.tariff.ChangeTariffChooseOptionActivity_" android:screenOrientation="portrait"/>
+        <activity android:name="at.mobilkom.android.meina1.ui.tariff.ChangeTariffDetailsActivity_" android:screenOrientation="portrait"/>
+        <activity android:name="at.mobilkom.android.meina1.ui.invoice.ChangeInvoiceTypeActivity_" android:screenOrientation="portrait"/>
+        <activity android:name="at.mobilkom.android.meina1.ui.settings.CallForwardingActivity_" android:screenOrientation="portrait"/>
+        <activity android:name="at.mobilkom.android.meina1.ui.settings.AddEditMultiringDeviceActivity_" android:screenOrientation="portrait"/>
+        <activity android:name="at.mobilkom.android.meina1.ui.settings.PasswordEditActivity_" android:screenOrientation="portrait"/>
+        <activity android:name="at.mobilkom.android.meina1.ui.core.SupportPageActivity_" android:screenOrientation="portrait"/>
+        <activity android:name="at.mobilkom.android.meina1.ui.help.HelpSearchActivity_" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:name="at.mobilkom.android.meina1.ui.invoice.InvoicePdfDownloadActivity_" android:noHistory="true" android:screenOrientation="portrait"/>
+        <activity android:name="at.mobilkom.android.meina1.ui.shop.ShopFinderListActivity_" android:screenOrientation="portrait"/>
+        <activity android:name="at.mobilkom.android.meina1.ui.credit.CreditConfirmOverlayActivity_" android:screenOrientation="portrait"/>
+        <activity android:name="at.mobilkom.android.meina1.ui.tariff.GdprWebViewActivity_" android:screenOrientation="portrait"/>
+        <activity android:name="at.mobilkom.android.meina1.ui.core.views.WarningOverlay_" android:screenOrientation="portrait"/>
+        <activity android:name="at.mobilkom.android.meina1.ui.netperform.NetPerformOnboardingActivity_" android:screenOrientation="portrait"/>
+        <service android:exported="false" android:name="at.mobilkom.android.meina1.schedule.GuidedContactJobService_">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="at.mobilkom.android.meina1.schedule.ImageLoaderJobService_">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
+            </intent-filter>
+        </service>
+        <service android:name="at.mobilkom.android.meina1.netperform.NetPerformJobService_"/>
+        <service android:label="NPService" android:name="com.vodafone.netperform.runtime.NetPerformService" android:permission="android.permission.BIND_CARRIER_SERVICES">
+            <intent-filter>
+                <action android:name="android.service.carrier.CarrierService"/>
+            </intent-filter>
+            <meta-data android:name="android.service.carrier.LONG_LIVED_BINDING" android:value="true"/>
+        </service>
+        <service android:label="NPJobService" android:name="com.vodafone.netperform.runtime.NetPerformJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:name="com.vodafone.netperform.runtime.RebootIntentReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.HOME"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="io.fabric.ApiKey" android:value="d0057b9d48d4f2d491aa659205733a7edb4c3af6"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDXcVz_FLSD61CNnu4Wq5m6a9hWkoWVGIA"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="at.mobilkom.android.meina1.firebaseperfprovider" android:exported="false" android:initOrder="101" android:name="com.google.firebase.perf.provider.FirebasePerfProvider"/>
+        <service android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.component.FirebasePerfRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <service android:exported="true" android:name="com.firebase.jobdispatcher.GooglePlayReceiver" android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE">
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="at.mobilkom.android.meina1.crashlyticsinitprovider" android:exported="false" android:initOrder="100" android:name="com.crashlytics.android.CrashlyticsInitProvider"/>
+        <meta-data android:name="onesignal_app_id" android:value="586c08af-405d-4915-b79a-952c92d0abeb"/>
+        <meta-data android:name="onesignal_google_project_number" android:value="str:478150840980"/>
+        <receiver android:name="com.onesignal.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter android:priority="999">
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="at.mobilkom.android.meina1"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.onesignal.NotificationOpenedReceiver"/>
+        <service android:name="com.onesignal.GcmIntentService"/>
+        <service android:name="com.onesignal.GcmIntentJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.onesignal.RestoreJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.onesignal.RestoreKickoffJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.onesignal.SyncService" android:stopWithTask="true"/>
+        <service android:name="com.onesignal.SyncJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:name="com.onesignal.PermissionsActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:name="com.onesignal.NotificationRestoreService"/>
+        <receiver android:name="com.onesignal.BootUpReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.onesignal.UpgradeReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="at.mobilkom.android.meina1"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="at.mobilkom.android.meina1.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+    </application>
+</manifest>

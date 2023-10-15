@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="internalOnly" package="com.todoist">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-feature android:name="android.hardware.location" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.network" android:required="false"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-feature android:name="android.hardware.microphone" android:required="false"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="com.todoist.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.todoist.permission.C2D_MESSAGE"/>
+    <meta-data android:name="android.support.VERSION" android:value="25.3.1"/>
+    <application android:allowBackup="false" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:logo="@drawable/ic_actionbar" android:name="com.todoist.Todoist" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/Theme.Todoist">
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyAb0ZEQgYrcqb1dVu5oPt7suw6AuQMNhB8"/>
+        <meta-data android:name="firebase_analytics_collection_deactivated" android:value="true"/>
+        <activity android:name="com.todoist.attachment.drive.activity.TDDriveActivity" android:theme="@style/Theme.Todoist.Translucent.NoAnimation"/>
+        <service android:name="com.todoist.push_notifications.service.FcmListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.todoist.push_notifications.receiver.InstanceIDTokenRefresherReceiver">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:name="com.todoist.google_now.NoteToSelfActivity" android:theme="@style/Theme.Todoist.Translucent">
+            <intent-filter>
+                <action android:name="com.google.android.gm.action.AUTO_SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.todoist.activity.LocationServicesResolutionActivity" android:theme="@style/Theme.Todoist.Translucent.NoAnimation"/>
+        <receiver android:exported="false" android:name="com.todoist.google_play_services.service.GeofenceTransitionReceiver"/>
+        <service android:name="com.todoist.wear.WearSyncService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.DATA_CHANGED"/>
+                <data android:host="*" android:pathPrefix="/notification" android:scheme="wear"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.DATA_CHANGED"/>
+                <data android:host="*" android:pathPrefix="/notification_action" android:scheme="wear"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.MESSAGE_RECEIVED"/>
+                <data android:host="*" android:pathPrefix="/avatar_request" android:scheme="wear"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.MESSAGE_RECEIVED"/>
+                <data android:host="*" android:pathPrefix="/command" android:scheme="wear"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.MESSAGE_RECEIVED"/>
+                <data android:host="*" android:pathPrefix="/exception" android:scheme="wear"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.todoist.wear.ClearWearNotificationsReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.todoist.appindexing.AppIndexService" android:permission="com.google.android.gms.permission.APPINDEXING">
+            <intent-filter>
+                <action android:name="com.google.firebase.appindexing.UPDATE_INDEX"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="io.fabric.ApiKey" android:value="bcae49b62fe90e2717e909e9586f9e3085136983"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/ic_stat_todoist"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/todoist_main"/>
+        <meta-data android:name="com.samsung.android.sdk.multiwindow.enable" android:value="true"/>
+        <meta-data android:name="asset_statements" android:resource="@string/asset_statements"/>
+        <activity android:launchMode="singleTop" android:name="com.todoist.activity.HomeActivity" android:theme="@style/Theme.Todoist.TransparentStatusBar" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <layout android:defaultHeight="@dimen/default_height" android:defaultWidth="@dimen/default_width"/>
+            <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts"/>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.todoist.activity.WelcomeActivity" android:theme="@style/Theme.Todoist.Welcome"/>
+        <activity android:label="@string/continue_with_email" android:name="com.todoist.activity.CheckEmailExistsActivity" android:theme="@style/Theme.Todoist.Welcome"/>
+        <activity android:label="@string/log_in" android:name="com.todoist.activity.LogInActivity" android:theme="@style/Theme.Todoist.Welcome" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/sign_up" android:name="com.todoist.activity.SignUpActivity" android:theme="@style/Theme.Todoist.Welcome" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:name="com.todoist.activity.LogoutActivity" android:theme="@style/Theme.Todoist.Translucent"/>
+        <activity android:launchMode="singleTop" android:name="com.todoist.activity.AuthErrorResolutionActivity" android:theme="@style/Theme.Todoist.Translucent"/>
+        <activity android:label="@string/theme_picker" android:name="com.todoist.activity.ThemePickerActivity" android:parentActivityName="com.todoist.activity.HomeActivity"/>
+        <activity android:label="@string/comments" android:name="com.todoist.activity.NotesActivity" android:parentActivityName="com.todoist.activity.HomeActivity"/>
+        <activity android:label="@string/reminders" android:name="com.todoist.activity.RemindersActivity" android:parentActivityName="com.todoist.activity.HomeActivity"/>
+        <activity android:label="@string/completed_items" android:name="com.todoist.activity.CompletedItemListActivity" android:parentActivityName="com.todoist.activity.HomeActivity"/>
+        <activity android:label="@string/completed_items" android:name="com.todoist.activity.AllCompletedItemListActivity" android:parentActivityName="com.todoist.activity.ProfileActivity"/>
+        <activity android:label="@string/activity_log" android:name="com.todoist.activity.ActivityLogActivity" android:parentActivityName="com.todoist.activity.HomeActivity"/>
+        <activity android:name="com.todoist.activity.CreateItemActivity" android:parentActivityName="com.todoist.activity.HomeActivity">
+            <layout android:defaultHeight="@dimen/default_height" android:defaultWidth="@dimen/default_width"/>
+        </activity>
+        <activity android:autoRemoveFromRecents="true" android:label="@string/add_task" android:name="com.todoist.activity.QuickAddItemActivity" android:noHistory="true" android:taskAffinity=":quick_add_item_activity_forever_alone" android:theme="@style/Theme.Todoist.QuickAddItem" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity-alias android:label="@string/add_to_todoist_as_task" android:name="com.todoist.QuickAddItemAsTask" android:targetActivity="com.todoist.activity.QuickAddItemActivity" android:taskAffinity=":quick_add_item_as_task_activity_forever_alone" android:theme="@style/Theme.Todoist.QuickAddItem" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+        </activity-alias>
+        <activity android:excludeFromRecents="true" android:name="com.todoist.activity.SchedulerAppWidgetDialogActivity" android:taskAffinity=":scheduler_app_widget_dialog_activity_forever_alone" android:theme="@style/Theme.Todoist.Translucent"/>
+        <activity android:excludeFromRecents="true" android:name="com.todoist.activity.SchedulerNotificationDialogActivity" android:taskAffinity=":scheduler_notification_dialog_activity_forever_alone" android:theme="@style/Theme.Todoist.Translucent"/>
+        <activity android:excludeFromRecents="true" android:name="com.todoist.appwidget.activity.AppWidgetOverflowActivity" android:taskAffinity=":app_widget_overflow_activity_forever_alone" android:theme="@style/Theme.Todoist.Translucent.NoAnimation.Overflow"/>
+        <activity android:name="com.todoist.activity.CreateProjectActivity" android:parentActivityName="com.todoist.activity.HomeActivity"/>
+        <activity android:name="com.todoist.activity.CreateLabelActivity" android:parentActivityName="com.todoist.activity.HomeActivity"/>
+        <activity android:name="com.todoist.activity.CreateFilterActivity" android:parentActivityName="com.todoist.activity.HomeActivity"/>
+        <activity android:label="@string/sharing" android:name="com.todoist.activity.SharingActivity" android:parentActivityName="com.todoist.activity.HomeActivity"/>
+        <activity android:label="@string/project_collaborators_projects" android:name="com.todoist.activity.ProjectCollaboratorsActivity" android:parentActivityName="com.todoist.activity.SharingActivity"/>
+        <activity android:label="@string/profile" android:name="com.todoist.activity.ProfileActivity" android:parentActivityName="com.todoist.activity.HomeActivity"/>
+        <activity android:label="@string/karma" android:name="com.todoist.activity.KarmaActivity" android:parentActivityName="com.todoist.activity.ProfileActivity"/>
+        <activity android:label="@string/smart_schedule_title" android:name="com.todoist.activity.SmartScheduleActivity" android:parentActivityName="com.todoist.activity.HomeActivity"/>
+        <activity android:label="@string/smart_schedule_title" android:name="com.todoist.activity.SmartScheduleAppWidgetActivity" android:parentActivityName="com.todoist.activity.HomeActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:name="com.todoist.activity.LockDialogActivity" android:theme="@style/Theme.Todoist.Translucent"/>
+        <activity android:label="@string/pref_premium_upgrade_header_title" android:name="com.todoist.activity.UpgradeActivity" android:theme="@style/Theme.Todoist.Upgrade"/>
+        <activity android:label="@string/navigation_settings" android:name="com.todoist.activity.SettingsActivity" android:parentActivityName="com.todoist.activity.HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.NOTIFICATION_PREFERENCES"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:name="com.todoist.activity.ChooseTDTimeZoneDialogActivity" android:theme="@style/Theme.Todoist.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:name="com.todoist.activity.ChooseSelectionDialogActivity" android:theme="@style/Theme.Todoist.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:name="com.todoist.activity.VideoViewerActivity" android:theme="@style/Theme.Todoist.MediaViewer"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:name="com.todoist.activity.ImageViewerActivity" android:theme="@style/Theme.Todoist.MediaViewer"/>
+        <activity android:label="@string/sync_errors" android:name="com.todoist.activity.SyncErrorsResolutionActivity"/>
+        <activity android:label="@string/support_articles" android:name="com.todoist.activity.zendesk.ArticlesActivity" android:parentActivityName="com.todoist.activity.SettingsActivity"/>
+        <activity android:label="@string/support_tickets" android:name="com.todoist.activity.zendesk.TicketsActivity" android:parentActivityName="com.todoist.activity.SettingsActivity"/>
+        <activity android:label="@string/support_contact" android:name="com.todoist.activity.zendesk.ContactActivity" android:parentActivityName="com.todoist.activity.SettingsActivity"/>
+        <activity android:label="@string/support_ticket" android:name="com.todoist.activity.zendesk.ViewTicketActivity" android:parentActivityName="com.todoist.activity.zendesk.TicketsActivity"/>
+        <activity android:excludeFromRecents="true" android:label="@string/add_to_todoist_as_comment" android:name="com.todoist.activity.AddAsNoteActivity" android:taskAffinity=":add_as_note_activity_forever_alone" android:theme="@style/Theme.Todoist.Translucent">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="application/*"/>
+                <data android:mimeType="audio/*"/>
+                <data android:mimeType="image/*"/>
+                <data android:mimeType="text/*"/>
+            </intent-filter>
+            <layout android:defaultHeight="@dimen/default_height" android:defaultWidth="@dimen/default_width"/>
+        </activity>
+        <activity android:excludeFromRecents="true" android:label="@string/add_to_todoist_as_task" android:name="com.todoist.activity.AddFileAsItemProxyActivity" android:taskAffinity=":add_media_as_task_activity_forever_alone" android:theme="@style/Theme.Todoist.Translucent">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="application/*"/>
+                <data android:mimeType="audio/*"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+            <layout android:defaultHeight="@dimen/default_height" android:defaultWidth="@dimen/default_width"/>
+        </activity>
+        <activity android:name="com.todoist.activity.RouterActivity" android:theme="@style/Theme.Todoist.Translucent.NoAnimation">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="todoist"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="todoist.com" android:pathPrefix="/app" android:scheme="https"/>
+                <data android:host="*.todoist.com" android:pathPrefix="/app" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="todoist.com" android:pathPrefix="/showTask" android:scheme="https"/>
+                <data android:host="*.todoist.com" android:pathPrefix="/showTask" android:scheme="https"/>
+            </intent-filter>
+            <layout android:defaultHeight="@dimen/default_height" android:defaultWidth="@dimen/default_width"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:name="com.todoist.activity.ReadAllConfirmationDialogActivity" android:theme="@style/Theme.Todoist.Translucent"/>
+        <service android:name="com.todoist.data.SyncJobService"/>
+        <service android:name="com.todoist.attachment.upload.AttachmentUploadJobService"/>
+        <service android:name="com.todoist.create_item.notification.service.CreateItemNotificationService"/>
+        <service android:name="com.todoist.daily_review.DailyReviewNotificationService"/>
+        <service android:name="com.todoist.auth.service.LogoutService"/>
+        <service android:name="com.todoist.attachment.audio.service.AudioPlayerMediaProxyService"/>
+        <service android:name="com.todoist.reminder.service.ReminderGeofenceService"/>
+        <service android:name="com.heavyplayer.audioplayerrecorder.service.AudioRecorderService"/>
+        <service android:name="com.todoist.gc.file.FileGcJobService"/>
+        <service android:name="com.todoist.gc.item.ItemHistoryGcJobService"/>
+        <service android:name="com.todoist.gc.live_notification.LiveNotificationGcJobService"/>
+        <service android:name="com.todoist.notification.service.QuickReplyIntentService"/>
+        <service android:name="com.todoist.billing.BillingSyncJobService"/>
+        <receiver android:name="com.todoist.reminder.receiver.ReminderActionReceiver"/>
+        <receiver android:name="com.todoist.reminder.receiver.ReminderGeofenceReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.todoist.create_item.notification.receiver.CreateItemNotificationReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.todoist.daily_review.DailyReviewNotificationReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.todoist.reminder.receiver.ScheduleRemindersNotifyMissedReceiver">
+            <intent-filter android:priority="@integer/system_priority_max">
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.todoist.reminder.receiver.ScheduleRemindersReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.todoist.live_notification.LiveNotificationActionReceiver"/>
+        <receiver android:name="com.todoist.attachment.upload.AttachmentCleanupReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.todoist.util.receiver.MidnightReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.todoist.receiver.AppUpgradeReceiver">
+            <intent-filter android:priority="@integer/system_priority_max">
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.todoist.appshortcut.RemoveShortcutsBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:excludeFromRecents="true" android:name="com.todoist.appwidget.activity.ItemListAppWidgetConfigure" android:taskAffinity=":item_list_appwidget_configure_forever_alone" android:theme="@style/Theme.Todoist.Translucent">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <receiver android:label="@string/appwidget_task_list_label" android:name="com.todoist.appwidget.provider.ItemListAppWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_info_item_list"/>
+        </receiver>
+        <service android:name="com.todoist.appwidget.update.service.ItemListRemoteViewsService" android:permission="android.permission.BIND_REMOTEVIEWS"/>
+        <service android:name="com.todoist.appwidget.service.ItemListAppWidgetUpdateService"/>
+        <service android:name="com.todoist.appwidget.service.ItemListItemIntentService"/>
+        <activity android:icon="@drawable/ic_shortcut_add_task" android:label="@string/shortcut_add_task_label" android:name="com.todoist.shortcut.activity.CreateQuickAddDialogShortcutActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:label="@string/dashclock_settings_activity_label" android:name="com.todoist.dashclock.DashClockSettingsActivity"/>
+        <service android:icon="@drawable/ic_actionbar" android:label="@string/app_name" android:name="com.todoist.dashclock.TDDashClockExtension" android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA">
+            <intent-filter>
+                <action android:name="com.google.android.apps.dashclock.Extension"/>
+            </intent-filter>
+            <meta-data android:name="protocolVersion" android:value="2"/>
+            <meta-data android:name="description" android:value="@string/dashclock_description"/>
+            <meta-data android:name="settingsActivity" android:value=".dashclock.DashClockSettingsActivity"/>
+            <meta-data android:name="worldReadable" android:value="true"/>
+        </service>
+        <service android:icon="@drawable/ic_settings_tile_add" android:label="@string/add_task" android:name="com.todoist.quicksettings.CreateItemTileService" android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.todoist.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.todoist.provider.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/filepaths"/>
+        </provider>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_application_id"/>
+        <meta-data android:name="com.facebook.sdk.AutoLogAppEventsEnabled" android:value="true"/>
+        <activity android:exported="false" android:label="" android:name="com.firebase.ui.auth.KickoffActivity" android:theme="@style/FirebaseUI.Transparent"/>
+        <activity android:exported="false" android:label="@string/title_recover_password_activity" android:name="com.firebase.ui.auth.ui.email.RecoverPasswordActivity"/>
+        <activity android:exported="false" android:label="@string/sign_in_default" android:name="com.firebase.ui.auth.ui.email.RegisterEmailActivity"/>
+        <activity android:exported="false" android:label="@string/title_welcome_back_idp_prompt" android:name="com.firebase.ui.auth.ui.accountlink.WelcomeBackIdpPrompt"/>
+        <activity android:exported="false" android:label="@string/title_welcome_back_password_prompt" android:name="com.firebase.ui.auth.ui.accountlink.WelcomeBackPasswordPrompt"/>
+        <activity android:exported="false" android:label="@string/default_toolbar_title" android:name="com.firebase.ui.auth.ui.idp.AuthMethodPickerActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/facebook_login_protocol_scheme"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.zendesk.sdk.power.BatteryStateBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+            </intent-filter>
+        </receiver>
+        <activity android:label="@string/contact_fragment_title" android:name="com.zendesk.sdk.feedback.ui.ContactZendeskActivity" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:label="@string/contact_fragment_title" android:name="com.zendesk.sdk.requests.ViewRequestActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/request_list_activity_title" android:name="com.zendesk.sdk.requests.RequestActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.zendesk.sdk.support.ViewArticleActivity"/>
+        <activity android:label="@string/support_activity_title" android:name="com.zendesk.sdk.support.SupportActivity" android:windowSoftInputMode="adjustResize"/>
+        <receiver android:exported="false" android:name="com.zendesk.sdk.deeplinking.ZendeskDeepLinkingBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.zendesk.sdk.deeplinking"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.todoist"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"/>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.todoist.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <provider android:authorities="com.todoist.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.twitter.sdk.android.tweetui.PlayerActivity" android:theme="@style/MediaTheme"/>
+        <activity android:name="com.twitter.sdk.android.tweetui.GalleryActivity" android:theme="@style/MediaTheme"/>
+        <provider android:authorities="com.todoist.belvedere.attachments" android:exported="false" android:grantUriPermissions="true" android:name="com.zendesk.belvedere.BelvedereFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/belvedere_attachment_storage"/>
+        </provider>
+        <activity android:exported="false" android:name="com.twitter.sdk.android.tweetcomposer.ComposerActivity" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <service android:enabled="true" android:exported="false" android:name="com.twitter.sdk.android.tweetcomposer.TweetUploadService"/>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:exported="false" android:name="com.twitter.sdk.android.core.identity.OAuthActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:exported="false" android:icon="@drawable/tw__transparent" android:label="@string/kit_name" android:name="com.twitter.sdk.android.core.identity.ShareEmailActivity"/>
+        <service android:name="com.doist.jobschedulercompat.scheduler.jobscheduler.JobSchedulerJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.doist.jobschedulercompat.scheduler.gcm.GcmJobService" android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE">
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.doist.jobschedulercompat.scheduler.alarm.AlarmJobService"/>
+        <receiver android:enabled="false" android:name="com.doist.jobschedulercompat.scheduler.alarm.AlarmReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:name="com.doist.jobschedulercompat.scheduler.alarm.AlarmReceiver$BatteryReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:name="com.doist.jobschedulercompat.scheduler.alarm.AlarmReceiver$ConnectivityReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.doist.jobschedulercompat.job.JobGcReceiver">
+            <intent-filter android:priority="999">
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.google.android.wearable.beta.app" android:resource="@xml/android_wear_micro_apk"/>
+    </application>
+</manifest>

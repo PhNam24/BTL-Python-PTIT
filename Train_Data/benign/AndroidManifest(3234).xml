@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.polindophone.hisar">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="com.polindophone.hisar.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.polindophone.hisar.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.landscape" android:required="false"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <application android:allowBackup="true" android:icon="@drawable/apk03" android:label="@string/app_name" android:name="com.polindophone.hisar.App" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <meta-data android:name="io.fabric.ApiKey" android:value="fe4231b5352ec6ab8485b7ded6d900667824bd86"/>
+        <meta-data android:name="preloaded_fonts" android:resource="@array/preloaded_fonts"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_channel_id" android:value="@string/app_name"/>
+        <provider android:authorities="com.polindophone.hisar.provider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <activity android:name="com.polindophone.hisar.SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.ittron.co.id" android:pathPrefix="/compromall" android:scheme="http"/>
+                <data android:host="compromall" android:scheme="ittron"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.polindophone.hisar.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.polindophone.hisar.member.RegisterActivity" android:parentActivityName="com.polindophone.hisar.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.polindophone.hisar.member.LoginActivity" android:parentActivityName="com.polindophone.hisar.member.RegisterActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.polindophone.hisar.member.MemberForgotPasswordActivity" android:parentActivityName="com.polindophone.hisar.member.LoginActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.polindophone.hisar.member.MemberInformationActivity" android:parentActivityName="com.polindophone.hisar.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.polindophone.hisar.member.MemberAddressListActivity" android:parentActivityName="com.polindophone.hisar.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.polindophone.hisar.member.MemberAddressActivity" android:parentActivityName="com.polindophone.hisar.member.MemberAddressListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.polindophone.hisar.member.MemberPasswordActivity" android:parentActivityName="com.polindophone.hisar.member.MemberAddressListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.polindophone.hisar.product.ProductCategoryActivity" android:parentActivityName="com.polindophone.hisar.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.polindophone.hisar.product.ProductDetailActivity" android:parentActivityName="com.polindophone.hisar.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.polindophone.hisar.product.ProductListActivity" android:parentActivityName="com.polindophone.hisar.product.ProductCategoryActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.polindophone.hisar.transaction.CartActivity" android:parentActivityName="com.polindophone.hisar.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.polindophone.hisar.transaction.CheckOutActivity" android:parentActivityName="com.polindophone.hisar.transaction.CartActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.polindophone.hisar.transaction.TransactionDetailActivity" android:parentActivityName="com.polindophone.hisar.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.polindophone.hisar.transaction.PaymentTypeActivity" android:parentActivityName="com.polindophone.hisar.transaction.TransactionDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.polindophone.hisar.HelpActivity" android:parentActivityName="com.polindophone.hisar.member.RegisterActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.polindophone.hisar.transaction.OrderDetailActivity" android:parentActivityName="com.polindophone.hisar.transaction.OrderListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.polindophone.hisar.transaction.ConfirmationPaymentActivity" android:parentActivityName="com.polindophone.hisar.transaction.OrderDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.polindophone.hisar.transaction.OrderListActivity" android:parentActivityName="com.polindophone.hisar.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.polindophone.hisar.transaction.OrderStatusActivity" android:parentActivityName="com.polindophone.hisar.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.polindophone.hisar.member.FavoriteListActivity" android:parentActivityName="com.polindophone.hisar.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_pg_web" android:name="com.polindophone.hisar.transaction.pgWebActivity" android:parentActivityName="com.polindophone.hisar.transaction.OrderDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.polindophone.hisar.transaction.OrderDetailActivity"/>
+        </activity>
+        <service android:name="com.polindophone.hisar.tools.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.polindophone.hisar.tools.FirebaseIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:name="com.polindophone.hisar.ChatFromActivity" android:parentActivityName="com.polindophone.hisar.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="stateVisible"/>
+        <activity android:name="com.polindophone.hisar.message.MessageActivity" android:parentActivityName="com.polindophone.hisar.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="stateVisible"/>
+        <activity android:name="com.polindophone.hisar.GeneralWebViewActivity" android:parentActivityName="com.polindophone.hisar.transaction.InvoiceDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.polindophone.hisar.transaction.InvoiceWebViewActivity" android:parentActivityName="com.polindophone.hisar.transaction.InvoiceDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.polindophone.hisar.member.GiftListActivity" android:parentActivityName="com.polindophone.hisar.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.polindophone.hisar.member.GiftDetailActivity" android:parentActivityName="com.polindophone.hisar.member.GiftListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.polindophone.hisar.member.GiftHistoryActivity" android:parentActivityName="com.polindophone.hisar.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.polindophone.hisar.member.GiftHistoryDetailActivity" android:parentActivityName="com.polindophone.hisar.member.GiftHistoryActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.polindophone.hisar.member.PointLedgerActivity" android:parentActivityName="com.polindophone.hisar.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.polindophone.hisar.vendor.VendorActivity" android:parentActivityName="com.polindophone.hisar.product.ProductDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.polindophone.hisar.product.DiscussionRomActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.polindophone.hisar.transaction.ComplaintListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.polindophone.hisar.transaction.ComplaintRomActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.polindophone.hisar.member.MembershipUpgradeActivity" android:parentActivityName="com.polindophone.hisar.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.polindophone.hisar.transaction.InvoiceDetailActivity" android:parentActivityName="com.polindophone.hisar.transaction.OrderListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.polindophone.hisar.member.MembershipUpgradeConfirmActivity" android:theme="@style/AppTheme.Translucent"/>
+        <activity android:name="com.polindophone.hisar.member.NotificationActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.polindophone.hisar.transaction.MidtransActivity" android:theme="@style/NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.activities.PaymentMethodsActivity" android:screenOrientation="portrait" android:theme="@style/NoActionBar"/>
+        <service android:exported="false" android:name="com.zopim.android.sdk.widget.ChatWidgetService"/>
+        <activity android:label="@string/chat_activity_title" android:name="com.zopim.android.sdk.prechat.ZopimChatActivity" android:theme="@style/ZopimChatTheme" android:windowSoftInputMode="adjustResize|stateUnchanged">
+            <intent-filter android:priority="-1000">
+                <action android:name="zopim.action.RESUME_CHAT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/rate_this_chat_leave_a_comment_title" android:name="com.zopim.android.sdk.chatlog.ZopimCommentActivity" android:theme="@style/ZopimChatTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.midtrans.sdk.uikit.activities.UserDetailsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.activities.BankTransferActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.activities.BankTransferInstructionActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.activities.PaymentWebActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.activities.MandiriClickPayActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.mandiri_clickpay.MandiriClickPayActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.activities.EpayBriActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.bri_epay.BriEpayPaymentActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.activities.CIMBClickPayActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.cimb_click.CimbClickPaymentActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.activities.MandiriECashActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.mandiri_ecash.MandiriEcashPaymentActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.activities.IndosatDompetkuActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.indosat_dompetku.IndosatDompetkuPaymentActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.activities.IndomaretActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.indomaret.payment.IndomaretPaymentActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.indomaret.status.IndomaretStatusActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.activities.IndomaretInstructionActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.activities.MandiriClickPayInstructionActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.activities.SelectBankTransferActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.activities.BCAKlikPayActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.activities.KlikBCAActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.activities.TelkomselCashActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.telkomsel_cash.TelkomselCashPaymentActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.activities.XLTunaiActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.xl_tunai.payment.XlTunaiPaymentActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.xl_tunai.status.XlTunaiStatusActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.xl_tunai.XlTunaiInstructionActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.activities.KiosonActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.kioson.payment.KiosonPaymentActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.activities.KiosonInstructionActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.kioson.status.KiosonStatusActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.activities.GCIActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.gci.GciPaymentActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.activities.KlikBCAInstructionActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.creditcard.details.CreditCardDetailsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.status.PaymentStatusActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.creditcard.saved.SavedCreditCardActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.creditcard.bankpoints.BankPointsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.banktransfer.list.BankTransferListActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.banktransfer.payment.BankTransferPaymentActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.banktransfer.status.VaPaymentStatusActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.banktransfer.status.VaOtherBankPaymentStatusActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.banktransfer.status.MandiriBillStatusActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.creditcard.register.CardRegistrationActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.gopay.payment.GoPayPaymentActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.gopay.status.GoPayStatusActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.danamon_online.DanamonOnlineActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.bca_klikbca.payment.KlikBcaPaymentActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.bca_klikbca.status.KlikBcaStatusActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.bca_klikpay.BcaKlikPayPaymentActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.webview.WebViewPaymentActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.midtrans.sdk.uikit.views.creditcard.tnc.TermsAndConditionsActivity" android:screenOrientation="portrait"/>
+        <service android:exported="false" android:name="com.midtrans.raygun.RaygunPostService" android:process=":raygunpostservice"/>
+        <service android:exported="false" android:name="com.zopim.android.sdk.api.ChatService"/>
+        <provider android:authorities="com.polindophone.hisar.belvedere.attachments" android:exported="false" android:grantUriPermissions="true" android:name="com.zendesk.belvedere.BelvedereFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/belvedere_attachment_storage"/>
+        </provider>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.polindophone.hisar.firebaseperfprovider" android:exported="false" android:initOrder="101" android:name="com.google.firebase.perf.provider.FirebasePerfProvider"/>
+        <service android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.component.FirebasePerfRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.polindophone.hisar"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.polindophone.hisar.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:clearTaskOnLaunch="true" android:name="com.journeyapps.barcodescanner.CaptureActivity" android:screenOrientation="sensorLandscape" android:stateNotNeeded="true" android:theme="@style/zxing_CaptureTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <meta-data android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule" android:value="GlideModule"/>
+    </application>
+</manifest>

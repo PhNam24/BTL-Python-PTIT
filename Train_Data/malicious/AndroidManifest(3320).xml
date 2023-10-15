@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.ktcp.cast" platformBuildVersionCode="28" platformBuildVersionName="9">
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.ktcp.cast.permission.MULTI_PROCESS_COMMUNITATION"/>
+    <permission android:name="com.ktcp.cast.permission.REMOTE_SHARED_PREFERENCE_PROVIDER" android:protectionLevel="signature"/>
+    <permission android:name="com.ktcp.cast.permission.MULTI_PROCESS_COMMUNITATION" android:protectionLevel="signature"/>
+    <meta-data android:name="com.tencent.rdm.uuid" android:value="49d070e5-837e-4177-af88-ab440a245eb4"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <application android:allowBackup="false" android:appComponentFactory="android.support.v4.app.CoreComponentFactory" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="com.tencent.StubShell.TxAppEntry" android:resizeableActivity="true" android:supportsRtl="true" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
+        <meta-data android:name="TxAppEntry" android:value="com.ktcp.cast.ProjectionApplication"/>
+        <meta-data android:name="com.tencent.rdm.uuid" android:value="49d070e5-837e-4177-af88-ab440a245eb4"/>
+        <activity android:name="com.ktcp.cast.activity.SplashActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tenaurcast"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="android.max_aspect" android:value="2.22"/>
+        <activity android:name="com.ktcp.cast.activity.H5Activity"/>
+        <meta-data android:name="design_width_in_dp" android:value="375"/>
+        <meta-data android:name="design_height_in_dp" android:value="667"/>
+        <activity android:name="com.ktcp.cast.activity.TestActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencent101553616"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.tencent.connect.common.AssistActivity" android:screenOrientation="behind" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:exported="true" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.ktcp.cast.wxapi.WXEntryActivity" android:taskAffinity="net.sourceforge.simcpux" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:enabled="true" android:exported="false" android:name="com.ktcp.cast.framework.core.upgrade.UpgradeService" android:process=":upgrade"/>
+        <activity android:activityCloseEnterAnimation="@null" android:activityCloseExitAnimation="@null" android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.ktcp.cast.activity.LoginBaseActivity" android:resizeableActivity="false" android:theme="@style/CastDialogStyle" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:launchMode="singleTask" android:name="com.ktcp.cast.activity.HomeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.ktcp.cast.activity.TestConnectionActivity"/>
+        <activity android:name="com.ktcp.cast.activity.TestLoginActivity"/>
+        <activity android:name="com.ktcp.cast.activity.TestHistoryActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:activityCloseEnterAnimation="@null" android:activityCloseExitAnimation="@null" android:exported="false" android:name="com.ktcp.cast.activity.UpgradeActivity" android:process=":upgrade" android:resizeableActivity="false" android:screenOrientation="portrait" android:theme="@style/CastDialogStyle"/>
+        <provider android:authorities="com.ktcp.cast.REMOTE_SHARED_PREFERENCE" android:exported="true" android:name="com.ktcp.sharedpreference.SharedPreferenceProvider" android:permission="com.ktcp.cast.permission.REMOTE_SHARED_PREFERENCE_PROVIDER"/>
+        <provider android:authorities="com.ktcp.cast.fileProvider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <provider android:authorities="com.ktcp.cast.autosize-init-provider" android:exported="false" android:multiprocess="true" android:name="me.jessyan.autosize.InitProvider"/>
+        <service android:name="com.liulishuo.filedownloader.services.FileDownloadService$SharedMainProcessService"/>
+        <service android:name="com.liulishuo.filedownloader.services.FileDownloadService$SeparateProcessService" android:process=":filedownloader"/>
+        <activity android:excludeFromRecents="true" android:label="@string/app_name" android:name="com.ktcp.remotedevicehelp.sdk.core.voice.permission.PermissionsActivity" android:noHistory="true" android:theme="@style/TransparentActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

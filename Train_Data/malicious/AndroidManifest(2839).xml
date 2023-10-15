@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="cn.xs8.app" platformBuildVersionCode="23" platformBuildVersionName="6.0-2704002">
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <permission android:name="cn.xs8.permission.READ_DATA"/>
+    <permission android:name="cn.xs8.permission.WRITE_DATA"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <application android:allowBackup="true" android:icon="@drawable/icon" android:label="@string/app_name" android:largeHeap="true" android:name="cn.xs8.app.Xs8_Application" android:theme="@style/AppTheme">
+        <activity android:label="@string/app_name" android:name="cn.xs8.app.activity.news.Xs8_News_SplashActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="cn.xs8.app.activity.news.Xs8_News_UserInfo_MyConcernFridens" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="cn.xs8.app.activity.news.Xs8_News_AuthorFriends" android:windowSoftInputMode="adjustResize"/>
+        <provider android:authorities="cn.xs8.authority.datacenter" android:multiprocess="false" android:name="cn.xs8.app.dao.DataCenterProvider" android:syncable="true"/>
+        <activity android:name="cn.xs8.app.reader.activity.BookReaderActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="cn.xs8.app.activity.news.Xs8_News_CommentDetailActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="cn.xs8.app.activity.news.MainTabActivity" android:theme="@style/MainTabTheme" android:windowSoftInputMode="adjustPan"/>
+        <service android:enabled="true" android:exported="false" android:name="cn.xs8.app.network.HttpDownloadService">
+            <intent-filter>
+                <action android:name="cn.xs8.app.download"/>
+            </intent-filter>
+        </service>
+        <service android:name="cn.xs8.app.server.UpdateService"/>
+        <service android:name="cn.xs8.app.utils.UpdateService"/>
+        <service android:enabled="true" android:exported="false" android:name="cn.xs8.app.network.ChapterDownloadService">
+            <intent-filter>
+                <action android:name="com.hongxiu.app.download"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.dcsdk.core.receiver.DCReceiver">
+            <intent-filter>
+                <action android:name="com.snda.dcsdk.notification"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="UMENG_APPKEY" android:value="51abf8c05270153515000007"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+        <service android:exported="false" android:name="com.sina.weibo.sdk.net.DownloadService"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencent100267562"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.tencent.connect.common.AssistActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="cn.xs8.app.activity.Xs8_BinderUserActivity" android:theme="@style/binder_float"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.tenpay.android.oneclickpay.open.PayActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.tenpay.android.oneclickpay.open.ProtocolActivity" android:screenOrientation="behind"/>
+        <activity android:name="com.vsofo.vpaysmszf.MActivity_vpaysmszf"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:name="com.umpay.huafubao.ui.BillingActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:name="com.umpay.huafubao.ui.BillingPadActivity"/>
+        <activity android:launchMode="singleTop" android:name="cn.xs8.app.activity.news.Xs8_ChapterBatchDownLoadListActivity"/>
+        <service android:name="com.umpay.huafubao.service.AppUpgradeService"/>
+        <activity android:name="cn.xs8.app.activity.news.Xs8_News_WebToApp" android:screenOrientation="portrait">
+            <intent-filter>
+                <data android:host="*" android:scheme="xs"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="cn.xs8.app.activity.news.Xs8_News_Corver_Balloy_Explain"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="cn.xs8.app.activity.news.Xs8_News_UserInfo_ChangePW"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="cn.xs8.app.activity.news.Xs8_News_UserInfo_BindMobile"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="cn.xs8.app.activity.news.Xs8_News_More_Download_Manager"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="cn.xs8.app.activity.news.Xs8_News_More_FeedBack"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="cn.xs8.app.activity.news.Xs8_News_More_Help"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="cn.xs8.app.activity.news.Xs8_News_More_About"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="cn.xs8.app.activity.news.Xs8_News_GetTicket"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="cn.xs8.app.activity.news.Xs8_News_Search_Result"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="cn.xs8.app.activity.news.Xs8_News_UserInfo_Pay_Tenpay"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="cn.xs8.app.activity.news.Xs8_News_UserInfo_Pay_by_uni"/>
+        <activity android:label="@string/app_name" android:name="cn.xs8.app.activity.news.Xs8_News_UserInfo_Pay_Alipay"/>
+        <activity android:label="@string/app_name" android:name="cn.xs8.app.activity.news.Xs8_News_UserInfo_Pay_Wechat"/>
+        <activity android:label="@string/app_name" android:name="cn.xs8.app.activity.news.Xs8_News_UserInfo_Pay_CTSMS"/>
+        <activity android:name="cn.xs8.app.activity.news.Xs8_News_UserInfo_Pay_SMS"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="cn.xs8.app.activity.news.Xs8_News_UserInfo_Pay"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="cn.xs8.app.activity.news.Xs8_News_UserInfo_Cost_Log"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="cn.xs8.app.activity.news.Xs8_News_UserInfo_Reward_Log"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="cn.xs8.app.activity.news.Xs8_News_userinfo_MyComments"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="cn.xs8.app.activity.news.Xs8_News_userinfo_MyCommentBook"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="cn.xs8.app.activity.news.Xs8_News_UserInfo_Pay_Log"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="cn.xs8.app.activity.news.Xs8_News_UserInfo_Ticket_Log"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="cn.xs8.app.activity.news.Xs8_News_UserInfo_Comments_Log"/>
+        <activity android:launchMode="singleTask" android:name="cn.xs8.app.activity.news.Xs8_News_More"/>
+        <activity android:launchMode="singleTask" android:name="cn.xs8.app.activity.news.Xs8_News_Corver"/>
+        <activity android:name="cn.xs8.app.activity.news.Xs8_News_Login_ForgetPW" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="cn.xs8.app.activity.news.Xs8_News_Login_RegNomal" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="cn.xs8.app.activity.news.Xs8_News_Comment" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTask" android:name="cn.xs8.app.activity.news.Xs8_News_BookShop" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="cn.xs8.app.activity.news.Xs8_News_WebViewToOther" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="cn.xs8.app.activity.news.Xs8_News_BookChapter" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="cn.xs8.app.activity.news.Xs8_News_More_Links" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="cn.xs8.app.wxapi.WXPayEntryActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="cn.xs8.app.zxing.view.MipcaActivityCapture" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:exported="false" android:name="com.alipay.sdk.app.H5PayActivity" android:screenOrientation="behind" android:theme="@android:style/Theme.Light"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:exported="false" android:name="com.alipay.sdk.auth.AuthActivity" android:screenOrientation="behind" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="cn.xs8.app.wxapi.WXEntryActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:launchMode="singleTask" android:name="cn.xs8.app.activity.news.Xs8_News_UserInfo_DuiBa" android:windowSoftInputMode="adjustPan"/>
+        <activity android:launchMode="singleTask" android:name="cn.xs8.app.activity.news.Xs8_News_Comic_Activity"/>
+        <activity android:launchMode="singleTask" android:name="cn.xs8.app.activity.news.Xs8_News_ComicDetailActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:launchMode="singleTask" android:name="cn.xs8.app.activity.news.Xs8_News_ComicReaderActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="cn.xs8.app.activity.news.Xs8_CategorySearchActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="cn.xs8.app.activity.news.Xs8_TagSearchActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <receiver android:name="cn.xs8.app.broadcast.AlarmNotifyBroadcast" android:process=":remote">
+            <intent-filter>
+                <action android:name="cn.xs8.app.broadcast.AlarmNotifyBroadcast_xs8"/>
+            </intent-filter>
+        </receiver>
+        <activity android:launchMode="singleTop" android:name="cn.xs8.app.activity.news.BookRecommendActivity"/>
+        <receiver android:name="com.tencent.android.tpush.XGPushReceiver" android:process=":xg_service_v2">
+            <intent-filter android:priority="0x7FFFFFFF">
+                <action android:name="com.tencent.android.tpush.action.SDK"/>
+                <action android:name="com.tencent.android.tpush.action.INTERNAL_PUSH_MESSAGE"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.tencent.android.tpush.XGPushActivity">
+            <intent-filter>
+                <action android:name="android.intent.action"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="true" android:name="com.tencent.android.tpush.service.XGPushService" android:persistent="true" android:process=":xg_service_v2"/>
+        <service android:exported="true" android:name="com.tencent.android.tpush.rpc.XGRemoteService">
+            <intent-filter>
+                <action android:name="cn.xs8.app.PUSH_ACTION"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="XG_V2_ACCESS_ID" android:value="2100215912"/>
+        <meta-data android:name="XG_V2_ACCESS_KEY" android:value="A7H472D1RILS"/>
+        <receiver android:exported="true" android:name="cn.xs8.app.broadcast.PushBaseReceiver">
+            <intent-filter>
+                <action android:name="com.tencent.android.tpush.action.PUSH_MESSAGE"/>
+                <action android:name="com.tencent.android.tpush.action.FEEDBACK"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="cn.xs8.app.activity.news.Xs8_News_LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.tbruyelle.rxpermissions.ShadowActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+    </application>
+</manifest>

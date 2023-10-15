@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="31" android:compileSdkVersionCodename="12" package="com.branch_international.branch.branch_demo_android" platformBuildVersionCode="31" platformBuildVersionName="12">
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_OWNER_DATA"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera.any"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
+    <queries>
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.BROWSABLE"/>
+            <data android:scheme="http"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.BROWSABLE"/>
+            <data android:scheme="https"/>
+        </intent>
+    </queries>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT"/>
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
+    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE"/>
+    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT"/>
+    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_APP_BADGE"/>
+    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ"/>
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE"/>
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:fullBackupContent="@xml/appsflyer_backup_rules" android:icon="@mipmap/ic_launcher" android:isSplitRequired="true" android:label="@string/app_name" android:name="com.branch_international.branch.branch_demo_android.BranchApplication" android:networkSecurityConfig="@xml/network_security_config" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/Theme.Branch">
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.bugsnag.android.API_KEY" android:value="df3b93fb65f3beac48a2658588c99097"/>
+        <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing" android:value="true"/>
+        <service android:label="@string/log_upload_service_label" android:name="co.branch.core.data.service.LogUploadService"/>
+        <service android:exported="false" android:name="co.branch.core.ui.sim_toolkit_overlay.SimToolkitOverlayService"/>
+        <service android:exported="false" android:name="co.branch.core.data.service.ImageProcessingService" android:process=":image"/>
+        <service android:exported="false" android:name="com.branch_international.branch.branch_demo_android.service.BranchFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:name="co.branch.core.ui.add_financial_account.AddFinancialAccountActivity" android:parentActivityName="co.branch.app.ui.manage_accounts.ManageAccountDetailsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="co.branch.app.ui.settings.SettingsActivity" android:parentActivityName="co.branch.app.ui.my_account.MyAccountActivity" android:screenOrientation="portrait"/>
+        <activity android:label="" android:launchMode="singleTask" android:name="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter android:label="">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="home" android:scheme="branch"/>
+                <data android:host="my-loan" android:scheme="branch"/>
+                <data android:host="credit-score" android:scheme="branch"/>
+                <data android:host="invite-friends" android:scheme="branch"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true" android:label="">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="branch.co" android:path="/home" android:scheme="https"/>
+                <data android:host="branch.co" android:path="/my-loan" android:scheme="https"/>
+                <data android:host="branch.co" android:path="/credit-score" android:scheme="https"/>
+                <data android:host="branch.co" android:path="/invite-friends" android:scheme="https"/>
+                <data android:host="investments" android:path="/home" android:scheme="branch"/>
+                <data android:host="branch.co" android:path="/investments" android:scheme="https"/>
+                <data android:host="wallets" android:path="/home" android:scheme="branch"/>
+                <data android:host="branch.co" android:path="/wallets" android:scheme="https"/>
+                <data android:host="product-registrations" android:path="/home" android:scheme="branch"/>
+                <data android:host="branch.co" android:path="/product-registrations" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="co.branch.app.ui.invite.InviteActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.credit_score.ui.factors.ScoreFactorsActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.credit_score.ui.display.history.ScoreHistoryActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.credit_score.ui.payment.ScorePaymentActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.lending.ui.pay_via_deep_link.PayViaDeepLinkActivity" android:noHistory="true" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="pay" android:scheme="branch"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="branch.co" android:path="/pay" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleInstance" android:name="com.branch_international.branch.branch_demo_android.view.activity.UpgradeRequiredActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="co.branch.app.ui.welcome.WelcomeActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Branch.Welcome"/>
+        <activity android:name="co.branch.app.ui.history.HistoryActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.branch_international.branch.branch_demo_android.view.activity.LoginOptionsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.branch_international.branch.branch_demo_android.view.activity.PhoneNumberLoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.app.ui.splash.SplashActivity" android:noHistory="true" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.core.ui.faq.FaqActivity" android:parentActivityName="co.branch.app.ui.welcome.WelcomeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.core.ui.faq.FaqTopicActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="co.branch.lending.ui.loan_details.LoanDetailsActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.lending.ui.fee_details.FeeDetailsActivity" android:parentActivityName="co.branch.lending.ui.loan_details.LoanDetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.app.ui.manage_accounts.ManageAccountDetailsActivity" android:parentActivityName="co.branch.app.ui.financial_accounts.FinancialAccountsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.lending.ui.apply_for_loan.ApplyForLoanActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.core.ui.add_debit_card.DebitCardActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="co.branch.core.ui.add_debit_card.MaxDebitCardRestrictionActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="co.branch.core.ui.add_debit_card.EditDebitCardActivity" android:parentActivityName="co.branch.app.ui.manage_accounts.ManageAccountDetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.app.ui.edit_profile.EditProfileActivity" android:parentActivityName="co.branch.app.ui.my_account.MyAccountActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="edit-account" android:scheme="branch"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="branch.co" android:path="/edit-account" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="co.branch.lending.ui.repayment_amount.RepaymentAmountActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.branch_international.branch.branch_demo_android.view.activity.EditLanguageActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing|stateHidden"/>
+        <activity android:name="co.branch.app.ui.whatsapp.WhatsAppNotificationActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="co.branch.lending.ui.repayment_account.RepaymentAccountActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.lending.ui.repayment_account.RepaymentAccountActivityHilt" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.lending.ui.repayment_account.CashRepaymentAccountActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.lending.ui.confirm_repayment.ConfirmDebitCardDebitActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.lending.ui.confirm_repayment.ConfirmBankDebitActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.lending.ui.confirm_repayment.ConfirmMobileMoneyRepaymentActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.lending.ui.confirm_repayment.ConfirmWebFormRepaymentActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.lending.ui.confirm_repayment.ConfirmUssdRepaymentActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.lending.ui.confirm_repayment.ConfirmWalletDebitActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.core.ui.transaction_history.TransactionHistoryActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="investments" android:path="/transactions" android:scheme="branch"/>
+                <data android:host="wallets" android:path="/transactions" android:scheme="branch"/>
+                <data android:host="investments" android:path="/trades" android:scheme="branch"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="branch.co" android:path="/investments/transactions" android:scheme="https"/>
+                <data android:host="branch.co" android:path="/wallets/transactions" android:scheme="https"/>
+                <data android:host="branch.co" android:path="/investments/trades" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="co.branch.core.ui.transaction_history.TransactionDetailsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="co.branch.core.ui.common.BranchOtpActivity" android:parentActivityName="co.branch.lending.ui.confirm_repayment.ConfirmBankDebitActivity" android:theme="@style/Paystack.Dialog.OtpEntry"/>
+        <activity android:name="co.branch.lending.ui.pay_early.PayEarlyActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.app.ui.merge_account.AccessYourAccountActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="co.branch.app.ui.pin.PinEntryActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="set-pin" android:scheme="branch"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="branch.co" android:path="/set-pin" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="co.branch.app.ui.manage_accounts.ManageAutoDebitActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.app.ui.merge_account.MergeAccountActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="co.branch.core.ui.serialized_view.SerializedViewActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="co.branch.core.ui.webview.AdvanceWebViewActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="co.branch.core.ui.serialized_view.SerializedViewActivityHilt" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="co.branch.core.ui.serialized_view.SerializedNativeFragmentHolderActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="co.branch.lending.ui.auto_debit_web_view.AutoDebitWebViewActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.app.ui.common.DeepLinkToSerializedViewActivity" android:noHistory="true" android:screenOrientation="portrait">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="investments" android:pathPrefix="/screen" android:scheme="branch"/>
+                <data android:host="branch.co" android:pathPrefix="/investments/screen" android:scheme="https"/>
+                <data android:host="wallets" android:pathPrefix="/screen" android:scheme="branch"/>
+                <data android:host="branch.co" android:pathPrefix="/wallets/screen" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.branch_international.branch.branch_demo_android.view.activity.PromotionHistoryActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.core.ui.serialized_view.DataInitializedSerializedViewActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="co.branch.app.ui.launch.LaunchActivity" android:noHistory="true" android:theme="@style/Theme.AppCompat.Translucent">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="branch.co" android:path="/download" android:scheme="http"/>
+                <data android:host="branch.co" android:path="/download" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/fb_login_protocol_scheme"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="cct.com.branch_international.branch.branch_demo_android" android:scheme="fbconnect"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="co.branch.core.ui.verify_identity.VerifyIdentityActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:theme="@style/Theme.AppCompat.Translucent.VerifyIdentity"/>
+        <activity android:name="com.branch_international.branch.branch_demo_android.view.activity.NotificationActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="notification" android:scheme="branch"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="branch.co" android:path="/notification" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="co.branch.app.ui.common.SecondaryActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="faq" android:scheme="branch"/>
+                <data android:host="loan-history" android:scheme="branch"/>
+                <data android:host="customer-care" android:scheme="branch"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="branch.co" android:path="/faq" android:scheme="https"/>
+                <data android:host="branch.co" android:path="/loan-history" android:scheme="https"/>
+                <data android:host="branch.co" android:path="/customer-care" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="co.branch.app.ui.promotion.PromotionsActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="promotion" android:scheme="branch"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="branch.co" android:path="/promotion" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="co.branch.app.ui.my_account.MyAccountActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="my-account" android:scheme="branch"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="branch.co" android:path="/my-account" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="co.branch.app.ui.financial_accounts.FinancialAccountsActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="financial-accounts" android:scheme="branch"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="branch.co" android:path="/financial-accounts" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="co.branch.lending.ui.loan_terms.LoanTermsActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.core.ui.transaction_statement.RequestStatementActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.core.ui.transaction_statement.RequestStatementSuccessfulActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.app.ui.help.HelpActivity" android:parentActivityName="co.branch.app.ui.my_account.MyAccountActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.lending.ui.branch_pro.BranchProWebActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.lending.ui.loan_history.LoanHistoryActivity" android:parentActivityName="co.branch.app.ui.history.HistoryActivity"/>
+        <receiver android:exported="false" android:name="com.branch_international.branch.branch_demo_android.receiver.LogOutReceiver">
+            <intent-filter>
+                <action android:name="co.branch.core.util.Intents.intent.unauthorized"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="co.branch.app.receiver.AppNotAuthorizedReceiver">
+            <intent-filter>
+                <action android:name="co.branch.core.util.Intents.intent.appNotAuthorized"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.branch_international.branch.branch_demo_android.receiver.UpgradeRequiredReceiver">
+            <intent-filter>
+                <action android:name="co.branch.core.util.Intents.intent.updateRequired"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.branch_international.branch.branch_demo_android.receiver.NotificationClearedReceiver">
+            <intent-filter>
+                <action android:name="co.branch.core.util.Intents.intent.notificationCleared"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="co.branch.app.receiver.PinActionReceiver">
+            <intent-filter>
+                <action android:name="co.branch.core.util.Intents.intent.pin.create"/>
+                <action android:name="co.branch.core.util.Intents.intent.pin.authenticate"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.branch_international.branch.branch_demo_android.receiver.SmsRetrieverReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.branch_international.branch.branch_demo_android.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="co.branch.core.util.BranchFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <provider android:authorities="com.branch_international.branch.branch_demo_android.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
+            <meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.profileinstaller.ProfileInstallerInitializer" android:value="androidx.startup"/>
+        </provider>
+        <activity android:name="co.branch.core.ui.share_receipt.ShareReceiptActivity" android:parentActivityName="com.branch_international.branch.branch_demo_android.view.activity.MainActivity" android:screenOrientation="portrait"/>
+        <receiver android:exported="false" android:name="co.branch.core.ui.receiver.ShareReceiptSelectorReceiver"/>
+        <activity android:launchMode="singleTask" android:name="co.branch.debitcards.ui.BranchDebitCardsHomeActivity" android:screenOrientation="portrait">
+            <intent-filter android:autoVerify="true" android:label="">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="debit-cards" android:scheme="branch"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true" android:label="">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="debit-cards" android:path="/home" android:scheme="branch"/>
+                <data android:host="branch.co" android:path="/debit-cards" android:scheme="https"/>
+                <data android:host="branch.co" android:path="/debit-cards/home" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:name="co.branch.rewards.ui.rewards_history.RewardsHistoryActivity" android:screenOrientation="portrait"/>
+        <activity android:name="co.branch.rewards.ui.RewardsActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="rewards" android:scheme="branch"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="branch.co" android:path="/rewards" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.ktx.FirebasePerfKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <provider android:authorities="com.branch_international.branch.branch_demo_android.firebaseperfprovider" android:exported="false" android:initOrder="101" android:name="com.google.firebase.perf.provider.FirebasePerfProvider"/>
+        <activity android:exported="true" android:name="androidx.compose.ui.tooling.PreviewActivity"/>
+        <provider android:authorities="com.branch_international.branch.branch_demo_android.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.facebook.AuthenticationTokenManager$CurrentAuthenticationTokenChangedBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_AUTHENTICATION_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="locale" android:name="co.hyperverge.hypersnapsdk.activities.HVRetakeActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"/>
+        <activity android:configChanges="locale" android:name="co.hyperverge.hypersnapsdk.activities.HVDocInstructionActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"/>
+        <activity android:configChanges="locale" android:name="co.hyperverge.hypersnapsdk.activities.HVDocsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"/>
+        <activity android:configChanges="locale" android:name="co.hyperverge.hypersnapsdk.activities.HVFaceInstructionActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"/>
+        <activity android:configChanges="locale" android:name="co.hyperverge.hypersnapsdk.activities.HVFaceActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"/>
+        <activity android:configChanges="locale" android:name="co.hyperverge.hypersnapsdk.activities.HVDocReviewActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"/>
+        <service android:exported="false" android:name="co.hyperverge.hypersnapsdk.analytics.mixpanel.network.MixPanelIntentService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <meta-data android:name="com.google.mlkit.vision.DEPENDENCIES" android:value="face"/>
+        <provider android:authorities="com.branch_international.branch.branch_demo_android.EventContentProvider" android:name="com.rudderstack.android.sdk.core.EventContentProvider"/>
+        <service android:exported="true" android:name="co.hyperverge.crashguard.services.CrashIntentService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <uses-library android:name="androidx.window.extensions" android:required="false"/>
+        <uses-library android:name="androidx.window.sidecar" android:required="false"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:visibleToInstantApps="true"/>
+        <activity android:name="co.paystack.android.ui.PinActivity" android:theme="@style/Paystack.Dialog.PinEntry"/>
+        <activity android:name="co.paystack.android.ui.OtpActivity" android:theme="@style/Paystack.Dialog.OtpEntry"/>
+        <activity android:name="co.paystack.android.ui.AuthActivity" android:theme="@style/Paystack.Dialog.OtpEntry"/>
+        <activity android:name="co.paystack.android.ui.CardActivity" android:theme="@style/Paystack.Dialog.CardEntry"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:name="androidx.work.impl.foreground.SystemForegroundService"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <provider android:authorities="com.branch_international.branch.branch_demo_android.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.profileinstaller.ProfileInstallReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:enabled="false" android:exported="false" android:launchMode="singleInstance" android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true"/>
+        <activity android:enabled="false" android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
+        <service android:enabled="false" android:exported="true" android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService">
+            <meta-data android:name="com.google.android.play.core.assetpacks.versionCode" android:value="11000"/>
+        </service>
+        <service android:enabled="false" android:exported="false" android:name="com.google.android.play.core.assetpacks.ExtractionForegroundService"/>
+        <service android:exported="false" android:name="com.moengage.core.MoEWorker"/>
+        <provider android:authorities="com.branch_international.branch.branch_demo_android.moengage.provider" android:exported="false" android:name="com.moengage.core.internal.storage.database.MoEProvider"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.moengage.core.MoEAlarmReceiver"/>
+        <service android:name="com.moengage.core.DataSyncJob" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.moengage.pushbase.MoEPushReceiver"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.moengage.pushbase.activities.PushTracker" android:noHistory="true" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.moengage.pushbase.activities.PushClickDialogTracker" android:taskAffinity=":NotificationDialog" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <service android:exported="false" android:name="com.moengage.pushbase.push.MoEPushWorker"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.moengage.pushamp.internal.PushAmpAlarmReceiver"/>
+        <service android:exported="false" android:name="com.moengage.pushamp.internal.PushAmpIntentService"/>
+        <service android:name="com.moengage.pushamp.internal.PushAmpSyncJob" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.moengage.rtt.internal.RttIntentService"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.moengage.rtt.internal.RttReceiver"/>
+        <service android:name="com.moengage.rtt.internal.RttSyncJob" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:exported="true" android:name="com.moengage.integrationverifier.internal.IntegrationVerificationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="integration" android:scheme="moengage"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.bugsnag.android.BUILD_UUID" android:value="f4288473-c24e-48a2-b4b8-ba087b6cb9c9"/>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="3"/>
+    </application>
+</manifest>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="preferExternal" package="akunososhiki.app.slashHero">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <application android:debuggable="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name">
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/app_name" android:launchMode="singleTask" android:name="AppActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:label="@string/app_name" android:launchMode="singleTask" android:name="jp.akunososhiki_globalClass.TwitterActivity" android:screenOrientation="behind">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="slashHero" android:scheme="foo"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.ads.AdActivity"/>
+        <activity android:name="mediba.ad.sdk.android.openx.MasAdClickWebview"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="com.inmobi.androidsdk.IMBrowserActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.tapjoy.TJCOffersWebView"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.tapjoy.TapjoyFullScreenAdWebView"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.tapjoy.TapjoyDailyRewardAdWebView"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.tapjoy.TapjoyVideoView"/>
+        <meta-data android:name="adfurikun_appkey" android:value="5166141f4a09db52280004ec"/>
+        <meta-data android:name="adfurikun_test" android:value="false"/>
+        <meta-data android:name="appc_media_key" android:value="e62d1d81fe0368aff6472aa55e35a6c150dfe74f"/>
+        <activity android:name="jp.co.cayto.appc.sdk.android.AppCAgreementActivity" android:noHistory="true" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:name="jp.co.cayto.appc.sdk.android.AppCWebActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <service android:name="jp.co.cayto.appc.sdk.android.background.IDService"/>
+        <receiver android:name="jp.co.cayto.appc.sdk.android.background.BgAppReceiver">
+            <intent-filter>
+                <action android:name="jp.co.cayto.appc.sdk.android.remote.command.gid.search"/>
+                <action android:name="jp.co.cayto.appc.sdk.android.remote.command.gid.set"/>
+                <action android:name="jp.co.cayto.appc.sdk.android.remote.command.gid.remove"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:label="BootStrap" android:name="jp.co.cayto.appc.sdk.android.background.BootStrap">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="gamefeat_site_id" android:value="200"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="GameFeat" android:name="jp.basicinc.gamefeat.android.sdk.view.GameFeatAppActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="GameFeat" android:name="jp.basicinc.gamefeat.android.sdk.view.GameFeatAppChildActivity" android:screenOrientation="sensor"/>
+        <receiver android:enabled="true" android:exported="false" android:name="jp.basicinc.gamefeat.android.sdk.receiver.GameFeatBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="net.adways.appdriver.sdk.AppDriverCrossPromotionActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="orientation" android:name="jp.gmotech.MoreApps.MoreAppsActivity" android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <service android:name="jp.gmotech.MoreApps.MoreAppsIntentService"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:launchMode="singleTask" android:name="jp.akunososhiki_globalClass.Ad8cropsListActivity" android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="ADC_MEDIA_SITE_ID" android:value="1469"/>
+        <meta-data android:name="ADC_MEDIA_SITE_KEY" android:value="AMmwTXEg"/>
+        <meta-data android:name="ADC_USE_APP_UNIQUE_ID" android:value="false"/>
+        <meta-data android:name="ADC_LIST_COUNT" android:value="3"/>
+        <meta-data android:name="ADC_CONVERSION_TIMER_INTERVAL" android:value="60"/>
+        <meta-data android:name="ADC_USE_INSTALLED_LIST_ITEM" android:value="false"/>
+        <meta-data android:name="ADC_USE_POINT_DISPLAY_ITEM" android:value="false"/>
+        <meta-data android:name="ADC_INSTALLED_LIST_ITEM_URL" android:value="http://d0.adcrops.net"/>
+        <activity android:label="@string/app_name" android:name="play_billing3.PlayBilling3Activity"/>
+        <service android:name="play_billing.purchase.BillingService"/>
+        <receiver android:name="play_billing.purchase.BillingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.billing.IN_APP_NOTIFY"/>
+                <action android:name="com.android.vending.billing.RESPONSE_CODE"/>
+                <action android:name="com.android.vending.billing.PURCHASE_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="net.youmi.android.AdBrowser" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <service android:exported="false" android:name="net.youmi.android.AdService"/>
+        <receiver android:name="net.youmi.android.AdReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="net.youmi.android.offers.OffersReceiver"/>
+        <meta-data android:name="YOUMI_CHANNEL" android:value="10020"/>
+    </application>
+</manifest>

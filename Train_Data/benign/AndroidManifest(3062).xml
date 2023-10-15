@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="uk.co.bigfoodie.partner" platformBuildVersionCode="25" platformBuildVersionName="7.1.1">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="uk.co.bigfoodie.partner.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="uk.co.bigfoodie.partner.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <application android:allowBackup="true" android:icon="@drawable/ic_launcher" android:label="Partner" android:name="uk.co.bigfoodie.partner.BluteoothApplication" android:theme="@style/AppTheme" android:windowFullscreen="false">
+        <provider android:authorities="uk.co.bigfoodie.partner.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <activity android:configChanges="locale" android:launchMode="singleTask" android:name="uk.co.bigfoodie.partner.activity.LoginActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme_login" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="locale" android:launchMode="singleTask" android:name="uk.co.bigfoodie.partner.activity.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme_login" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter android:label="PartnerApp">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="home" android:scheme="bfpartnerapp"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="true" android:name="uk.co.bigfoodie.partner.services.DriverInstanceIDListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="locale" android:name="uk.co.bigfoodie.partner.activity.RegisterActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="locale" android:name="uk.co.bigfoodie.partner.activity.MyMessageActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="locale" android:name="uk.co.bigfoodie.partner.activity.AddEmpActivity"/>
+        <activity android:configChanges="locale" android:name="uk.co.bigfoodie.partner.activity.LanguagrSetActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="locale" android:name="uk.co.bigfoodie.partner.activity.PrintNumbertActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="locale" android:name="uk.co.bigfoodie.partner.activity.SelectPrintActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="locale" android:name="uk.co.bigfoodie.partner.activity.OrderDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="locale" android:name="uk.co.bigfoodie.partner.activity.MySetActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/select_printer" android:name="uk.co.bigfoodie.partner.activity.DeviceListActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Holo.Dialog.NoActionBar"/>
+        <activity android:name="uk.co.bigfoodie.partner.activity.DemoViewer" android:theme="@style/Translucent"/>
+        <receiver android:name="uk.co.bigfoodie.partner.util.SwitchReceiver">
+            <intent-filter>
+                <action android:name="com.bluetooth.hotel.language"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="uk.co.bigfoodie.partner.activity.SdcardService"/>
+        <service android:name="uk.co.bigfoodie.partner.services.AppProcessStatusService"/>
+        <meta-data android:name="com.parse.push.notification_icon" android:resource="@drawable/ic_launcher"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyC-y6RH9Tm9yx9xBuM9uxrSsNEnqTe64Mg"/>
+        <activity android:name="uk.co.bigfoodie.partner.activity.FAQactivity"/>
+        <activity android:label="@string/title_activity_user__management" android:name="uk.co.bigfoodie.partner.activity.User_Management" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/title_activity_edit_user" android:name="uk.co.bigfoodie.partner.activity.EditUser" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/title_activity_update_profile" android:name="uk.co.bigfoodie.partner.activity.UpdateProfile" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <service android:exported="false" android:name="uk.co.bigfoodie.partner.services.MyFireBaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/ic_launcher"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/colorPrimaryDark"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="b4cce27de7ded37760aa891464d13b11f64e40cf"/>
+        <activity android:name="uk.co.bigfoodie.partner.TestPrint"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="uk.co.bigfoodie.partner"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"/>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="uk.co.bigfoodie.partner.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+    </application>
+</manifest>

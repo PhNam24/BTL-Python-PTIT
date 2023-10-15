@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="28" android:compileSdkVersionCodename="9" package="com.gazetki.gazetki" platformBuildVersionCode="28" platformBuildVersionName="9">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false"/>
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="false"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="true"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.landscape" android:required="false"/>
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:icon="@drawable/ic_icon_blix" android:label="@string/app_name" android:largeHeap="true" android:name="com.gazetki.gazetki2.application.BlixApplication" android:networkSecurityConfig="@xml/network_security_config" android:supportsRtl="true" android:theme="@style/AppThemeLight">
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:name="com.gazetki.gazetki2.activities.SplashActivity" android:theme="@style/AppThemeLight.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTop" android:logo="@drawable/logo_blix" android:name="com.gazetki.gazetki2.activities.main.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="pl.blix.action.DEEP_LINK"/>
+                <data android:scheme="@string/deeplink_blix_scheme"/>
+                <data android:scheme="@string/deeplink_http_scheme"/>
+                <data android:scheme="@string/deeplink_https_scheme"/>
+                <data android:host="@string/deeplink_blix_host"/>
+                <data android:host="@string/deeplink_blix_host_with_www"/>
+                <data android:path="@string/deeplink_path_slash"/>
+                <data android:path="@string/deeplink_path_empty"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+            <intent-filter>
+                <data android:host="open" android:scheme="blix"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="blix.app.link" android:scheme="https"/>
+                <data android:host="blix-alternate.app.link" android:scheme="https"/>
+                <data android:host="blix.test-app.link" android:scheme="https"/>
+                <data android:host="blix-alternate.test-app.link" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.gazetki.gazetki2.activities.nps.NpsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.gazetki.gazetki2.activities.gdpr.GdprActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.gazetki.gazetki2.activities.loyaltycard.choose.ChooseCardToAddActivity" android:parentActivityName="com.gazetki.gazetki2.activities.loyaltycard.list.LoyaltyCardsListActivity"/>
+        <activity android:label="@string/adding_a_card" android:name="com.gazetki.gazetki2.activities.loyaltycard.deeplink.AddSpecificCardDeepLinkActivity" android:parentActivityName="com.gazetki.gazetki2.activities.loyaltycard.list.LoyaltyCardsListActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="pl.blix.action.DEEP_LINK"/>
+                <data android:scheme="@string/deeplink_blix_scheme"/>
+                <data android:scheme="@string/deeplink_http_scheme"/>
+                <data android:scheme="@string/deeplink_https_scheme"/>
+                <data android:host="@string/deeplink_blix_host"/>
+                <data android:host="@string/deeplink_blix_host_with_www"/>
+                <data android:path="@string/deeplink_path_loyalty_cards_list_add"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.gazetki.gazetki2.activities.deeplink.shoplist.ShoppingListAddingDeeplinkActivity" android:theme="@style/Theme.AppCompat.Translucent">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="pl.blix.action.DEEP_LINK"/>
+                <data android:scheme="@string/deeplink_blix_scheme"/>
+                <data android:scheme="@string/deeplink_http_scheme"/>
+                <data android:scheme="@string/deeplink_https_scheme"/>
+                <data android:host="@string/deeplink_blix_host"/>
+                <data android:host="@string/deeplink_blix_host_with_www"/>
+                <data android:pathPrefix="@string/deeplink_path_shopping_list_product_add"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/adding_a_card" android:name="com.gazetki.gazetki2.activities.loyaltycards.adding.AddLoyaltyCardActivity" android:parentActivityName="com.gazetki.gazetki2.activities.loyaltycard.choose.ChooseCardToAddActivity"/>
+        <activity android:label="@string/edit_card" android:name="com.gazetki.gazetki2.activities.loyaltycards.edit.EditLoyaltyCardActivity" android:parentActivityName="com.gazetki.gazetki2.activities.loyaltycard.choose.ChooseCardToAddActivity"/>
+        <activity android:label="@string/adding_a_card" android:name="com.gazetki.gazetki2.activities.loyaltycard.scanner.CodeScannerActivity" android:parentActivityName="com.gazetki.gazetki2.activities.loyaltycard.choose.ChooseCardToAddActivity"/>
+        <activity android:name="com.gazetki.gazetki2.activities.loyaltycard.display.DisplayCardActivity" android:parentActivityName="com.gazetki.gazetki2.activities.loyaltycard.list.LoyaltyCardsListActivity"/>
+        <activity android:name="com.gazetki.gazetki.search.results.SearchResultsForShopListItemActivity" android:parentActivityName="com.gazetki.gazetki2.activities.shoppinglist.management.list.ShoppingListActivity"/>
+        <activity android:name="com.gazetki.gazetki2.leaflet.LeafletActivity" android:parentActivityName="com.gazetki.gazetki2.activities.shop.ShopActivity" android:theme="@style/PageDisplayTheme" android:windowSoftInputMode="adjustNothing">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="pl.blix.action.DEEP_LINK"/>
+                <data android:scheme="@string/deeplink_blix_scheme"/>
+                <data android:scheme="@string/deeplink_http_scheme"/>
+                <data android:scheme="@string/deeplink_https_scheme"/>
+                <data android:host="@string/deeplink_blix_host"/>
+                <data android:host="@string/deeplink_blix_host_with_www"/>
+                <data android:pathPattern="@string/deeplink_path_leaflet_pattern"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.gazetki.gazetki2.activities.shop.ShopActivity" android:parentActivityName="com.gazetki.gazetki2.activities.main.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="pl.blix.action.DEEP_LINK"/>
+                <data android:scheme="@string/deeplink_blix_scheme"/>
+                <data android:scheme="@string/deeplink_http_scheme"/>
+                <data android:scheme="@string/deeplink_https_scheme"/>
+                <data android:host="@string/deeplink_blix_host"/>
+                <data android:host="@string/deeplink_blix_host_with_www"/>
+                <data android:pathPattern="@string/deeplink_path_brand_pattern"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:label="@string/shopping_list" android:name="com.gazetki.gazetki2.activities.shoppinglist.management.list.ShoppingListActivity" android:parentActivityName="com.gazetki.gazetki2.activities.main.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="pl.blix.action.DEEP_LINK"/>
+                <data android:scheme="@string/deeplink_blix_scheme"/>
+                <data android:scheme="@string/deeplink_http_scheme"/>
+                <data android:scheme="@string/deeplink_https_scheme"/>
+                <data android:host="@string/deeplink_blix_host"/>
+                <data android:host="@string/deeplink_blix_host_with_www"/>
+                <data android:path="@string/deeplink_path_shopping_list"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/shopping_list_edit" android:name="com.gazetki.gazetki2.activities.shoppinglist.management.edit.EditShoppingListActivity" android:parentActivityName="com.gazetki.gazetki2.activities.shoppinglist.management.list.ShoppingListActivity"/>
+        <activity android:name="com.gazetki.gazetki2.activities.loyaltycard.list.LoyaltyCardsListActivity" android:parentActivityName="com.gazetki.gazetki2.activities.main.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="pl.blix.action.DEEP_LINK"/>
+                <data android:scheme="@string/deeplink_blix_scheme"/>
+                <data android:scheme="@string/deeplink_http_scheme"/>
+                <data android:scheme="@string/deeplink_https_scheme"/>
+                <data android:host="@string/deeplink_blix_host"/>
+                <data android:host="@string/deeplink_blix_host_with_www"/>
+                <data android:path="@string/deeplink_path_loyalty_cards_list"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.gazetki.gazetki2.activities.shoppinglist.management.display.SavedPagesDisplayActivity" android:parentActivityName="com.gazetki.gazetki2.activities.shoppinglist.management.list.ShoppingListActivity" android:theme="@style/PageDisplayTheme"/>
+        <activity android:label="@string/add_product_to_list" android:name="com.gazetki.gazetki2.activities.shoppinglist.adding.AddSimpleProductToListActivity" android:parentActivityName="com.gazetki.gazetki2.activities.shoppinglist.management.list.ShoppingListActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.gazetki.gazetki2.favorites.standard.FavoritesActivity" android:parentActivityName="com.gazetki.gazetki2.activities.main.MainActivity" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="pl.blix.action.DEEP_LINK"/>
+                <data android:scheme="@string/deeplink_blix_scheme"/>
+                <data android:scheme="@string/deeplink_http_scheme"/>
+                <data android:scheme="@string/deeplink_https_scheme"/>
+                <data android:host="@string/deeplink_blix_host"/>
+                <data android:host="@string/deeplink_blix_host_with_www"/>
+                <data android:pathPrefix="@string/deeplink_path_favorites"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.gazetki.gazetki2.activities.settings.SettingsActivity" android:parentActivityName="com.gazetki.gazetki2.activities.main.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="pl.blix.action.DEEP_LINK"/>
+                <data android:scheme="@string/deeplink_blix_scheme"/>
+                <data android:scheme="@string/deeplink_http_scheme"/>
+                <data android:scheme="@string/deeplink_https_scheme"/>
+                <data android:host="@string/deeplink_blix_host"/>
+                <data android:host="@string/deeplink_blix_host_with_www"/>
+                <data android:pathPrefix="@string/deeplink_path_settings"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.gazetki.gazetki.search.SearchActivity" android:parentActivityName="com.gazetki.gazetki2.activities.main.MainActivity" android:theme="@style/AppThemeLight.Search" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="pl.blix.action.DEEP_LINK"/>
+                <data android:scheme="@string/deeplink_blix_scheme"/>
+                <data android:scheme="@string/deeplink_http_scheme"/>
+                <data android:scheme="@string/deeplink_https_scheme"/>
+                <data android:host="@string/deeplink_blix_host"/>
+                <data android:host="@string/deeplink_blix_host_with_www"/>
+                <data android:path="@string/deeplink_path_search"/>
+                <data android:pathPrefix="@string/deeplink_path_search_full"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.gazetki.gazetki.search.resultsdisplay.SearchPageDisplayActivity" android:theme="@style/PageDisplayTheme"/>
+        <activity android:name="com.gazetki.gazetki2.activities.skin.SkinSelectionActivity" android:parentActivityName="com.gazetki.gazetki2.activities.main.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="pl.blix.action.DEEP_LINK"/>
+                <data android:scheme="@string/deeplink_blix_scheme"/>
+                <data android:scheme="@string/deeplink_http_scheme"/>
+                <data android:scheme="@string/deeplink_https_scheme"/>
+                <data android:host="@string/deeplink_blix_host"/>
+                <data android:host="@string/deeplink_blix_host_with_www"/>
+                <data android:pathPrefix="@string/deeplink_path_theme_picker"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.gazetki.gazetki2.activities.deeplink.RedirectDeepLinkActivity" android:parentActivityName="com.gazetki.gazetki2.activities.main.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="pl.blix.action.DEEP_LINK"/>
+                <data android:scheme="@string/deeplink_blix_scheme"/>
+                <data android:scheme="@string/deeplink_http_scheme"/>
+                <data android:scheme="@string/deeplink_https_scheme"/>
+                <data android:host="@string/deeplink_blix_host"/>
+                <data android:host="@string/deeplink_blix_host_with_www"/>
+                <data android:pathPrefix="@string/deeplink_path_redirect"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.gazetki.gazetki2.activities.WebViewActivity">
+            <intent-filter>
+                <action android:name="pl.blix.action.DEEP_LINK_BROWSER"/>
+                <data android:scheme="@string/deeplink_http_scheme"/>
+                <data android:scheme="@string/deeplink_https_scheme"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <receiver android:name="com.gazetki.gazetki.notifications.MyStartServiceReceiver"/>
+        <receiver android:name="com.gazetki.gazetki.notifications.MyScheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.gazetki.gazetki.notifications.shoppinglist.ExpiringShopListItemsBroadcastReceiver"/>
+        <receiver android:exported="true" android:name="com.gazetki.gazetki2.application.BlixInstallReferrerReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="cloud.proxi.notification.small_icon" android:resource="@drawable/ic_notification_icon"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.clevertap.android.sdk.CTPushNotificationReceiver"/>
+        <service android:name="com.gazetki.gazetki2.services.deeplink.ImageProductAddingService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.gazetki.gazetki.notifications.NewLeafletsCheckJobIntentService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.gazetki.gazetki2.activities.nps.feedback.forms.SendNpsFormService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <service android:name="com.gazetki.gazetki2.services.AdvertisingIdJobIntentService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.gazetki.gazetki2.services.SettingsJobIntentService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.gazetki.gazetki2.services.messaging.UploadFcmIdJobIntentService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.gazetki.gazetki2.services.theme.ThemeUpdateIntentService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.gazetki.gazetki.notifications.shoppinglist.ExpiringShopListItemsService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/app_id"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="bf0a6cdecccfacd6b620b33347e9dbed311de2de"/>
+        <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_ijxlvCA5L5MEAqqXifPjiogbvykHnyeY"/>
+        <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_emypxus0PXHvtyF4piKdRgljvrfLmzDn"/>
+        <meta-data android:name="CLEVERTAP_ACCOUNT_ID" android:value="R95-8KW-ZR5Z"/>
+        <meta-data android:name="CLEVERTAP_TOKEN" android:value="03b-5c2"/>
+        <meta-data android:name="CLEVERTAP_USE_GOOGLE_AD_ID" android:value="1"/>
+        <meta-data android:name="CLEVERTAP_NOTIFICATION_ICON" android:value="ic_notification_icon"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/ic_notification_icon"/>
+        <service android:name="com.gazetki.gazetki2.services.messaging.BlixPushMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.google.android.gms.ads.AD_MANAGER_APP" android:value="true"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MoPubActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.common.MoPubBrowser"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidVideoPlayerActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.RewardedMraidActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.common.privacy.ConsentDialogActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.flurry.android.FlurryFullscreenTakeoverActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.facebook.ads.AudienceNetworkActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize|smallestScreenSize" android:name="com.intentsoftware.addapptr.ad.fullscreens.MraidFullscreenActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/aatkit_cmp_consent" android:launchMode="singleTop" android:name="com.intentsoftware.addapptr.ConsentActivity" android:theme="@android:style/Theme.Holo.Light.DarkActionBar"/>
+        <activity android:exported="false" android:label="" android:name="pub.devrel.easypermissions.AppSettingsDialogHolderActivity" android:theme="@style/EasyPermissions.Transparent"/>
+        <receiver android:exported="true" android:name="com.clevertap.android.sdk.InstallReferrerBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden" android:name="com.clevertap.android.sdk.InAppNotificationActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.clevertap.android.sdk.CTInboxActivity" android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"/>
+        <service android:exported="false" android:name="com.clevertap.android.sdk.CTBackgroundIntentService" android:permission="android.permission.BIND_JOB_SERVICE">
+            <intent-filter>
+                <action android:name="com.clevertap.BG_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.clevertap.android.sdk.CTBackgroundJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:name="com.inmobi.ads.rendering.InMobiAdActivity" android:resizeableActivity="false" android:theme="@android:style/Theme.NoTitleBar"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.gazetki.gazetki.firebaseperfprovider" android:exported="false" android:initOrder="101" android:name="com.google.firebase.perf.provider.FirebasePerfProvider"/>
+        <service android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <service android:name="pl.spicymobile.mobience.sdk.MonitorService" android:process=":mobiencesdk">
+            <intent-filter>
+                <action android:name="mobiencesdk.com.gazetki.gazetki"/>
+            </intent-filter>
+        </service>
+        <service android:name="pl.spicymobile.mobience.sdk.PartnerService" android:process=":mobiencesdk"/>
+        <service android:name="pl.spicymobile.mobience.sdk.datacollectors.accessibilityservice.BrowserAccessibilityService" android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" android:process=":mobiencesdk">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+            <meta-data android:name="android.accessibilityservice" android:resource="@xml/accessibility_service"/>
+        </service>
+        <receiver android:name="pl.spicymobile.mobience.sdk.MobienceSDKReceiver" android:process=":mobiencesdk">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="pl.spicymobile.mobience.sdk.newinstance"/>
+                <action android:name="pl.spicymobile.mobience.sdk.bootcompleted"/>
+                <action android:name="pl.spicymobile.mobience.sdk.servicestop"/>
+                <action android:name="receiver.only.for.mobience"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="pl.spicymobile.mobience.sdk.datacollectors.mock.SessionReceiver" android:process=":mobiencesdk">
+            <intent-filter>
+                <action android:name="pl.spicymobile.mobience.sdk.sessionReceiver"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.gazetki.gazetki" android:enabled="true" android:exported="true" android:name="pl.spicymobile.mobience.sdk.shared.PreferenceProvider" android:process=":mobiencesdk"/>
+        <provider android:authorities="com.gazetki.gazetki.browser" android:name="pl.spicymobile.mobience.sdk.datacollectors.browser.BrowserContentProvider" android:process=":mobiencesdk"/>
+        <receiver android:name="pl.spicymobile.mobience.sdk.installation.InstallationReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="pl.spicymobile.mobience.sdk.installation.RepeatCampaignClientManagerReceiver" android:process=":mobiencesdk"/>
+        <activity android:clearTaskOnLaunch="true" android:name="com.journeyapps.barcodescanner.CaptureActivity" android:screenOrientation="sensorLandscape" android:stateNotNeeded="true" android:theme="@style/zxing_CaptureTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <provider android:authorities="com.gazetki.gazetki.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.gazetki.gazetki.crashlyticsinitprovider" android:exported="false" android:initOrder="90" android:name="com.crashlytics.android.CrashlyticsInitProvider"/>
+        <receiver android:enabled="false" android:exported="false" android:name="cloud.proxi.sdk.receivers.ScannerBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:label="proxiCloud-logger" android:name="cloud.proxi.sdk.receivers.ProxiCloudCodeReceiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SECRET_CODE"/>
+                <data android:host="\ 73676723741" android:scheme="android_secret_code"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SECRET_CODE"/>
+                <data android:host="\ 73676723740" android:scheme="android_secret_code"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="cloud.proxi.sdk.location.GeofenceReceiver">
+            <intent-filter>
+                <action android:name="android.location.PROVIDERS_CHANGED"/>
+                <action android:name="cloud.proxi.sdk.receiver.GEOFENCE"/>
+                <action android:name="cloud.proxi.sdk.receiver.LOCATION_UPDATE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="cloud.proxi.sdk.notification.ActionReceiver">
+            <intent-filter>
+                <action android:name="cloud.proxi.android.PRESENT_ACTION"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:exported="false" android:name="cloud.proxi.AppProcessReceiver"/>
+        <receiver android:name="cloud.proxi.job.v14.ProxiJobV14Receiver"/>
+        <receiver android:exported="false" android:name="cloud.proxi.job.v14.OnBootCompletedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="cloud.proxi.sdk.notification.services.LaunchAppService"/>
+        <service android:name="cloud.proxi.sdk.notification.services.OpenLinkService"/>
+        <service android:name="cloud.proxi.sdk.services.NotifyConversionStatusService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="cloud.proxi.sdk.services.SetAdvertisingIdentifierService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="cloud.proxi.sdk.services.HostApplicationInForegroundService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="cloud.proxi.sdk.services.HostApplicationInBackgroundService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="cloud.proxi.sdk.services.UpdateSettingsService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="cloud.proxi.sdk.services.UploadAnalyticsService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="cloud.proxi.sdk.services.SetAttributesService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="cloud.proxi.sdk.services.PermissionService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="cloud.proxi.sdk.services.SetLoggingService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="cloud.proxi.job.v23.ProxiJobV23Service" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.gazetki.gazetki.mobileadsinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.android.gms.ads.MobileAdsInitProvider"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.gazetki.gazetki.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <provider android:authorities="com.gazetki.gazetki.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <activity android:exported="false" android:name="com.amazon.device.ads.DTBActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="intent" android:scheme="amazonmobile"/>
+            </intent-filter>
+        </activity>
+        <receiver android:exported="true" android:name="com.ironz.binaryprefs.dump.DumpReceiver">
+            <intent-filter>
+                <action android:name="com.ironz.binaryprefs.ACTION_DUMP_PREFERENCE"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

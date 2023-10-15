@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.cloudmagic.mail">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_SYNC_STATS"/>
+    <permission android:name="com.cloudmagic.mail.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.cloudmagic.mail.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="true" android:icon="@drawable/app_icon" android:label="@string/app_name" android:logo="@drawable/ab_icon" android:name="com.cloudmagic.android.CMGlobalData" android:theme="@style/CloudMagic">
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:label="@string/app_name" android:name="com.cloudmagic.android.HomeScreenActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.cloudmagic.android.ColorPaletteActivity"/>
+        <activity android:label="@string/app_name" android:name="com.cloudmagic.android.LoginMessageActivity" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.cloudmagic.android.LoginActivity" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:label="@string/app_name" android:name="com.cloudmagic.android.InboxActivity" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.cloudmagic.android.OnboardingActivity" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="com.cloudmagic.android.CardActivity" android:theme="@style/CardActivityTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.cloudmagic.android.CardDeveloperInfoActivity" android:theme="@style/PopupActivityTheme"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.cloudmagic.android.CardLargeViewActivity" android:theme="@style/PopupActivityTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.cloudmagic.android.CardStoreActivity"/>
+        <activity android:label="@string/app_name" android:name="com.cloudmagic.android.CardStoreDescriptionActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="com.cloudmagic.android.AccountsActivity" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="com.cloudmagic.android.AccountAuthorizationActivity" android:theme="@style/PopupActivityTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.cloudmagic.android.PreviewActivity" android:parentActivityName=".InboxActivity" android:theme="@style/DialogActivityTheme">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".InboxActivity"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.cloudmagic.android.UpgradeScreenActivity"/>
+        <activity android:configChanges="keyboard|orientation|screenLayout|screenSize" android:name="com.cloudmagic.android.ComposeActivity" android:theme="@style/DialogActivityTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SENDTO"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mailto"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="mailto"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.cloudmagic.android.FollowupActivity" android:parentActivityName=".InboxActivity" android:windowSoftInputMode="stateAlwaysHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".InboxActivity"/>
+        </activity>
+        <activity android:name="com.cloudmagic.android.SimpleWebViewActivity"/>
+        <activity android:label="@string/app_name" android:name="com.cloudmagic.android.TestActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.cloudmagic.android.SettingsPreferenceActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.cloudmagic.android.ContactSettingsActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.cloudmagic.android.SentUsingCMSettingsActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.cloudmagic.android.AccountSettingsPreferenceActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.cloudmagic.android.CMAccountSettingsPreferenceActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.cloudmagic.android.ChangeCMUserSettingsActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.cloudmagic.android.PasscodePreferenceActivity"/>
+        <activity android:label="@string/app_name" android:name="com.cloudmagic.android.ContactPreviewActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.cloudmagic.android.PasscodeActivity" android:theme="@style/PopupActivityTheme"/>
+        <activity android:label="@string/app_name" android:name="com.cloudmagic.mail.WhatsNewActivity" android:theme="@style/WhatsNewActivityTheme"/>
+        <activity android:name="com.cloudmagic.android.widget.ShortcutWidgetConfigurationActivity">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.cloudmagic.mail.ShareCloudMagicActivity"/>
+        <receiver android:name="com.cloudmagic.android.observers.WearableActionListenerService">
+            <intent-filter>
+                <action android:name="com.cloudmagic.mail.wearable.reply_all"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.cloudmagic.android.observers.NetworkStateReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.cloudmagic.mail.GCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.cloudmagic.mail"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.cloudmagic.android.observers.GCMNotificationObserver">
+            <intent-filter>
+                <action android:name="com.cloudmagic.mail.observers.GCM_REGISTER"/>
+                <action android:name="com.cloudmagic.mail.observers.GCM_MESSAGE_RECEIVED"/>
+                <action android:name="com.cloudmagic.mail.observers.GCM_MESSAGE_DELETED"/>
+                <action android:name="com.cloudmagic.mail.observers.GCM_NOTIFICATION_DISMISS"/>
+                <action android:name="com.cloudmagic.mail.observers.GCM_NOTIFICATION_OPEN_PREVIEW"/>
+                <action android:name="com.cloudmagic.mail.observers.ACTION_GCM_NOTIFICATION_MARK_READ"/>
+                <action android:name="com.cloudmagic.mail.observers.ACTION_GCM_NOTIFICATION_DELETE"/>
+                <action android:name="com.cloudmagic.mail.observers.ACTION_GCM_NOTIFICATION_ARCHIVE"/>
+                <action android:name="com.cloudmagic.mail.observers.ACTION_GCM_NOTIFICATION_UNDO"/>
+                <action android:name="com.cloudmagic.mail.observers.ACTION_GCM_NOTIFICATION_SYNC_SETTING_ENABLED"/>
+                <category android:name="com.cloudmagic.mail"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.cloudmagic.android.widget.ShortcutWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.cloudmagic.android.UPDATE_CM_WIDGET"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/shortcut_widget_appinfo"/>
+        </receiver>
+        <service android:name="com.cloudmagic.android.services.SyncService"/>
+        <service android:exported="true" android:name="com.cloudmagic.android.account.SyncAdapterService">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter"/>
+            </intent-filter>
+            <meta-data android:name="android.content.SyncAdapter" android:resource="@xml/sync_adapter"/>
+        </service>
+        <service android:name="com.cloudmagic.android.services.ManageAccountService"/>
+        <service android:name="com.cloudmagic.android.services.EmailDataProviderService"/>
+        <service android:name="com.cloudmagic.android.services.PeopleDataProviderService"/>
+        <service android:name="com.cloudmagic.android.services.PeopleDetailsProviderService"/>
+        <service android:name="com.cloudmagic.android.services.ActionService"/>
+        <service android:name="com.cloudmagic.android.services.CMUserSettingsService"/>
+        <service android:name="com.cloudmagic.android.services.CMAccountService"/>
+        <service android:name="com.cloudmagic.mail.GCMIntentService"/>
+        <service android:name="com.cloudmagic.android.services.UpdateWidgetService"/>
+        <service android:name="com.cloudmagic.android.account.CloudMagicAccountAuthenticatorService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@xml/authenticator"/>
+        </service>
+        <service android:name="com.cloudmagic.android.services.CardGalleryService"/>
+        <service android:name="com.google.analytics.tracking.android.CampaignTrackingService"/>
+        <receiver android:exported="true" android:name="com.google.analytics.tracking.android.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.cloudmagic.mail.CrashLogPromptActivity" android:noHistory="true"/>
+        <provider android:authorities="com.cloudmagic.mail.provider" android:exported="false" android:name="com.cloudmagic.android.account.StubContentProvider" android:syncable="true"/>
+    </application>
+</manifest>

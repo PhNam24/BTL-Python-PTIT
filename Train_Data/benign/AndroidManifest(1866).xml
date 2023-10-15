@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="internalOnly" package="com.iflytek.readassistant.listenreader" platformBuildVersionCode="28" platformBuildVersionName="9">
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <permission android:name="com.iflytek.readassistant.listenreader.permission.MIPUSH_RECEIVE" android:protectionLevel="signatureOrSystem"/>
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_ADDED"/>
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_CHANGED"/>
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_INSTALL"/>
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_REPLACED"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="com.iflytek.readassistant.listenreader.permission.MIPUSH_RECEIVE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <meta-data android:name="android.support.VERSION" android:value="25.3.1"/>
+    <application android:allowBackup="true" android:icon="@drawable/ra_ic_app_logo" android:label="@string/readassistant_app" android:largeHeap="true" android:name="com.iflytek.readassistant.ReadAssistantApp" android:resizeableActivity="true" android:supportsRtl="true">
+        <meta-data android:name="android.notch_support" android:value="true"/>
+        <meta-data android:name="android.max_aspect" android:value="2.3"/>
+        <meta-data android:name="com.iflytek.ys.common.glidewrapper.SimpleGlideModule" android:value="GlideModule"/>
+        <meta-data android:name="LogConfiguration" android:value="com.iflytek.readassistant.dependency.statisitics.drip.StatisticsLogConfigImpl"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencent1105833440"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.connect.common.AssistActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:exported="false" android:name="com.iflytek.readassistant.biz.detailpage.ui.BrowserActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:exported="true" android:icon="@drawable/ra_ic_app_logo" android:label="@string/readassistant_app" android:launchMode="singleTop" android:name="com.iflytek.readassistant.biz.home.JumpActivity" android:process=":multidex" android:screenOrientation="portrait" android:theme="@style/Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.splash.ui.SplashActivity" android:screenOrientation="portrait" android:theme="@style/Splash"/>
+        <activity android:exported="true" android:name="com.iflytek.readassistant.biz.actionprotocol.ui.ProtocolHandleActivity" android:screenOrientation="portrait" android:theme="@style/Transparent_activity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/ra_uri_scheme"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|mcc|mnc|orientation|screenSize" android:launchMode="singleInstance" android:name="com.iflytek.readassistant.biz.broadcast.ui.broadcast.BroadcastJumpActivity" android:screenOrientation="portrait" android:theme="@style/FloatDialog"/>
+        <activity android:configChanges="keyboardHidden|mcc|mnc|orientation|screenSize" android:exported="true" android:launchMode="singleTask" android:name="com.iflytek.readassistant.biz.home.main.Home" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme.Home">
+            <intent-filter>
+                <action android:name="com.iflytek.readassistant.listenreader.ENTER_COPYREAD"/>
+                <action android:name="com.iflytek.readassistant.listenreader.ENTER_BROADCAST_ACTIVITY"/>
+                <action android:name="com.iflytek.readassistant.listenreader.ENTER_MORNING_NEWS_ACTION"/>
+                <action android:name="com.iflytek.readassistant.listenreader.ENTER_OFFLINE_SETTING"/>
+                <action android:name="com.iflytek.readassistant.listenreader.URL_SCHEME_ENTER_BROADCAST"/>
+                <action android:name="com.iflytek.readassistant.listenreader.PROTOCOL_INTENT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|mcc|mnc|orientation|screenSize" android:launchMode="singleTask" android:name="com.iflytek.readassistant.biz.broadcast.ui.broadcast.broadcast.ui.activity.BroadcastActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme.SlideUpAnimation"/>
+        <activity android:configChanges="keyboardHidden|mcc|mnc|orientation|screenSize" android:name="com.iflytek.readassistant.dependency.permission.RequestPermissionActivity" android:screenOrientation="portrait" android:theme="@style/FloatDialog"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name="com.iflytek.readassistant.biz.settings.ProductSuggestActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme" android:windowSoftInputMode="stateHidden"/>
+        <activity android:excludeFromRecents="true" android:name="com.iflytek.readassistant.dependency.mutiprocess.MutiProcessActivity" android:screenOrientation="portrait" android:taskAffinity="" android:theme="@style/FloatDialog" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <service android:exported="true" android:name="com.iflytek.readassistant.dependency.notification.NotificationService"/>
+        <service android:name="com.iflytek.readassistant.biz.broadcast.model.document.ReadService"/>
+        <service android:name="com.iflytek.readassistant.biz.listenfavorite.model.sync.SyncService"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.iflytek.readassistant.biz.contentgenerate.ui.edit.ArticleEditActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.iflytek.readassistant.biz.contentgenerate.ui.add.AddArticleActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.novel.ui.AddLocalFileActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.listenfavorite.ui.DocumentItemManagerActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.listenfavorite.ui.DocumentSetManagerActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.channel.ui.activity.ChannelEditActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.novel.ui.FileDocDeleteActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.detailpage.ui.copy.CopyReadSettingActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.settings.HeadsetSettingActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.offline.ui.OfflineVoiceListActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.iflytek.readassistant.biz.detailpage.ui.copy.CopyReadDialogActivity" android:screenOrientation="portrait" android:taskAffinity="" android:theme="@style/RA_CopyReadDialogTheme" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.iflytek.readassistant.biz.detailpage.ui.copy.sourcehint.CopyReadSourceHintActivity" android:screenOrientation="portrait" android:taskAffinity="" android:theme="@style/RA_CopyReadSourceHintTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name="com.iflytek.readassistant.dependency.base.ui.radiosettings.RadioSettingActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.settings.AboutActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.session.ui.PhoneLoginActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.session.ui.PhoneRegisterActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.iflytek.readassistant.biz.session.ui.ChangePhoneBindActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.session.ui.BindPhoneActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.settings.OtherSetActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.search.ui.SearchActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.novel.ui.novelmall.view.NovelMallActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.search.ui.result.SearchListenArticleActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.search.ui.result.novel.SearchLocalNovelActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.explore.ui.detail.SubscribeDetailActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.column.ui.ColumnHistoryActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.explore.ui.manage.SubscribeManageActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.explore.ui.user.UserSubscribeActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.broadcast.ui.history.ReadHistoryActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.push.ui.PushHistoryActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.column.ui.rankarticle.RankArticleActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:configChanges="keyboardHidden|mcc|mnc|orientation|screenSize" android:name="com.iflytek.readassistant.biz.detailpage.ui.thumb.ThumbPreviewActivity" android:screenOrientation="portrait" android:theme="@style/News_ThumbBlackBgTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.column.ui.daylisten.DayListenActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.column.ui.daylisten.detail.DayListenArticleActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.novel.ui.NovelDetailActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.userprofile.ui.share.UserShareArticleActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.userprofile.ui.share.UserShareManageActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.userprofile.ui.share.UserShareArticleDetailActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:exported="false" android:name="com.iflytek.readassistant.biz.settings.help.HelpSettingActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.column.ui.hot.theme.ColumnHotThemeDetailActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.ocr.ui.camera.OCRCameraActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.ocr.ui.camera.OCRPicModifyActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.hotexpress.ui.HotExpressDetailActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.search.ui.SearchWebActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:name="com.iflytek.readassistant.biz.listenfavorite.ui.documentlist.ui.UserGuideActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:exported="false" android:name="com.iflytek.readassistant.biz.userprofile.ui.profile.UserProfileActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:exported="false" android:name="com.iflytek.readassistant.biz.userprofile.ui.profile.NickNameModifyActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.iflytek.readassistant.biz.userprofile.ui.profile.HeadPictureModifyActivity" android:screenOrientation="portrait" android:theme="@style/FastListen_AppTheme"/>
+        <activity android:configChanges="density|fontScale|keyboard|layoutDirection|mcc|mnc|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:excludeFromRecents="true" android:exported="false" android:launchMode="singleInstance" android:name="com.iflytek.readassistant.biz.broadcast.ui.lockscreen.LockScreenActivity" android:screenOrientation="portrait" android:taskAffinity="com.package.name.lockscreen" android:theme="@style/LockScreenTheme"/>
+        <service android:enabled="true" android:name="com.iflytek.readassistant.dependency.mutiprocess.BackgroundService" android:process=":channel"/>
+        <service android:enabled="true" android:name="com.iflytek.readassistant.dependency.mutiprocess.BackgroundInnerService" android:process=":channel"/>
+        <service android:enabled="true" android:name="com.iflytek.readassistant.dependency.mutiprocess.MainProcessService"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation|screenSize" android:exported="true" android:launchMode="singleInstance" android:name="com.iflytek.readassistant.listenreader.wxapi.WXEntryActivity" android:theme="@style/Transparent_activity"/>
+        <receiver android:name="com.iflytek.readassistant.biz.broadcast.model.document.headset.MediaButtonReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:name="com.iflytek.ys.common.download.DownloadService"/>
+        <service android:enabled="true" android:name="com.iflytek.readassistant.dependency.download.DownloadHandlerService">
+            <intent-filter>
+                <action android:name="com.iflytek.ys.common.download.download.handler_service"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.taobao.accs.ChannelService" android:process=":channel">
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.SERVICE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.ELECTION"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.taobao.accs.data.MsgDistributeService">
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.taobao.accs.EventReceiver" android:process=":channel">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.taobao.accs.ServiceReceiver" android:process=":channel">
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.COMMAND"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.START_FROM_AGOO"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.taobao.accs.ChannelService$KernelService" android:process=":channel"/>
+        <service android:exported="true" android:name="org.android.agoo.accs.AgooService">
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.umeng.message.UmengIntentService" android:process=":channel">
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.umeng.message.XiaomiIntentService" android:process=":channel">
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="true" android:name="com.taobao.agoo.AgooCommondReceiver" android:process=":channel">
+            <intent-filter>
+                <action android:name="com.iflytek.readassistant.listenreader.intent.action.COMMAND"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.umeng.message.UmengMessageIntentReceiverService" android:process=":channel">
+            <intent-filter>
+                <action android:name="org.android.agoo.client.MessageReceiverService"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="false" android:name="com.umeng.message.NotificationProxyBroadcastReceiver"/>
+        <service android:exported="false" android:name="com.umeng.message.UmengMessageCallbackHandlerService">
+            <intent-filter>
+                <action android:name="com.umeng.messge.registercallback.action"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.umeng.message.enablecallback.action"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.umeng.message.disablecallback.action"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.umeng.message.message.handler.action"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.umeng.message.message.sendmessage.action"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.umeng.message.UmengDownloadResourceService"/>
+        <provider android:authorities="com.iflytek.readassistant.listenreader.umeng.message" android:exported="false" android:name="com.umeng.message.provider.MessageProvider">
+            <grant-uri-permission android:pathPattern=".*"/>
+        </provider>
+        <service android:enabled="true" android:exported="true" android:name="com.xiaomi.mipush.sdk.PushMessageHandler"/>
+        <service android:enabled="true" android:name="com.xiaomi.mipush.sdk.MessageHandleService"/>
+        <receiver android:exported="true" android:name="org.android.agoo.xiaomi.MiPushBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.ERROR"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="org.android.agoo.huawei.HuaWeiReceiver">
+            <intent-filter>
+                <action android:name="com.huawei.android.push.intent.REGISTRATION"/>
+                <action android:name="com.huawei.android.push.intent.RECEIVE"/>
+                <action android:name="com.huawei.intent.action.PUSH"/>
+                <action android:name="com.huawei.intent.action.PUSH_STATE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="com.sina.weibo.sdk.web.WeiboSdkWebActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTask" android:name="com.sina.weibo.sdk.share.WbShareTransActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:name="com.iflytek.crashcollect.notifier.CrashDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:name="com.iflytek.crashcollect.notifier.CrashListActivity" android:screenOrientation="portrait"/>
+    </application>
+</manifest>

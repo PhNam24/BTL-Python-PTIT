@@ -1,0 +1,923 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" package="com.hometogo" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <queries>
+        <intent>
+            <action android:name="android.support.customtabs.action.CustomTabsService"/>
+        </intent>
+        <package android:name="com.google.android.apps.maps"/>
+    </queries>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:icon="@mipmap/ic_launcher" android:isSplitRequired="true" android:label="@string/cfg_market_brand_name" android:largeHeap="true" android:name="com.hometogo.MainApplication" android:supportsRtl="true" android:theme="@style/Htg.Theme" android:usesCleartextTraffic="true">
+        <receiver android:exported="false" android:name="com.hometogo.service.BrazePushEventsReceiver">
+            <intent-filter>
+                <action android:name="com.hometogo.intent.APPBOY_PUSH_RECEIVED"/>
+                <action android:name="com.hometogo.intent.APPBOY_NOTIFICATION_OPENED"/>
+                <action android:name="com.hometogo.intent.APPBOY_PUSH_DELETED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.authentication.email.SignUpEmailActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.LightToolbar.DialogWhenLarge" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.authentication.failure.SignUpFailureActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.LightToolbar.DialogWhenLarge"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.authentication.signout.SignOutActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.LightToolbar.DialogWhenLarge"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.wishlistmap.WishListMapActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.TranslucentUi"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.wishlist.WishListSaveActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.LightToolbar.DialogWhenLarge" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.wishlist.WishListEditActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.LightToolbar.DialogWhenLarge" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:screenOrientation="behind" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity" android:screenOrientation="behind">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/fb_login_protocol_scheme"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="cct.com.hometogo" android:scheme="fbconnect"/>
+            </intent-filter>
+        </activity>
+        <activity android:autoRemoveFromRecents="true" android:configChanges="layoutDirection|locale|orientation|screenSize" android:exported="true" android:launchMode="singleInstance" android:name="com.hometogo.ui.screens.deeplink.DeepLinkActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.LightToolbar.Transparent" android:windowSoftInputMode="adjustNothing|stateAlwaysHidden">
+            <intent-filter android:autoVerify="true">
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="hometogo"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="https"/>
+                <data android:host="www.hometogo.com"/>
+                <data android:host="www.hometogo.de"/>
+                <data android:host="www.hometogo.ch"/>
+                <data android:host="www.hometogo.fr"/>
+                <data android:host="www.hometogo.it"/>
+                <data android:host="www.hometogo.co.uk"/>
+                <data android:host="www.hometogo.nl"/>
+                <data android:host="www.hometogo.at"/>
+                <data android:host="www.hometogo.pl"/>
+                <data android:host="www.hometogo.es"/>
+                <data android:host="www.hometogo.no"/>
+                <data android:host="www.hometogo.ru"/>
+                <data android:host="www.hometogo.se"/>
+                <data android:host="www.hometogo.dk"/>
+                <data android:host="www.hometogo.com.au"/>
+                <data android:host="www.hometogo.com.mx"/>
+                <data android:host="www.lardeferias.com.br"/>
+                <data android:host="www.home-to-go.ca"/>
+                <data android:host="www.hometogo.be"/>
+                <data android:host="www.hometogo.com.hk"/>
+                <data android:host="www.hometogo.jp"/>
+                <data android:host="home.tg"/>
+                <data android:pathPrefix="/go"/>
+                <data android:pathPrefix="/account/callback/email"/>
+                <data android:pathPrefix="/user/bookings/"/>
+                <data android:pathPrefix="/search"/>
+                <data android:pathPrefix="/rental"/>
+                <data android:path="/"/>
+                <data android:path="/michigan/"/>
+                <data android:path="/romania/"/>
+                <data android:path="/idaho/"/>
+                <data android:path="/door-county/"/>
+                <data android:path="/nags-head/"/>
+                <data android:path="/folly-beach/"/>
+                <data android:path="/panama-city/"/>
+                <data android:path="/ocean-city/"/>
+                <data android:path="/traverse-city/"/>
+                <data android:path="/finger-lakes/"/>
+                <data android:path="/missouri/"/>
+                <data android:path="/new-mexico/"/>
+                <data android:path="/new-york/"/>
+                <data android:path="/asheville/"/>
+                <data android:path="/portland/"/>
+                <data android:path="/oklahoma/"/>
+                <data android:path="/poland/"/>
+                <data android:path="/usa/"/>
+                <data android:path="/dallas/"/>
+                <data android:path="/kiawah-island/"/>
+                <data android:path="/carolina-beach/"/>
+                <data android:path="/united-kingdom/"/>
+                <data android:path="/murcia/"/>
+                <data android:path="/murcia/"/>
+                <data android:path="/st-ives/"/>
+                <data android:path="/puglia/"/>
+                <data android:path="/sitges/"/>
+                <data android:path="/costa-dorada/"/>
+                <data android:path="/lake-como/"/>
+                <data android:path="/bavaria/"/>
+                <data android:path="/jesolo/"/>
+                <data android:path="/mar-menor/"/>
+                <data android:path="/cabopino/"/>
+                <data android:path="/alvor/"/>
+                <data android:path="/aquitaine/"/>
+                <data android:path="/mijas/"/>
+                <data android:path="/frigiliana/"/>
+                <data android:path="/kalkan/"/>
+                <data android:path="/collioure/"/>
+                <data android:path="/altea/"/>
+                <data android:path="/saint-augustine/"/>
+                <data android:path="/noordwijk-aan-zee/"/>
+                <data android:path="/moraira/"/>
+                <data android:path="/gower-peninsula/"/>
+                <data android:path="/puerto-pollensa/"/>
+                <data android:path="/warwickshire/"/>
+                <data android:path="/norwich/"/>
+                <data android:path="/alicante/"/>
+                <data android:path="/andalucia/"/>
+                <data android:path="/salou/"/>
+                <data android:path="/black-forest/"/>
+                <data android:path="/la-rochelle/"/>
+                <data android:path="/letterkenny/"/>
+                <data android:path="/sutton-on-sea/"/>
+                <data android:path="/calpe/"/>
+                <data android:path="/vendee/"/>
+                <data android:path="/kinsale/"/>
+                <data android:path="/amalfi/"/>
+                <data android:path="/hemsby/"/>
+                <data android:path="/kilkee/"/>
+                <data android:path="/caleta-de-fuste/"/>
+                <data android:path="/playa-flamenca/"/>
+                <data android:path="/cantabria/"/>
+                <data android:path="/la-zenia/"/>
+                <data android:path="/indiana/"/>
+                <data android:path="/italy/"/>
+                <data android:path="/ireland/"/>
+                <data android:path="/yellowstone/"/>
+                <data android:path="/santa-monica/"/>
+                <data android:path="/lake-george/"/>
+                <data android:path="/big-bear-lake/"/>
+                <data android:path="/hungary/"/>
+                <data android:path="/russia/"/>
+                <data android:path="/estonia/"/>
+                <data android:path="/malta/"/>
+                <data android:path="/iceland/"/>
+                <data android:path="/lithuania/"/>
+                <data android:path="/jekyll-island/"/>
+                <data android:path="/crystal-beach/"/>
+                <data android:path="/long-island/"/>
+                <data android:path="/nantucket/"/>
+                <data android:path="/fort-walton-beach/"/>
+                <data android:path="/galway/"/>
+                <data android:path="/south-dakota/"/>
+                <data android:path="/pennsylvania/"/>
+                <data android:path="/charleston/"/>
+                <data android:path="/rhode-island/"/>
+                <data android:path="/annecy/"/>
+                <data android:path="/estepona/"/>
+                <data android:path="/bosnia-and-herzegovina/"/>
+                <data android:path="/treasure-island/"/>
+                <data android:path="/toledo/"/>
+                <data android:path="/palma-nova/"/>
+                <data android:path="/wirral/"/>
+                <data android:path="/costa-adeje/"/>
+                <data android:path="/crantock/"/>
+                <data android:path="/charente/"/>
+                <data android:path="/mablethorpe/"/>
+                <data android:path="/tavira/"/>
+                <data android:path="/quarteira/"/>
+                <data android:path="/torremolinos/"/>
+                <data android:path="/loch-awe/"/>
+                <data android:path="/adeje/"/>
+                <data android:path="/macedonia/"/>
+                <data android:path="/porthcawl/"/>
+                <data android:path="/south-hams/"/>
+                <data android:path="/playa-blanca/"/>
+                <data android:path="/andratx/"/>
+                <data android:path="/pitlochry/"/>
+                <data android:path="/carlingford/"/>
+                <data android:path="/birmingham/"/>
+                <data android:path="/torrevieja/"/>
+                <data android:path="/porthmadog/"/>
+                <data android:path="/leeds/"/>
+                <data android:path="/windsor/"/>
+                <data android:path="/harrogate/"/>
+                <data android:path="/fowey/"/>
+                <data android:path="/lymington/"/>
+                <data android:path="/benalmadena/"/>
+                <data android:path="/stratford-upon-avon/"/>
+                <data android:path="/eastbourne/"/>
+                <data android:path="/paignton/"/>
+                <data android:path="/great-yarmouth/"/>
+                <data android:path="/ilfracombe/"/>
+                <data android:path="/isle-of-skye/"/>
+                <data android:path="/costa-rica/"/>
+                <data android:path="/puerto-rico/"/>
+                <data android:path="/moldova/"/>
+                <data android:path="/coronado/"/>
+                <data android:path="/ormond-beach/"/>
+                <data android:path="/perranporth/"/>
+                <data android:path="/polzeath/"/>
+                <data android:path="/barmouth/"/>
+                <data android:path="/nevada/"/>
+                <data android:path="/portugal/"/>
+                <data android:path="/fuerteventura/"/>
+                <data android:path="/germany/"/>
+                <data android:path="/lewes/"/>
+                <data android:path="/saint-pete-beach/"/>
+                <data android:path="/saint-petersburg/"/>
+                <data android:path="/wildwood/"/>
+                <data android:path="/green-valley/"/>
+                <data android:path="/chautauqua/"/>
+                <data android:path="/saint-croix/"/>
+                <data android:path="/southport/"/>
+                <data android:path="/oceanside/"/>
+                <data android:path="/lake-ozark/"/>
+                <data android:path="/laughlin/"/>
+                <data android:path="/st-joseph/"/>
+                <data android:path="/lake-martin/"/>
+                <data android:path="/east-hampton/"/>
+                <data android:path="/sandbridge/"/>
+                <data android:path="/navarre/"/>
+                <data android:path="/torch-lake/"/>
+                <data android:path="/carpinteria/"/>
+                <data android:path="/manhattan/"/>
+                <data android:path="/salento/"/>
+                <data android:path="/gatlinburg/"/>
+                <data android:path="/netherlands/"/>
+                <data android:path="/latvia/"/>
+                <data android:path="/slovenia/"/>
+                <data android:path="/norway/"/>
+                <data android:path="/margate/"/>
+                <data android:path="/sorrento/"/>
+                <data android:path="/kefalonia/"/>
+                <data android:path="/bordeaux/"/>
+                <data android:path="/westport/"/>
+                <data android:path="/puerto-del-carmen/"/>
+                <data android:path="/wexford/"/>
+                <data android:path="/atlantic-city/"/>
+                <data android:path="/hilton-head-island/"/>
+                <data android:path="/kansas/"/>
+                <data android:path="/delaware/"/>
+                <data android:path="/spain/"/>
+                <data android:path="/minnesota/"/>
+                <data android:path="/nebraska/"/>
+                <data android:path="/mississippi/"/>
+                <data android:path="/new-jersey/"/>
+                <data android:path="/cape-may/"/>
+                <data android:path="/saint-simons-island/"/>
+                <data android:path="/bradenton/"/>
+                <data android:path="/montenegro/"/>
+                <data android:path="/emerald-isle/"/>
+                <data android:path="/carmel/"/>
+                <data android:path="/santa-clara-ca/"/>
+                <data android:path="/key-colony-beach-fl/"/>
+                <data android:path="/rhinelander-wi/"/>
+                <data android:path="/laguna-beach-ca/"/>
+                <data android:path="/jackson-wy/"/>
+                <data android:path="/west-glacier-mt/"/>
+                <data android:path="/long-beach-ca/"/>
+                <data android:path="/big-pine-key-fl/"/>
+                <data android:path="/ukraine/"/>
+                <data android:path="/slovakia/"/>
+                <data android:path="/albania/"/>
+                <data android:path="/boltenhagen/"/>
+                <data android:path="/bahamas/"/>
+                <data android:path="/gulfport-ms/"/>
+                <data android:path="/lansing-mi/"/>
+                <data android:path="/flagler-beach-fl/"/>
+                <data android:path="/steamboat-springs-co/"/>
+                <data android:path="/tahoe-city-ca/"/>
+                <data android:path="/williamsburg-va/"/>
+                <data android:path="/canada/"/>
+                <data android:path="/helen-ga/"/>
+                <data android:path="/baltimore-md/"/>
+                <data android:path="/astoria-ny/"/>
+                <data android:path="/rancho-mirage-ca/"/>
+                <data android:path="/snowshoe-wv/"/>
+                <data android:path="/manchester-by-the-sea-ma/"/>
+                <data android:path="/fort-pierce-fl/"/>
+                <data android:path="/kamas-ut/"/>
+                <data android:path="/lead-sd/"/>
+                <data android:path="/kaunakakai-hi/"/>
+                <data android:path="/kapalua-hi/"/>
+                <data android:path="/blowing-rock-nc/"/>
+                <data android:path="/wailea-makena-hi/"/>
+                <data android:path="/truckee-ca/"/>
+                <data android:path="/alexandria-va/"/>
+                <data android:path="/ely-mn/"/>
+                <data android:path="/north-shore-hi/"/>
+                <data android:path="/sonoma-ca/"/>
+                <data android:path="/grand-marais-mn/"/>
+                <data android:path="/moab-ut/"/>
+                <data android:path="/angel-fire-nm/"/>
+                <data android:path="/saugerties-ny/"/>
+                <data android:path="/sainte-augustine-beach-fl/"/>
+                <data android:path="/custer-sd/"/>
+                <data android:path="/edina-mn/"/>
+                <data android:path="/weissensee/"/>
+                <data android:path="/stavanger/"/>
+                <data android:path="/hilo-hi/"/>
+                <data android:path="/sequoia-national-park-ca/"/>
+                <data android:path="/oklahoma-city-ok/"/>
+                <data android:path="/florida/"/>
+                <data android:path="/filey/"/>
+                <data android:path="/benidorm/"/>
+                <data android:path="/santa-barbara/"/>
+                <data android:path="/oak-island/"/>
+                <data android:path="/seacrest/"/>
+                <data android:path="/pigeon-forge/"/>
+                <data android:path="/cabo-roig/"/>
+                <data android:path="/arosa/"/>
+                <data android:path="/rimini-city/"/>
+                <data android:path="/mikolajki/"/>
+                <data android:path="/soller/"/>
+                <data android:path="/copper-mountain-co/"/>
+                <data android:path="/grand-lake-co/"/>
+                <data android:path="/egg-harbor-wi/"/>
+                <data android:path="/west-yellowstone-mt/"/>
+                <data android:path="/fish-creek-wi/"/>
+                <data android:path="/yosemite-national-park-ca/"/>
+                <data android:path="/finland/"/>
+                <data android:path="/aspen-co/"/>
+                <data android:path="/chattanooga/"/>
+                <data android:path="/vermont/"/>
+                <data android:path="/wyoming/"/>
+                <data android:path="/west-virginia/"/>
+                <data android:path="/alaska/"/>
+                <data android:path="/guadeloupe/"/>
+                <data android:path="/croatia/"/>
+                <data android:path="/wrightsville-beach/"/>
+                <data android:path="/clearwater/"/>
+                <data android:path="/branson/"/>
+                <data android:path="/lake-lure/"/>
+                <data android:path="/palm-springs/"/>
+                <data android:path="/los-angeles/"/>
+                <data android:path="/long-beach-wa/"/>
+                <data android:path="/estero-fl/"/>
+                <data android:path="/sevier-county-tn/"/>
+                <data android:path="/colorado/"/>
+                <data android:path="/maggie-valley-nc/"/>
+                <data android:path="/frisco-co/"/>
+                <data android:path="/luxembourg/"/>
+                <data android:path="/greece/"/>
+                <data android:path="/austria/"/>
+                <data android:path="/denmark/"/>
+                <data android:path="/galena/"/>
+                <data android:path="/wilmington/"/>
+                <data android:path="/punta-gorda/"/>
+                <data android:path="/dunedin/"/>
+                <data android:path="/englewood/"/>
+                <data android:path="/table-rock/"/>
+                <data android:path="/prague/"/>
+                <data android:path="/saint-george-ut/"/>
+                <data android:path="/morristown-vt/"/>
+                <data android:path="/warnemuende/"/>
+                <data android:path="/ruegen/"/>
+                <data android:path="/berlin/"/>
+                <data android:path="/bali/"/>
+                <data android:path="/serbia/"/>
+                <data android:path="/dominican-republic/"/>
+                <data android:path="/corolla/"/>
+                <data android:path="/philadelphia-pa/"/>
+                <data android:path="/silverthorne-co/"/>
+                <data android:path="/minocqua-wi/"/>
+                <data android:path="/little-river-sc/"/>
+                <data android:path="/cala-d-or/"/>
+                <data android:path="/sardinia/"/>
+                <data android:path="/dordogne-perigord/"/>
+                <data android:path="/costa-brava/"/>
+                <data android:path="/killarney/"/>
+                <data android:path="/hastings/"/>
+                <data android:path="/lake-garda/"/>
+                <data android:path="/galicia/"/>
+                <data android:path="/west-cork/"/>
+                <data android:path="/villamartin/"/>
+                <data android:path="/sicily/"/>
+                <data android:path="/copenhagen/"/>
+                <data android:path="/normandy/"/>
+                <data android:path="/southampton/"/>
+                <data android:path="/catalonia/"/>
+                <data android:path="/holland/"/>
+                <data android:path="/carvoeiro/"/>
+                <data android:path="/madeira/"/>
+                <data android:path="/corsica/"/>
+                <data android:path="/canary-islands/"/>
+                <data android:path="/fuengirola/"/>
+                <data android:path="/ile-de-re/"/>
+                <data android:path="/guernsey/"/>
+                <data android:path="/broadstairs/"/>
+                <data android:path="/durham/"/>
+                <data android:path="/orange-county-ca/"/>
+                <data android:path="/shore-region/"/>
+                <data android:path="/broward-county-fl/"/>
+                <data android:path="/brevard-county-fl/"/>
+                <data android:path="/rappahannock-county-va/"/>
+                <data android:path="/cyprus/"/>
+                <data android:path="/ballycastle/"/>
+                <data android:path="/costa-del-sol/"/>
+                <data android:path="/carbis-bay/"/>
+                <data android:path="/corralejo/"/>
+                <data android:path="/bundoran/"/>
+                <data android:path="/largs/"/>
+                <data android:path="/laporte-county-in/"/>
+                <data android:path="/mackinac-island-mi/"/>
+                <data android:path="/lahaina-hi/"/>
+                <data android:path="/brooklyn/"/>
+                <data android:path="/cambridge-ma/"/>
+                <data android:path="/kapaa-hi/"/>
+                <data android:path="/wildwood-fl/"/>
+                <data android:path="/gettysburg-pa/"/>
+                <data android:path="/cody-wy/"/>
+                <data android:path="/crosslake-mn/"/>
+                <data android:path="/saint-paul-mn/"/>
+                <data android:path="/vail-co/"/>
+                <data android:path="/blue-ridge-ga/"/>
+                <data android:path="/portsmouth/"/>
+                <data android:path="/rhosneigr/"/>
+                <data android:path="/javea/"/>
+                <data android:path="/cambrils/"/>
+                <data android:path="/lake-ariel-pa/"/>
+                <data android:path="/fargo-nd/"/>
+                <data android:path="/duluth-mn/"/>
+                <data android:path="/grand-haven/"/>
+                <data android:path="/tuscany/"/>
+                <data android:path="/bronx/"/>
+                <data android:path="/saint-john/"/>
+                <data android:path="/grand-county-co/"/>
+                <data android:path="/bonita-springs-fl/"/>
+                <data android:path="/saint-louis-mo/"/>
+                <data android:path="/lido-key/"/>
+                <data android:path="/charlotte/"/>
+                <data android:path="/newport/"/>
+                <data android:path="/new-buffalo/"/>
+                <data android:path="/lake-burton/"/>
+                <data android:path="/grayton-beach/"/>
+                <data android:path="/switzerland/"/>
+                <data android:path="/napa-ca/"/>
+                <data android:path="/terracina/"/>
+                <data android:path="/czech-republik/"/>
+                <data android:path="/sweden/"/>
+                <data android:path="/turkey/"/>
+                <data android:path="/louisiana/"/>
+                <data android:path="/kentucky/"/>
+                <data android:path="/massachusetts/"/>
+                <data android:path="/maryland/"/>
+                <data android:path="/bristol-ri/"/>
+                <data android:path="/tucson/"/>
+                <data android:path="/vancouver/"/>
+                <data android:path="/mesa/"/>
+                <data android:path="/marathon/"/>
+                <data android:path="/acadia-national-park-me/"/>
+                <data android:path="/montreal/"/>
+                <data android:path="/blue-ridge-mountains-nc/"/>
+                <data android:path="/la-jolla-ca/"/>
+                <data android:path="/waikiki-hi/"/>
+                <data android:path="/santa-fe-nm/"/>
+                <data android:path="/park-city-ut/"/>
+                <data android:path="/gualala-ca/"/>
+                <data android:path="/toronto-county/"/>
+                <data android:path="/kansas-city-mo/"/>
+                <data android:path="/oahu-island-hi/"/>
+                <data android:path="/manchester-vt/"/>
+                <data android:path="/tulsa-ok/"/>
+                <data android:path="/tiki-island-tx/"/>
+                <data android:path="/monaco/"/>
+                <data android:path="/davenport/"/>
+                <data android:path="/boulder/"/>
+                <data android:path="/murrells-inlet/"/>
+                <data android:path="/belize/"/>
+                <data android:path="/south-padre-island/"/>
+                <data android:path="/utah/"/>
+                <data android:path="/virginia/"/>
+                <data android:path="/camber/"/>
+                <data android:path="/dauphin-island/"/>
+                <data android:path="/ruidoso/"/>
+                <data android:path="/topsail-island/"/>
+                <data android:path="/longboat-key/"/>
+                <data android:path="/dewey-beach/"/>
+                <data android:path="/whidbey-island/"/>
+                <data android:path="/indian-rocks-beach/"/>
+                <data android:path="/perdido-key/"/>
+                <data android:path="/rosemary-beach/"/>
+                <data android:path="/savannah/"/>
+                <data android:path="/pensacola/"/>
+                <data android:path="/long-beach-island/"/>
+                <data android:path="/connecticut/"/>
+                <data android:path="/arkansas/"/>
+                <data android:path="/georgia/"/>
+                <data android:path="/anaheim/"/>
+                <data android:path="/illinois/"/>
+                <data android:path="/iowa/"/>
+                <data android:path="/alabama/"/>
+                <data android:path="/marbella/"/>
+                <data android:path="/malaga/"/>
+                <data android:path="/la-marina/"/>
+                <data android:path="/bulgaria/"/>
+                <data android:path="/belgium/"/>
+                <data android:path="/lake-norman/"/>
+                <data android:path="/north-dakota/"/>
+                <data android:path="/pawleys-island/"/>
+                <data android:path="/lake-placid/"/>
+                <data android:path="/monterey/"/>
+                <data android:path="/rosarito/"/>
+                <data android:path="/bar-harbor/"/>
+                <data android:path="/chesapeake-bay/"/>
+                <data android:path="/lake-gaston/"/>
+                <data android:path="/sevierville/"/>
+                <data android:path="/kailua/"/>
+                <data android:path="/durango/"/>
+                <data android:path="/kure-beach/"/>
+                <data android:path="/okaloosa-island/"/>
+                <data android:path="/rocky-point/"/>
+                <data android:path="/puerto-penasco/"/>
+                <data android:path="/montauk/"/>
+                <data android:path="/fort-morgan/"/>
+                <data android:path="/hot-springs/"/>
+                <data android:path="/ventura/"/>
+                <data android:path="/cayucos/"/>
+                <data android:path="/lake-anna/"/>
+                <data android:path="/surfside-beach/"/>
+                <data android:path="/lake-geneva/"/>
+                <data android:path="/atlantic-beach/"/>
+                <data android:path="/sandusky/"/>
+                <data android:path="/crystal-river/"/>
+                <data android:path="/hampton-beach/"/>
+                <data android:path="/thousand-islands/"/>
+                <data android:path="/south-haven/"/>
+                <data android:path="/ocean-isle-beach/"/>
+                <data android:path="/seagrove-beach/"/>
+                <data android:path="/santa-rosa-beach/"/>
+                <data android:path="/biloxi/"/>
+                <data android:path="/fripp-island/"/>
+                <data android:path="/vero-beach/"/>
+                <data android:path="/saugatuck/"/>
+                <data android:path="/rockport/"/>
+                <data android:path="/lake-havasu-city/"/>
+                <data android:path="/del-mar/"/>
+                <data android:path="/saint-george-island/"/>
+                <data android:path="/naples/"/>
+                <data android:path="/seaside/"/>
+                <data android:path="/edisto-beach/"/>
+                <data android:path="/madeira-beach/"/>
+                <data android:path="/fenwick-island/"/>
+                <data android:path="/liguria/"/>
+                <data android:path="/santa-pola/"/>
+                <data android:path="/fife/"/>
+                <data android:path="/marseille/"/>
+                <data android:path="/palma/"/>
+                <data android:path="/domburg/"/>
+                <data android:path="/hunstanton/"/>
+                <data android:path="/oban/"/>
+                <data android:path="/santa-ponsa/"/>
+                <data android:path="/los-cristianos/"/>
+                <data android:path="/cotswolds/"/>
+                <data android:path="/lyme-regis/"/>
+                <data android:path="/southwold/"/>
+                <data android:path="/pensacola-beach/"/>
+                <data android:path="/mission-beach/"/>
+                <data android:path="/aruba/"/>
+                <data android:path="/south-of-france/"/>
+                <data android:path="/tybee-island/"/>
+                <data android:path="/algarve/"/>
+                <data android:path="/morro-bay/"/>
+                <data android:path="/newport-beach/"/>
+                <data android:path="/hunter/"/>
+                <data android:path="/austin/"/>
+                <data android:path="/san-juan-islands/"/>
+                <data android:path="/outer-banks/"/>
+                <data android:path="/malibu/"/>
+                <data android:path="/islamorada/"/>
+                <data android:path="/cape-san-blas/"/>
+                <data android:path="/playa-del-carmen/"/>
+                <data android:path="/myrtle-beach/"/>
+                <data android:path="/new-smyrna-beach/"/>
+                <data android:path="/bournemouth/"/>
+                <data android:path="/tenby/"/>
+                <data android:path="/dartmouth/"/>
+                <data android:path="/liverpool/"/>
+                <data android:path="/plymouth/"/>
+                <data android:path="/bodega-bay/"/>
+                <data android:path="/yorkshire-dales/"/>
+                <data android:path="/abersoch/"/>
+                <data android:path="/isle-of-man/"/>
+                <data android:path="/bethany-beach/"/>
+                <data android:path="/brixham/"/>
+                <data android:path="/croyde/"/>
+                <data android:path="/fort-william/"/>
+                <data android:path="/padstow/"/>
+                <data android:path="/huntington-beach/"/>
+                <data android:path="/isle-of-palms/"/>
+                <data android:path="/corpus-christi/"/>
+                <data android:path="/clearwater-beach/"/>
+                <data android:path="/gulf-shores/"/>
+                <data android:path="/panama-city-beach-fl/"/>
+                <data android:path="/inverness/"/>
+                <data android:path="/pismo-beach/"/>
+                <data android:path="/saundersfoot/"/>
+                <data android:path="/sanibel-island/"/>
+                <data android:path="/falmouth/"/>
+                <data android:path="/newquay/"/>
+                <data android:path="/shropshire/"/>
+                <data android:path="/derbyshire/"/>
+                <data android:path="/scarborough/"/>
+                <data android:path="/poole/"/>
+                <data android:path="/houston/"/>
+                <data android:path="/salt-lake-city/"/>
+                <data android:path="/torquay/"/>
+                <data android:path="/llandudno/"/>
+                <data android:path="/england/"/>
+                <data android:path="/isle-of-wight/"/>
+                <data android:path="/essex/"/>
+                <data android:path="/keswick/"/>
+                <data android:path="/virginia-beach/"/>
+                <data android:path="/kent/"/>
+                <data android:path="/nerja/"/>
+                <data android:path="/northumberland/"/>
+                <data android:path="/weymouth/"/>
+                <data android:path="/honolulu/"/>
+                <data android:path="/swanage/"/>
+                <data android:path="/salcombe/"/>
+                <data android:path="/marco-island/"/>
+                <data android:path="/laguna-beach/"/>
+                <data android:path="/sarasota/"/>
+                <data android:path="/fort-myers/"/>
+                <data android:path="/devon/"/>
+                <data android:path="/san-antonio/"/>
+                <data android:path="/martha-s-vineyard/"/>
+                <data android:path="/miami-beach/"/>
+                <data android:path="/san-luis-obispo/"/>
+                <data android:path="/norfolk/"/>
+                <data android:path="/miami/"/>
+                <data android:path="/cambridge/"/>
+                <data android:path="/nashville/"/>
+                <data android:path="/brittany/"/>
+                <data android:path="/santa-cruz/"/>
+                <data android:path="/key-largo/"/>
+                <data android:path="/daytona-beach/"/>
+                <data android:path="/cumbria/"/>
+                <data android:path="/west-wales/"/>
+                <data android:path="/jersey/"/>
+                <data android:path="/menorca/"/>
+                <data android:path="/somerset/"/>
+                <data android:path="/key-west/"/>
+                <data android:path="/lincolnshire/"/>
+                <data android:path="/hampshire/"/>
+                <data android:path="/bude/"/>
+                <data android:path="/bristol/"/>
+                <data android:path="/fort-lauderdale/"/>
+                <data android:path="/looe/"/>
+                <data android:path="/snowdonia/"/>
+                <data android:path="/boston/"/>
+                <data android:path="/wisconsin-dells/"/>
+                <data android:path="/paris/"/>
+                <data android:path="/puerto-vallarta/"/>
+                <data android:path="/denver/"/>
+                <data android:path="/west-palm-beach/"/>
+                <data android:path="/maui/"/>
+                <data android:path="/cape-cod/"/>
+                <data android:path="/northern-ireland/"/>
+                <data android:path="/las-vegas/"/>
+                <data android:path="/chicago/"/>
+                <data android:path="/st-ives/"/>
+                <data android:path="/wiltshire/"/>
+                <data android:path="/dorset/"/>
+                <data android:path="/north-wales/"/>
+                <data android:path="/dublin/"/>
+                <data android:path="/lake-tahoe/"/>
+                <data android:path="/cabo-san-lucas/"/>
+                <data android:path="/new-forest/"/>
+                <data android:path="/cornwall/"/>
+                <data android:path="/gran-canaria/"/>
+                <data android:path="/oxford/"/>
+                <data android:path="/new-orleans/"/>
+                <data android:path="/rome/"/>
+                <data android:path="/dubai/"/>
+                <data android:path="/cannon-beach/"/>
+                <data android:path="/scotland/"/>
+                <data android:path="/skegness/"/>
+                <data android:path="/newcastle-upon-tyne/"/>
+                <data android:path="/chester/"/>
+                <data android:path="/sussex/"/>
+                <data android:path="/majorca/"/>
+                <data android:path="/sydney-city/"/>
+                <data android:path="/manchester/"/>
+                <data android:path="/north-yorkshire/"/>
+                <data android:path="/york/"/>
+                <data android:path="/glasgow/"/>
+                <data android:path="/south-wales/"/>
+                <data android:path="/loch-lomond-and-trossachs/"/>
+                <data android:path="/kissimmee/"/>
+                <data android:path="/orlando/"/>
+                <data android:path="/belfast/"/>
+                <data android:path="/atlanta/"/>
+                <data android:path="/south-lake-tahoe/"/>
+                <data android:path="/seattle/"/>
+                <data android:path="/bath/"/>
+                <data android:path="/blackpool/"/>
+                <data android:path="/portrush/"/>
+                <data android:path="/amsterdam/"/>
+                <data android:path="/ibiza/"/>
+                <data android:path="/wales/"/>
+                <data android:path="/cardiff/"/>
+                <data android:path="/tenerife/"/>
+                <data android:path="/london/"/>
+                <data android:path="/edinburgh/"/>
+                <data android:path="/barcelona/"/>
+                <data android:path="/woolacombe/"/>
+                <data android:path="/aviemore/"/>
+                <data android:path="/donegal/"/>
+                <data android:path="/lake-district/"/>
+                <data android:path="/west-sussex/"/>
+                <data android:path="/pembrokeshire/"/>
+                <data android:path="/oxfordshire/"/>
+                <data android:path="/suffolk/"/>
+                <data android:path="/saint-thomas/"/>
+                <data android:path="/washington-d-c/"/>
+                <data android:path="/san-francisco/"/>
+                <data android:path="/new-york-city/"/>
+                <data android:path="/florida-keys/"/>
+                <data android:path="/nice/"/>
+                <data android:path="/san-diego/"/>
+                <data android:path="/portstewart/"/>
+                <data android:path="/north-carolina/"/>
+                <data android:path="/france/"/>
+                <data android:path="/lake-tahoe-nv/"/>
+                <data android:path="/antibes/"/>
+                <data android:path="/county-clare/"/>
+                <data android:path="/vilamoura/"/>
+                <data android:path="/district-of-columbia/"/>
+                <data android:path="/lake-chelan/"/>
+                <data android:path="/bermuda/"/>
+                <data android:path="/kailua-kona-hi/"/>
+                <data android:path="/cancun/"/>
+                <data android:path="/minneapolis-mn/"/>
+                <data android:path="/destin/"/>
+                <data android:path="/siesta-key/"/>
+                <data android:path="/phoenix/"/>
+                <data android:path="/rehoboth-beach/"/>
+                <data android:path="/polperro/"/>
+                <data android:path="/cape-coral/"/>
+                <data android:path="/amelia-island/"/>
+                <data android:path="/anna-maria-island/"/>
+                <data android:path="/bridlington/"/>
+                <data android:path="/sedona/"/>
+                <data android:path="/orange-beach/"/>
+                <data android:path="/port-aransas/"/>
+                <data android:path="/cocoa-beach/"/>
+                <data android:path="/whitby/"/>
+                <data android:path="/whitstable/"/>
+                <data android:path="/tampa/"/>
+                <data android:path="/north-myrtle-beach/"/>
+                <data android:path="/galveston/"/>
+                <data android:path="/wells-next-the-sea/"/>
+                <data android:path="/scottsdale/"/>
+                <data android:path="/new-braunfels/"/>
+                <data android:path="/lincoln-city/"/>
+                <data android:path="/estes-park/"/>
+                <data android:path="/flagstaff/"/>
+                <data android:path="/colorado-springs/"/>
+                <data android:path="/fort-myers-beach/"/>
+                <data android:path="/cromer/"/>
+                <data android:path="/palm-desert/"/>
+                <data android:path="/breckenridge/"/>
+                <data android:path="/southampton-ny/"/>
+                <data android:path="/kihei-hi/"/>
+                <data android:path="/cedar-key-fl/"/>
+                <data android:path="/south-beach-or/"/>
+                <data android:path="/moultonborough-nh/"/>
+                <data android:path="/louisville-ky/"/>
+                <data android:path="/long-island-city-ny/"/>
+                <data android:path="/antrim-county-mi/"/>
+                <data android:path="/pocono-lake/"/>
+                <data android:path="/sunriver/"/>
+                <data android:path="/lanzarote/"/>
+                <data android:path="/brighton/"/>
+                <data android:path="/whistler/"/>
+                <data android:path="/fort-bragg/"/>
+                <data android:path="/coeur-d-alene-id/"/>
+                <data android:path="/costa-blanca/"/>
+                <data android:path="/ohio/"/>
+                <data android:path="/montana/"/>
+                <data android:path="/washington/"/>
+                <data android:path="/oregon/"/>
+                <data android:path="/texas/"/>
+                <data android:path="/wisconsin/"/>
+                <data android:path="/hawaii/"/>
+                <data android:path="/california/"/>
+                <data android:path="/south-carolina/"/>
+                <data android:path="/new-hampshire/"/>
+                <data android:path="/maine/"/>
+                <data android:path="/tennessee/"/>
+                <data android:path="/arizona/"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/fb_app_id"/>
+        <activity android:configChanges="layoutDirection|locale|orientation|screenSize" android:exported="true" android:launchMode="singleTop" android:name="com.hometogo.ui.screens.splash.SplashScreenActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.SplashScreen" android:windowSoftInputMode="adjustNothing|stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="layoutDirection|locale" android:launchMode="singleTask" android:name="com.hometogo.ui.screens.main.MainActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.MainActivity"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.locations.LocationsActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.LightToolbar.DialogWhenLarge.PersistentKeyboard"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.filters.FiltersActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.LightToolbar.DialogWhenLarge"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.calendar.CalendarActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.LightToolbar.DialogWhenLarge"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.calendar.AvailabilityCalendarActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.LightToolbar.DialogWhenLarge"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.gallery.GalleryOverviewActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.Gallery"/>
+        <activity android:configChanges="layoutDirection|locale|orientation|screenSize" android:name="com.hometogo.ui.screens.gallery.GalleryActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.Gallery"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.browser.inapp.InAppBrowserActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.InAppBrowser" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.browser.jm.JmBrowserActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.LightBackground" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.browser.htg.HtgBrowserActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.LightBackground" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.htmlcontent.HtmlContentActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.InAppBrowser" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.map.MapActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.TranslucentUi"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.detailsmap.DetailsMapActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.LightToolbar"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.reviews.ReviewsActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.LightToolbar.TranslucentNavigation.DialogWhenLarge"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.details.DescriptionActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.LightToolbar.TranslucentNavigation.DialogWhenLarge"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.details.InfoGroupActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.LightToolbar.TranslucentNavigation.DialogWhenLarge"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.details.DetailsActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.MainActivity" android:windowSoftInputMode="adjustNothing|stateAlwaysHidden"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.inquiry.OnsiteInquiryActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.LightToolbar.DialogWhenLarge" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="layoutDirection|locale|orientation|screenSize" android:name="com.hometogo.ui.screens.interstitial.InterstitialActivity" android:noHistory="true" android:screenOrientation="behind" android:theme="@style/Htg.Theme.LightToolbar.Transparent" android:windowSoftInputMode="adjustNothing|stateAlwaysHidden"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.guests.GuestsActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.LightToolbar.DialogWhenLarge"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.confirmation.OrderConfirmationActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.LightToolbar.DialogWhenLarge"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.orders.EmptyOrdersInfoActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.LightToolbar.DialogWhenLarge"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.order.OrderActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.LightToolbar.DialogWhenLarge"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.splash.UnsupportedVersionActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.LightToolbar.DialogWhenLarge"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.costs.CostsActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.LightToolbar.TranslucentNavigation.DialogWhenLarge"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.feedback.BookingFeedbackActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.LightBackground" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.customersupport.CustomerSupportActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.LightToolbar.TranslucentNavigation.DialogWhenLarge"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.policies.PolicyActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.LightToolbar.TranslucentNavigation.DialogWhenLarge"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.hometogo.ui.screens.cancellation.CancellationActivity" android:screenOrientation="behind" android:theme="@style/Htg.Theme.LightToolbar.TranslucentNavigation.DialogWhenLarge"/>
+        <service android:exported="false" android:name="com.hometogo.service.HtgFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.hometogo.startprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.hometogo.provider.AppStartProvider"/>
+        <provider android:authorities="com.hometogo.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/shared_files"/>
+        </provider>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="@string/google_maps_api_key"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="asset_statements" android:resource="@string/asset_statements"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/ic_push_notification"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/accent"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:exported="false" android:name="com.appboy.ui.AppboyWebViewActivity"/>
+        <activity android:exported="false" android:name="com.appboy.ui.activities.AppboyFeedActivity"/>
+        <activity android:exported="false" android:name="com.appboy.ui.activities.AppboyContentCardsActivity"/>
+        <activity android:exported="false" android:launchMode="singleInstance" android:name="com.appboy.push.NotificationTrampolineActivity" android:theme="@style/Braze.PushTrampoline.Transparent"/>
+        <receiver android:exported="false" android:name="com.appboy.BrazePushReceiver"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <provider android:authorities="com.hometogo.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule" android:value="GlideModule"/>
+        <provider android:authorities="com.hometogo.firebaseperfprovider" android:exported="false" android:initOrder="101" android:name="com.google.firebase.perf.provider.FirebasePerfProvider"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:visibleToInstantApps="true"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.hometogo.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
+            <meta-data android:name="net.danlew.android.joda.JodaTimeInitializer" android:value="androidx.startup"/>
+        </provider>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <provider android:authorities="com.hometogo.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <provider android:authorities="com.hometogo.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <receiver android:exported="false" android:name="com.appboy.receivers.AppboyActionReceiver"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="3"/>
+    </application>
+</manifest>

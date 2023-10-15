@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.READ_SYNC_STATS"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.permission.C2D_MESSAGE"/>
+    <application android:allowBackup="true" android:fullBackupContent="@xml/vungle_backup_rule" android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/app_name" android:name="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.TPApplication" android:networkSecurityConfig="@xml/network_security_config" android:supportsRtl="false" android:theme="@style/TouchPalTheme.App">
+        <meta-data android:name="hades_priority" android:value="11000"/>
+        <meta-data android:name="lock_screen_priority" android:value="11000"/>
+        <meta-data android:name="ots_priority" android:value="11000"/>
+        <meta-data android:name="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.feeds.net.utils.MyGlideMode" android:value="GlideModule"/>
+        <service android:label="@string/app_name" android:name="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.wallpaper.TouchPalWallPaperService" android:permission="android.permission.BIND_WALLPAPER">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService"/>
+            </intent-filter>
+            <meta-data android:name="android.service.wallpaper" android:resource="@xml/touchpal_wallpaper"/>
+        </service>
+        <service android:name="com.cootek.eden.EdenActivateService"/>
+        <receiver android:exported="true" android:name="com.appsflyer.MultipleInstallBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.PluginAgent">
+            <intent-filter>
+                <action android:name="com.cootek.smartinput.intent.action.PLUGIN"/>
+                <category android:name="com.cootek.smartinput.intent.category.SKIN"/>
+            </intent-filter>
+        </activity>
+        <receiver android:exported="true" android:name="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.NotificationClickReciever">
+            <intent-filter>
+                <action android:name="android.skin.notification.CLICK_ACTION"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.func.ReferrerReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.cootek.usage.UsageAlarmReceiver">
+            <intent-filter>
+                <action android:name="com.cootek.usage.alarm_operation"/>
+            </intent-filter>
+        </receiver>
+        <activity android:clearTaskOnLaunch="true" android:excludeFromRecents="true" android:name="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.LauncherActivity" android:screenOrientation="portrait" android:taskAffinity="com.cootek.smartinputv5.skin.LAUNCHER"/>
+        <activity-alias android:icon="@drawable/icon" android:label="@string/app_name" android:name="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.LauncherAlias" android:targetActivity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.LauncherActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+        <activity android:launchMode="singleInstance" android:name="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.ApplyActivity" android:screenOrientation="portrait" android:taskAffinity="com.cootek.smartinputv5.skin.APPLY" android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.InnerAction.APPLY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleInstance" android:name="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.DownloadActivity" android:screenOrientation="portrait" android:taskAffinity="com.cootek.smartinputv5.skin.APPLY"/>
+        <activity android:finishOnTaskLaunch="true" android:name="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.RecommendedActivity" android:screenOrientation="portrait" android:taskAffinity="com.cootek.smartinputv5.skin.APPLY"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:finishOnTaskLaunch="true" android:hardwareAccelerated="true" android:multiprocess="true" android:name="com.facebook.ads.InterstitialAdActivity" android:screenOrientation="portrait" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.facebook.ads.InterstitialAdActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:excludeFromRecents="true" android:exported="false" android:finishOnTaskLaunch="true" android:hardwareAccelerated="true" android:multiprocess="true" android:name="com.google.android.gms.ads.AdActivity" android:screenOrientation="portrait" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <receiver android:name="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.ThemeInstallReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="applovin.sdk.key" android:value="WOR65lmgibF4Sqit300oTEu4yTksk-tFNJMT378niNsABT1EZ216GvBDRv3AuxQGFnkIvs4bEwmPToe1rf85ZK"/>
+        <service android:name="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.bbase.BBasePollingService" android:process=":bwatch1"/>
+        <receiver android:name="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.bbase.BBasePollingReceiver" android:process=":bwatch1"/>
+        <service android:name="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.bbase.BBaseDaemonService" android:process=":bwatch2"/>
+        <receiver android:name="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.bbase.BBaseDaemonReceiver" android:process=":bwatch2"/>
+        <service android:name="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.bbase.ProcessMainService"/>
+        <service android:name="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.messaging.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.messaging.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/icon"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/dummy_activity_bg"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_channel_id" android:value="@string/skin_firebase_notification_channel_id"/>
+        <activity android:name="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.func.schemes.InternalSchemesGateActivity" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.func.schemes.InternalSchemesGateActivity" android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="touchpal" android:pathPrefix="/internalapi" android:scheme="skin"/>
+            </intent-filter>
+        </activity>
+        <provider android:authorities="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.commitcontent.skin.content" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/imagekeyboard_share_files"/>
+        </provider>
+        <receiver android:exported="false" android:name="com.android.utils.hades.sdk.SysWrapperUpdateReceiver">
+            <intent-filter>
+                <action android:name="com.android.utils.hades.ACTION_START_SYS_WRAPPER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.utils.hades.ACTION_UPDATE_SYS_WRAPPER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.android.utils.hades.sdk.ShortcutResultReceiver">
+            <intent-filter>
+                <action android:name="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.ACTION_SHORTCUT_CREATED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.android.utils.hades.sdk.ImplicitRegisterReceiver">
+            <intent-filter>
+                <action android:name="com.android.utils.hades.ACTION_REGISTER_IMPLICIT_RECEIVERS"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.facebook.ads.AudienceNetworkActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:launchMode="singleTop" android:name="com.vungle.warren.ui.VungleActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:launchMode="singleTop" android:name="com.vungle.warren.ui.VungleFlexViewActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:launchMode="singleTop" android:name="com.vungle.warren.ui.VungleWebViewActivity"/>
+        <receiver android:enabled="false" android:name="com.vungle.warren.NetworkStateReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.tark_preference_provider" android:name="com.cootek.tark.preferences.PreferenceProvider"/>
+        <meta-data android:name="android.support.VERSION" android:value="26.1.0"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <provider android:authorities="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <service android:name="cootek.bbase.daemon.core.BBaseJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:process=":bwatch1"/>
+        <service android:exported="true" android:name="android.basicsyncadapter.account.SyncService">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter"/>
+            </intent-filter>
+            <meta-data android:name="android.content.SyncAdapter" android:resource="@xml/syncadapter"/>
+        </service>
+        <service android:name="android.basicsyncadapter.account.GenericAccountService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@xml/authenticator"/>
+        </service>
+        <receiver android:name="cootek.bbase.daemon.core.WakeUpBootReceiver" android:process=":watch">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="@string/daemon_authority" android:exported="false" android:name="android.basicsyncadapter.account.FeedProvider" android:syncable="true"/>
+        <receiver android:exported="false" android:name="com.cootek.feeds.receiver.FeedsReceiver">
+            <intent-filter>
+                <action android:name="com.cootek.feeds.receiver.FeedsReceiver.ACTION_ALARM"/>
+                <action android:name="com.cootek.feeds.receiver.FeedsReceiver.ACTION_CHECK_DAILY_SIGN"/>
+                <action android:name="com.cootek.feeds.receiver.FeedsReceiver.ACTION_GET_FEEDS"/>
+            </intent-filter>
+        </receiver>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.cootek.feeds.web.FeedsWebViewActivity" android:process=":feedsWebView" android:screenOrientation="portrait" android:theme="@style/FeedsAppTheme"/>
+        <service android:name="com.cootek.feeds.web.MessengerService"/>
+        <activity android:name="com.cootek.feeds.ui.activity.RewardTasksActivity" android:screenOrientation="portrait" android:theme="@style/RewardTaskTheme"/>
+        <activity android:launchMode="singleTask" android:name="com.cootek.feeds.ui.wheel.CashWheelActivity" android:screenOrientation="portrait" android:theme="@style/RewardTaskTheme"/>
+        <activity android:name="com.cootek.feeds.ui.wheel.WheelFullCoinActivity" android:screenOrientation="portrait" android:theme="@style/RewardTaskTheme"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:launchMode="singleInstance" android:name="com.cootek.feeds.ui.activity.GuideActivity" android:theme="@style/GuideTheme"/>
+        <activity android:name="com.cootek.feeds.ui.wheel.WheelNoCoinActivity" android:screenOrientation="portrait" android:theme="@style/RewardTaskTheme"/>
+        <activity android:name="com.cootek.feeds.ui.wheel.WheelNoCoinExitActivity" android:screenOrientation="portrait" android:theme="@style/RewardTaskTheme"/>
+        <activity android:name="com.cootek.feeds.ui.activity.TransitionActivity" android:screenOrientation="portrait" android:theme="@style/RewardTaskTheme"/>
+        <activity android:name="com.cootek.feeds.ui.activity.ExitActivity" android:screenOrientation="portrait" android:theme="@style/RewardTaskTheme"/>
+        <meta-data android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule" android:value="GlideModule"/>
+        <provider android:authorities="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.AgentWebFileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.just.agentweb.AgentWebFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/web_files_paths"/>
+        </provider>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="standard" android:name="com.just.agentweb.ActionActivity" android:theme="@style/actionActivity" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:excludeFromRecents="true" android:hardwareAccelerated="true" android:multiprocess="true" android:name="com.unity3d.ads.adunit.AdUnitActivity" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.unity3d.ads.adunit.AdUnitActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:excludeFromRecents="true" android:hardwareAccelerated="true" android:multiprocess="true" android:name="com.unity3d.ads.adunit.AdUnitTransparentActivity" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.unity3d.ads.adunit.AdUnitTransparentActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:excludeFromRecents="true" android:hardwareAccelerated="false" android:multiprocess="true" android:name="com.unity3d.ads.adunit.AdUnitTransparentSoftwareActivity" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.unity3d.ads.adunit.AdUnitTransparentSoftwareActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:excludeFromRecents="true" android:hardwareAccelerated="false" android:multiprocess="true" android:name="com.unity3d.ads.adunit.AdUnitSoftwareActivity" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.unity3d.ads.adunit.AdUnitSoftwareActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="keyboardHidden|locale|navigation|orientation" android:hardwareAccelerated="true" android:label="DefaultWebviewActivity" android:name="com.cootek.tpwebcomponent.defaultwebview.DefaultWebviewActivity" android:taskAffinity="defaultwebview.DefaultWebviewActivity"/>
+        <activity android:label="CustomTabsGateActivity" android:name="com.cootek.tpwebcomponent.customtabhelper.CustomTabsGateActivity" android:taskAffinity="customtabhelper.CustomTabsGateActivity" android:theme="@android:style/Theme.NoDisplay"/>
+        <receiver android:name="com.cootek.tpwebcomponent.PackageReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:excludeFromRecents="true" android:name="com.flurry.android.FlurryFullscreenTakeoverActivity" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.flurry.android.FlurryFullscreenTakeoverActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:excludeFromRecents="true" android:name="com.flurry.android.FlurryTileAdActivity" android:screenOrientation="portrait" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.flurry.android.FlurryTileAdActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:excludeFromRecents="true" android:name="com.flurry.android.FlurryBrowserActivity" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.flurry.android.FlurryTileAdActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:excludeFromRecents="true" android:hardwareAccelerated="true" android:multiprocess="true" android:name="com.snipermob.sdk.mobileads.activity.FullscreenActivity" android:screenOrientation="landscape" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.snipermob.sdk.mobileads.activity.FullscreenActivity"/>
+        <activity android:excludeFromRecents="true" android:hardwareAccelerated="true" android:multiprocess="true" android:name="com.snipermob.sdk.mobileads.activity.InterstitialPortraitActivity" android:screenOrientation="portrait" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.snipermob.sdk.mobileads.activity.InterstitialPortraitActivity" android:theme="@style/Interstitial"/>
+        <activity android:excludeFromRecents="true" android:hardwareAccelerated="true" android:multiprocess="true" android:name="com.snipermob.sdk.mobileads.activity.InterstitialLandscapeActivity" android:screenOrientation="landscape" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.snipermob.sdk.mobileads.activity.InterstitialLandscapeActivity" android:theme="@style/Interstitial"/>
+        <activity android:excludeFromRecents="true" android:hardwareAccelerated="true" android:multiprocess="true" android:name="com.snipermob.sdk.mobileads.activity.VideoActivity" android:screenOrientation="landscape" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.snipermob.sdk.mobileads.activity.VideoActivity"/>
+        <activity android:excludeFromRecents="true" android:hardwareAccelerated="true" android:multiprocess="true" android:name="com.snipermob.sdk.mobileads.activity.LandingPageActivity" android:screenOrientation="portrait" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.snipermob.sdk.mobileads.activity.LandingPageActivity"/>
+        <activity android:excludeFromRecents="true" android:hardwareAccelerated="true" android:multiprocess="true" android:name="com.snipermob.sdk.mobileads.activity.RewardedVideoActivity" android:screenOrientation="behind" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.snipermob.sdk.mobileads.activity.RewardedVideoActivity"/>
+        <service android:name="com.snipermob.sdk.mobileads.internal.NotificationService">
+            <intent-filter>
+                <action android:name="com.snipermob.sdk.notification"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.snipermob.sdk.mobileads.service.WorkService"/>
+        <receiver android:name="com.mobutils.android.mediation.impl.PackageBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.mobutils.android.mediation.az" android:exported="false" android:name="com.mobutils.android.mediation.impl.AZMaterialContentProvider"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:excludeFromRecents="true" android:name="com.my.target.ads.MyTargetActivity" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.my.target.ads.MyTargetActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:name="com.mopub.common.MoPubBrowser" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.mopub.common.MoPubBrowser"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:name="com.mopub.mobileads.MraidVideoPlayerActivity" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.mopub.mobileads.MraidVideoPlayerActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.common.privacy.ConsentDialogActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:hardwareAccelerated="true" android:multiprocess="true" android:name="com.mopub.mobileads.MoPubActivity" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.mopub.mobileads.MoPubActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:hardwareAccelerated="true" android:multiprocess="true" android:name="com.mopub.mobileads.MraidActivity" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.mopub.mobileads.MraidActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:hardwareAccelerated="true" android:multiprocess="true" android:name="com.applovin.adview.AppLovinInterstitialActivity" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.applovin.adview.AppLovinInterstitialActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:hardwareAccelerated="true" android:multiprocess="true" android:name="com.applovin.adview.AppLovinConfirmationActivity" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.applovin.adview.AppLovinConfirmationActivity"/>
+        <activity android:excludeFromRecents="true" android:hardwareAccelerated="true" android:multiprocess="true" android:name="com.mobutils.android.mediation.impl.MaterialPopupActivity" android:screenOrientation="portrait" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.mobutils.android.mediation.impl.MaterialPopupActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.mobutils.android.mediation.impl.TPMDInstallReferrerIDActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="com.mobutils.android.mediation.action.TP_MD_INSTALL_REFERRER"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:hardwareAccelerated="true" android:multiprocess="true" android:name="com.mobutils.android.mediation.impl.ExternalMaterialPopupActivity" android:screenOrientation="portrait" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.mobutils.android.mediation.impl.ExternalMaterialPopupActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:excludeFromRecents="true" android:hardwareAccelerated="true" android:multiprocess="true" android:name="com.mobutils.android.mediation.impl.FitCleanUpPopupActivity" android:screenOrientation="portrait" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.mobutils.android.mediation.impl.FitCleanUpPopupActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:excludeFromRecents="true" android:multiprocess="true" android:name="com.mobutils.android.mediation.impl.EyeCleanUpPopupActivity" android:screenOrientation="portrait" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.mobutils.android.mediation.impl.EyeCleanUpPopupActivity" android:theme="@style/EyeTransparent"/>
+        <activity android:excludeFromRecents="true" android:hardwareAccelerated="true" android:multiprocess="true" android:name="com.mobutils.android.mediation.impl.WaterCleanupPopupActivity" android:screenOrientation="portrait" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.mobutils.android.mediation.impl.WaterCleanupPopupActivity" android:theme="@style/EyeTransparent"/>
+        <activity android:excludeFromRecents="true" android:hardwareAccelerated="true" android:multiprocess="true" android:name="com.mobutils.android.mediation.impl.FitCleanUpStripActivity" android:screenOrientation="portrait" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.mobutils.android.mediation.impl.FitCleanUpStripActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:excludeFromRecents="true" android:hardwareAccelerated="true" android:multiprocess="true" android:name="com.mobutils.android.mediation.impl.WaterCleanupStripActivity" android:screenOrientation="portrait" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.mobutils.android.mediation.impl.WaterCleanupStripActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:excludeFromRecents="true" android:hardwareAccelerated="true" android:multiprocess="true" android:name="com.mobutils.android.mediation.impl.EyeCleanupStripActivity" android:screenOrientation="portrait" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.mobutils.android.mediation.impl.EyeCleanUpStripActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:excludeFromRecents="true" android:hardwareAccelerated="true" android:multiprocess="true" android:name="com.mobutils.android.mediation.impl.SwipeLeftMaterialPopupActivity" android:screenOrientation="portrait" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.mobutils.android.mediation.impl.SwipeLeftMaterialPopupActivity" android:theme="@style/ExternalPopupSwipeLeft"/>
+        <activity android:excludeFromRecents="true" android:hardwareAccelerated="true" android:multiprocess="true" android:name="com.mobutils.android.mediation.impl.ZoomMaterialPopupActivity" android:screenOrientation="portrait" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.mobutils.android.mediation.impl.ZoomMaterialPopupActivity" android:theme="@style/ExternalPopupZoom"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:name="com.monet.bidder.AdActivity" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.monet.bidder.AdActivity"/>
+        <activity android:excludeFromRecents="true" android:multiprocess="true" android:name="com.mobutils.android.mediation.impl.unity.UnityEntryActivity" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.mobutils.android.mediation.impl.unity.UnityEntryActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:multiprocess="true" android:name="com.amazon.device.ads.AdActivity" android:taskAffinity="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.amazon.device.ads.AdActivity"/>
+        <receiver android:name="com.mobutils.android.mediation.utility.AppInstallReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.mobutils.android.mediation" android:exported="false" android:name="com.mobutils.android.mediation.utility.SharedPreferenceContentProvider"/>
+        <provider android:authorities="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.mobutils.android.mediation.cache" android:exported="false" android:name="com.mobutils.android.mediation.cache.MaterialImageCacheContentProvider"/>
+        <provider android:authorities="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.mobutils.android.mediation.priority" android:exported="true" android:name="com.mobutils.android.mediation.sdk.priority.AppsPriorityContentProvider"/>
+        <provider android:authorities="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.mobutils.android.mediation.impression" android:exported="false" android:name="com.mobutils.android.mediation.sdk.impression.ImpressionControlContentProvider"/>
+        <provider android:authorities="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.mobutils.android.mediation.refresh" android:exported="false" android:name="com.mobutils.android.mediation.sdk.refresh.RefreshControlContentProvider"/>
+        <activity android:multiprocess="true" android:name="com.mobutils.android.mediation.loader.AdUriRedirectActivity" android:taskAffinity="com.mobutils.android.mediation.loader.AdUriRedirectActivity"/>
+        <receiver android:exported="false" android:name="com.mobutils.android.mediation.sdk.switches.SwitchUpdateReceiver">
+            <intent-filter>
+                <action android:name="com.mobutils.android.mediation.ACTION_UPDATE_SWITCH"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.com.mobutils.android.counter_usage.record" android:exported="false" android:name="com.mobutils.android.counter_usage.record.CounterUsageRecordContentProvider"/>
+        <activity android:excludeFromRecents="true" android:name="com.cootek.tark.privacy.PrivacySettingsActivity" android:screenOrientation="portrait" android:theme="@style/Theme_Privacy_Settings">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:name="com.cootek.tark.privacy.PrivacyPolicyLocalActivity" android:theme="@style/Theme_Privacy_Detail_Dialog">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.cootek.smartinputv5.skin.keyboard_theme_blue_water_drop.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+    </application>
+</manifest>

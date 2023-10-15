@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" package="com.antuan.cutter.vip" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT"/>
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
+    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE"/>
+    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT"/>
+    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_APP_BADGE"/>
+    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="com.stub.StubApp" android:persistent="true" android:supportsRtl="true" android:theme="@style/NoTitleBarAndWhite">
+        <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="dDPihXzTcs92WOqNR6XS6FNMiXsAypNn"/>
+        <meta-data android:name="UMENG_APPKEY" android:value="@string/umeng_key"/>
+        <service android:enabled="true" android:name="com.baidu.location.f" android:process=":remote"/>
+        <meta-data android:name="android.max_aspect" android:value="2.4"/>
+        <provider android:authorities="com.antuan.cutter.vip.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <service android:name="com.antuan.cutter.vip.frame.service.LogService" android:process=":log"/>
+        <service android:enabled="true" android:exported="true" android:name="com.antuan.cutter.vip.frame.service.LogJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:alwaysRetainTaskState="true" android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.MainActivity" android:screenOrientation="portrait" android:theme="@style/MainNoTitleBar" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:allowBackup="true" android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:label="@string/app_name" android:name="com.antuan.cutter.vip.TransitionActivity" android:screenOrientation="portrait" android:theme="@style/MainNoTitleBar" android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.register.RegisterActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.order.OrderActivity" android:screenOrientation="portrait" android:theme="@style/SampleTheme.Light" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.recharge.RechargeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.order.OrderDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation|screenSize" android:exported="false" android:name="com.alipay.sdk.app.H5PayActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:exported="false" android:name="com.alipay.sdk.app.H5AuthActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.income.IncomeExpenditureActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.code.PayCodeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.user.FeedbackActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.user.SettingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.code.SweepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.user.AboutActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.WebActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:exported="true" android:name="com.antuan.cutter.vip.wxapi.WXEntryActivity" android:theme="@style/AppLoginTheme"/>
+        <receiver android:name="com.antuan.cutter.vip.wxapi.AppRegister" android:permission="com.tencent.mm.plugin.permission.SEND">
+            <intent-filter>
+                <action android:name="com.tencent.mm.plugin.openapi.Intent.ACTION_REFRESH_WXAPP"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.wxapi.WXPayEntryActivity" android:theme="@style/AppLoginTheme"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.msg.MsgActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.store.StoreManageActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.store.StoreInfoActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.owner.ERPListActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.owner.OwnerRecordActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.order.ChargeBackActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.order.ChargeBackDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.img.PreviewImageActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.clerk.ClerkManageActivity" android:screenOrientation="portrait" android:theme="@style/MainNoTitleBar" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.clerk.ClerkCodeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.clerk.ClerkReviewActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.user.BossCertificateActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.user.MarketingRedEnvelopeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.user.AuthManagerActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.user.RedEnvelopDetailListActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.user.EditRedEnvelopActivity" android:screenOrientation="portrait" android:theme="@style/SampleTheme.Light" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.user.ProportionAdjustmentActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.user.FairListActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.user.AdjustRecordActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.user.CashListActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.income.AccountTurnoverActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="com.antuan.cutter.vip.ui.user.PrivacyPolicyActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:label="" android:name="pub.devrel.easypermissions.AppSettingsDialogHolderActivity" android:theme="@style/EasyPermissions.Transparent"/>
+        <activity android:name="com.common.zxing.CaptureActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleWhite"/>
+        <service android:name="com.vector.update_app.service.DownloadService"/>
+        <provider android:authorities="com.antuan.cutter.vip.fileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.vector.update_app.UpdateFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/new_app_file_paths"/>
+        </provider>
+        <provider android:authorities="com.antuan.cutter.vip.com.mob.MobProvider" android:exported="false" android:multiprocess="true" android:name="com.mob.MobProvider"/>
+        <meta-data android:name="Mob-AppKey" android:value="2a9e42f091300"/>
+        <meta-data android:name="Mob-AppSecret" android:value="72a9118be596cdb0e3df6b354386d1a4"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mob.tools.MobUIShell" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="cn.sharesdk.tencent.qq.ReceiveActivity" android:noHistory="true">
+            <intent-filter>
+                <data android:scheme="tencent1107706489"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.connect.common.AssistActivity" android:screenOrientation="behind" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.mob.guard.MobGuardService">
+            <intent-filter>
+                <action android:name="com.mob.intent.MOB_GUARD_SERVICE"/>
+            </intent-filter>
+        </service>
+    </application>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+</manifest>

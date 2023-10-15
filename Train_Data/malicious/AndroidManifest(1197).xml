@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.windenglish.app">
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <application android:icon="@drawable/icon" android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar">
+        <activity android:label="@string/app_name" android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="PlayerActivity" android:screenOrientation="portrait"/>
+        <activity android:name="HomeActivity"/>
+        <activity android:name="FeedActivity"/>
+        <activity android:name="FavActivity"/>
+        <activity android:name="DictActivity"/>
+        <activity android:name="WordActivity"/>
+        <activity android:name="AboutActivity"/>
+        <activity android:name="AlbumActivity"/>
+        <activity android:name="RecentActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="net.youmi.android.AdActivity"/>
+        <receiver android:name=".PhoneBroadcastReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.PHONE_STATE"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="UMENG_APPKEY" android:value="4e4f2dc6431fe31dc4000578"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="net.youmi.android.AdBrowser" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <service android:exported="false" android:name="net.youmi.android.AdService"/>
+        <receiver android:name="net.youmi.android.AdReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="net.umipay.android.UmipayBrowser" android:theme="@style/UmipayTheme_NoFullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:label="@string/app_name" android:name="com.unionpay.uppay.PayActivityEx" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout" android:excludeFromRecents="true" android:label="@string/app_name" android:name="com.unionpay.uppay.PayActivity" android:theme="@style/Theme.UPPay"/>
+        <service android:exported="false" android:name="net.umipay.android.poll.Push_Poll_service"/>
+        <service android:exported="false" android:name="net.umipay.android.poll.SmsReceiverService"/>
+        <receiver android:name="net.umipay.android.poll.Push_Boot_Receiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="net.umipay.android.poll.Push_Alarm_Receiver">
+            <intent-filter>
+                <action android:name="net.umipay.android.poll.push_alarm"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".HeadsetPlugReceiver">
+            <intent-filter>
+                <action android:enabled="true" android:name="android.intent.action.HEADSET_PLUG"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="UMIPAY_CHANNEL" android:value="0"/>
+        <meta-data android:name="UMIPAY_SUBCHANNEL" android:value="0"/>
+    </application>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.browser.permission.WRITE_HISTORY_BOOKMARKS"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+</manifest>

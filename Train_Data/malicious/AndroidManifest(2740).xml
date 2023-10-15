@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="28" android:compileSdkVersionCodename="9" package="com.qphine.fmapp" platformBuildVersionCode="1" platformBuildVersionName="1.0.0">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <application android:appComponentFactory="com.qphine.fmapp" android:icon="@mipmap/ic_launcher" android:label="@string/appname" android:name="com.stub.StubApp" android:networkSecurityConfig="@xml/network_security_config" android:roundIcon="@mipmap/ic_launcher_round" android:usesCleartextTraffic="true">
+        <activity android:configChanges="density|fontScale|keyboard|keyboardHidden|layoutDirection|locale|orientation|screenLayout|screenSize|uiMode" android:hardwareAccelerated="true" android:launchMode="singleTop" android:name="com.qphine.fmapp.MainActivity" android:theme="@style/LaunchTheme" android:windowSoftInputMode="adjustResize">
+            <meta-data android:name="io.flutter.app.android.SplashScreenUntilFirstFrame" android:value="true"/>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="com.ximalaya.ting.android.opensdk.auth.component.XmlyBrowserComponent" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="com.ximalaya.ting.android.xmpayordersdk.XmPayOrderActivity" android:windowSoftInputMode="adjustResize"/>
+        <service android:exported="true" android:name="com.ximalaya.ting.android.opensdk.player.service.XmPlayerService" android:process=":player"/>
+        <receiver android:exported="true" android:name="com.ximalaya.ting.android.opensdk.player.receive.PlayerReceiver" android:process=":player">
+            <intent-filter>
+                <action android:name="com.ximalaya.ting.android.ACTION_CONTROL_START_PAUSE"/>
+                <action android:name="com.ximalaya.ting.android.ACTION_CONTROL_PLAY_PRE"/>
+                <action android:name="com.ximalaya.ting.android.ACTION_CONTROL_PLAY_NEXT"/>
+                <action android:name="com.ximalaya.ting.android.ACTION_CLOSE"/>
+                <action android:name="com.ximalaya.ting.android.ACTION_CONTROL_RELEASE_SERVICE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.ximalaya.ting.android.opensdk.player.receive.WireControlReceiver" android:process=":player"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="android"/>
+        <meta-data android:name="UMENG_APPKEY" android:value="5de92e603fc1955081000b11"/>
+        <activity android:launchMode="singleTop" android:name="com.jarvan.fluwx.wxapi.WXEntryActivity" android:theme="@style/DisablePreviewTheme"/>
+        <activity-alias android:exported="true" android:launchMode="singleTop" android:name="com.qphine.fmapp.wxapi.WXEntryActivity" android:targetActivity="com.jarvan.fluwx.wxapi.WXEntryActivity" android:theme="@style/DisablePreviewTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="sdksample"/>
+            </intent-filter>
+        </activity-alias>
+        <activity android:launchMode="singleTop" android:name="com.jarvan.fluwx.wxapi.WXPayEntryActivity" android:theme="@style/DisablePreviewTheme"/>
+        <activity-alias android:exported="true" android:launchMode="singleTop" android:name="com.qphine.fmapp.wxapi.WXPayEntryActivity" android:targetActivity="com.jarvan.fluwx.wxapi.WXPayEntryActivity" android:theme="@style/DisablePreviewTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="sdksample"/>
+            </intent-filter>
+        </activity-alias>
+        <meta-data android:name="com.amap.api.v2.apikey" android:value="2059b3cf6715c2d077c3ebcb4b06a3ec"/>
+        <service android:name="com.amap.api.location.APSService"/>
+        <activity android:exported="false" android:name="io.flutter.plugins.urllauncher.WebViewActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+    </application>
+</manifest>

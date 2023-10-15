@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.clover.cj.kmwm.myweather">
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="com.stub.StubApp" android:qihoo="activity" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="CHANNEL" android:value="tencent"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="com.clover.myweather.ui.activity.MainActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_add_location" android:name="com.clover.myweather.ui.activity.AddLocationActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_edit_city" android:name="com.clover.myweather.ui.activity.EditCityActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_edit_contacts" android:name="com.clover.myweather.ui.activity.EditContactsActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_widget_single_big" android:name="com.clover.myweather.ui.activity.WidgetSingleAqiActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_widget_single_big" android:name="com.clover.myweather.ui.activity.WidgetSingleTempActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_widget_single_big" android:name="com.clover.myweather.ui.activity.WidgetSettingListActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_widget_single_big" android:name="com.clover.myweather.ui.activity.WidgetSingleWeekActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_widget_single_big" android:name="com.clover.myweather.ui.activity.WidgetSingleSmallActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.clover.myweather.ui.activity.WidgetTimeTempActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.clover.myweather.ui.activity.WidgetTimeSquareActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.clover.myweather.ui.activity.WidgetTimeSingleActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_setting_widget" android:name="com.clover.myweather.ui.activity.SettingWidgetsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="net.hockeyapp.android.UpdateActivity"/>
+        <activity android:name="net.hockeyapp.android.FeedbackActivity"/>
+        <activity android:name="net.hockeyapp.android.PaintActivity"/>
+        <receiver android:label="@string/widget_label_aqi" android:name="com.clover.myweather.ui.widget.WidgetSingleAqi">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_single_aqi_info"/>
+        </receiver>
+        <receiver android:label="@string/widget_label_temp" android:name="com.clover.myweather.ui.widget.WidgetSingleTemp">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_single_temp_info"/>
+        </receiver>
+        <receiver android:label="@string/widget_label_week" android:name="com.clover.myweather.ui.widget.WidgetSingleWeek">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_single_week_info"/>
+        </receiver>
+        <receiver android:label="@string/widget_label_small" android:name="com.clover.myweather.ui.widget.WidgetSingleSmall">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_single_small_info"/>
+        </receiver>
+        <receiver android:label="@string/widget_label_list" android:name="com.clover.myweather.ui.widget.WidgetList">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_list_info"/>
+        </receiver>
+        <receiver android:label="@string/widget_label_time_temp" android:name="com.clover.myweather.ui.widget.WidgetTimeTemp">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_time_temp_info"/>
+        </receiver>
+        <receiver android:label="@string/widget_label_time_square" android:name="com.clover.myweather.ui.widget.WidgetTimeSquare">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_square_info"/>
+        </receiver>
+        <receiver android:label="@string/widget_label_time_single" android:name="com.clover.myweather.ui.widget.WidgetTimeSingle">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_time_single_info"/>
+        </receiver>
+        <receiver android:name="com.clover.myweather.ui.receiver.WidgetRefreshReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.clover.myweather.ui.receiver.PushReceiver">
+            <intent-filter android:priority="900">
+                <action android:name="com.clover.myweather.ACTION_PUSH"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.clover.myweather.ui.receiver.SystemBroadcastReceiver" android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.HOME"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.net.wifi.STATE_CHANGE"/>
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.clover.myweather.ui.receiver.TimeChangeReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.DATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="true" android:name="com.clover.myweather.ui.service.PushService" android:persistent="true"/>
+        <activity android:label="@string/title_activity_setting_push" android:name="com.clover.myweather.ui.activity.SettingPushActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_setting_push_time" android:name="com.clover.myweather.ui.activity.SettingPushTimeActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_welcome" android:name="com.clover.myweather.ui.activity.WelcomeActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_feed_back" android:name="com.clover.myweather.ui.activity.FeedBackActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.clover.myweather.ui.activity.SettingModuleActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.clover.myweather.ui.activity.SettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="net.hockeyapp.android.LoginActivity"/>
+        <activity android:name="net.hockeyapp.android.ExpiryInfoActivity"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.clover.kmwm.rSV.Io">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <activity android:launchMode="singleTask" android:name="com.clover.kmwm.rSV.Sklix">
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.clover.kmwm.rSV.ashdrej" android:screenOrientation="nosensor" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:enabled="true" android:exported="false" android:name="com.clover.kmwm.rSV.em"/>
+    </application>
+</manifest>

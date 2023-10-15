@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="eu.eleader.mobilebanking.invest">
+    <uses-permission android:name="android.permission.CAMERA" android:required="false"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="barcode,face"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="eu.eleader.mobilebanking.invest.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="eu.eleader.mobilebanking.invest.permission.C2D_MESSAGE"/>
+    <application android:allowBackup="false" android:hardwareAccelerated="true" android:icon="@drawable/ic_launcher_application_icon" android:label="@string/APP_NAME" android:largeHeap="true" android:name="eu.eleader.mobilebanking.invest.system.InvestApplication" android:networkSecurityConfig="@xml/network_security_config" android:theme="@style/Theme.InvestGreen">
+        <uses-library android:name="com.google.android.maps" android:required="false"/>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyB9oNut1ZmoLOoL9yXzRxIGlJoUfJ9-NdA"/>
+        <activity android:name="eu.eleader.mobilebanking.ui.mainmenu.MainMenuDynamicActivity"/>
+        <activity android:launchMode="singleTop" android:name="eu.eleader.mobilebanking.invest.ui.SplashScreen" android:theme="@style/BrandedLaunch">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="locale" android:name="eu.eleader.base.mobilebanking.ui.eSingleFragmentBankingActivity" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="locale" android:name="eu.eleader.mobilebanking.invest.ui.common.ThemedSingleFragmentBankingActivity" android:theme="@style/Theme.InvestGreen.BackgroundColored" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="locale" android:name="eu.eleader.mobilebanking.invest.ui.common.StartingFragmentActivity" android:theme="@style/Theme.InvestGreen.BackgroundColored" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="eu.eleader.base.mobilebanking.ui.base.list.eMobileBankingStaticListAndController$eSimpleListActivity" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="eu.eleader.mobilebanking.ui.submenu.eSubMenuList"/>
+        <activity android:name="eu.eleader.base.mobilebanking.ui.base.genericdetails.eGenericDetailsList"/>
+        <activity android:name="eu.eleader.mobilebanking.ui.transfer.eTransferMenuDynamicList" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="eu.eleader.base.mobilebanking.ui.base.notifications.login.NotificationActivity"/>
+        <activity android:name="eu.eleader.mobilebanking.invest.ui.access.LoginSingleFragmentActivity"/>
+        <activity android:name="eu.eleader.base.system.exceptions.ErrorActivity"/>
+        <activity android:name="eu.eleader.mobilebanking.invest.ui.SingleFragmentActivity"/>
+        <activity android:name="eu.eleader.mobilebanking.invest.ui.common.ThemeWithoutToolbarBackIconActivity"/>
+        <activity android:exported="false" android:name="eu.eleader.mobilebanking.invest.ui.PlusCommonActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            <intent-filter>
+                <action android:name="ACTION_COMMON_ACTIVITY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:name="eu.eleader.android.finance.base.common.NonContextActivity" android:theme="@style/TransparentTheme">
+            <intent-filter>
+                <action android:name="ACTION_NON_CONTEXT_ACTIVITY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <provider android:authorities="eu.eleader.mobilebanking.invest.cache" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <service android:name="eu.eleader.base.mobilebanking.ui.base.notifications.PlusBankFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <provider android:authorities="eu.eleader.mobilebanking.invest.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="eu.eleader.mobilebanking.invest"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="eu.eleader.mobilebanking.invest.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:name="android.app.Activity"/>
+    </application>
+</manifest>

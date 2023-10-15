@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" package="bolo.codeplay.com.bolo" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.PROCESS_INCOMING_CALLS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <uses-permission android:name="android.permission.MANAGE_OWN_CALLS"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.flash"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:hardwareAccelerated="true" android:icon="@drawable/logo_2" android:label="@string/app_name" android:largeHeap="true" android:name="bolo.codeplay.com.bolo.application.BoloApplication" android:roundIcon="@drawable/logo_2" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
+        <activity android:name="bolo.codeplay.com.bolo.GoPremium" android:screenOrientation="portrait" android:theme="@style/FullScreenTheme"/>
+        <activity android:name="bolo.codeplay.com.bolo.settings.MyRecordingsActivity"/>
+        <activity android:name="bolo.codeplay.com.bolo.base.BaseActivity" android:screenOrientation="portrait"/>
+        <activity android:name="bolo.codeplay.com.bolo.welocme.WelcomeScreen" android:screenOrientation="portrait"/>
+        <activity android:name="bolo.codeplay.com.bolo.home.ui.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="bolo.codeplay.com.bolo.flashscreencall.FullScreenView" android:screenOrientation="portrait" android:theme="@style/FullScreenTheme"/>
+        <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="@string/ad_account_id"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="firebase_messaging_auto_init_enabled" android:value="true"/>
+        <meta-data android:name="firebase_analytics_collection_enabled" android:value="true"/>
+        <meta-data android:name="com.google.android.gms.ads.AD_MANAGER_APP" android:value="true"/>
+        <receiver android:enabled="true" android:name="bolo.codeplay.com.bolo.outgoing_call.SetupFragmentReceiver">
+            <intent-filter android:priority="101">
+                <action android:name="com.calldorado.android.intent.SEARCH"/>
+                <action android:name="android.intent.action.PHONE_STATE"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:name="bolo.codeplay.com.bolo.service.notification.BoloNotificationListenerService" android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="bolo.codeplay.com.bolo.service.telephonic.IncomingCallReceiver">
+            <intent-filter android:priority="99999">
+                <action android:name="android.intent.action.PHONE_STATE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="bolo.codeplay.com.bolo.service.telephonic.BootStarter">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="bolo.codeplay.com.bolo.permissioncenter.PermissionActivity" android:noHistory="true" android:parentActivityName="bolo.codeplay.com.bolo.home.ui.HomeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="bolo.codeplay.com.bolo.settings.SettingsActivity" android:parentActivityName="bolo.codeplay.com.bolo.home.ui.HomeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="bolo.codeplay.com.bolo.settings.CustomizeWordActivity" android:noHistory="true" android:parentActivityName="bolo.codeplay.com.bolo.settings.SettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="bolo.codeplay.com.bolo.newTheme.AskPopup.AskPopupActivity" android:showForAllUsers="true" android:showOnLockScreen="true" android:showWhenLocked="true" android:taskAffinity="" android:theme="@style/Theme.AppCompat.Transparent.NoActionBar" android:turnScreenOn="true"/>
+        <activity android:name="bolo.codeplay.com.bolo.calllogsmodule.DialerCallLogActivity" android:screenOrientation="portrait" android:showForAllUsers="true" android:showOnLockScreen="true" android:showWhenLocked="true" android:taskAffinity="" android:turnScreenOn="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.DIAL"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tel"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.DIAL"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service android:name="bolo.codeplay.com.bolo.block.BlockCallService" android:permission="android.permission.BIND_SCREENING_SERVICE">
+            <intent-filter>
+                <action android:name="android.telecom.CallScreeningService"/>
+            </intent-filter>
+        </service>
+        <service android:name="bolo.codeplay.com.bolo.fcm.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="bolo.codeplay.com.bolo.googlecloud.SpeechService"/>
+        <service android:name="bolo.codeplay.com.bolo.dialer.CallService" android:permission="android.permission.BIND_INCALL_SERVICE">
+            <meta-data android:name="android.telecom.IN_CALL_SERVICE_UI" android:value="true"/>
+            <intent-filter>
+                <action android:name="android.telecom.InCallService"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:name="bolo.codeplay.com.bolo.reminder.service.AlarmService"/>
+        <activity android:name="bolo.codeplay.com.bolo.about.AboutActivity" android:screenOrientation="portrait"/>
+        <activity android:name="bolo.codeplay.com.bolo.utils.FacebookNativeAdFullScreen" android:screenOrientation="portrait"/>
+        <receiver android:name="bolo.codeplay.com.bolo.utils.CheckInternetConnection">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="bolo.codeplay.com.bolo.utils.AppUpatedBrodcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="bolo.codeplay.com.bolo.welocme.TranslucentActivity" android:theme="@style/Theme.Transparent"/>
+        <activity android:excludeFromRecents="true" android:name="bolo.codeplay.com.bolo.home.ui.FullScreenView" android:screenOrientation="portrait" android:theme="@style/FullScreenTheme"/>
+        <receiver android:name="bolo.codeplay.com.bolo.utils.DownloadCompleteReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="bolo.codeplay.com.bolo.reminder.service.AlarmReceiver"/>
+        <activity android:name="bolo.codeplay.com.bolo.welocme.AddWords" android:screenOrientation="portrait"/>
+        <activity android:name="bolo.codeplay.com.bolo.callfilter.CallBlockList" android:screenOrientation="portrait"/>
+        <activity android:excludeFromRecents="true" android:name="bolo.codeplay.com.bolo.ExitActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Transparent2"/>
+        <activity android:name="bolo.codeplay.com.bolo.welocme.ReqPermissionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="bolo.codeplay.com.bolo.home.ui.contactlist.ContactList" android:screenOrientation="portrait"/>
+        <activity android:name="bolo.codeplay.com.bolo.settings.AutoReplyActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:name="bolo.codeplay.voicecalculator.CalculatorActivity" android:screenOrientation="portrait" android:theme="@style/FullScreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="bolo.codeplay.voicecalculator.AboutActivity" android:screenOrientation="portrait"/>
+        <activity android:name="bolo.codeplay.com.bolo.CallLogs.CallLogsActivity"/>
+        <activity android:name="bolo.codeplay.com.bolo.CallLogs.CallLogHistoryActivity"/>
+        <activity android:name="bolo.codeplay.com.bolo.CallLogs.adapters.DialerHelper" android:theme="@style/Theme.Transparent2"/>
+        <activity android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="bolo.codeplay.com.bolo.game.GameActivity" android:screenOrientation="portrait" android:showForAllUsers="true" android:showOnLockScreen="true" android:showWhenLocked="true" android:supportsPictureInPicture="true"/>
+        <activity android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="bolo.codeplay.com.bolo.newTheme.ParentCallAcitvity" android:showForAllUsers="true" android:showOnLockScreen="true" android:showWhenLocked="true" android:supportsPictureInPicture="true" android:taskAffinity="" android:theme="@style/CallAcitvity" android:turnScreenOn="true">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="bolo.codeplay.com.bolo.home.Revamped.DashboardActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="bolo.codeplay.com.bolo.game.DummyActivityForGameInvite" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="bolo.codeplay.com.bolo.newTheme.simchooser.SimChooseActivity" android:screenOrientation="portrait" android:showForAllUsers="true" android:showOnLockScreen="true" android:showWhenLocked="true" android:taskAffinity="" android:theme="@style/Theme.Transparent2"/>
+        <activity android:name="bolo.codeplay.com.bolo.launch.LaunchActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="bolo.codeplay.com.bolo.walkThrough.walkThroughActivity" android:theme="@style/AppTheme"/>
+        <activity android:name="bolo.codeplay.com.bolo.settings.VideoCallSettings"/>
+        <activity android:name="bolo.codeplay.speechnote.SpeechNoteActivity"/>
+        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" android:theme="@style/Base.Theme.AppCompat"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="bolo.codeplay.com.bolo.reminder.ShowReminderActivity" android:screenOrientation="portrait" android:showForAllUsers="true" android:showOnLockScreen="true" android:showWhenLocked="true" android:taskAffinity="" android:theme="@style/Theme.Transparent2"/>
+        <activity android:name="bolo.codeplay.speechnote.VoiceNotes">
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="bolo.codeplay.speechnote.WriteNotes"/>
+        <activity android:name="bolo.codeplay.com.bolo.calllogsmodule.CallLogDetailActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="true" android:name="bolo.codeplay.com.bolo.utils.JobSchedulerServiceForTokenRefersh" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:configChanges="keyboard|orientation" android:exported="true" android:name="com.mintegral.msdk.activity.MTGCommonActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:name="com.mintegral.msdk.click.AppReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.mintegral.msdk.shell.MTGService">
+            <intent-filter>
+                <action android:name="com.mintegral.msdk.download.action"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="bolo.codeplay.com.bolo.mtgFileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.mintegral.msdk.base.utils.MTGFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/mtg_provider_paths"/>
+        </provider>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:configChanges="keyboard|orientation" android:name="com.mintegral.msdk.shell.MTGActivity" android:screenOrientation="portrait" android:theme="@style/MintegralAppTheme"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.mintegral.msdk.interstitial.view.MTGInterstitialActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mintegral.msdk.reward.player.MTGRewardVideoActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MoPubActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.common.MoPubBrowser"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidVideoPlayerActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.RewardedMraidActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.common.privacy.ConsentDialogActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.flurry.android.FlurryFullscreenTakeoverActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.facebook.ads.AudienceNetworkActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize|smallestScreenSize" android:name="com.intentsoftware.addapptr.ad.fullscreens.MraidFullscreenActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/aatkit_cmp_consent" android:launchMode="singleTop" android:name="com.intentsoftware.addapptr.ConsentActivity" android:theme="@android:style/Theme.Holo.Light.DarkActionBar"/>
+        <service android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize" android:name="com.smartadserver.android.library.ui.SASInterstitialActivity" android:theme="@style/SASInterstitialActivityTheme"/>
+        <provider android:authorities="bolo.codeplay.com.bolo.smartadserver.transparencyreport" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/filepaths_smartadserver"/>
+        </provider>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="bolo.codeplay.com.bolo.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <provider android:authorities="bolo.codeplay.com.bolo.mobileadsinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.android.gms.ads.MobileAdsInitProvider"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="bolo.codeplay.com.bolo.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.android.billingclient.api.ProxyBillingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="bolo.codeplay.com.bolo.crashlyticsinitprovider" android:exported="false" android:initOrder="90" android:name="com.crashlytics.android.CrashlyticsInitProvider"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:name="com.adcolony.sdk.AdColonyInterstitialActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:name="com.adcolony.sdk.AdColonyAdViewActivity"/>
+        <activity android:name="com.criteo.publisher.CriteoInterstitialActivity"/>
+        <provider android:authorities="bolo.codeplay.com.bolo.MediaContentProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.millennialmedia.internal.utils.MediaContentProvider"/>
+        <activity android:configChanges="layoutDirection|locale" android:label="@string/mmadsdk_app_name" android:name="com.millennialmedia.internal.MMActivity" android:theme="@style/Theme.MMTransparent"/>
+        <activity android:configChanges="layoutDirection|locale" android:label="sdk" android:name="com.millennialmedia.internal.MMIntentWrapperActivity"/>
+        <service android:exported="false" android:name="com.millennialmedia.internal.VolumeChangeService"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:hardwareAccelerated="true" android:name="com.unity3d.services.ads.adunit.AdUnitActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:hardwareAccelerated="true" android:name="com.unity3d.services.ads.adunit.AdUnitTransparentActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:hardwareAccelerated="false" android:name="com.unity3d.services.ads.adunit.AdUnitTransparentSoftwareActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:hardwareAccelerated="false" android:name="com.unity3d.services.ads.adunit.AdUnitSoftwareActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.smaato.soma.interstitial.InterstitialActivity" android:resizeableActivity="false"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.smaato.soma.video.VASTAdActivity" android:resizeableActivity="false"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.smaato.soma.ExpandedBannerActivity" android:resizeableActivity="false"/>
+        <activity android:configChanges="orientation|screenSize" android:hardwareAccelerated="true" android:name="com.applovin.adview.AppLovinInterstitialActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.applovin.sdk.AppLovinWebViewActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.applovin.mediation.MaxDebuggerActivity" android:theme="@style/com.applovin.mediation.MaxDebuggerActivity.Theme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.applovin.mediation.MaxDebuggerDetailActivity" android:theme="@style/com.applovin.mediation.MaxDebuggerActivity.Theme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:name="com.inneractive.api.ads.sdk.InneractiveInternalBrowserActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:name="com.inneractive.api.ads.sdk.InneractiveInterstitialAdActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:name="com.inneractive.api.ads.sdk.InneractiveRichMediaVideoPlayerActivity"/>
+    </application>
+</manifest>

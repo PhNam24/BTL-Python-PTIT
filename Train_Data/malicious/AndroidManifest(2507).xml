@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.jieshun.hzbc">
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH" android:required="false"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:required="false"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+    <uses-permission android:name="getui.permission.GetuiService.com.jieshun.hzbc"/>
+    <permission android:name="getui.permission.GetuiService.com.jieshun.hzbc" android:protectionLevel="normal"/>
+    <application android:allowBackup="true" android:allowClearUserData="true" android:icon="@drawable/icon" android:label="@string/app_name" android:largeHeap="true" android:name="com.stub.StubApp" android:supportsRtl="true" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
+        <meta-data android:name="android.max_aspect" android:value="2.4"/>
+        <meta-data android:name="UMENG_APPKEY" android:value="5cc12f750cafb2b091000726"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencent1108792260"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.connect.common.AssistActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="PUSH_APPID" android:value="tBGPAht1rg9u9uaLcQRIN9"/>
+        <meta-data android:name="PUSH_APPKEY" android:value="0igqqwsLgd5JBPMOomUiW5"/>
+        <meta-data android:name="PUSH_APPSECRET" android:value="aOeZrMHl3x7Nq5ESxiO4P"/>
+        <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="BeMFzySCih5ZGaFw0hYWCF6Hsmw3ZlxK"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="WX_APPID" android:value="%appid%"/>
+        <service android:exported="true" android:label="NotificationCenter" android:name="com.igexin.sdk.PushService" android:process=":pushservice">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.service.message"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.igexin.download.DownloadService" android:process=":pushservice"/>
+        <service android:name="com.jieshun.hzbc.service.ReceiveGTIntentService"/>
+        <service android:enabled="true" android:name="com.baidu.location.f" android:process=":remote"/>
+        <service android:exported="true" android:name="io.dcloud.common.adapter.io.MiniServerService"/>
+        <service android:exported="true" android:label="PushService" android:name="com.jieshun.hzbc.service.GTPushService" android:process=":pushservice"/>
+        <receiver android:name="com.igexin.sdk.PushReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.igexin.sdk.action.refreshls"/>
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.igexin.download.DownloadReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.jieshun.hzbc.broadcast.JsCmdBroadcast">
+            <intent-filter>
+                <action android:name="com.jscmd.action"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.jieshun.hzbc.fileProvider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <provider android:authorities="com.jieshun.hzbc.download" android:exported="true" android:name="com.igexin.download.DownloadProvider" android:process=":pushservice"/>
+        <activity android:name="com.jieshun.hzbc.activity.common.SplashActivity" android:theme="@style/AppSplash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|navigation|orientation" android:exported="false" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.jieshun.hzbc.activity.homepage.HomepageFragmentActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppStartLoad"/>
+        <activity android:configChanges="keyboard|keyboardHidden|navigation|orientation" android:exported="false" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.jieshun.hzbc.activity.homepage.HomepageFragmentNewActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppStartLoad"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.igexin.sdk.PushActivity" android:process=":pushservice" android:taskAffinity="com.igexin.sdk.PushActivityTask" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:excludeFromRecents="true" android:exported="true" android:name="com.igexin.sdk.GActivity" android:process=":pushservice" android:taskAffinity="com.igexin.sdk.PushActivityTask" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:exported="false" android:launchMode="singleTop" android:name="com.jieshun.hzbc.activity.SearchParkingActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.jieshun.hzbc.activity.base.WebViewActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|mcc|mnc|navigation|orientation|screenSize" android:hardwareAccelerated="true" android:label="5+Debug" android:launchMode="singleTask" android:name="io.dcloud.PandoraEntryActivity" android:screenOrientation="user" android:theme="@style/DCloudTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:exported="false" android:name="com.jieshun.hzbc.activity.ParkingShowActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.ccb.ccbnetpay.activity.CcbH5PayActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.ccb.ccbnetpay.activity.appresult.ResultActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="comccbpay000000000000000ccb"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ccb.ccbnetpay.activity.CcbUnionPayActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.jieshun.hzbc.wxapi.WXPayEntryActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoDisplay"/>
+        <activity android:exported="true" android:launchMode="singleTask" android:name="com.jieshun.hzbc.wxapi.WXEntryActivity" android:screenOrientation="portrait" android:taskAffinity="com.jieshun.hzbc" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.jieshun.hzbc.activity.PaymentActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|mcc|mnc|navigation|orientation|screenSize" android:name="com.jieshun.hzbc.activity.SDK_WebView" android:screenOrientation="sensor"/>
+        <activity android:name="com.jieshun.hzbc.activity.ImagePickerActivity" android:theme="@style/TranslucentTheme"/>
+        <activity android:name="com.jieshun.hzbc.activity.SignPayActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="io.dcloud.imagepick.CustomGalleryActivity">
+            <intent-filter>
+                <action android:name="io.dcloud.ACTION_PICK"/>
+                <action android:name="io.dcloud.ACTION_MULTIPLE_PICK"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:exported="false" android:name="com.alipay.sdk.app.H5PayActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:exported="false" android:name="com.alipay.sdk.auth.AuthActivity" android:screenOrientation="behind"/>
+        <activity android:exported="false" android:name="com.jieshun.hzbc.activity.CaptureActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.jieshun.hzbc.activity.CaptureResultActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.jieshun.hzbc.activity.SpeciallyEngagedActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.jieshun.hzbc.activity.findcar.FindTheCarActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.jieshun.hzbc.activity.SearchOpenRoadsActivity" android:screenOrientation="portrait"/>
+        <receiver android:exported="false" android:name="com.jieshun.jsjklibrary.broadcast.NetChangeReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="android.support.VERSION" android:value="26.1.0"/>
+        <activity android:configChanges="keyboard|keyboardHidden|navigation|orientation" android:name="jst.com.paylibrary.activity.JsPayActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard|keyboardHidden|navigation|orientation" android:name="jst.com.paylibrary.activity.JstWebviewActivity" android:screenOrientation="portrait"/>
+        <receiver android:name="org.altbeacon.beacon.startup.StartupBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:isolatedProcess="false" android:label="beacon" android:name="org.altbeacon.beacon.service.BeaconService"/>
+        <service android:enabled="true" android:exported="false" android:name="org.altbeacon.beacon.BeaconIntentProcessor"/>
+        <service android:name="org.altbeacon.beacon.service.ScanJob" android:permission="android.permission.BIND_JOB_SERVICE">
+            <meta-data android:name="immediateScanJobId" android:value="208352939"/>
+            <meta-data android:name="periodicScanJobId" android:value="208352940"/>
+        </service>
+        <service android:name="org.altbeacon.bluetooth.BluetoothTestJob" android:permission="android.permission.BIND_JOB_SERVICE">
+            <meta-data android:name="jobId" android:value="1799803768"/>
+        </service>
+        <meta-data android:name="android.arch.lifecycle.VERSION" android:value="27.0.0-SNAPSHOT"/>
+    </application>
+</manifest>

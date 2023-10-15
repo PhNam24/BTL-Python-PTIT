@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.biba.android.biba">
+    <uses-feature android:glEsVersion="0x00020000" android:required="false"/>
+    <permission android:name="com.biba.android.biba.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.biba.android.biba.permission.C2D_MESSAGE"/>
+    <application android:hasCode="true" android:icon="@drawable/biba_launcher" android:installLocation="internalOnly" android:label="@string/app_name" android:logo="@drawable/biba_logo_abar" android:name="com.xodee.client.XodeeApplication">
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="com.xodee.client.activity.Main" android:noHistory="true" android:theme="@style/Theme.Biba.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="fdc1781049884978bef058f2ea139153"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="biba"/>
+            </intent-filter>
+        </activity>
+        <provider android:authorities="com.biba.android.biba.provider" android:exported="false" android:name="com.xodee.client.providers.XodeeProvider"/>
+        <provider android:authorities="com.biba.android.biba.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <receiver android:name="com.xodee.client.module.app.Messaging$TextMessageReceiver">
+            <intent-filter android:priority="3">
+                <action android:name="com.xodee.client.module.app.Messaging.ACTION_MESSAGE_RECEIVED"/>
+                <action android:name="com.xodee.client.module.app.Messaging.ACTION_MESSAGE_UPDATED"/>
+                <category android:name="com.biba.android.biba"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.xodee.client.module.app.notifications.MessagingNotifications$Receiver">
+            <intent-filter android:priority="1">
+                <action android:name="com.xodee.client.module.app.Messaging.ACTION_MESSAGE_RECEIVED"/>
+                <action android:name="com.xodee.client.module.app.Messaging.ACTION_CONVERSATION_UPDATED"/>
+                <action android:name="com.xodee.client.module.app.Messaging.ACTION_UPDATE_MESSAGE_NOTIFICATION"/>
+                <action android:name="com.xodee.client.module.app.Messaging.ACTION_UA_CONVERSATION_RECEIVED"/>
+                <action android:name="com.xodee.client.module.app.Messaging.ACTION_UA_CONVERSATION_LOAD"/>
+                <category android:name="com.biba.android.biba"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.xodee.client.module.app.Messaging$ChatRoomMessageReceiver">
+            <intent-filter android:priority="3">
+                <action android:name="com.xodee.client.module.app.Messaging.ACTION_ROOM_MESSAGE_RECEIVED"/>
+                <action android:name="com.xodee.client.module.app.Messaging.ACTION_ROOM_MESSAGE_UPDATED"/>
+                <action android:name="com.xodee.client.module.app.Messaging.ACTION_ROOM_UPDATED"/>
+                <action android:name="com.xodee.client.module.app.Messaging.ACTION_ROOM_MESSAGE_MENTION_RECEIVED"/>
+                <category android:name="com.biba.android.biba"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.xodee.client.module.app.notifications.ChatRoomMentionNotifications$Receiver">
+            <intent-filter android:priority="1">
+                <action android:name="com.xodee.client.module.app.Messaging.ACTION_ROOM_MESSAGE_RECEIVED"/>
+                <action android:name="com.xodee.client.module.app.Messaging.ACTION_ROOM_MESSAGE_UPDATED"/>
+                <action android:name="com.xodee.client.module.app.Messaging.ACTION_ROOM_MESSAGE_MENTION_RECEIVED"/>
+                <action android:name="com.xodee.client.module.app.Messaging.ACTION_ROOM_MENTIONS_UPDATED"/>
+                <action android:name="com.xodee.client.module.app.Messaging.ACTION_ROOM_UPDATED"/>
+                <action android:name="com.xodee.client.module.app.Messaging.ACTION_UPDATE_ROOM_MESSAGE_NOTIFICATION"/>
+                <action android:name="com.xodee.client.module.app.Messaging.ACTION_UA_ROOM_MENTION_RECEIVED"/>
+                <action android:name="com.xodee.client.module.app.Messaging.ACTION_UA_ROOM_LOAD"/>
+                <category android:name="com.biba.android.biba"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.urbanairship.push.GCMPushReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.biba.android.biba"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.biba.android.biba.urbanairship.provider" android:exported="false" android:multiprocess="true" android:name="com.urbanairship.UrbanAirshipProvider"/>
+        <activity android:configChanges="orientation" android:launchMode="singleTask" android:name="com.xodee.client.activity.Connect" android:screenOrientation="portrait" android:theme="@style/Theme.Biba"/>
+        <activity android:name="com.xodee.client.activity.PINEntry" android:theme="@style/Theme.Biba" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:name="com.xodee.client.activity.Login" android:theme="@style/Theme.Biba" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.xodee.client.activity.Register" android:screenOrientation="portrait" android:theme="@style/Theme.Biba"/>
+        <activity android:name="com.xodee.client.activity.RegisterConfirm" android:noHistory="true" android:theme="@style/Theme.Biba"/>
+        <activity android:name="com.xodee.client.activity.CalendarContactsUploadActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Biba"/>
+        <activity android:launchMode="singleTop" android:name="com.xodee.client.activity.BibaActivity" android:theme="@style/Theme.Biba"/>
+        <activity android:name="com.xodee.client.activity.ContactsActivity" android:theme="@style/Theme.Biba"/>
+        <activity android:name="com.xodee.client.activity.ContactsNewActivity" android:theme="@style/Theme.Biba"/>
+        <activity android:name="com.xodee.client.activity.ContactsInviteActivity" android:theme="@style/Theme.Biba"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.xodee.client.activity.ChatActivity" android:theme="@style/Theme.Biba"/>
+        <activity android:name="com.xodee.client.activity.ChatRoomMessagesActivity" android:theme="@style/Theme.Biba"/>
+        <activity android:name="com.xodee.client.activity.ChatNewActivity" android:theme="@style/Theme.Biba" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:launchMode="singleInstance" android:name="com.xodee.client.activity.AttachmentViewerActivity" android:theme="@style/Theme.Biba"/>
+        <activity android:name="com.xodee.client.activity.AboutActivity" android:theme="@style/Theme.Biba"/>
+        <activity android:name="com.xodee.client.activity.FeedbackActivity" android:theme="@style/Theme.Biba" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:launchMode="singleTask" android:name="com.xodee.client.activity.Answer" android:theme="@style/Theme.Biba"/>
+        <activity android:name="com.xodee.client.activity.MissedCallOneToOne" android:theme="@style/Theme.Biba"/>
+        <activity android:name="com.xodee.client.activity.ResumeCall" android:theme="@style/Theme.Biba"/>
+        <activity android:name="com.xodee.client.activity.Settings" android:theme="@style/Theme.Biba"/>
+        <activity android:name="com.xodee.client.activity.PasswordHelpActivity" android:theme="@style/Theme.Biba" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:name="com.xodee.client.activity.PasswordHelpConfirm" android:noHistory="true" android:theme="@style/Theme.Biba"/>
+        <activity android:name="com.xodee.client.activity.CallFeedbackContainer" android:stateNotNeeded="true" android:theme="@style/Theme.Biba"/>
+        <activity android:name="com.xodee.client.activity.ConfigureAudio" android:theme="@style/Theme.Biba.NoActionBar"/>
+        <activity android:launchMode="singleTask" android:name="com.xodee.client.activity.SystemErrorActivity" android:theme="@style/Theme.Biba"/>
+        <activity android:name="com.xodee.client.activity.RoomsNewActivity" android:theme="@style/Theme.Biba"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.xodee.client.activity.ScreenShareActivity" android:screenOrientation="landscape" android:theme="@style/FullscreenTheme"/>
+        <activity android:name="com.xodee.client.activity.AddEmailActivity" android:theme="@style/Theme.Biba" android:windowSoftInputMode="stateVisible"/>
+        <activity android:name="com.xodee.client.activity.ConferenceInfoActivity" android:theme="@style/Theme.Biba"/>
+        <activity android:name="com.xodee.client.activity.EnableScheduledMeetingsActivity" android:theme="@style/Theme.Biba"/>
+        <activity android:name="net.hockeyapp.android.UpdateActivity"/>
+        <activity android:name="com.xodee.client.test.TestActivity" android:theme="@style/Theme.Biba"/>
+        <activity android:name="com.xodee.client.activity.UploadTest" android:theme="@style/Theme.Biba"/>
+        <activity android:exported="false" android:icon="@drawable/copy_to_clipboard" android:label="@string/copy_clipboard" android:name="com.xodee.client.activity.CopyToClipboardActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.ALTERNATIVE"/>
+                <data android:mimeType="text/*"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:icon="@drawable/ic_menu_save" android:label="@string/save_to_gallery" android:name="com.xodee.client.activity.SaveToGalleryActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.ALTERNATIVE"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+        </activity>
+        <service android:name="com.xodee.client.service.ActiveCallService"/>
+        <service android:exported="false" android:name="com.xodee.client.service.ProfileChannelService"/>
+        <service android:exported="false" android:name="com.xodee.client.service.CalendarContactUploadService"/>
+        <service android:exported="false" android:name="com.xodee.client.service.CalendarFreeBusyUploadService"/>
+        <service android:label="Push Notification Service" android:name="com.urbanairship.push.PushService"/>
+        <service android:label="Event Service" android:name="com.urbanairship.analytics.EventService"/>
+        <receiver android:exported="false" android:name="com.xodee.client.receiver.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.xodee.client.receiver.PhoneStateReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE"/>
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.xodee.client.receiver.NetworkStateReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.AIRPLANE_MODE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.xodee.client.receiver.JuggernautWatchdogReceiver"/>
+        <receiver android:exported="false" android:name="com.xodee.client.receiver.ProfileChannelRestartReceiver"/>
+        <receiver android:exported="false" android:name="com.xodee.client.module.app.notifications.SuggestedUpgradeNotifications$Receiver"/>
+        <receiver android:exported="false" android:name="com.xodee.client.service.CalendarContactUploadService$Receiver"/>
+        <receiver android:exported="false" android:name="com.xodee.client.service.CalendarFreeBusyUploadService$Receiver"/>
+        <receiver android:name="com.urbanairship.CoreReceiver"/>
+        <receiver android:name="com.xodee.client.ua.UANotificationReceiver"/>
+        <meta-data android:name="com.mixpanel.android.MPConfig.DisableFallback" android:value="true"/>
+        <activity android:name="net.hockeyapp.android.FeedbackActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+    </application>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+</manifest>

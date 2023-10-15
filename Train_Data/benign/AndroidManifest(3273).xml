@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" package="com.eyeexamtest.eyecareplus" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACTION_TIME_CHANGE"/>
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+        </intent>
+    </queries>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="false" android:xlargeScreens="true"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT"/>
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
+    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE"/>
+    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT"/>
+    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_APP_BADGE"/>
+    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ"/>
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:icon="@mipmap/ic_launcher" android:isSplitRequired="true" android:label="@string/app_name" android:name="com.eyeexamtest.eyecareplus.EyeCarePlusApplication" android:requestLegacyExternalStorage="true" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/fb_app_id"/>
+        <meta-data android:name="LOCALYTICS_APP_KEY" android:value="9bb69708a17623c00b81ab8-558c0d2a-a21a-11e5-1ff5-00deb82fd81f"/>
+        <meta-data android:name="search-engine" android:resource="@xml/noindex"/>
+        <activity android:label="@string/app_name" android:name="com.eyeexamtest.eyecareplus.activity.AppIntroActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.eyeexamtest.eyecareplus.activity.EyeIssueActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.eyeexamtest.eyecareplus.tabs.SplashActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="com.eyeexamtest.eyecareplus.tabs.BHomeActivity">
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.eyeexamtests.com"/>
+                <data android:pathPrefix="/app"/>
+                <data android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="com.eyeexamtest.eyecareplus.tabs.AHomeActivity">
+            <intent-filter android:autoVerify="true" android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER"/>
+                <data android:host="app"/>
+                <data android:scheme="eyecareplus"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.eyeexamtest.eyecareplus.test.LoadingActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.result.ResultActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.game.GameResultActivity"/>
+        <activity android:configChanges="orientation" android:name="com.eyeexamtest.eyecareplus.plan.settings.DryEyeSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.eyeexamtest.eyecareplus.plan.settings.WeeklySettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.eyeexamtest.eyecareplus.plan.settings.SemiWeeklySettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.eyeexamtest.eyecareplus.plan.settings.LazyEyeSettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.eyeexamtest.eyecareplus.plan.settings.BasicSettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.eyeexamtest.eyecareplus.plan.settings.NightSettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.activity.AboutActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.activity.SettingsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.NOTIFICATION_PREFERENCES"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.eyeexamtest.eyecareplus.activity.WebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.activity.testtraining.TestsListActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="" android:name="com.eyeexamtest.eyecareplus.activity.testtraining.TrainingsCategoryActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".tabs.AHomeActivity"/>
+        </activity>
+        <activity android:name="com.eyeexamtest.eyecareplus.activity.testtraining.TrainingsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.patientinfo.GIFragment" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.patientinfo.FirstTrainingIntroActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.patientinfo.ReminderActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.patientinfo.MinimalScreeningActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.patientinfo.TrainingTimesActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.patientinfo.UpgradeCommitmentActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.patientinfo.CreateProfileActivity"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.patientinfo.GIFinishActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.activity.testtraining.ShowHintsActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.activity.testtraining.HintStartActivity"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.test.visualacuity.TestActivityVisual" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.test.CloseYourEyeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.test.contrast.TestActivityContrast" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.test.quiz.QuizTestActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.test.huetest.HueTestActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.test.colorblindness.TestActivityBlindness" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.test.colorblindness.AnswersActivityBlindness" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.test.astigmatism.TestActivityAstigmatism" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.test.astigmatism.AnswersActivityAstigmatism" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.test.centralvision.TestActivityCentralVision" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.test.centralvision.AnswersActivityCentralVision" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.test.glasseschecker.TestActivityDuochrome" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.test.glasseschecker.AnswersActivityDuochrome" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.test.red.TestActivityRed" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.test.red.AnswersActivityRed" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.move.LeftRightTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:label="two_objects_training" android:name="com.eyeexamtest.eyecareplus.trainings.relax.TwoObjectsTrainingActivity"/>
+        <activity android:label="ComplexActivity" android:name="com.eyeexamtest.eyecareplus.game.movingobjects.MovingObjectsTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.focus.CircleFocusTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.focus.FocusShiftTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.focus.YinYangFocusTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.move.RandomMoveTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.moisture.BlinkingTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.moisture.ClosingTightTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.moisture.ClosedEyeTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.relax.PalmingTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:largeHeap="true" android:name="com.eyeexamtest.eyecareplus.trainings.TibetanEyeTrainingActivity"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.move.RectangleMoveTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.move.InfinityMoveTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.move.WaveMoveTraining" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.move.RollerCoasterTraining" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.trainings.focus.GrowingPatternsTrainingActivity"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.game.gp.GrowingPatternsGameActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.relax.ChessboardFlicker" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.relax.KaleidoscopeTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.relax.FlashingShapesTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.relax.YinYangFlickerTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.relax.TrafficLightsTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.relax.ColorStripesTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.relax.ColorfulPathTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.move.TrajectoryMoveTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.move.AumIconTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.move.CircleMoveTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.move.SpiralMoveTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.move.SpringMoveTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.focus.SplittingGaborTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.focus.GaborBlinkingTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.move.BouncingBallTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.move.JumpingTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.move.DiagonalMoveTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.move.FlowerMoveTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.move.EllipsisMoveTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.move.LeftRightTopBottomTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.move.ButterflyMoveTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.trainings.relax.LightFlicker" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.trainings.relax.DynamicConvergenceTrainingActivity" android:screenOrientation="landscape"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.trainings.relax.PuzzleTrainingActivity" android:screenOrientation="landscape"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.trainings.focus.patterns.PatternFocusTraining" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.game.hue.HueTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.game.sum.NumberSaccadeGameActivity" android:screenOrientation="portrait"/>
+        <activity android:largeHeap="true" android:name="com.eyeexamtest.eyecareplus.game.gabor.FindGaborGameActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.game.MindyObjectsGameActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.game.trickypuzzle.TrickyPuzzleGameActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.game.peripheralcircles.ColorPickGameActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.game.hue.HueTrainingNextLevelActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.focus.GaborPatchesTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.focus.GrowingGaborTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:largeHeap="true" android:name="com.eyeexamtest.eyecareplus.trainings.breathing.RhythmicBreathingTraining" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.breathing.BreathingTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.breathing.ThreePartBreathingTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.trainings.breathing.SingleNostrilBreathingTraining" android:screenOrientation="portrait"/>
+        <activity android:largeHeap="true" android:name="com.eyeexamtest.eyecareplus.trainings.focus.BlurryGaborTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.guide.recipes.RecipesListActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.plan.PlanListActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.plan.RecomendedTrainingPlan"/>
+        <activity android:configChanges="orientation|screenSize" android:label="" android:name="com.eyeexamtest.eyecareplus.plan.PlanDetailsActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.game.GameListActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.tabs.feed.FeedActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.tabs.progress.plan.PlanProgressActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.activity.CommitmentActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.guide.nutrition.NutritionActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.guide.nutrition.NutritionInnerActivity"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.guide.firstaid.FirstAidListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.guide.recipes.RecipeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.guide.firstaid.FirstAidTipActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.guide.askdoctor.QAActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.guide.askdoctor.QuestionActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.social.feedback.FeedbackActivity"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.guide.eyefacts.EyeFactActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.guide.science.ScienceActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.guide.science.CategoryActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.guide.science.DescriptionActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.eyeexamtest.eyecareplus.guide.FAQActivity"/>
+        <activity android:name="com.eyeexamtest.eyecareplus.game.story.GameStoryActivity" android:screenOrientation="portrait"/>
+        <receiver android:name="com.eyeexamtest.eyecareplus.apiservice.notification.NotificationDismissedReceiver"/>
+        <receiver android:name="com.eyeexamtest.eyecareplus.apiservice.notification.DisableWorkoutReminderReceiver"/>
+        <receiver android:name="com.eyeexamtest.eyecareplus.apiservice.notification.ProgressReminder"/>
+        <receiver android:enabled="true" android:name="com.eyeexamtest.eyecareplus.reminder.receiver.TimeChangedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.eyeexamtest.eyecareplus.fcm.EyeCareFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/colorAccent"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_channel_id" android:value="com.eyeexamtest.eyecareplus.notification.channel_id_eye_care"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:enabled="false" android:exported="false" android:launchMode="singleInstance" android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true"/>
+        <activity android:enabled="false" android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
+        <service android:enabled="false" android:exported="true" android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService">
+            <meta-data android:name="com.google.android.play.core.assetpacks.versionCode" android:value="11000"/>
+        </service>
+        <service android:enabled="false" android:exported="false" android:name="com.google.android.play.core.assetpacks.ExtractionForegroundService"/>
+        <provider android:authorities="com.eyeexamtest.eyecareplus.firebaseperfprovider" android:exported="false" android:initOrder="101" android:name="com.google.firebase.perf.provider.FirebasePerfProvider"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:visibleToInstantApps="true"/>
+        <provider android:authorities="com.eyeexamtest.eyecareplus.workmanager-init" android:directBootAware="false" android:exported="false" android:multiprocess="true" android:name="androidx.work.impl.WorkManagerInitializer"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:name="androidx.work.impl.foreground.SystemForegroundService"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.eyeexamtest.eyecareplus.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <provider android:authorities="com.eyeexamtest.eyecareplus.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="2"/>
+    </application>
+</manifest>

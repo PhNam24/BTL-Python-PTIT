@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.narvii.amino.master" platformBuildVersionCode="24" platformBuildVersionName="7.0">
+    <permission android:name="com.narvii.amino.ACCESS_ACCOUNT" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.narvii.amino.ACCESS_ACCOUNT"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-feature android:name="android.hardware.location" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.network" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.portrait" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="com.narvii.amino.master.permission.C2D_MESSAGE" android:protectionLevel="normal"/>
+    <uses-permission android:name="com.narvii.amino.master.permission.C2D_MESSAGE"/>
+    <permission android:name="com.narvii.permission.avosclous.PUSH" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.narvii.permission.avosclous.PUSH"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <application android:allowBackup="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="com.narvii.app.incubator.IncubatorApplication" android:supportsRtl="true" android:theme="@style/AminoTheme">
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.narvii.master.MasterActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.narvii.amino.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.narvii.app.ForwardActivity" android:screenOrientation="behind">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="narviiapp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="aminoapps.com" android:pathPrefix="/c/" android:scheme="http"/>
+                <data android:host="aminoapps.com" android:pathPrefix="/invite/" android:scheme="http"/>
+                <data android:host="aminoapps.com" android:pathPrefix="/p/" android:scheme="http"/>
+                <data android:host="aminoapps.com" android:pathPrefix="/page/" android:scheme="http"/>
+                <data android:host="aminoapps.com" android:pathPrefix="/web/" android:scheme="http"/>
+                <data android:host="aminoapps.com" android:pathPrefix="/c/" android:scheme="https"/>
+                <data android:host="aminoapps.com" android:pathPrefix="/invite/" android:scheme="https"/>
+                <data android:host="aminoapps.com" android:pathPrefix="/p/" android:scheme="https"/>
+                <data android:host="aminoapps.com" android:pathPrefix="/page/" android:scheme="https"/>
+                <data android:host="aminoapps.com" android:pathPrefix="/web/" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.narvii.app.FragmentWrapperActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.narvii.catalog.CatalogWrapperActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/account_login" android:launchMode="singleTop" android:name="com.narvii.account.LoginActivity" android:screenOrientation="portrait" android:theme="@style/AminoThemeDark.Overlay" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/post" android:name="com.narvii.blog.post.BlogPostActivity" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:label="@string/post" android:name="com.narvii.link.post.LinkPostActivity" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:label="@string/post" android:name="com.narvii.item.post.ItemPostActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/post" android:name="com.narvii.blog.post.TopicPostActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/user_my_profile" android:name="com.narvii.user.profile.post.UserProfilePostActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/post" android:name="com.narvii.comment.post.CommentPostActivity" android:theme="@style/AminoTheme.Translucent" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:label="@string/app_name" android:name="com.narvii.onboarding.OnBoardingActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Transparent"/>
+        <activity android:label="@string/flag" android:name="com.narvii.report.post.ReportPostActivity" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:label="@string/repost" android:name="com.narvii.repost.RepostActivity" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:label="@string/post_poll_title" android:name="com.narvii.poll.post.PlainPollPostActivity" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:label="@string/post" android:name="com.narvii.chat.post.ThreadPostActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/post" android:name="com.narvii.catalog.category.CategoryPostActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/edit" android:name="com.narvii.util.text.EditTextActivity" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:label="@string/search" android:name="com.narvii.search.SearchKeywordActivity" android:windowSoftInputMode="adjustNothing|stateAlwaysVisible"/>
+        <activity android:label="@string/gallery" android:name="com.narvii.media.MediaGalleryActivity" android:theme="@style/AppTheme.NoTitle"/>
+        <activity android:label="@string/chat" android:name="com.narvii.chat.ChatActivity" android:theme="@style/AminoTheme.Overlay" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="ResetProcess" android:name="com.narvii.amino.ResetProcessActivity"/>
+        <activity android:launchMode="singleTop" android:name="com.narvii.master.invitation.InvitationWelcomeActivity" android:screenOrientation="portrait" android:theme="@style/AminoTheme.Translucent.FULLSCREEN"/>
+        <activity android:name="com.narvii.flag.FlagLogListActivity" android:screenOrientation="portrait" android:theme="@style/AminoTheme.Translucent"/>
+        <activity android:name="com.narvii.chat.template.ChatTemplateListActivity" android:theme="@style/AminoTheme.Translucent"/>
+        <activity android:name="com.narvii.master.explorer.CommunityListActivity" android:theme="@style/AminoTheme.Overlay"/>
+        <receiver android:exported="true" android:name="com.narvii.app.incubator.IncubatorReferrerReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.narvii.amino.account.master" android:exported="true" android:name="com.narvii.account.AccountKeychainProvider" android:permission="com.narvii.amino.ACCESS_ACCOUNT"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.facebook.app.FacebookContentProvider255884441431980" android:exported="true" android:name="com.facebook.FacebookContentProvider"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_appid"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="54303d4f1ba07a1d5441f99dfc484b8630b42a0f"/>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="@string/google_map_apikey"/>
+        <service android:exported="false" android:name="com.narvii.account.FinishSignupNotificationService"/>
+        <meta-data android:name="com.narvii.forceLang" android:value=""/>
+        <meta-data android:name="com.narvii.forceCountry" android:value=""/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <receiver android:exported="true" android:name="com.google.android.gms.gcm.GcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.narvii.amino.master"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.narvii.pushservice.GcmPushReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.narvii.pushservice.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.narvii.pushservice.PushManagerService" android:permission="com.narvii.permission.avosclous.PUSH">
+            <intent-filter>
+                <action android:name="com.narvii.action.PUSH_START"/>
+                <action android:name="com.narvii.action.PUSH_BIND"/>
+                <action android:name="com.narvii.action.PUSH_AVOS_REG"/>
+                <action android:name="com.narvii.action.PUSH_AVOS_UNREG"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.narvii.pushservice.AvosPushReceiver" android:permission="com.narvii.permission.avosclous.PUSH">
+            <intent-filter>
+                <action android:name="com.narvii.intent.AVOS_RECEIVE_MASTER"/>
+                <category android:name="com.narvii.avos"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.narvii.pushservice.PushHostService" android:permission="com.narvii.permission.avosclous.PUSH"/>
+        <provider android:authorities="com.narvii.amino.master.google_measurement_service" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+    </application>
+</manifest>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.aspirecn.xiaoxuntongParent.tj" platformBuildVersionCode="26" platformBuildVersionName="8.0.0">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <meta-data android:name="android.support.VERSION" android:value="25.3.1"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT"/>
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
+    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT"/>
+    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE"/>
+    <application android:allowBackup="false" android:hardwareAccelerated="true" android:icon="@drawable/app_icon" android:label="@string/app_name_parent" android:name="com.stub.StubApp" android:persistent="true" android:qihoo="activity">
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name_parent" android:name="com.aspirecn.xiaoxuntongParent.tj.MicroschoolParent" android:screenOrientation="portrait" android:theme="@style/Theme.Start.parent" android:windowSoftInputMode="adjustPan">
+            <meta-data android:name="version" android:value="parent"/>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <data android:scheme="tjparent"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.aspirecn.xiaoxuntong.tj.Microschool" android:screenOrientation="portrait" android:theme="@style/Theme.Start.parent" android:windowSoftInputMode="adjustPan">
+            <meta-data android:name="version" android:value="parent"/>
+            <meta-data android:name="customer" android:value="tianjin"/>
+        </activity>
+        <activity android:exported="false" android:name="com.aspirecn.xiaoxuntong.tj.widget.CustomCameraActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.aspirecn.xiaoxuntong.tj.widget.TakePhotoBlankActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"> android:exported="false"&gt;
+</activity>
+        <activity android:exported="true" android:label="@string/app_name" android:launchMode="singleTop" android:name="com.aspirecn.xiaoxuntongParent.tj.wxapi.WXEntryActivity" android:theme="@android:style/Theme.Translucent">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <receiver android:exported="false" android:name="com.aspirecn.xiaoxuntong.tj.broadcastreceiver.StartParentServiceReceiver">
+            <intent-filter>
+                <action android:name="com.aspirecn.xiaoxuntong.tj.action.START_PARENT_SERVICE"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:name="com.aspirecn.xiaoxuntong.tj.service.MessageService">
+            <meta-data android:name="version" android:value="parent"/>
+        </service>
+        <service android:enabled="true" android:name="com.aspirecn.xiaoxuntong.tj.service.MessageServiceParent"/>
+        <service android:name="com.aspirecn.xiaoxuntong.tj.service.DownloadService"/>
+        <service android:name="com.aspirecn.xiaoxuntong.tj.service.DownloadServiceParent"/>
+        <service android:name="com.aspirecn.xiaoxuntong.tj.service.SmsServiceParent"/>
+        <meta-data android:name="UMENG_APPKEY" android:value="54dc67dffd98c5bd910006c7"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="chl_aspire"/>
+        <meta-data android:name="com.aspirecn.xiaoxuntong.tj.util.imageshow.MSGlideModule" android:value="GlideModule"/>
+        <provider android:authorities="com.aspirecn.xiaoxuntongParent.tj.authority" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+    </application>
+</manifest>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.vthcc.woodchuck">
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="com.vthcc.woodchuck.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.vthcc.woodchuck.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <application android:allowBackup="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:name="com.vthcc.woodchuck.MainApplication" android:theme="@style/AppTheme">
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_id"/>
+        <activity android:label="@string/app_name" android:name="com.facebook.LoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.vthcc.woodchuck.ui.SplashActivity" android:screenOrientation="portrait" android:theme="@style/app_theme_no_action_bar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.vthcc.woodchuck.ui.TermsActivity" android:screenOrientation="portrait" android:theme="@style/app_theme_no_action_bar"/>
+        <activity android:name="com.vthcc.woodchuck.ui.SignupActivity" android:screenOrientation="portrait" android:theme="@style/app_theme_no_action_bar"/>
+        <activity android:name="com.vthcc.woodchuck.ui.ShareMenuActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.vthcc.woodchuck.ui.ContactUsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.vthcc.woodchuck.ui.SharePhotoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.vthcc.woodchuck.ui.TwitterActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.vthcc.woodchuck.ui.CheckinActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.vthcc.woodchuck.ui.MainMenuActivity" android:screenOrientation="portrait" android:theme="@style/app_theme_no_action_bar"/>
+        <activity android:name="com.vthcc.woodchuck.ui.WhatsNewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.vthcc.woodchuck.ui.StylesActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.vthcc.woodchuck.ui.StyleActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.vthcc.woodchuck.ui.LocatorMapActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.vthcc.woodchuck.ui.CiderOverviewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.vthcc.woodchuck.ui.LocatorListActivity" android:screenOrientation="portrait"/>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyDmXVNSl9O1-eRgUfTuh7e1rgOZAEMKHPk"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <receiver android:name="com.urbanairship.CoreReceiver"/>
+        <receiver android:name="com.urbanairship.push.GCMPushReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.vthcc.woodchuck"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.vthcc.woodchuck.receiver.WoodchuckPushReceiver"/>
+        <service android:label="Push Notification Service" android:name="com.urbanairship.push.PushService"/>
+        <service android:label="Event Service" android:name="com.urbanairship.analytics.EventService"/>
+        <provider android:authorities="com.vthcc.woodchuck.urbanairship.provider" android:exported="false" android:multiprocess="true" android:name="com.urbanairship.UrbanAirshipProvider"/>
+        <service android:name="com.urbanairship.richpush.RichPushUpdateService"/>
+    </application>
+</manifest>

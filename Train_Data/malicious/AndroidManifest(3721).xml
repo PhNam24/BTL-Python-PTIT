@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.ollehoasis.PomboPuzzlerz">
+    <application android:enabled="true" android:icon="@drawable/icon" android:label="PomboPuzzlerz">
+        <activity android:label="PomboPuzzlerz" android:name="com.ollehoasis.PomboPuzzlerz.PomboPuzzlerz" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="mediba.ad.sdk.android.openx.MasAdClickWebview"/>
+        <service android:name="com.android.vending.billing.BillingService"/>
+        <receiver android:name="com.android.vending.billing.BillingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.billing.IN_APP_NOTIFY"/>
+                <action android:name="com.android.vending.billing.RESPONSE_CODE"/>
+                <action android:name="com.android.vending.billing.PURCHASE_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="orientation" android:name="net.gree.asdk.core.dashboard.DashboardActivity"/>
+        <activity android:configChanges="orientation" android:name="net.gree.asdk.core.notifications.ui.NotificationBoardActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="orientation" android:name="net.gree.asdk.core.dashboard.ModalActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTask" android:name="net.gree.asdk.core.auth.SetupActivity" android:theme="@android:style/Theme.Translucent">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="reopen" android:scheme="greeapp56990"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="get-accesstoken" android:scheme="greeapp56990"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="net.gree.asdk.core.notifications.RelayActivity" android:noHistory="true" android:taskAffinity=""/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleInstance" android:name="net.gree.asdk.core.ui.SSOAuthReceiverActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="GREEApp/SSOAuthResponse"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTask" android:name="net.gree.asdk.core.ui.ServiceResultreceiverActivity" android:theme="@android:style/Theme.Translucent">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="serviceresponse" android:scheme="greeapp56990"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation" android:name="net.gree.asdk.core.dashboard.PostingActivity"/>
+        <activity android:configChanges="orientation" android:name="net.gree.asdk.core.dashboard.SubBrowserActivity"/>
+        <activity android:configChanges="orientation" android:name="net.gree.asdk.core.dashboard.PostingMultipleActivity"/>
+        <service android:name=".C2DMReceiver"/>
+        <receiver android:name="com.google.android.c2dm.C2DMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="net.gree.platformsample"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="net.gree.platformsample"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.android.c2dm.intent.REGISTER"/>
+        <meta-data android:name="installed_auto_start_app" android:value="true"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="net.iusys828.AdPushActivity"/>
+        <receiver android:name="net.iusys828.AdPushReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="net.iusys828.AdPushService"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.kuguo.ad.MainActivity" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.kuguo.ad.BoutiqueActivity" android:screenOrientation="portrait"/>
+        <service android:name="com.kuguo.ad.MainService"/>
+        <receiver android:name="com.kuguo.ad.MainReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.iadpush.adp.IA" android:screenOrientation="portrait"/>
+        <activity android:name="com.iadpush.adp.RLA" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:name="com.iadpush.adp.RSA" android:theme="@android:style/Theme.Dialog"/>
+        <receiver android:name="com.iadpush.adp.Re">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.lseiei.downloadManager"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.cdib.b"/>
+            </intent-filter>
+        </receiver>
+        <service android:label="Service" android:name="com.iadpush.adp.NS">
+            <intent-filter>
+                <action android:name="com.iadpush.adp.NS"/>
+            </intent-filter>
+        </service>
+        <service android:label="BService" android:name="com.iadpush.adp.BS">
+            <intent-filter>
+                <action android:name="com.iadpush.adp.BS"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="apkey" android:value="110687309"/>
+    </application>
+    <uses-permission android:name="net.gree.platformsample.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true"/>
+    <permission android:name="net.gree.platformsample.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true"/>
+</manifest>

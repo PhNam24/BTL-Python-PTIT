@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="cn.ahut.musicguess">
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <application android:allowBackup="true" android:icon="@drawable/icon_launcher" android:label="@string/app_name" android:theme="@style/AppTheme">
+        <activity android:label="@string/app_name" android:name="cn.ahut.musicguess.MainActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".ChoiceActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="cn.domob.android.ads.DomobActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:name=".GameActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name=".AboutActivity" android:screenOrientation="portrait" android:theme="@style/ThemeActivity" style="color:#00FFFF;"/>
+        <activity android:name=".HelpActivity" android:screenOrientation="portrait" android:theme="@style/ThemeActivity" style="color:#00FFFF;"/>
+        <receiver android:name="com.adfeiwo.banner.AdReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.adfeiwo.banner.WebViewActivity"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.feiwo.coverscreen.SA" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:launchMode="singleInstance" android:name="com.feiwo.coverscreen.WA"/>
+        <receiver android:name="com.feiwo.coverscreen.SR">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="broadcast.route.control"/>
+            </intent-filter>
+        </receiver>
+        <activity android:icon="@drawable/ic_rec" android:label="热门推荐" android:name="cn.ahut.zm.A" android:theme="@android:style/Theme.Dialog">
+            <intent-filter>
+                <action android:name="a"/>
+            </intent-filter>
+        </activity>
+        <activity android:icon="@drawable/ic_yxtj" android:label="游戏推荐" android:name="cn.ahut.zm.B" android:theme="@android:style/Theme.Dialog">
+            <intent-filter>
+                <action android:name="b"/>
+            </intent-filter>
+        </activity>
+        <activity android:icon="@drawable/ic_yytj" android:label="应用推荐" android:name="cn.ahut.zm.C" android:theme="@android:style/Theme.Dialog">
+            <intent-filter>
+                <action android:name="c"/>
+            </intent-filter>
+        </activity>
+        <activity android:icon="@drawable/ic_zjbb" android:label="装机必备" android:name="cn.ahut.zm.D" android:theme="@android:style/Theme.Dialog">
+            <intent-filter>
+                <action android:name="d"/>
+            </intent-filter>
+        </activity>
+        <service android:name="cn.ahut.zm.S"/>
+        <receiver android:name="cn.ahut.zm.BR">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.lseiei.downloadManager"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="MF_KEY" android:value="8C98373142D5F45A541DA7A37FB865D4"/>
+        <service android:name="cn.ahut.zm.MyUS"/>
+        <receiver android:name="cn.ahut.zm.MyBR">
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.lseiei.downloadManager"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="ZC_KEY" android:value="8C98373142D5F45A541DA7A37FB865D4"/>
+    </application>
+</manifest>

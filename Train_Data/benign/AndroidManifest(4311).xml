@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.onegogo.explorer">
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-feature android:name="android.hardware.location" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.network" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <uses-feature android:name="android.hardware.nfc" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.software.home_screen" android:required="false"/>
+    <uses-feature android:name="android.software.live_wallpaper" android:required="false"/>
+    <uses-feature android:name="android.software.app_widgets" android:required="false"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" android:required="false"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
+    <uses-permission android:name="com.android.vending.INSTALL_REFERRER"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:maxSdkVersion="20" android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE"/>
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <application android:allowBackup="false" android:hardwareAccelerated="true" android:icon="@drawable/ic_explorer" android:label="@string/app_name_fm" android:largeHeap="true" android:name="com.tshare.transfer.TheApplication" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <meta-data android:name="android.max_aspect" android:value="3.0"/>
+        <activity android:name="com.fantasy.guide.activity.FantasyRouter" android:process=":fantasy" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts"/>
+        </activity>
+        <activity android:exported="true" android:name="com.tshare.transfer.ui.activity.AppLinkActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="onegogo"/>
+            </intent-filter>
+        </activity>
+        <activity android:icon="@drawable/transfer_icon" android:label="@string/turbo_transfer" android:launchMode="singleTask" android:name="com.tshare.transfer.ui.activity.TransferMainActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:icon="@drawable/transfer_icon" android:label="@string/turbo_transfer" android:name="com.tshare.transfer.ui.activity.AddTransferMainShortcutActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:icon="@drawable/icon_web_udisk" android:label="@string/phone_udisk" android:name="com.tshare.transfer.ui.activity.AddWebTransferShortcutActivity" android:process=":webshare">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.CREATE_SHORTCUT"/>
+            </intent-filter>
+        </activity>
+        <activity android:finishOnTaskLaunch="true" android:label="@string/tshare_system_share_type_list_label_share_by_app" android:launchMode="singleTask" android:name="com.tshare.transfer.ui.activity.ExternalShareActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:excludeFromRecents="true" android:exported="false" android:multiprocess="true" android:name="com.google.android.gms.ads.AdActivity" android:noHistory="true" android:taskAffinity="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:multiprocess="true" android:name="com.facebook.ads.AudienceNetworkActivity" android:taskAffinity="com.facebook.ads.AudienceNetworkActivity"/>
+        <activity android:excludeFromRecents="true" android:label="@string/turbo_transfer" android:launchMode="singleTop" android:name="com.tshare.transfer.ui.activity.TransferSessionActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Black.NoTitleBar" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/tshare_system_share_type_list_label_share_by_web" android:name="com.tshare.transfer.ui.activity.WebShareActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.tshare.filemanager.PersonalCenterActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="common.ads.recommend.notification.RecommendedAdLinkActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.tshare.transfer.ui.activity.PickTransferFileActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.tshare.transfer.ui.activity.DirectoryPicturesActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.tshare.transfer.ui.activity.DirectoryActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.tshare.transfer.ui.activity.PersonalInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.tshare.transfer.ui.activity.ContactImportActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.tshare.transfer.ui.activity.WebShareTypeChooserActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.tshare.transfer.ui.activity.BluetoothShareActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.tshare.transfer.ui.activity.WebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.tshare.filemanager.SafeWebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.tshare.transfer.ui.activity.HistoryActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.tshare.transfer.ui.activity.AboutUsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.tshare.filemanager.UnCommonUseActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard|keyboardHidden|mcc|mnc|navigation|orientation|uiMode" android:excludeFromRecents="true" android:icon="@drawable/ic_explorer" android:label="@string/app_name_fm" android:launchMode="singleTop" android:name="com.tshare.filemanager.NewUserGuideActivity" android:process=":fantasy" android:screenOrientation="portrait" android:theme="@style/Theme.notAnimation"/>
+        <activity android:launchMode="singleTop" android:name="com.tshare.filemanager.FileExplorerActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:name="com.tshare.transfer.ui.activity.ImageReaderActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.tshare.transfer.ui.activity.TextReaderActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <receiver android:name="com.tshare.transfer.NetworkStatusReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <action android:name="android.intent.action.PACKAGE_CHANGED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.tshare.transfer.AppLinkResponse">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <service android:icon="@drawable/icon_storage_off" android:label="@string/phone_storage" android:name="com.tshare.filemanager.tile.StorageTileService" android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+            <meta-data android:name="android.service.quicksettings.ACTIVE_TILE" android:value="true"/>
+        </service>
+        <service android:exported="true" android:name="common.marsdaemon.AccountService"/>
+        <service android:name="com.tshare.transfer.service.UpdateService"/>
+        <service android:name="com.tshare.transfer.service.FileMonitorNotifyService"/>
+        <service android:name="com.tshare.filemanager.filemonitor.FileMonitorService"/>
+        <service android:exported="false" android:name="com.tshare.filemanager.service.FileManagerService">
+            <intent-filter>
+                <action android:name="FILEMANAGERSERVICE_ACTION_SERVICE_OPERATION"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="common.window.FloatWindowService"/>
+        <provider android:authorities="com.onegogo.explorer.transfer.history" android:exported="false" android:name="cn.tranpus.core.db.TransferHistoryContentProvider"/>
+        <provider android:authorities="com.onegogo.explorer.transfer.device" android:exported="false" android:name="cn.tranpus.core.db.TranslateDeviceContentProvider"/>
+        <activity android:launchMode="standard" android:name="com.tshare.filemanager.setting.SettingActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:launchMode="standard" android:name="com.tshare.filemanager.setting.AdvancedFeaturesActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.tshare.filemanager.filemonitor.LatestFileActivity" android:screenOrientation="portrait" android:taskAffinity="" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.onegogo.explorer.provider.crossprocess" android:exported="false" android:name="common.provider.CrossProcessProvider"/>
+        <activity android:exported="false" android:name="common.disk.clean.DiskAnalyseResultActivity" android:screenOrientation="portrait"/>
+        <service android:exported="false" android:name="org.odin.OdinService"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:multiprocess="true" android:name="com.mopub.common.MoPubBrowser"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:multiprocess="true" android:name="com.mopub.mobileads.MraidVideoPlayerActivity"/>
+        <meta-data android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule" android:value="GlideModule"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.mimas.uninstall.ui.CleanActivity" android:screenOrientation="portrait" android:taskAffinity="com.mimas.uninstall.ui.CleanActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:excludeFromRecents="true" android:name="com.mimas.uninstall.AdService"/>
+        <meta-data android:name="com.mnt.bat_app_key" android:value="7GOWM6HKMPM0TLXNA2GHZOQW"/>
+        <provider android:authorities="com.onegogo.explorer.user.sdk.sharepref" android:exported="false" android:name="com.tshare.transfer.utils.MutiProcessUserSDKProvider"/>
+        <activity android:name="com.mnt.MntActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:name="com.mnt.MntBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleTop" android:name="com.lib.promote.PromoteSaleActivity" android:screenOrientation="portrait" android:taskAffinity=".promote" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:excludeFromRecents="true" android:exported="true" android:launchMode="singleTask" android:name="org.enceladus.callshow.gdpr.CallShowPermissionGuideActivity" android:screenOrientation="portrait" android:taskAffinity="org.enceladus.callshow.gdpr.CallShowPermissionGuideActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="org.enceladus.callshow.gdpr.CallShowDataGuideActivity" android:screenOrientation="portrait" android:taskAffinity="org.enceladus.callshow.gdpr.CallShowDataGuideActivity" android:theme="@style/BottomDialogs"/>
+        <service android:enabled="true" android:exported="true" android:name="com.lib.promote.service.PromoteSaleService">
+            <intent-filter>
+                <action android:name="com.lib.promote.ID"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="true" android:name="com.lib.promote.service.StartReceiver">
+            <intent-filter>
+                <action android:name="com.lib.promote.start"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="org.homeplanet.coreservice.provider_com.onegogo.explorer" android:enabled="true" android:exported="false" android:name="org.homeplanet.coreservice.ServiceProvider"/>
+        <service android:enabled="true" android:exported="false" android:name="org.homeplanet.coreservice.BinderService"/>
+        <receiver android:exported="true" android:name="org.neptune.receiver.PlayReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.apollo.downloadlibrary.DownloadService"/>
+        <provider android:authorities="com.apollo.downloadslibrary_com.onegogo.explorer" android:exported="false" android:name="com.apollo.downloadlibrary.DownloadProvider"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/account_facebook_id"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationName" android:value="@string/app_name_fm"/>
+        <provider android:authorities="com.facebook.app.FacebookContentProvider454131401453413" android:exported="true" android:name="com.facebook.FacebookContentProvider"/>
+        <service android:exported="false" android:name="com.hummingbirdcloud.DService" android:process="com.onegogo.explorer"/>
+        <activity android:exported="false" android:name="com.hummingbirdcloud.DActivity" android:process="com.onegogo.explorer"/>
+        <activity android:exported="false" android:name="org.njord.account.ui.view.ProfileCenterActivity" android:theme="@style/MyProfile" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="com.onegogo.explorer.njord.account.profile"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:launchMode="singleTop" android:name="org.tethys.popup.module.scene.popup.ui.ScenePopupActivity" android:noHistory="true" android:screenOrientation="portrait" android:taskAffinity="org.tethys.popup.module.scene.popup.ui.ScenePopupActivity" android:theme="@style/popup_dialog_Theme"/>
+        <receiver android:name="org.staturn.control_sdk.strategy.UpdateInstalledReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="org.tercel.searchlocker.activity.LockerClearDataActivity"/>
+        <activity android:name="com.tshare.transfer.ui.activity.ContactUsActivity"/>
+        <activity android:alwaysRetainTaskState="true" android:configChanges="fontScale|keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|uiMode" android:name="com.tshare.filemanager.MillionaireActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <meta-data android:name="mob_power_app_Id" android:value="1000023"/>
+        <meta-data android:name="mob_power_api_key" android:value="6dfe4e12177e42a45ad1bfc8f2209e2a"/>
+        <service android:exported="true" android:name="com.power.PowerService" android:permission="android.permission.BIND_JOB_SERVICE" android:persistent="true"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.power.PowerReceiver">
+            <intent-filter>
+                <action android:name="com.mobpower.sdk.probe"/>
+                <action android:name="com.mobpower.sdk.probe.action"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.intent.action.BATTERY_CHANGED"/>
+                <action android:name="android.intent.action.TIME_TICK"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="android.app.action.NEXT_ALARM_CLOCK_CHANGED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:multiprocess="true" android:name="com.inmobi.rendering.InMobiAdActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.inmobi.commons.core.utilities.uid.ImIdShareBroadCastReceiver">
+            <intent-filter>
+                <action android:name="com.inmobi.share.id"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.inmobi.ads.account.id" android:value="23360dbf671242079fc5467c0812a7cc"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleInstance" android:name="com.file.deal.VideoPlayActivity" android:process="com.deal.file" android:screenOrientation="sensor" android:theme="@style/DealTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.file.deal.AudioPlayActivity" android:process="com.deal.file" android:theme="@style/DialogTheme"/>
+        <service android:name="com.file.deal.AudioService" android:process="com.deal.file"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:name="com.file.deal.DispatchActivity" android:theme="@style/Transparent">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:mimeType="audio/*"/>
+                <data android:mimeType="application/ogg"/>
+                <data android:mimeType="video/*"/>
+                <data android:mimeType="application/x-quicktimeplayer"/>
+                <data android:mimeType="application/vnd.rn-realmedia"/>
+                <data android:mimeType="image/*"/>
+                <data android:scheme="content"/>
+                <data android:scheme="file"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="false" android:name="com.hero.maxwell.CoreWebService" android:process=":webshare"/>
+        <activity android:icon="@drawable/icon_web_udisk" android:label="@string/phone_udisk" android:launchMode="singleTask" android:name="com.hero.maxwell.ui.WebTransferActivity" android:process=":webshare" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.hero.maxwell.ui.TransferImageReaderActivity" android:process=":webshare" android:screenOrientation="portrait" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+        <activity android:label="WebTransferHistory" android:name="com.hero.maxwell.ui.WebTransferHistoryActivity" android:process=":webshare" android:screenOrientation="portrait"/>
+        <meta-data android:name="cn.tranpus.core.imageload.ImageLoadModule" android:value="GlideModule"/>
+        <activity android:name="com.google.zxing.client.android.CaptureActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <service android:name="org.tethys.popup.module.scene.popup.SceneTimingJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:exported="false" android:launchMode="singleTask" android:name="org.njord.activity.ActivityBrowserImp" android:screenOrientation="portrait" android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="com.onegogo.explorer.njord.activity.browserimp"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:exported="false" android:launchMode="singleTask" android:name="org.njord.activity.WebActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="com.onegogo.explorer.njord.activity.web"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.augeapps.battery.fview.LockerActivity" android:screenOrientation="portrait" android:taskAffinity="com.augeapps.charging" android:theme="@android:style/Theme.Wallpaper.NoTitleBar" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.augeapps.locker.activity.DismissActivity" android:screenOrientation="portrait" android:taskAffinity="com.augeapps.lock.activity.dismiss" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:enabled="true" android:exported="true" android:name="com.augeapps.battery.ChargingCoreService">
+            <intent-filter>
+                <action android:name="com.battery.c.model.ACTION_CHARGING"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.augeapps.loadingpage.boost.LoadingBoosterResultActivity" android:screenOrientation="portrait" android:taskAffinity="com.augeapps.loadingpage.LoadingBoosterResultActivity" android:theme="@android:style/Theme.Wallpaper.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.augeapps.loadingpage.battery.LoadingBatteryResultActivity" android:screenOrientation="portrait" android:taskAffinity="com.augeapps.loadingpage.LoadingBatteryResultActivity" android:theme="@android:style/Theme.Wallpaper.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.augeapps.loadingpage.battery.LoadingBatteryScanActivity" android:screenOrientation="portrait" android:taskAffinity="com.augeapps.loadingpage.battery.LoadingBatteryScanActivity" android:theme="@android:style/Theme.Wallpaper.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.augeapps.guide.LockerFullScreenGuideActivity" android:screenOrientation="portrait" android:taskAffinity="com.augeapps.guide.LockerFullScreenGuideActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.augeapps.guide.TransparentGuideActivity" android:screenOrientation="portrait" android:taskAffinity="com.augeapps.guide.TransparentGuideActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.augeapps.guide.DropPermissionGuideActivity" android:screenOrientation="portrait" android:taskAffinity="com.augeapps.guide.DropPermissionGuideActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:excludeFromRecents="true" android:name="com.augeapps.battery.activity.ScreenLockSettingActivity" android:screenOrientation="portrait" android:taskAffinity="com.augeapps.battery.activity.ScreenLockSettingActivity" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:launchMode="singleInstance" android:name="com.augeapps.weather.activity.LockerWeatherSettingActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:excludeFromRecents="true" android:name="com.augeapps.weather.activity.WeatherDetailActivity" android:screenOrientation="portrait" android:taskAffinity="com.augeapps.weather.activity.WeatherDetailActivity" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <receiver android:name="com.augeapps.notification.receiver.SMSReceiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|uiMode" android:launchMode="singleTask" android:name="org.tercel.searchlocker.activity.LockerWebViewActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <provider android:authorities="libexportedwebview_com.onegogo.explorer_UPLOAD" android:exported="false" android:grantUriPermissions="true" android:name="org.tercel.libexportedwebview.upload.UploadFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/tersearch_file_paths"/>
+        </provider>
+        <provider android:authorities="com.onegogo.explorer.push.db" android:exported="false" android:name="com.wasp.sdk.push.data.DbProvider"/>
+        <receiver android:name="com.wasp.sdk.push.gcm.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.onegogo.explorer"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.wasp.sdk.push.gcm.PushGatewayService"/>
+        <service android:exported="false" android:name="com.hb.CS" android:process=":hb"/>
+        <activity android:name="com.hb.av.PA"/>
+        <activity android:name="com.hb.av.DA"/>
+        <activity android:launchMode="singleInstance" android:name="com.hb.av.PASI0"/>
+        <activity android:launchMode="singleTask" android:name="com.hb.av.PASTA0"/>
+        <activity android:launchMode="singleTop" android:name="com.hb.av.PASTO0"/>
+        <activity android:launchMode="singleInstance" android:name="com.hb.av.PASI1"/>
+        <activity android:launchMode="singleTask" android:name="com.hb.av.PASTA1"/>
+        <activity android:launchMode="singleTop" android:name="com.hb.av.PASTO1"/>
+        <activity android:launchMode="singleInstance" android:name="com.hb.av.PASI2"/>
+        <activity android:launchMode="singleTask" android:name="com.hb.av.PASTA2"/>
+        <activity android:launchMode="singleTop" android:name="com.hb.av.PASTO2"/>
+        <activity android:launchMode="singleInstance" android:name="com.hb.av.PASI3"/>
+        <activity android:launchMode="singleTask" android:name="com.hb.av.PASTA3"/>
+        <activity android:launchMode="singleTop" android:name="com.hb.av.PASTO3"/>
+        <service android:exported="false" android:name="com.hb.sv.PS1"/>
+        <service android:exported="false" android:name="com.hb.sv.PS2"/>
+        <service android:exported="false" android:name="com.hb.sv.PS3"/>
+        <service android:exported="false" android:name="com.hb.sv.PS0"/>
+        <service android:exported="false" android:name="com.hb.sv.DS"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="org.hera.crash.upload.HeraCrashUploadActivity" android:process="org.hera.crash" android:screenOrientation="portrait" android:theme="@android:style/Theme.DeviceDefault"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:excludeFromRecents="true" android:name="org.hera.crash.upload.HeraCrashDetailsActivity" android:parentActivityName="org.hera.crash.upload.HeraCrashUploadActivity" android:process="org.hera.crash" android:screenOrientation="portrait" android:theme="@android:style/Theme.DeviceDefault">
+            <meta-data android:name="parentActivityName" android:value="org.hera.crash.upload.HeraCrashUploadActivity"/>
+        </activity>
+        <service android:name="org.hera.crash.upload.HeraCrashService" android:process="org.hera.crash"/>
+        <service android:exported="false" android:name="com.lachesis.innerservice.PlutoService"/>
+        <service android:exported="false" android:name="com.lachesis.innerservice.InnerService"/>
+        <service android:exported="true" android:name="com.lachesis.account.AuthenticationService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@xml/authenticator"/>
+        </service>
+        <service android:exported="true" android:name="com.lachesis.account.SyncService">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter"/>
+            </intent-filter>
+            <meta-data android:name="android.content.SyncAdapter" android:resource="@xml/sync_adapter"/>
+        </service>
+        <provider android:authorities="com.onegogo.explorer_daemon" android:exported="true" android:name="com.lachesis.account.AccountProvider"/>
+        <service android:exported="false" android:name="com.lachesis.module.jobscheduler.PlutoJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.lachesis.module.jobscheduler.PlutoJobServiceFantasy" android:permission="android.permission.BIND_JOB_SERVICE" android:process=":fantasy"/>
+        <service android:enabled="true" android:exported="true" android:name="com.lachesis.gcm.PlutoGcmService" android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE">
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="true" android:name="com.lachesis.gcm.PlutoGcmServiceFantasy" android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE" android:process=":fantasy">
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="false" android:name="com.apollo.downloadlibrary.DownloadReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <action android:name="com.apollo.downloadlibrary.DOWNLOAD_WAKEUP"/>
+                <action android:name="com.apollo.downloadlibrary.DOWNLOAD_OPEN"/>
+                <action android:name="com.apollo.downloadlibrary.DOWNLOAD_LIST"/>
+                <action android:name="com.apollo.downloadlibrary.DOWNLOAD_HIDE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.fantasy.manager.activity.TemplateActivity" android:theme="@android:style/Theme.DeviceDefault.Dialog.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.fantasy.manager.activity.FantasyConsentActivity" android:taskAffinity=":fantasy.consent" android:theme="@style/BottomDialogs"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.fantasy.guide.activity.WebDetailActivity" android:noHistory="true" android:process=":fantasy" android:screenOrientation="portrait" android:taskAffinity=":fantasy" android:theme="@style/FeatureInfoPageTheme"/>
+        <activity android:excludeFromRecents="true" android:name="com.fantasy.guide.activity.CountrySettingActivity" android:process=":fantasy" android:screenOrientation="portrait" android:taskAffinity=":fantasy" android:theme="@style/FeatureInfoPageTheme"/>
+        <provider android:authorities="com.fantasy.provider_com.onegogo.explorer" android:exported="false" android:name="com.fantasy.core.dao.FantasyProvider" android:process=":fantasy"/>
+        <activity android:launchMode="singleTop" android:name="org.njord.share.sms.ui.SmsSelectContactActivity" android:screenOrientation="portrait" android:theme="@style/SmsSelectSimpleStyle"/>
+        <activity android:launchMode="singleTop" android:name="org.njord.share.sms.ui.FBShareActivity" android:theme="@style/FBShareStyle"/>
+        <activity android:name="org.njord.account.core.ui.AccountERActivity"/>
+        <service android:exported="false" android:name="com.evernote.android.job.v21.PlatformJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.evernote.android.job.v14.PlatformAlarmService"/>
+        <receiver android:exported="false" android:name="com.evernote.android.job.v14.PlatformAlarmReceiver">
+            <intent-filter>
+                <action android:name="com.evernote.android.job.v14.RUN_JOB"/>
+                <action android:name="net.vrallev.android.job.v14.RUN_JOB"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.evernote.android.job.JobBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="false" android:exported="true" android:name="com.evernote.android.job.gcm.PlatformGcmService" android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE">
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.evernote.android.job.JobRescheduleService"/>
+        <meta-data android:name="stark_vc" android:value="119"/>
+        <activity android:configChanges="keyboard|keyboardHidden|mcc|mnc|navigation|orientation|uiMode" android:excludeFromRecents="true" android:launchMode="singleTop" android:name="org.mimas.notify.clean.NotificationActivity" android:screenOrientation="portrait" android:taskAffinity="org.mimas.notify.clean.NotificationActivity" android:theme="@style/dialog_transparent"/>
+        <activity android:configChanges="keyboard|keyboardHidden|mcc|mnc|navigation|orientation|uiMode" android:excludeFromRecents="true" android:launchMode="singleTop" android:name="org.mimas.notify.clean.NotifyBoostAdActivity" android:screenOrientation="portrait" android:taskAffinity="org.mimas.notify.clean.NotifyBoostAdActivity" android:theme="@style/dialog_transparent"/>
+        <activity android:configChanges="keyboard|keyboardHidden|mcc|mnc|navigation|orientation|uiMode" android:excludeFromRecents="true" android:launchMode="singleTop" android:name="org.mimas.notify.clean.NotifyBoostCardActivity" android:screenOrientation="portrait" android:taskAffinity="org.mimas.notify.clean.NotifyBoostCardActivity" android:theme="@style/dialog_transparent"/>
+        <activity android:configChanges="keyboard|keyboardHidden|mcc|mnc|navigation|orientation|uiMode" android:excludeFromRecents="true" android:launchMode="singleTop" android:name="org.mimas.notify.clean.NotifyCleanFlowActivity" android:screenOrientation="portrait" android:taskAffinity="org.mimas.notify.clean.NotifyCleanFlowActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|mcc|mnc|navigation|orientation|uiMode" android:excludeFromRecents="true" android:launchMode="singleTop" android:name="org.mimas.notify.clean.NotifyCleanMiddleActivity" android:screenOrientation="portrait" android:taskAffinity="org.mimas.notify.clean.NotifyCleanMiddleActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="org.mimas.notify.clean.utils.SafeWebViewActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|mcc|mnc|navigation|orientation|uiMode" android:excludeFromRecents="true" android:launchMode="singleTop" android:name="org.mimas.notify.clean.NotifyCleanAuthorizeActivity" android:screenOrientation="portrait" android:taskAffinity="org.mimas.notify.clean.NotifyCleanAuthorizeActivity" android:theme="@style/dialog"/>
+        <activity android:configChanges="keyboard|keyboardHidden|mcc|mnc|navigation|orientation|uiMode" android:excludeFromRecents="true" android:launchMode="singleTop" android:name="org.mimas.notify.clean.NotifyCleanConfirmActivity" android:screenOrientation="portrait" android:taskAffinity="org.mimas.notify.clean.NotifyCleanConfirmActivity" android:theme="@style/dialog"/>
+        <service android:enabled="true" android:name="com.inmobi.ads.ApkDownloader$ApkDownloadService"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:multiprocess="true" android:name="org.saturn.stark.core.wrapperads.InterstitialAdActivity" android:taskAffinity="org.saturn.stark.core.wrapperads.InterstitialAdActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:name="org.mimas.notify.NotifyUpdateReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.notifyads.UPDATE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:exported="true" android:launchMode="singleTop" android:name="org.mimas.notify.FbDialogActivity" android:screenOrientation="portrait" android:taskAffinity="org.mimas.notify.FbDialogActivity" android:theme="@style/dialog_Theme"/>
+        <activity android:configChanges="keyboard|keyboardHidden|mcc|mnc|navigation|orientation|uiMode" android:excludeFromRecents="true" android:exported="false" android:launchMode="singleInstance" android:name="com.azck.AzckActivityWrapper" android:screenOrientation="portrait" android:theme="@style/ManualApkUpdateDialogActivity"/>
+        <activity android:launchMode="singleInstance" android:name="com.azck.AzckGuideActivity" android:theme="@style/GuideActivity"/>
+        <receiver android:exported="false" android:name="com.azck.UniversalReceiver">
+            <intent-filter>
+                <action android:name="com.nox.action.download.success"/>
+                <action android:name="action_receiver_deep_link_handle"/>
+                <action android:name="action_receiver_in_nox"/>
+                <action android:name="action_receiver_gp_in_nox"/>
+                <action android:name="action_receiver_official_in_nox"/>
+                <action android:name="action_receiver_remove_notification"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="org.neptune.receiver.GuardPlayReceiver">
+            <intent-filter android:priority="-1000">
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tools.athene.loading.LoadingActivity" android:taskAffinity="" android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.tools.athene.MonitorReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tools.g3.loading.LoadingActivity" android:taskAffinity="" android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:multiprocess="true" android:name="com.mopub.mobileads.MoPubActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:multiprocess="true" android:name="com.mopub.mobileads.MraidActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:multiprocess="true" android:name="com.mopub.common.privacy.ConsentDialogActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:multiprocess="true" android:name="com.mopub.common.privacy.ConsentDialogActivity"/>
+        <service android:exported="true" android:name="org.enceladus.appexit.monitor.AppLoggingService" android:process=":active"/>
+        <service android:name="org.enceladus.appexit.monitor.InnerService" android:process=":active"/>
+        <receiver android:name="org.enceladus.security.ProtectReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <activity android:excludeFromRecents="true" android:name="org.enceladus.guide.UsageGuideTempActivity" android:screenOrientation="portrait"/>
+        <activity android:excludeFromRecents="true" android:multiprocess="true" android:name="org.enceladus.appopen.SplashActivity" android:taskAffinity="org.enceladus.appopen.SplashActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <receiver android:name="org.enceladus.callshow.activate.CallShowProtectReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="org.enceladus.callshow.module.CallShowProtectService"/>
+        <service android:exported="false" android:name="org.tercel.searchprotocol.SearchProtocolService"/>
+        <provider android:authorities="org.tercel.liteborwser.provider.UPLOAD_com.onegogo.explorer" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <activity android:configChanges="keyboard|keyboardHidden|mcc|mnc|navigation|orientation|uiMode" android:excludeFromRecents="true" android:launchMode="singleTop" android:name="org.tercel.litebrowser.ui.SafeWebViewActivity" android:screenOrientation="portrait" android:taskAffinity="org.tercel.litebrowser.ui.SafeWebViewActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <activity android:exported="false" android:name="org.njord.account.ui.view.AccountActivity" android:theme="@style/AccountTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:exported="false" android:name="org.njord.account.ui.view.LoginActivity" android:theme="@style/AccountTheme" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="com.onegogo.explorer.njord.account.login"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:name="org.njord.account.ui.view.VerifyEmailCodeActivity" android:theme="@style/AccountTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:exported="false" android:name="org.njord.account.ui.view.AccountKitProfileActivity" android:theme="@style/AccountKitProfileTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:exported="false" android:name="org.njord.account.ui.view.CropPhotoActivity" android:theme="@style/AccountTheme.CropPhoto"/>
+        <activity android:exported="false" android:name="org.njord.account.ui.view.EditContentActivity" android:theme="@style/ProfileTheme" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:exported="false" android:name="org.njord.account.ui.view.SelectRegionActivity" android:theme="@style/ProfileTheme"/>
+        <provider android:authorities="com.onegogo.explorer.db" android:exported="false" android:name="org.njord.account.core.data.DbProvider"/>
+        <activity android:configChanges="keyboard|keyboardHidden|mcc|mnc|navigation|orientation|uiMode" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.apusapps.userforum.ui.RateDialogActivity" android:screenOrientation="portrait" android:theme="@style/dialog"/>
+        <activity android:name="com.apusapps.userforum.ui.UserForumMainActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.apusapps.userforum.ui.UserForumPostActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:exported="true" android:name="com.apusapps.userforum.ui.PickBigImagesActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.apusapps.userforum.ui.PickOrTakeImageActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="org.habit.bokoblin.mulligan.WorkerService" android:process="com.onegogo.explorer"/>
+    </application>
+</manifest>

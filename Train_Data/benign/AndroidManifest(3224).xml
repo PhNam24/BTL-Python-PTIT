@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="28" android:compileSdkVersionCodename="9" package="com.mavencare.client" platformBuildVersionCode="249" platformBuildVersionName="1.43.0">
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps"/>
+    <permission android:name="com.mavencare.client.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.mavencare.client.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="org.openintents.updatechecker.READ_UPDATE_INFO"/>
+    <uses-permission android:name="org.openintents.updatechecker.WRITE_UPDATE_INFO"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:icon="@drawable/m" android:label="@string/app_name" android:name="com.mavencare.client.MavencareApplication" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <activity android:name="com.mavencare.client.ui.bookings.checkinout.signature.TabbedCheckoutSignatureActivity" android:screenOrientation="landscape" android:theme="@style/AppTheme.NoActionBar"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.mavencare.client"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/m_transparent_small"/>
+        <provider android:authorities="com.mavencare.client.provider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <activity android:label="@string/app_name" android:name="com.mavencare.client.activity.LoginActivity" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="com.mavencare.client.activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:name="com.mavencare.client.activity.FullScreenImageActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"/>
+        <activity android:label="Mavencare is Locked" android:name="com.mavencare.client.activity.PinActivity">
+            <intent-filter>
+                <action android:name="com.mavencare.client.activity.PinActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="Care Plan" android:name="com.mavencare.client.activity.CareplanActivity"/>
+        <activity android:label="Care Plan" android:name="com.mavencare.client.activity.CareplanLinkActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="careplan" android:scheme="mavencare"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="Notifications" android:name="com.mavencare.client.activity.NotificationActivity">
+            <intent-filter>
+                <action android:name="com.mavencare.client.activity.NotificationActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="Contact Us" android:name="com.mavencare.client.activity.HelpActivity">
+            <intent-filter>
+                <action android:name="com.mavencare.client.activity.HelpActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_channel_id" android:value="fcm_default_channel"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="97a347f90c9d9322f8664c769dcbb7aec3dd28f9"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyAICzhVa3MttO-MD-HOvPe_kRZatZ_9Zb8"/>
+        <meta-data android:name="com.mixpanel.android.MPConfig.ResourcePackageName" android:value="com.mavencare.client"/>
+        <meta-data android:name="preloaded_fonts" android:resource="@array/preloaded_fonts"/>
+        <activity android:label="@string/title_activity_billing_webview" android:name="com.mavencare.client.activity.BillingItemViewActivity"/>
+        <activity android:label="@string/title_activity_billing_webview" android:name="com.mavencare.client.activity.BillingWebViewActivity"/>
+        <activity android:label="@string/title_booking_detail" android:name="com.mavencare.client.activity.BookingDetailActivity"/>
+        <activity android:label="@string/title_booking_detail" android:name="com.mavencare.client.activity.BookingLinkActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="booking" android:scheme="mavencare"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_text_photo_update" android:name="com.mavencare.client.activity.TextPhotoUpdate"/>
+        <activity android:label="@string/title_task_report" android:name="com.mavencare.client.activity.TaskReportActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/title_job" android:name="com.mavencare.client.activity.JobActivity"/>
+        <activity android:label="@string/title_job" android:name="com.mavencare.client.activity.JobLinkActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="job" android:scheme="mavencare"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/careplan_diff" android:name="com.mavencare.client.activity.CareplanDiffActivity"/>
+        <activity android:label="@string/careplan_basic" android:name="com.mavencare.client.activity.CareplanSummaryActivity"/>
+        <activity android:label="@string/careplan_profile" android:name="com.mavencare.client.activity.CareplanProfileActivity"/>
+        <activity android:label="@string/careplan_family" android:name="com.mavencare.client.activity.CareplanFamilyActivity"/>
+        <activity android:label="@string/careplan_home" android:name="com.mavencare.client.activity.CareplanHomeSummaryActivity"/>
+        <activity android:label="@string/careplan_medication" android:name="com.mavencare.client.activity.CareplanMedicationInfoActivity"/>
+        <activity android:label="@string/careplan_medical" android:name="com.mavencare.client.activity.CareplanMedicalActivity"/>
+        <activity android:label="@string/careplan_allergies_meds" android:name="com.mavencare.client.activity.CareplanAllergyMedicationsActivity"/>
+        <activity android:label="@string/careplan_tasks" android:name="com.mavencare.client.activity.CareplanTaskActivity"/>
+        <activity android:label="Timesheet" android:name="com.mavencare.client.activity.PaystubActivity"/>
+        <activity android:label="Timesheet" android:name="com.mavencare.client.activity.PaystubLinkActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="timesheet" android:scheme="mavencare"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="Articles" android:name="com.mavencare.client.activity.KnowledgeCentreArticleListActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:label="Article" android:name="com.mavencare.client.activity.KnowledgeCentreArticleActivity"/>
+        <activity android:name="com.mavencare.client.activity.ClientBookingDetailActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.mavencare.client.activity.ClientTaskDetailActivity"/>
+        <activity android:name="com.mavencare.client.activity.CaregiverTaskDetailActivity"/>
+        <activity android:name="com.mavencare.client.activity.FeedDetailActivity"/>
+        <activity android:label="Profile" android:name="com.mavencare.client.activity.CaregiverBioActivity"/>
+        <activity android:name="com.mavencare.client.activity.WebViewActivity"/>
+        <activity android:name="com.mavencare.client.activity.TermsWebViewActivity"/>
+        <activity android:label="Vacation Request" android:name="com.mavencare.client.activity.VacationRequestActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="Chat" android:name="com.mavencare.client.activity.ChatMessagesActivity"/>
+        <activity android:label="Rooms" android:name="com.mavencare.client.activity.ChatRoomListActivity"/>
+        <activity android:label="Archived Jobs" android:name="com.mavencare.client.activity.ArchivedJobTableActivity"/>
+        <activity android:label="Archived Offers" android:name="com.mavencare.client.activity.ArchivedOfferTableActivity"/>
+        <activity android:name="com.mavencare.client.activity.JobOfferWebviewActivity"/>
+        <activity android:label="Job Offer" android:name="com.mavencare.client.activity.JobOfferViewActivity"/>
+        <activity android:label="Job Offer" android:name="com.mavencare.client.activity.JobOfferViewLinkActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="offer" android:scheme="mavencare"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="Chat" android:name="com.mavencare.client.activity.ChatTabStripActivity"/>
+        <activity android:label="Chart" android:name="com.mavencare.client.activity.CareplanChartActivity"/>
+        <activity android:label="Trends" android:name="com.mavencare.client.activity.TrendsViewListActivity"/>
+        <activity android:label="Goals" android:name="com.mavencare.client.activity.CareplanGoalsActivity"/>
+        <activity android:label="Trends" android:name="com.mavencare.client.activity.FullScreenLineChartActivity" android:screenOrientation="landscape"/>
+        <activity android:label="@string/title_activity_rating" android:name="com.mavencare.client.activity.RatingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.mavencare.client.activity.FormSectionsActivity"/>
+        <activity android:name="com.mavencare.client.activity.FormCategoryActivity"/>
+        <activity android:name="com.mavencare.client.activity.FormSigningActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.mavencare.client.activity.TroubleshootActivity">
+            <intent-filter>
+                <action android:name="com.mavencare.client.activity.TroubleshootActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service android:name="com.mavencare.client.services.MavenMessagingService" android:stopWithTask="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:name="com.mavencare.client.activity.LocationSettingsActivity"/>
+        <activity android:name="com.mavencare.client.activity.NetworkActivity"/>
+        <activity android:name="com.mavencare.client.activity.CheckInOutSuccessActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <service android:enabled="true" android:exported="false" android:name="com.novoda.merlin.service.MerlinService"/>
+        <service android:exported="false" android:name="com.mavencare.client.services.location.LocationService"/>
+        <service android:enabled="true" android:exported="true" android:name="com.mavencare.client.services.location.LocationForegroundService"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.mavencare.client.services.location.GeofenceBroadcastReceiver"/>
+        <service android:exported="false" android:name="com.mavencare.client.services.location.GeofenceTransitionsJobIntentService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.mavencare.client.services.NetworkStatusService"/>
+        <service android:name="com.mavencare.client.ui.bookings.BookingService"/>
+        <activity android:name="com.mavencare.client.activity.ContactsActivity"/>
+        <provider android:authorities="com.mavencare.client.crashlyticsinitprovider" android:exported="false" android:initOrder="90" android:name="com.crashlytics.android.CrashlyticsInitProvider"/>
+        <provider android:authorities="com.mavencare.client.firebaseperfprovider" android:exported="false" android:initOrder="101" android:name="com.google.firebase.perf.provider.FirebasePerfProvider"/>
+        <service android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.component.FirebasePerfRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <activity android:excludeFromRecents="true" android:exported="true" android:launchMode="singleTask" android:name="com.google.firebase.auth.internal.FederatedSignInActivity" android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.mavencare.client.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <service android:exported="true" android:name="com.firebase.jobdispatcher.GooglePlayReceiver" android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE">
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.novoda.merlin.MerlinService"/>
+        <provider android:authorities="com.mavencare.client.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+    </application>
+</manifest>

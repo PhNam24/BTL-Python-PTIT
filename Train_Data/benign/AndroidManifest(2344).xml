@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.zoho.sign.zohosign" platformBuildVersionCode="25" platformBuildVersionName="7.1.1">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.zoho.sign.zohosign.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS"/>
+    <permission android:name="com.zoho.sign.zohosign.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <permission android:name="android.permission.MANAGE_DOCUMENTS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="com.zoho.accounts.zohoiam.permission.USE_ZOHO_SSO"/>
+    <meta-data android:name="android.support.VERSION" android:value="25.3.1"/>
+    <permission android:name="com.zoho.sign.zohosign.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.zoho.sign.zohosign.permission.C2D_MESSAGE"/>
+    <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="com.zoho.sign.zohosign.util.SignDelegate" android:supportsRtl="true" android:theme="@style/CustomActionBarTheme">
+        <receiver android:name="com.zoho.notification.gcm.GCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.zoho.sign.zohosign"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.zoho.notification.gcm.GCMIntentService"/>
+        <receiver android:icon="@mipmap/ic_launcher" android:label="Zoho Sign" android:name="com.zoho.sign.zohosign.widgets.ZohoSignWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.zoho.sign.DATA_FETCHED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/app_widget_info"/>
+        </receiver>
+        <provider android:authorities="com.zoho.sign.zohosign.DataProvider" android:exported="false" android:name="com.zoho.sign.zohosign.database.DatabaseProvider"/>
+        <service android:label="@string/app_name" android:name="com.zoho.sign.zohosign.service.BulkDownloadService"/>
+        <service android:label="@string/app_name" android:name="com.zoho.sign.zohosign.service.WidgetDataService"/>
+        <activity android:label="@string/app_name" android:name="com.zoho.sign.zohosign.activities.WelcomeActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.zoho.sign.zohosign.activities.RedirectActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="zohosign"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.zoho.sign.zohosign.activities.LoginActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.SEND"/>
+                <action android:name="android.intent.action.GET_CONTENT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+                <data android:mimeType="application/pdf"/>
+                <data android:mimeType="application/msword"/>
+                <data android:mimeType="application/x-tex"/>
+                <data android:mimeType="application/rtf"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.zoho.sign.zohosign.activities.SignActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:launchMode="singleTask" android:name="com.zoho.sign.zohosign.activities.DeepLinkActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="sign.zoho.com" android:pathPrefix="/zsguest" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="sign.zoho.eu" android:pathPrefix="/zsguest" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.zoho.sign.zohosign.activities.AccountsActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.zoho.sign.zohosign.activities.PassPhraseEntryFragment" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.zoho.sign.zohosign.activities.ChangePassphrase" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme" android:windowSoftInputMode="stateVisible"/>
+        <activity android:label="@string/sign.mobile.title.docViewer" android:name="com.zoho.sign.zohosign.activities.DocumentViewer" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:label="@string/sign.mobile.title.uploadForm" android:name="com.zoho.sign.zohosign.activities.UploadFormActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="Formatting Options" android:name="com.zoho.sign.zohosign.activities.FormattingOptionsActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/sign.mobile.title.drawsign" android:name="com.zoho.sign.zohosign.activities.HandSignatureActivity" android:screenOrientation="landscape" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:label="@string/sign.mobile.title.recipients" android:name="com.zoho.sign.zohosign.activities.RecipientsListView" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/sign.mobile.title.selectSignature" android:name="com.zoho.sign.zohosign.activities.SelectSignatureActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme" android:windowSoftInputMode="stateVisible"/>
+        <activity android:label="@string/sign.mobile.title.documentDetails" android:name="com.zoho.sign.zohosign.activities.DocumentInfoActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:name="com.zoho.sign.zohosign.activities.SignStatusActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:label="@string/sign.mobile.title.secretKey" android:name="com.zoho.sign.zohosign.activities.SecretKeyActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:label="@string/sign.mobile.title.properties" android:name="com.zoho.sign.zohosign.activities.RequestPropertiesActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.zoho.sign.zohosign.activities.CameraManager" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.zoho.sign.zohosign.activities.ProductTourActivity" android:screenOrientation="portrait" android:theme="@style/CustomActionBarTheme" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.zoho.authentication.activities.AuthenticationActivity" android:theme="@style/Theme.Transparent"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:name="com.zoho.accounts.zohoaccounts.ManageActivity"/>
+        <service android:name="com.zoho.accounts.zohoaccounts.InstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:name="com.zoho.accounts.zohoaccounts.WebViewActivity"/>
+        <activity android:launchMode="singleTask" android:name="com.zoho.accounts.zohoaccounts.ChromeTabActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.zoho.sign.zohosign"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"/>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.zoho.sign.zohosign.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+    </application>
+</manifest>

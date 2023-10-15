@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="bob.bobwatches" platformBuildVersionCode="23" platformBuildVersionName="6.0-2704002">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <permission android:name="bob.bobwatches.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="bob.bobwatches.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT"/>
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
+    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT"/>
+    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE"/>
+    <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="bob.bobwatches.BobWatchesApplication" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <provider android:authorities="com.facebook.app.FacebookContentProvider1070884982974939" android:exported="true" android:name="com.facebook.FacebookContentProvider"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.SplashActivity" android:screenOrientation="portrait" android:theme="@style/MyCustomTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="bob.bobwatches.LoginScreenActivity" android:screenOrientation="portrait" android:theme="@style/MyActivityTheme" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="bob.bobwatches.LoginScreenActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.PushActivity" android:screenOrientation="portrait" android:theme="@style/MyActivityTheme">
+            <intent-filter>
+                <action android:name="bob.bobwatches.HomeScreenActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <receiver android:exported="true" android:name="com.google.android.gms.gcm.GcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="bob.bobwatches"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="bob.bobwatches.MyGcmListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="bob.bobwatches.MyInstanceIDListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="bob.bobwatches.RegistrationIntentService"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="f88678839019f873944770e28e7e091f876610f2"/>
+        <activity android:label="@string/title_activity_new_arrivals" android:launchMode="singleTop" android:name="bob.bobwatches.activites.NewArrivalsActivity" android:screenOrientation="portrait" android:theme="@style/MyActivityTheme">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.NewArrivalsActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.MenuActivity" android:screenOrientation="portrait" android:theme="@style/MyMenuTheme">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.MenuActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.UserProfileActivity" android:screenOrientation="portrait" android:theme="@style/MyActivityTheme">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.UserProfileActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|locale|orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.ProductsListingActivity" android:screenOrientation="portrait" android:theme="@style/MyActivityTheme" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.ProductsListingActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.FilterActivity" android:screenOrientation="portrait" android:theme="@style/MyFilterTheme">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.FilterActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.SellWatchActivity" android:screenOrientation="portrait" android:theme="@style/MyActivityTheme" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.SellWatchActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.NotificationActivity" android:screenOrientation="portrait" android:theme="@style/MyActivityTheme">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.NotificationActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.ProductDetailActivity" android:screenOrientation="portrait" android:theme="@style/MyActivityTheme">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.ProductDetailActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.SerialNumberCheckerActivity" android:screenOrientation="portrait" android:theme="@style/MyActivityTheme">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.SerialNumberCheckerActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.NewsBlogsActivity" android:screenOrientation="portrait" android:theme="@style/MyActivityTheme">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.NewsBlogsActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.UpcomingEventsActivity" android:screenOrientation="portrait" android:theme="@style/MyActivityTheme">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.UpcomingEventsActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.AboutUsActivity" android:screenOrientation="portrait" android:theme="@style/MyActivityTheme">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.AboutUsActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.SettingsActivity" android:screenOrientation="portrait" android:theme="@style/MyActivityTheme">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.SettingsActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.CustomizeNotifications" android:screenOrientation="portrait" android:theme="@style/MyActivityTheme">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.CustomizeNotifications"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.ForumsDiscussionsActivity" android:screenOrientation="portrait" android:theme="@style/MyActivityTheme">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.ForumsDiscussionsActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.ShippingAddressActivity" android:screenOrientation="portrait" android:theme="@style/MyActivityTheme">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.ShippingAddressActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.MyCartActivity" android:screenOrientation="portrait" android:theme="@style/MyActivityTheme">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.MyCartActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.ShareWithActivity" android:screenOrientation="portrait" android:theme="@style/MyActivityTheme" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.ShareWithActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.ChangePasswordActivity" android:screenOrientation="portrait" android:theme="@style/MyActivityTheme">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.ChangePasswordActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.WatchBoxActivity" android:screenOrientation="portrait" android:theme="@style/MyActivityTheme">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.WatchBoxActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.OrdersListingActivity" android:screenOrientation="portrait" android:theme="@style/MyActivityTheme">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.OrdersListingActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.OrderProductsListingActivity" android:screenOrientation="portrait" android:theme="@style/MyActivityTheme">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.OrderProductsListingActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.BobForumsActivity" android:screenOrientation="portrait" android:theme="@style/MyActivityTheme">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.BobForumsActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.BobForumTopicsActivity" android:screenOrientation="portrait" android:theme="@style/MyActivityTheme">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.BobForumTopicsActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.BobTopicsPostActivity" android:screenOrientation="portrait" android:theme="@style/MyActivityTheme" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.BobTopicsPostActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.ImageViewActivity" android:screenOrientation="portrait" android:theme="@style/MyFilterTheme">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.ImageViewActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.RefrencesActivity" android:screenOrientation="portrait" android:theme="@style/MyActivityTheme">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.RefrencesActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.PaypalActivity" android:screenOrientation="portrait" android:theme="@style/MyActivityTheme"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.CheckoutAddressActivity" android:screenOrientation="portrait" android:theme="@style/MyProfileTheme" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.CheckoutAddressActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="bob.bobwatches.activites.GuestActivity" android:screenOrientation="portrait" android:theme="@style/GuestTheme" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="bob.bobwatches.activites.GuestActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <provider android:authorities="bob.bobwatches.google_measurement_service" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+    </application>
+</manifest>

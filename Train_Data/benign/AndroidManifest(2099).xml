@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.mrmapps.meditation_apps">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <permission android:name="com.mrmapps.meditation_apps.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.mrmapps.meditation_apps.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <meta-data android:name="android.support.VERSION" android:value="25.3.1"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="com.techx.GlobalApplication" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <activity android:configChanges="orientation" android:label="@string/app_name" android:name="com.techx.MenuActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="@string/domain_name" android:pathPrefix="@string/domain_path" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation" android:name="com.techx.YoutubePlayerFullScreenActivity" android:screenOrientation="landscape"/>
+        <activity android:configChanges="orientation" android:name="com.techx.YoutubPlayerWebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.techx.YoutubeWebViewActivity" android:screenOrientation="landscape"/>
+        <activity android:configChanges="orientation" android:name="com.techx.VideoViewActivity" android:screenOrientation="landscape"/>
+        <activity android:configChanges="orientation" android:name="com.techx.CategoryTextActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.techx.CategoryImageActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.techx.CategeryImageViewerActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.techx.AudioViewerActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:excludeFromRecents="true" android:name="com.techx.TextImageDialogActivity" android:screenOrientation="portrait" android:theme="@style/AppCompatNoTitleDialog"/>
+        <activity android:configChanges="orientation" android:name="com.techx.CollectionActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.techx.WebViewActivity" android:screenOrientation="portrait"/>
+        <service android:name="net.ext.jean.jcplayer.JcPlayerService"/>
+        <receiver android:enabled="true" android:exported="false" android:name="net.ext.jean.jcplayer.JcPlayerNotificationReceiver"/>
+        <activity android:configChanges="orientation" android:name="com.techx.PDFViewActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.techx.DetailActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.techx.ViewPlayerActivity" android:screenOrientation="portrait"/>
+        <receiver android:exported="false" android:name="com.techx.utils.AlarmReciever"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <provider android:authorities="com.mrmapps.meditation_apps.provider" android:exported="false" android:grantUriPermissions="true" android:name="com.libwork.libcommon.KPFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="android.max_aspect" android:value="2.1"/>
+        <service android:exported="false" android:name="com.libwork.libcommon.KPSyncService"/>
+        <service android:name="com.libwork.libcommon.KPFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.libwork.libcommon.KPFirebaseIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="true" android:name="com.libwork.libcommon.KPInstallReferrerReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.mrmapps.meditation_apps"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.mrmapps.meditation_apps.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+    </application>
+</manifest>

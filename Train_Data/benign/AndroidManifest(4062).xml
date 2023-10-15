@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" package="com.mbank.bot.p" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:debuggable="false" android:icon="@mipmap/icon_launcher" android:label="@string/app_name" android:name="com.mitake.android.taiwan.application.BotApplication" android:networkSecurityConfig="@xml/network_security_config" android:theme="@style/AppTheme" android:zygotePreloadName="hm.ew">
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyBPd48NegMz-rwX_L6qOjrW7wcGyjZ_PwU"/>
+        <service android:exported="false" android:name="com.mitake.android.taiwan.fcm.MyFcmListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:name="com.mitake.android.taiwan.fcm.ShowFCMDialogActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.fcm.ShowFCMDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.fcm.ShowFCMWebActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.SplashActivity" android:permission="" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="twqrp" android:path="/webtoapp" android:scheme="@string/portable_pay_scheme"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="home" android:scheme="botbank"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="home" android:scheme="@string/qrcode_login_scheme"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="paytax" android:path="/webtoapp" android:scheme="@string/portable_pay_paytax_scheme"/>
+            </intent-filter>
+            <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts"/>
+        </activity>
+        <activity android:name="com.mitake.android.taiwan.ui.PromotionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.PermissionInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppCompatTheme"/>
+        <activity android:name="com.mitake.android.taiwan.ui.MainTabActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.root.Root01Account"/>
+        <activity android:name="com.mitake.android.taiwan.ui.root.Root02TaiwanBankPrice"/>
+        <activity android:name="com.mitake.android.taiwan.ui.root.Root03TaiwanBankCreditCard"/>
+        <activity android:name="com.mitake.android.taiwan.ui.root.Root04CustomerService"/>
+        <activity android:name="com.mitake.android.taiwan.ui.root.Root05OnlineSettlement"/>
+        <activity android:name="com.mitake.android.taiwan.ui.root.Root06NotificationMessage"/>
+        <activity android:name="com.mitake.android.taiwan.ui.root.Root07LatestActivity"/>
+        <activity android:name="com.mitake.android.taiwan.ui.root.Root08OtherService"/>
+        <activity android:name="com.mitake.android.taiwan.ui.root.Root09Activity"/>
+        <activity android:name="com.mitake.android.taiwan.ui.root.Root10Activity"/>
+        <activity android:name="com.mitake.android.taiwan.ui.root.Root11Activity"/>
+        <activity android:name="com.mitake.android.taiwan.ui.root.Root99More"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab01.Account" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab01.BarcodeScan" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab01.ScanWithDrawActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab02.TaiwanBankPrice"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab02.item01.ExchangeRateMenuActivity"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab02.CommonWebViewActivity"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab02.item02.GoldPriceMenuActivity"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab02.item03.CalculatePriceActivity"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab03.TaiwanBankCrdtCrdActivity"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab03.item01.CrdtCrdIntroduction"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab03.item01.CrdtCrdList"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab03.item01.CrdtCrdDetail"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab03.item02.CrdtCrdStoreOffer"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab03.item02.CrdtCrdStoreOfferMapListMapActivity"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab03.item02.CrdtCrdStoreOfferDetail"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab03.item03.CrdtCrdActivityMessageActivity"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab04.ServiceMenuActivity"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab04.item00.ServiceAnnouncementActivity"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab04.item01.ServiceInfoMenuActivity"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab04.item01.ServiceInfoLocation"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab04.item01.ServiceInfoLocationDetail"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab04.item03.VersionInfo"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab04.item04.NotificationMessagePushSetting"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab05.OnlineSettlement"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab06.NotificationMessageActivity"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab07.LatestActivity"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab07.item01.LatestNewsActivity"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab07.item02.NewsActivity"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab07.item02.ActivityNewsDetail"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab07.item02.ActivityNewsWeb"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab07.item03.Bank3Activity"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab08.OtherService"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab08.item01.FundW"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab08.item02.FundZ"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab08.item04.ETag"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab08.item06.EasyInfo"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab08.item07.eWebService"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab09.Function09Activity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab10.Function10Activity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab11.Function11Activity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.mitake.android.taiwan.ui.tab12.PortablePayLogin" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.mitake.android.taiwan.ui.tab12.PortablePayMenu" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.PortablePayClause" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.PortablePayDeviceAuthentication" android:screenOrientation="portrait" android:windowSoftInputMode="stateVisible"/>
+        <activity android:launchMode="singleTask" android:name="com.mitake.android.taiwan.ui.tab12.verification.PortablePayMIMAOption" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.verification.PortablePayMIMAInputSetting" android:screenOrientation="portrait" android:windowSoftInputMode="stateVisible"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.verification.PortablePayMIMAGestureSetting" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.verification.PortablePayCompleteSetting" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.verification.PortablePayMIMAInputVerification" android:screenOrientation="portrait" android:windowSoftInputMode="stateVisible"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.verification.PortablePayMIMAGestureVerification" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.mitake.android.taiwan.ui.tab12.PortablePayTransactionScanBarcode" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.PortablePayTransactionInputBarcode" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.PortablePayTransactionSummary" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.PortablePayTransactionConfirm" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.PortablePayTransactionResult" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.mitake.android.taiwan.ui.tab12.PortablePayInquiryActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.PortablePayInquirySummaryActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.PortablePayInquiryDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.PortablePayCertificateDownload" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.PortablePayCertificateDownloadVerificationResult" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab99.More"/>
+        <activity android:name="com.mitake.android.taiwan.fcm.PushNotificationMessageDetail"/>
+        <activity android:name="com.mitake.android.taiwan.fcm.PushNotificationMessageWeb"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.PortablePayContractActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.qrp.QRCode_Receipt_Activity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.qrp.QRCode_Receipt_Plus_Activity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.qrp.QRCode_Shopping_Activity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.qrp.QRCode_Setting_Acct_Activity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.qrp.QRCode_Setting_Security_Activity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.qrp.QRCode_PortablePayTransactionSummary" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.qrp.QRCode_PortablePayOTPConfirmType1" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.qrp.QRCode_PortablePayOTPConfirmType2" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.qrp.QRCode_PortablePayTransactionResult" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.qrp.QRCode_PortablePayETicketPhoneNumber" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.qrp.QRCode_PortablePayETicketCellNumQuery" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.mitake.android.taiwan.ui.tab12.qrp.QRCode_Return_Inquiry" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.qrp.QRCode_Return_Show_Code" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.mitake.android.taiwan.ui.tab12.paytax.PayTaxListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.paytax.PayTaxSummary1Activity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.paytax.PayTaxSummary2Activity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.paytax.PayTaxConfirmActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.paytax.PayTaxResultActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab01.QK_PatternLock_Setting" android:theme="@style/Theme.Transparent.Patternlock"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab01.QK_PatternLock_Vetify" android:theme="@style/Theme.Transparent.Patternlock"/>
+        <activity android:launchMode="singleTask" android:name="com.mitake.android.taiwan.ui.tab12.verification.QuickManager" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.verification.PortablePayQKCompleteSetting" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.handicapfree.AccessibilityPageActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab03.CustomerValidateActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.twpower.TWPower_Summary" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.twpower.TWPower_NoBill" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.twpower.TWPower_BillDetail" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.twpower.TWPower_Summary_Check" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.twpower.TWPower_Confirm" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.twpower.TWPower_Result" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.twpower.TWPowerDebitActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.twpower.TWPowerManagerActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.PortablePayTransactionErrorActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.qrcodelogin.QRCodeLoginResultActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.qrcodelogin.QRCodeLoginScanActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.qrcodelogin.QRCodeLoginAuthActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.qrcodelogin.QRCodeLoginPatternVerifyActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.point.PointRecordActivity" android:screenOrientation="portrait" android:theme="@style/AppCompatTheme"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.point.PointContractActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.PortablePayContractMenuActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab12.PortablePayPointContractActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.announce.PriorityNoticeMainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.announce.PriorityNoticeContentActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.mitake.android.taiwan.ui.tab03.CardDonateDetailActivity" android:screenOrientation="portrait"/>
+        <provider android:authorities="com.mbank.bot.p.provider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_provider_paths"/>
+        </provider>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <service android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.mbank.bot.p.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <service android:exported="false" android:isolatedProcess="true" android:name="hm.Wl" android:process=":zmxmymvmqmzexeuekeqezhxhghyhvhwhbhlhjhkhihqhfhmzzzxzgzyzvzwzuzbzlzjzdzkzsz" android:useAppZygote="true"/>
+    </application>
+</manifest>

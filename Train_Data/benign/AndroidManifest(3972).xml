@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.shpock.android" platformBuildVersionCode="25" platformBuildVersionName="7.1.1">
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"/>
+    <permission android:name="com.shpock.android.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="com.shpock.android.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.back" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.any" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <permission android:name="android.permission.FLASHLIGHT" android:permissionGroup="android.permission-group.HARDWARE_CONTROLS" android:protectionLevel="normal" android:required="false"/>
+    <meta-data android:name="android.support.VERSION" android:value="25.3.1"/>
+    <application android:allowBackup="true" android:backupAgent="com.shpock.android.backup.ShpockBackupAgent" android:fullBackupOnly="true" android:hardwareAccelerated="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="com.shpock.android.ShpockApplication" android:screenOrientation="@integer/screen_orientation" android:supportsRtl="false" android:theme="@style/Theme.ShpNoActionBar">
+        <meta-data android:name="com.google.android.backup.api_key" android:value="AEdPqrEAAAAIp8Ap3KTDqAluQnBfO9IxycOSPK8h53PXg8LjZQ"/>
+        <uses-library android:name="com.google.android.maps" android:required="false"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:label="@string/app_name" android:name="com.shpock.android.ui.startup.ShpSplashScreen" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.Shp.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.shpock.android.ui.tab.GappTabActivity" android:noHistory="true">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.shpock.com" android:scheme="http"/>
+                <data android:host="en.shpock.com" android:scheme="http"/>
+                <data android:host="it.shpock.com" android:scheme="http"/>
+                <data android:host="nb.shpock.com" android:scheme="http"/>
+                <data android:host="sv.shpock.com" android:scheme="http"/>
+                <data android:host="fr.shpock.com" android:scheme="http"/>
+                <data android:host="hr.shpock.com" android:scheme="http"/>
+                <data android:host="sr.shpock.com" android:scheme="http"/>
+                <data android:host="www.shpock.com" android:scheme="https"/>
+                <data android:host="en.shpock.com" android:scheme="https"/>
+                <data android:host="it.shpock.com" android:scheme="https"/>
+                <data android:host="nb.shpock.com" android:scheme="https"/>
+                <data android:host="sv.shpock.com" android:scheme="https"/>
+                <data android:host="fr.shpock.com" android:scheme="https"/>
+                <data android:host="hr.shpock.com" android:scheme="https"/>
+                <data android:host="sr.shpock.com" android:scheme="https"/>
+                <data android:host="click.shpock.com" android:scheme="https"/>
+                <data android:host="click-newsletter.shpock.com" android:scheme="https"/>
+                <data android:host="click-email.shpock.com" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="shpock.com" android:scheme="shpock"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTask" android:name="com.shpock.android.ui.tab.MainActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.GapDiscover" android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            <meta-data android:name="com.samsung.android.cocktail.subwindow.enable" android:value="true"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MoPubActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.common.MoPubBrowser"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidVideoPlayerActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.item.UserRatingsActivity" android:screenOrientation="@integer/screen_orientation"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.photopicker.ShpPhotoActivity" android:screenOrientation="portrait" android:theme="@style/Theme.ShpStoreActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:name="com.shpock.android.ui.share.ShpShareActivity" android:theme="@style/Theme.OverlaySemiTransparent"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.settings.SettingsActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.Settings"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.elisa.item.SelectCategoryActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.ShpStoreActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:label="@string/Help" android:launchMode="singleTop" android:name="com.shpock.elisa.help.contactform.ContactFormActivity" android:theme="@style/Theme.Elisa"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.profile.ProfileCompletionActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.ShpStoreActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.myshpock.MyShpockActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.Gap"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.animal.AnimalPopUpActivity" android:screenOrientation="@integer/screen_orientation"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.tut.ShpTutActivity" android:screenOrientation="@integer/screen_orientation"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.ads.activity.ShpFullScreenAdActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.ShpAdsActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.location.manualLocation.SelectLocationActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.Search" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:name="com.shpock.android.ui.search.search.ShpSearchActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.Search" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.item.filter.ShpFilterActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.Search" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.item.ShpRatingActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.Rating"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:name="com.shpock.android.ui.item.ShpItemActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.ShpItemActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            <meta-data android:name="com.samsung.android.cocktail.subwindow.enable" android:value="true"/>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.collection.CollectionsActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.Collections">
+            <meta-data android:name="com.samsung.android.cocktail.subwindow.enable" android:value="true"/>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.shopcollection.ShopCollectionActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.Collections">
+            <meta-data android:name="com.samsung.android.cocktail.subwindow.enable" android:value="true"/>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.collection.CollectionActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.Collections">
+            <meta-data android:name="com.samsung.android.cocktail.subwindow.enable" android:value="true"/>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.item.ShpItemEditActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.Sell" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.ShpUserProfileActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.ShpStoreActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.item.ShpItemDealSuccessActivity" android:screenOrientation="@integer/screen_orientation"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.item.CancelItemMsgActivity" android:screenOrientation="@integer/screen_orientation"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.item.DelistItemActivity" android:screenOrientation="@integer/screen_orientation" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.userblocking.ReportUnjustifiedBlockingActivity" android:screenOrientation="@integer/screen_orientation" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.login.ShpLoginActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.Rating" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.login.ShpLoginOrRegisterActivity" android:parentActivityName="com.shpock.android.ui.login.ShpLoginActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.Rating" android:windowSoftInputMode="adjustResize|stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.login.ShpLoginActivity"/>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.login.ShpLoginForgotPasswordActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.Rating" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.login.ChangePasswordActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.Rating" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.login.ShpLoginSmsVerificationActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.Rating" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.ShpConnectFacebookAccountActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.SemiTransparent"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.ShpConnectGoogleAccountActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.SemiTransparent"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.ShpCheckFacebookPermissionsActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.SemiTransparent"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.webview.ShpWebViewActivity" android:screenOrientation="@integer/screen_orientation"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.errors.ShpErrorNetworkConnectionActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.Gap"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.errors.ShpErrorVersionExpiredActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Gap"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.item.ShpMediaGallery" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.ShpockGallery"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:name="com.shpock.android.ui.iap.MainStoreActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.ShpStoreActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:name="com.shpock.android.ui.iap.ItemStoreActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.ShpStoreActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:name="com.shpock.android.ui.iap.ShpIAPOverlayActivity" android:theme="@style/Theme.OverlaySemiTransparent"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleInstance" android:name="com.shpock.android.ui.login.ShpLoginEmailVerificationActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.Rating"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:name="com.shpock.android.ui.item.ShpockMapViewActivity" android:screenOrientation="@integer/screen_orientation"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:name="com.shpock.android.ui.ShpBillboardActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.Gap"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:name="com.shpock.android.ui.ReferralProgramActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.Gap"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.flurry.android.FlurryFullscreenTakeoverActivity"/>
+        <activity android:name="com.shpock.android.ui.SubscriptionStatusActivity"/>
+        <activity android:name="com.shpock.android.ui.subscription.SubscriptionLandingActivity"/>
+        <activity android:label="@string/title_sell_on_shpock" android:name="com.shpock.android.ui.sell.ShpSellActivity" android:theme="@style/Theme.Sell" android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.shpock.android.ui.CloseAppActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="Shubi Logging" android:launchMode="singleTask" android:name="com.shpock.android.trackinglog.TrackingLogActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="Shpock Dev Settings" android:launchMode="singleTask" android:name="com.shpock.android.devtools.DevSettingsActivity" android:theme="@style/Theme.AppCompat.Light"/>
+        <activity android:label="@string/Block_user" android:name="com.shpock.android.userblocking.BlockUserActivity" android:theme="@style/ShpockTheme"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.errors.ShpErrorLocationActivity" android:screenOrientation="@integer/screen_orientation" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.shpock.android.dynamicpopups.DynamicPopupActivity" android:theme="@style/Theme.DynamicPopup" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.shpock.android.userprofile.UserProfileProxyActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.shpock.android.proseller.ShopWindowActivity" android:theme="@style/Theme.Elisa.NoActionBar.Transparent"/>
+        <activity android:name="com.shpock.android.proseller.ShopDetailsActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.Elisa.NoActionBar.Transparent"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.settings.ProSellerSettingsActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.Settings"/>
+        <activity android:label="@string/Help" android:name="com.shpock.elisa.help.HelpActivity" android:theme="@style/Theme.Elisa"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.shpock.android.ui.login.EmailConfirmationActivity" android:screenOrientation="@integer/screen_orientation" android:theme="@style/Theme.Elisa.NoActionBar.Transparent" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:label="@string/brand_and_model" android:name="com.shpock.elisa.cars.SelectCarBrandAndModelActivity" android:theme="@style/Theme.Elisa" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/model" android:name="com.shpock.elisa.cars.SelectCarModelActivity" android:theme="@style/Theme.Elisa"/>
+        <activity android:label="@string/activity_title_dev_tools" android:name="com.shpock.android.devtools.DevToolsActivity" android:theme="@style/Theme.Elisa"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.smaato.soma.interstitial.InterstitialActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.smaato.soma.ExpandedBannerActivity"/>
+        <receiver android:exported="true" android:name="com.shpock.android.receiver.LocalPushReceiver">
+            <intent-filter>
+                <action android:name="com.shpock.android.push.LOCAL"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.appsflyer.MultipleInstallBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="com.shpock.android.ui.edge.ShpockCocktailProvider">
+            <intent-filter>
+                <action android:name="com.samsung.android.cocktail.action.COCKTAIL_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="com.samsung.android.cocktail.provider" android:resource="@xml/shpock_cocktail"/>
+        </receiver>
+        <service android:exported="false" android:name="com.shpock.android.ui.tab.adloader.AppOfTheDayAdLoadService"/>
+        <service android:name="com.shpock.android.ui.edge.ShpockCocktailAdapterService" android:permission="android.permission.BIND_REMOTEVIEWS"/>
+        <meta-data android:name="com.samsung.android.cocktail.mode" android:value="edge_single|edge_extended"/>
+        <receiver android:exported="true" android:name="com.google.android.gms.gcm.GcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.shpock.android"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.shpock.android.ShpockGcmListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.shpock.android.ShpockInstanceIDListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.shpock.android.ShpockRegistrationIntentService"/>
+        <meta-data android:name="asset_statements" android:resource="@string/asset_statements"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="\ 191040527694685"/>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyA7N2azPOvs6UtByzKZG58V4ZR94DNpgCM"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="2b064407fc12deb26caa796bbad375488f5f83f5"/>
+        <uses-library android:name="com.sec.android.app.multiwindow" android:required="false"/>
+        <meta-data android:name="com.sec.android.support.multiwindow" android:value="true"/>
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_W" android:value="632.0dip"/>
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_H" android:value="598.0dip"/>
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_W" android:value="632.0dip"/>
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_H" android:value="598.0dip"/>
+        <meta-data android:name="android.max_aspect" android:value="2.1"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <provider android:authorities="com.shpock.android.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.facebook.ads.AudienceNetworkActivity"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.shpock.android"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"/>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.shpock.android.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+    </application>
+</manifest>

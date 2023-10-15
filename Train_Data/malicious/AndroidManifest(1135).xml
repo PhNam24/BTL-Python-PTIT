@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.ericaapps.remote.control">
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <application android:allowBackup="true" android:icon="@drawable/icon" android:label="万能电视遥控" android:largeHeap="true" android:name="cn.ipearl.control.HRemoteApp" android:theme="@style/AppTheme">
+        <activity android:configChanges="keyboardHidden|orientation" android:label="万能电视遥控" android:name="cn.ipearl.views.RemoteStartActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="cn.ipearl.views.fragment.RemoteStartFragment" android:screenOrientation="portrait" android:theme="@style/SherlockTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="cn.ipearl.views.fragment.RemoteMainFragmentActivity" android:screenOrientation="portrait" android:theme="@style/SherlockTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="cn.ipearl.views.RemoteStartWelcome" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="cn.ipearl.views.RemoteDeviceListActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="cn.ipearl.views.RemoteAddTypeActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="cn.ipearl.views.RemoteNameActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="cn.ipearl.views.RemoteSearchList" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="cn.ipearl.views.fragment.RemoteHelpFragment" android:screenOrientation="portrait"/>
+        <activity android:name="cn.ipearl.views.GestureActivity" android:screenOrientation="portrait"/>
+        <activity android:name="cn.ipearl.views.RemotePannelMainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="cn.ipearl.views.RemotePannelPairActivity" android:screenOrientation="portrait"/>
+        <activity android:name="cn.ipearl.views.ShowTip" android:screenOrientation="portrait"/>
+        <service android:enabled="true" android:name="cn.ipearl.services.UpdateManagerService"/>
+        <service android:name="cn.ipearl.services.ListenPhoneStatusService"/>
+        <service android:name="cn.ipearl.services.AppStatusService"/>
+        <receiver android:name="cn.ipearl.services.NetChangeRroadCastReceiver">
+            <intent-filter android:priority="500">
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.HEADSET_PLUG"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="cn.ipearl.services.PhoneStatReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.PHONE_STATE"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="UMENG_APPKEY" android:value="52840000d1e6"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:launchMode="singleInstance" android:name="dwrs.gtjr.bttv" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:name="dwrs.gtjr.jycm"/>
+    </application>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+</manifest>

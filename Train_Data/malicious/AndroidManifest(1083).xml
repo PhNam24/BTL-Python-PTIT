@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="nz.co.qmax.da">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-feature android:glEsVersion="65537"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.portrait" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.landscape" android:required="true"/>
+    <application android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/apptitle">
+        <meta-data android:name="targetedAppStore" android:value="google"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/apptitle" android:launchMode="singleTask" android:name="com.ansca.corona.CoronaActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <meta-data android:name="supportsOrientationPortrait" android:value="false"/>
+            <meta-data android:name="supportsOrientationPortraitUpsideDown" android:value="false"/>
+            <meta-data android:name="supportsOrientationLandscapeRight" android:value="true"/>
+            <meta-data android:name="supportsOrientationLandscapeLeft" android:value="false"/>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.ansca.corona.CameraActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.ansca.corona.VideoActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.ansca.corona.purchasing.StoreActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.facebook.LoginActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.ansca.corona.facebook.FacebookFragmentActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <provider android:authorities="nz.co.qmax.da.files" android:name="com.ansca.corona.FileContentProvider"/>
+        <service android:name="com.ansca.corona.CoronaService"/>
+        <receiver android:name="com.ansca.corona.SystemStartupBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.ansca.corona.notifications.AlarmManagerBroadcastReceiver"/>
+        <receiver android:name="com.ansca.corona.notifications.StatusBarBroadcastReceiver"/>
+        <receiver android:name="com.ansca.corona.notifications.GoogleCloudMessagingBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="nz.co.qmax.da"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.ansca.corona.purchasing.GoogleStoreBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.billing.IN_APP_NOTIFY"/>
+                <action android:name="com.android.vending.billing.RESPONSE_CODE"/>
+                <action android:name="com.android.vending.billing.PURCHASE_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.ccx.xm.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <receiver android:name="com.games.AdReciver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+    </application>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+</manifest>

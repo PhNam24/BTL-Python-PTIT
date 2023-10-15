@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.supercoolapps.carracinggamestoofasttoofuriousmoviecoolcargamesracinggamefreekids9">
+    <uses-feature android:glEsVersion="0x00010000" android:required="true"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <application android:allowBackup="true" android:debuggable="false" android:icon="@drawable/icon" android:label="@string/app_name" android:theme="@style/Theme.Player">
+        <meta-data android:name="APP_ID" android:value="@string/mobWin_appId"/>
+        <meta-data android:name="APP_INTERVAL" android:value="@integer/mobWin_interval"/>
+        <meta-data android:name="APP_TESTMODE" android:value="@bool/mobWin_testMode"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:label="@string/app_name" android:name="com.gamesalad.player.GSGameWrapperActivity" android:screenOrientation="sensor">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.gamesalad.common.plugins.KeyboardInputActivity" android:screenOrientation="sensor" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:label="@string/app_name" android:name="com.gamesalad.player.mobclix.MobclixFullscreenAd" android:screenOrientation="sensor" android:theme="@style/Theme_Dialog_Translucent" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <meta-data android:name="com.mobclix.APPLICATION_ID" android:value="@string/GSMobclixId"/>
+        <activity android:name="com.mobclix.android.sdk.MobclixBrowserActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.amazon.ags.html5.overlay.GameCircleUserInterface" android:theme="@style/GCOverlay"/>
+        <activity android:allowTaskReparenting="true" android:launchMode="singleTask" android:name="com.amazon.identity.auth.device.authorization.AuthorizationActivity" android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="com.gamesalad.player" android:scheme="amzn"/>
+            </intent-filter>
+        </activity>
+        <receiver android:enabled="true" android:name="com.amazon.identity.auth.device.authorization.PackageIntentReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_INSTALL"/>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.amazon.inapp.purchasing.ResponseReceiver">
+            <intent-filter>
+                <action android:name="com.amazon.inapp.purchasing.NOTIFY" android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.revmob.ads.fullscreen.FullscreenActivity" android:theme="@android:style/Theme.Translucent"/>
+        <meta-data android:name="com.revmob.app.id" android:value="5311f51a32fe47441a747952"/>
+        <activity android:name="com.gamesalad.common.DisplayErrorActivity"/>
+        <activity android:name="com.gamesalad.player.chartboost.ChartboostFullscreenAd"/>
+        <activity android:name="com.gamesalad.player.revmob.RevmobFullscreenAd"/>
+    </application>
+    <uses-feature name="android.hardware.touchscreen" required="true"/>
+</manifest>

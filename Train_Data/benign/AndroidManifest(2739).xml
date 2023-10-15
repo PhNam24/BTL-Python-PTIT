@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" android:installLocation="auto" package="dk.bec.android.mb1.b00048.prod" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" android:required="false"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="true" android:icon="@drawable/icon" android:label="@string/app_name" android:name="jli.k" android:networkSecurityConfig="@xml/network_security_config" android:theme="@style/ApplicationTheme">
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="false" android:label="@string/app_name" android:name="dk.bec.android.mb1.MobileBankLoadingActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/LauncherTheme"/>
+        <service android:name="dk.bec.android.mb1.push.FCMReceiverService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="dk.bec.android.mb1.b00048.prod.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/filepaths"/>
+        </provider>
+        <activity android:label="@string/main_title" android:name="dk.bec.android.mb1.menu.MenuActivity" android:screenOrientation="portrait" android:theme="@style/MainTheme.NoActionBar" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/login_title" android:launchMode="singleTask" android:name="dk.bec.android.mb1.login.LoginActivity" android:screenOrientation="portrait" android:theme="@style/MainTheme.NoActionBar" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:label="@string/login_title" android:name="dk.bec.android.mb1.login.LoginNemIDKeyCardChallengeActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/MainTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/codeapp_title" android:name="dk.bec.android.mb1.login.LoginNemIDCodeAppPollActivity" android:screenOrientation="portrait" android:theme="@style/MainTheme"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/help_title" android:name="dk.bec.android.mb1.HelpActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/fab_title" android:name="dk.bec.android.mb1.FABChoiceActivity" android:theme="@style/GeneralTheme.Translucent"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/account_all_title" android:name="dk.bec.android.mb1.accountoverview.AccountOverviewActivity" android:theme="@style/MainTheme.NoActionBar"/>
+        <activity android:configChanges="orientation|screenSize" android:name="dk.bec.android.mb1.accountdetails.AccountDetailsActivity" android:theme="@style/MainTheme.NoActionBar"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/my_economy_consent_title" android:launchMode="singleTask" android:name="dk.bec.android.mb1.forbrugsagenter.MyEconomyConsentActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/my_economy_revoke_consent_title" android:name="dk.bec.android.mb1.forbrugsagenter.MyEconomyRevokeConsentActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/expenditure_information" android:name="dk.bec.android.mb1.forbrugsagenter.MyEconomyInfoActivity" android:theme="@style/PopupTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/expenditure_pick_category" android:name="dk.bec.android.mb1.forbrugsagenter.CategoryPickerActivity" android:theme="@style/PopupTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/my_economy_title" android:launchMode="singleTask" android:name="dk.bec.android.mb1.forbrugsagenter.MyEconomyActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/account_all_title" android:launchMode="singleTask" android:name="dk.bec.android.mb1.forbrugsagenter.ForbrugsagenterOversigt" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/expenditure_latest_title" android:launchMode="singleTask" android:name="dk.bec.android.mb1.forbrugsagenter.ForbrugsLatestActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/expenditure_agent_title" android:name="dk.bec.android.mb1.forbrugsagenter.ForbrugsagentDetailsActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/expenditure_agent_title" android:name="dk.bec.android.mb1.forbrugsagenter.ForbrugsagentCreate" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/expenditure_fastcategorization_title" android:name="dk.bec.android.mb1.forbrugsagenter.CategorizationActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/expenditure_overview_title" android:launchMode="singleTask" android:name="dk.bec.android.mb1.forbrugsagenter.ForbrugsOverblikActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/expenditure_overview_title" android:name="dk.bec.android.mb1.forbrugsagenter.ForbrugsOverblikSubCategoryActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/expenditure_details_title" android:name="dk.bec.android.mb1.forbrugsagenter.ForbrugsPosteringDetailsActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/expenditure_categorize_title" android:name="dk.bec.android.mb1.forbrugsagenter.CategorizeActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/card_details_card" android:launchMode="singleTask" android:name="dk.bec.android.mb1.CardsActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/card_details_title" android:name="dk.bec.android.mb1.CardDetailsActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTask" android:name="dk.bec.android.mb1.CardManageActivity" android:theme="@style/MainTheme"/>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:name="dk.bec.android.mb1.CardManageCategoryActivity" android:noHistory="true" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTask" android:name="dk.bec.android.mb1.CardCategoryActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/wallet_title" android:name="dk.bec.android.mb1.wallet.WalletActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/wallet_card_title" android:name="dk.bec.android.mb1.wallet.WalletCardActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTask" android:name="dk.bec.android.mb1.CurrencyGroupActivity" android:screenOrientation="portrait" android:theme="@style/MainTheme" android:windowSoftInputMode="stateUnchanged"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTask" android:name="dk.bec.android.mb1.CurrencyActivity" android:theme="@style/MainTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTask" android:name="dk.bec.android.mb1.CurrencyCalcActivity" android:theme="@style/MainTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTask" android:name="dk.bec.android.mb1.CurrencyChartActivity" android:screenOrientation="portrait" android:theme="@style/MainTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/payment_past_details_title" android:name="dk.bec.android.mb1.PastPaymentsDetails" android:theme="@style/MainTheme"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/payment_future_details_title" android:name="dk.bec.android.mb1.FuturePaymentsDetails" android:theme="@style/MainTheme"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/approve_title" android:name="dk.bec.android.mb1.confirmtransaction.TransactionPreviewActivity" android:theme="@style/MainTheme"/>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:label="@string/approve_title" android:name="dk.bec.android.mb1.confirmtransaction.ConfirmTransactionActivity" android:noHistory="true" android:theme="@style/MainTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:label="@string/approve_title" android:name="dk.bec.android.mb1.confirmtransaction.VerifyTransactionActivity" android:noHistory="true" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/contacts_title" android:launchMode="singleTask" android:name="dk.bec.android.mb1.ContactsActivity" android:theme="@style/MainTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/beskeder_title" android:name="dk.bec.android.mb1.beskeder.MessagesActivity" android:theme="@style/MainTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="dk.bec.android.mb1.beskeder.BeskedDetaljerActivity" android:theme="@style/MainTheme" android:windowSoftInputMode="stateAlwaysVisible"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="dk.bec.android.mb1.beskeder.OpstartsvarselAfvisteActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/envelopeoverviev_title" android:name="dk.bec.android.mb1.signingdesk.EnvelopeOverviewActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/agreementsigning_title" android:name="dk.bec.android.mb1.signingdesk.AgreementSigningActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/agreementsigning_title" android:name="dk.bec.android.mb1.signingdesk.AgreementSigningSubpageActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/payment_search_title" android:launchMode="singleTask" android:name="dk.bec.android.mb1.PaymentsSearchActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/payment_search_result_title" android:launchMode="singleTask" android:name="dk.bec.android.mb1.ResultSearchActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:launchMode="singleTask" android:name="dk.bec.android.mb1.transfer.TransferAccountsActivity" android:theme="@style/MainTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:label="@string/transfer_save_as_default_title" android:name="dk.bec.android.mb1.TransfersPickUpNameActivity" android:theme="@style/MainTheme" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/approve_title" android:name="dk.bec.android.mb1.TransferAccountApproveWithoutSigning" android:theme="@style/MainTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/indbetalingskort_title" android:launchMode="singleTask" android:name="dk.bec.android.mb1.indbetalingskort.IndbetalingskortActivity" android:theme="@style/MainTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/menu_investment" android:name="dk.bec.android.mb1.domain.investment.InvestmentPageActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTask" android:name="dk.bec.android.mb1.DepositsActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTask" android:name="dk.bec.android.mb1.DepositPaperListActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/deposit_mifid_state_information" android:name="dk.bec.android.mb1.DepositPaperDetailsMifidStateInfoActivity" android:theme="@style/PopupTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTask" android:name="dk.bec.android.mb1.DepositPaperDetailsGraphActivity" android:screenOrientation="landscape" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTask" android:name="dk.bec.android.mb1.DepositPaperListGraphActivity" android:screenOrientation="landscape" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTask" android:name="dk.bec.android.mb1.sharetradings.ShareTradingsListsActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTask" android:name="dk.bec.android.mb1.sharetradings.ShareTradingsListContentActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="dk.bec.android.mb1.fondshandel.FondsordreVis" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTask" android:name="dk.bec.android.mb1.BoersordrerActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="dk.bec.android.mb1.fondshandel.PapirSoeg" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="dk.bec.android.mb1.fondshandel.PapirSoegResultat" android:theme="@style/MainTheme"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="dk.bec.android.mb1.fca.CorporateActionListActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTask" android:name="dk.bec.android.mb1.fca.VCABuyingOfferActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTask" android:name="dk.bec.android.mb1.fca.VCAEmissionActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="dk.bec.android.mb1.fondshandel.FondsordreKoeb" android:screenOrientation="portrait" android:theme="@style/MainTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="dk.bec.android.mb1.fondshandel.FondsordreSalg" android:screenOrientation="portrait" android:theme="@style/MainTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="dk.bec.android.mb1.fondshandel.FondshandelVaelgDepot" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="dk.bec.android.mb1.fondshandel.FondsordreOverslag" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="dk.bec.android.mb1.DepositPaperInfoActivity" android:screenOrientation="portrait" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/product_action_information_title" android:name="dk.bec.android.mb1.productactions.ProductActionInformation" android:theme="@style/PopupTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/carloan_calculation_title" android:name="dk.bec.android.mb1.productactions.CarloanCalculation" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/carloan_calculation_result_title" android:name="dk.bec.android.mb1.productactions.CarloanCalculationResult" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/carloan_calculation_send_title" android:name="dk.bec.android.mb1.productactions.CarloanCalculationSend" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/fastloan_calculation_title" android:name="dk.bec.android.mb1.productactions.FastloanCalculation" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/fastloan_calculation_result_title" android:name="dk.bec.android.mb1.productactions.FastloanCalculationResult" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/fastloan_calculation_pick_accounts_title" android:name="dk.bec.android.mb1.productactions.FastloanCalculationPickAccounts" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/fastloan_calculation_send_title" android:name="dk.bec.android.mb1.productactions.FastloanCalculationSend" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/fastloan_calculation_send_extended_receipt_title" android:name="dk.bec.android.mb1.productactions.FastloanCalculationSendExtendedReceipt" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/creditloan_common_calculation_title" android:name="dk.bec.android.mb1.productactions.CreditLoanCommonCalculation" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/creditloan_common_select_title" android:name="dk.bec.android.mb1.productactions.CreditLoanCommonSelect" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/creditloan_credit_select_title" android:name="dk.bec.android.mb1.productactions.CreditLoanCreditSelect" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/creditloan_credit_calculation_result_title" android:name="dk.bec.android.mb1.productactions.CreditLoanCreditCalculationResult" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/creditloan_loan_select_title" android:name="dk.bec.android.mb1.productactions.CreditLoanLoanSelect" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/creditloan_loan_calculation_title" android:name="dk.bec.android.mb1.productactions.CreditLoanLoanCalculation" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/creditloan_loan_calculation_result_title" android:name="dk.bec.android.mb1.productactions.CreditLoanLoanCalculationResult" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/creditloan_loan_accounts_title" android:name="dk.bec.android.mb1.productactions.CreditLoanLoanAccounts" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/creditloan_common_dataa_title" android:name="dk.bec.android.mb1.productactions.CreditLoanCommonDataa" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/creditloan_common_data_addcar_title" android:name="dk.bec.android.mb1.productactions.CreditLoanCommonDataAddCar" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/creditloan_common_send_title" android:name="dk.bec.android.mb1.productactions.CreditLoanCommonSend" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/creditloan_advisory_information_title" android:name="dk.bec.android.mb1.productactions.CreditLoanAdvisoryInformation" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/creditloan_common_information_title" android:name="dk.bec.android.mb1.productactions.CreditLoanCommonInformation" android:theme="@style/PopupTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/mortgage_loan_list_title" android:name="dk.bec.android.mb1.mortgage.MortgageLoanList" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/mortgage_loan_details_title" android:name="dk.bec.android.mb1.mortgage.MortgageLoanDetails" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/taxconsent_title" android:name="dk.bec.android.mb1.tax.TaxConsent" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/settings_title" android:name="dk.bec.android.mb1.settings.SettingsActivity" android:theme="@style/MainTheme"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/codeapp_title" android:name="dk.bec.android.mb1.codeapps.CodeAppsPollActivity" android:theme="@style/MainTheme"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="dk.bec.android.mb1.domain.landingpage.LandingPageActivity" android:theme="@style/MainTheme.NoActionBar"/>
+        <activity android:clearTaskOnLaunch="true" android:name="dk.bec.android.mb1.QuitActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/subscription_page_title" android:name="dk.bec.android.mb1.subscriptions.SubscriptionPageActivity" android:theme="@style/MainTheme"/>
+        <activity android:name="dk.bec.android.mb1.outbox.OutboxActivity" android:theme="@style/MainTheme.NoActionBar"/>
+        <activity android:name="dk.bec.android.mb1.outbox.filter.OutboxFilterActivity" android:theme="@style/MainTheme"/>
+        <activity android:name="dk.bec.android.mb1.outbox.OutboxGroupDetailsActivity" android:theme="@style/MainTheme"/>
+        <activity android:name="dk.bec.android.mb1.outbox.OutboxDetailsActivity" android:theme="@style/MainTheme"/>
+        <activity android:name="dk.bec.android.mb1.outbox.OutboxEditPaymentActivity" android:theme="@style/MainTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="dk.bec.android.mb1.confirmtransaction.ResultActivity" android:theme="@style/MainTheme.NoActionBar"/>
+        <activity android:name="dk.bec.android.mb1.transactions.view.TransactionsActivity" android:theme="@style/MainTheme.NoActionBar"/>
+        <activity android:name="dk.bec.android.mb1.transfer.sms.SmsConfirmationActivity" android:screenOrientation="portrait" android:theme="@style/MainTheme.NoActionBar"/>
+        <service android:name="dk.bec.android.mb1.dao.login.LogoutService"/>
+        <meta-data android:name="firebase_analytics_collection_deactivated" android:value="true"/>
+        <meta-data android:name="google_analytics_adid_collection_enabled" android:value="false"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:exported="true" android:name="androidx.biometric.DeviceCredentialHandlerActivity" android:theme="@style/DeviceCredentialHandlerTheme"/>
+        <service android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="dk.bec.android.mb1.b00048.prod.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="dk.bec.android.mb1.b00048.prod.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <activity android:label="@string/title_activity_subaio" android:name="com.subaio.subaio.SubaioActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:clearTaskOnLaunch="true" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="jli.f" android:taskAffinity="dk.bec.android.mb1.b00048.prod.launcher_cb9eff6c87" android:theme="@style/Transparent"/>
+        <activity-alias android:label="@string/app_name" android:name=".launcher_37f83aa49b29005ac1826ec8ffcf3a33629afb41fc12e6cefc63769239605644" android:targetActivity="jli.f">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+    </application>
+</manifest>

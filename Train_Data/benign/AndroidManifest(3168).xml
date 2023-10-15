@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="28" android:compileSdkVersionCodename="9" package="com.app.manch" platformBuildVersionCode="156" platformBuildVersionName="2.3.456">
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <permission android:name="com.app.manch.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.app.manch.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT"/>
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
+    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE"/>
+    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT"/>
+    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_APP_BADGE"/>
+    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ"/>
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="com.app.manch.ManchApplication" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
+        <meta-data android:name="CLEVERTAP_ACCOUNT_ID" android:value="RZ5-WW8-WK5Z"/>
+        <meta-data android:name="CLEVERTAP_TOKEN" android:value="b00-512"/>
+        <meta-data android:name="CLEVERTAP_USE_GOOGLE_AD_ID" android:value="1"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDRXnREcjaMQ5rOpOqJiONqhaoGsnzWKWQ"/>
+        <meta-data android:name="io.branch.sdk.TestMode" android:value="false"/>
+        <activity android:name="com.app.manch.activities.app.GifChooserActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeNoActionbar"/>
+        <activity android:name="com.app.manch.activities.app.UsersActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeNoActionbar"/>
+        <receiver android:exported="true" android:name="com.app.manch.activities.commons.SMSBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.app.manch.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/fileprovider"/>
+        </provider>
+        <provider android:authorities="com.app.manch.public_file_provider" android:exported="false" android:grantUriPermissions="true" android:name="com.app.manch.activities.commons.PublicFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/public_file_provider"/>
+        </provider>
+        <activity android:launchMode="singleTask" android:name="com.app.manch.activities.Splash" android:screenOrientation="portrait" android:theme="@style/AppThemeNoActionbar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="video/*"/>
+            </intent-filter>
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="dl.manch.app" android:pathPrefix="/posts" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="posts" android:scheme="manch"/>
+            </intent-filter>
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="dl.manch.app" android:pathPrefix="/profile" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="profile" android:scheme="manch"/>
+            </intent-filter>
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="dl.manch.app" android:pathPrefix="/manch" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="dl.manch.app" android:pathPrefix="/campaign" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="manch" android:scheme="manch"/>
+            </intent-filter>
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="rewards" android:pathPrefix="/list/" android:scheme="manch"/>
+            </intent-filter>
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="rewards" android:pathPrefix="/winners/" android:scheme="manch"/>
+            </intent-filter>
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="live" android:scheme="manch"/>
+            </intent-filter>
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="live" android:pathPrefix="/top/" android:scheme="manch"/>
+            </intent-filter>
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="rewards" android:pathPrefix="/scratch/" android:scheme="manch"/>
+            </intent-filter>
+            <intent-filter>
+                <data android:scheme="manch"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="go.manch.app" android:scheme="https"/>
+                <data android:host="yiof-alternate.app.link" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="yiof-alternate.test-app.link" android:scheme="https"/>
+                <data android:host="yiof.test-app.link" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.app.manch.activities.LanguagePickerActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeNoActionbar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:launchMode="singleTop" android:name="com.app.manch.activities.app.DetailActivity" android:parentActivityName="com.app.manch.activities.app.Home" android:screenOrientation="portrait" android:theme="@style/AppThemeNoActionbar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activities.app.DetailActivity"/>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.app.manch.activities.app.Home" android:screenOrientation="portrait" android:theme="@style/AppThemeNoActionbar"/>
+        <activity android:name="com.app.manch.activities.app.ComposePostActivity" android:parentActivityName="com.app.manch.activities.app.Home" android:screenOrientation="portrait" android:theme="@style/AppThemeNoActionbar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:hardwareAccelerated="true" android:name="com.app.manch.activities.app.WebViewActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeNoActionbar"/>
+        <activity android:launchMode="singleTop" android:name="com.app.manch.activities.app.EntityProfileActivity" android:parentActivityName="com.app.manch.activities.app.Home" android:screenOrientation="portrait" android:theme="@style/AppThemeNoActionbar"/>
+        <activity android:name="com.app.manch.activities.auth.UpdateProfileActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeNoActionbar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.app.manch.activities.app.SearchFriendsActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeNoActionbar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/fb_login_protocol_scheme"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.app.manch.activities.app.SettingsActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeNoActionbar"/>
+        <activity android:name="com.app.manch.activities.app.SelectManchAndPostActivityV2" android:screenOrientation="portrait" android:theme="@style/AppThemeNoActionbar"/>
+        <activity android:name="com.app.manch.activities.app.ExpandedCommentActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeNoActionbar" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:name="com.app.manch.activities.app.MemeChooserActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeNoActionbar" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:name="com.app.manch.activities.app.MemeEditorActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeNoActionbar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation" android:name="com.app.manch.activities.app.FullScreenDisplayActivity" android:theme="@style/AppThemeNoActionbar"/>
+        <activity android:name="com.app.manch.activities.app.FollowersActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeNoActionbar"/>
+        <activity android:name="com.app.manch.activities.auth.LoginActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeNoActionbar" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:name="com.app.manch.activities.app.OnBoardingActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeNoActionbar"/>
+        <activity android:name="com.app.manch.ui.discussion.LiveDiscussionsListActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeNoActionbar"/>
+        <activity android:name="com.app.manch.ui.discussion.LiveDiscussionTopUsersActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeNoActionbar"/>
+        <activity android:name="com.app.manch.ui.rewards.ScratchCardPreviewActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_channel_id" android:value="@string/default_notification_channel"/>
+        <service android:name="com.app.manch.notifications.ManchFcmMessageListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="CLEVERTAP_NOTIFICATION_ICON" android:value="@drawable/logo_mini"/>
+        <service android:name="com.clevertap.android.sdk.FcmTokenListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/logo_mini"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/colorAccent"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="186809f1a17ecd4ff35e1aec7cebd70d33b8b48e"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.clevertap.android.sdk.CTPushNotificationReceiver"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.app.manch.notifications.ManchPushNotificationReceiver"/>
+        <receiver android:label="NetworkChangeReceiver" android:name="com.app.manch.util.NetworkStatusListener">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="io.branch.sdk.BranchKey" android:value="@string/branch_key_live"/>
+        <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="@string/branch_key_test"/>
+        <meta-data android:name="io.branch.sdk.auto_link_path" android:value="posts/*, /posts/*, dl/posts/*, manch/*, /manch/*"/>
+        <receiver android:exported="true" android:name="com.app.manch.share.branch.InstallListener">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.clevertap.android.sdk.InAppNotificationActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="CLEVERTAP_INAPP_EXCLUDE" android:value="YourSplashActivity1, YourSplashActivity2"/>
+        <meta-data android:name="com.appsee.ApiKey" android:value="@string/appsee_key"/>
+        <activity android:name="com.app.manch.activities.app.RewardsAndPromoActivity" android:parentActivityName="com.app.manch.activities.app.Home" android:screenOrientation="portrait" android:theme="@style/AppThemeNoActionbar"/>
+        <activity android:name="com.app.manch.ui.discussion.LiveDiscussionActivity" android:parentActivityName="com.app.manch.activities.app.Home" android:screenOrientation="portrait" android:theme="@style/AppThemeNoActionbar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.app.manch.ui.rewards.CoinsRewardActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeNoActionbar"/>
+        <activity android:name="com.app.manch.ui.rewards.WinnersActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeNoActionbar"/>
+        <activity android:name="com.app.manch.ui.rewards.ScratchCardActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeNoActionbar"/>
+        <meta-data android:name="com.truecaller.android.sdk.PartnerKey" android:value="@string/true_caller_partner_key"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <provider android:authorities="com.app.manch.firebaseperfprovider" android:exported="false" android:initOrder="101" android:name="com.google.firebase.perf.provider.FirebasePerfProvider"/>
+        <service android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.component.FirebasePerfRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.inappmessaging.display.FirebaseInAppMessagingDisplayRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.inappmessaging.FirebaseInAppMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <meta-data android:name="onesignal_app_id" android:value="ebb32c31-497b-427c-9dee-33550d7d658a"/>
+        <meta-data android:name="onesignal_google_project_number" android:value="str:REMOTE"/>
+        <receiver android:name="com.onesignal.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter android:priority="999">
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.app.manch"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.onesignal.NotificationOpenedReceiver"/>
+        <service android:name="com.onesignal.GcmIntentService"/>
+        <service android:name="com.onesignal.GcmIntentJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.onesignal.RestoreJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.onesignal.RestoreKickoffJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.onesignal.SyncService" android:stopWithTask="true"/>
+        <service android:name="com.onesignal.SyncJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:name="com.onesignal.PermissionsActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:name="com.onesignal.NotificationRestoreService"/>
+        <receiver android:name="com.onesignal.BootUpReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.onesignal.UpgradeReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <provider android:authorities="com.app.manch.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.app.manch.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="com.app.manch.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <receiver android:exported="true" android:name="com.clevertap.android.sdk.InstallReferrerBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.app.manch.crashlyticsinitprovider" android:exported="false" android:initOrder="100" android:name="com.crashlytics.android.CrashlyticsInitProvider"/>
+        <service android:name="com.uxcam.service.HttpPostService"/>
+        <activity android:configChanges="orientation|screenSize" android:name="droidninja.filepicker.FilePickerActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="droidninja.filepicker.MediaDetailsActivity"/>
+        <provider android:authorities="com.app.manch.droidninja.filepicker.provider" android:exported="false" android:grantUriPermissions="true" android:name="droidninja.filepicker.utils.FilePickerProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <service android:name="com.appsee.AppseeBackgroundUploader"/>
+        <meta-data android:name="com.appsee.SDKVersion" android:value="2.4.5"/>
+    </application>
+</manifest>

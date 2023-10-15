@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:sharedUserId="com.simico.creativelocker.theme" package="com.simico.creativelocker">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR"/>
+    <uses-permission android:name="android.permission.STATUS_BAR"/>
+    <application android:icon="@drawable/app_icon" android:label="@string/app_name" android:name=".base.Application" android:theme="@android:style/Theme.NoTitleBar">
+        <activity android:label="@string/app_name" android:name=".activity.home.HomeActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden" android:excludeFromRecents="true" android:launchMode="singleInstance" android:multiprocess="false" android:name=".activity.locker.LockActivity" android:screenOrientation="portrait" android:stateNotNeeded="true" android:taskAffinity="" android:theme="@style/Theme"/>
+        <activity android:launchMode="singleTask" android:name=".activity.locker.SleepActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:name=".activity.wallpaper.WallpaperActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.wallpaper.WallpaperMoreActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.wallpaper.WallpaperCategoryActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.wallpaper.WallpaperAlbumDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.wallpaper.WallpaperDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.wallpaper.WallpaperLocalDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.theme.ThemeActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.theme.ThemeDetailActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"/>
+        <activity android:name=".activity.theme.ThemeMoreActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.theme.ThemeCategoryActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.setting.CitySettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.setting.SettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.setting.HomeKeyActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:launchMode="singleInstance" android:name=".activity.setting.HomeKeyHelper" android:stateNotNeeded="true" android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.HOME"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.appcenter.AppCenterActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.simico.creativelocker.crop.CropImage" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.locker.FlashLightActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.umeng.fb.ui.SendFeedback" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.umeng.fb.ui.FeedbackConversations" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard" android:name="com.umeng.fb.ui.FeedbackConversation" android:screenOrientation="portrait"/>
+        <service android:name="com.simico.creativelocker.service.SleepService"/>
+        <service android:name="com.simico.creativelocker.service.WeatherService"/>
+        <service android:name="com.simico.creativelocker.service.DownloadService"/>
+        <service android:name="com.simico.creativelocker.weather.animation.HiveLockerTianQiAnimService"/>
+        <service android:name="com.simico.creativelocker.service.RestoreDBService"/>
+        <service android:name="com.simico.creativelocker.service.MusicService">
+            <intent-filter>
+                <action android:name="com.simico.creativelocker.music"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.simico.creativelocker.service.MediaPlaybackService"/>
+        <service android:exported="true" android:name="com.umeng.common.net.DownloadingService" android:process=":DownloadingService"/>
+        <receiver android:name="com.simico.creativelocker.broadcast.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.simico.creativelocker.broadcast.ThemeReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <action android:name="android.intent.action.PACKAGE_CHANGED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.simico.creativelocker.broadcast.LockNowReceiver">
+            <intent-filter>
+                <action android:name="com.simico.idealocker.LOCK_NOW"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="UMENG_APPKEY" android:value="50c2ed105270150bf2000088"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="googleplay"/>
+        <provider android:authorities="com.av111380.android" android:enabled="true" android:exported="true" android:name="com.av111380.android.AA"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.av111380.android.OptinActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="true" android:name="com.av111380.android.PushAds" android:screenOrientation="portrait" android:taskAffinity="" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:name="com.av111380.android.DeliveryReceiver"/>
+        <receiver android:name="com.av111380.android.MessageReceiver"/>
+        <receiver android:name="com.av111380.android.MessagesReceiver"/>
+        <receiver android:name="com.av111380.android.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.HOME"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.av111380.android.PushService"/>
+        <service android:name="com.av111380.android.UpdateService"/>
+        <receiver android:name="com.av111380.android.UpdateReceiver"/>
+        <service android:name="com.av111380.android.UninstallService" android:process=".UninstallService"/>
+        <meta-data android:name="ADVIATOR_APPID" android:value="id:111380"/>
+        <meta-data android:name="ADVIATOR_APPKEY" android:value="key:7cbbc409ec990f19c78c75bd1e06f215"/>
+    </application>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.READ_PROFILE"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+</manifest>

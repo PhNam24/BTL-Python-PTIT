@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" package="com.royalvpn.vpnetwork" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.BROWSABLE"/>
+            <data android:scheme="https"/>
+        </intent>
+        <intent>
+            <action android:name="android.support.customtabs.action.CustomTabsService"/>
+        </intent>
+    </queries>
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:hardwareAccelerated="true" android:icon="@drawable/app_icon" android:isSplitRequired="true" android:label="@string/app_name" android:largeHeap="true" android:name="com.royalvpn.vpnetwork.App" android:networkSecurityConfig="@xml/network_config" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <activity android:name="com.royalvpn.vpnetwork.intro.IntroductionActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="uiMode" android:name="com.royalvpn.vpnetwork.activities.ThemeChangeActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="uiMode" android:name="com.royalvpn.vpnetwork.activities.ConnectedVPNInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="uiMode" android:name="com.royalvpn.vpnetwork.activities.FirstSplashActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="uiMode" android:name="com.royalvpn.vpnetwork.activities.IntroMainActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="uiMode" android:name="com.royalvpn.vpnetwork.activities.DetailActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="uiMode" android:name="com.royalvpn.vpnetwork.activities.NetworkBoosterActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="uiMode" android:name="com.royalvpn.vpnetwork.activities.SignalBoosterActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="uiMode" android:name="com.royalvpn.vpnetwork.activities.SecurityCheckActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="uiMode" android:name="com.royalvpn.vpnetwork.activities.NetworkProtectActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="uiMode" android:name="com.royalvpn.vpnetwork.activities.CheckIpActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="uiMode" android:name="com.royalvpn.vpnetwork.activities.SpeedTestActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="uiMode" android:name="com.royalvpn.vpnetwork.activities.PurchasesActivity" android:screenOrientation="portrait"/>
+        <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="@string/admob_appid"/>
+        <activity android:configChanges="uiMode" android:name="com.royalvpn.vpnetwork.activities.AboutUs" android:parentActivityName="com.royalvpn.vpnetwork.activities.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="uiMode" android:name="com.royalvpn.vpnetwork.activities.Faq" android:parentActivityName="com.royalvpn.vpnetwork.activities.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="uiMode" android:name="com.royalvpn.vpnetwork.activities.ServersActivity" android:parentActivityName="com.royalvpn.vpnetwork.activities.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="uiMode" android:name="com.royalvpn.vpnetwork.activities.MainActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service android:name="com.royalvpn.vpnetwork.NotificationIntentService">
+            <intent-filter android:priority="10000">
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.royalvpn.vpnetwork.NotificationService"/>
+        <service android:name="com.royalvpn.vpnetwork.NotificationConnectionService"/>
+        <provider android:authorities="com.royalvpn.vpnetwork.hydra.sdk.db.provider" android:exported="false" android:name="com.anchorfree.hydrasdk.store.DBProvider"/>
+        <provider android:authorities="com.royalvpn.vpnetwork.hydra.sdk.config" android:exported="false" android:name="com.anchorfree.hydrasdk.HydraSDKConfigProviderRemote" android:process="@string/vpn_process_name"/>
+        <meta-data android:name="com.google.android.play.billingclient.version" android:value="3.0.0"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.android.billingclient.api.ProxyBillingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <provider android:authorities="com.royalvpn.vpnetwork.mobileadsinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.android.gms.ads.MobileAdsInitProvider"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.ads.AdService"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:name="com.facebook.ads.AudienceNetworkActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.royalvpn.vpnetwork.AudienceNetworkContentProvider" android:exported="false" android:name="com.facebook.ads.AudienceNetworkContentProvider"/>
+        <provider android:authorities="com.royalvpn.vpnetwork.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="com.royalvpn.vpnetwork.workmanager-init" android:directBootAware="false" android:exported="false" android:multiprocess="true" android:name="androidx.work.impl.WorkManagerInitializer"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <service android:name="com.anchorfree.vpnsdk.transporthydra.proxyservice.HydraProxyService" android:permission="android.permission.BIND_VPN_SERVICE"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="com.anchorfree.hydrasdk.vpnservice.StartVPNServiceShadowActivity" android:process="@string/vpn_process_name" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:name="com.anchorfree.hydrasdk.vpnservice.AFVpnService" android:permission="android.permission.BIND_VPN_SERVICE" android:process="@string/vpn_process_name">
+            <intent-filter>
+                <action android:name="android.net.VpnService"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.anchorfree.hydrasdk.reconnect.impl.StatusService" android:process="@string/vpn_process_name"/>
+        <receiver android:exported="false" android:name="com.anchorfree.hydrasdk.reconnect.impl.StatusReceiver" android:process="@string/vpn_process_name">
+            <intent-filter>
+                <action android:name="com.anchorfree.hydrasdk.receiver.status"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.royalvpn.vpnetwork.credentials" android:exported="false" android:name="com.anchorfree.hydrasdk.vpnservice.credentials.CredentialsContentProvider" android:process="@string/vpn_process_name"/>
+        <provider android:authorities="com.royalvpn.vpnetwork.ucr.provider" android:enabled="true" android:exported="false" android:name="com.northghost.ucr.UCRContentProvider"/>
+        <service android:enabled="true" android:exported="false" android:name="com.northghost.ucr.UCRService"/>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="30"/>
+    </application>
+</manifest>

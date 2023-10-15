@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.tonnyc.grz">
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" android:protectionLevel="signature"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <application android:allowBackup="false" android:debuggable="false" android:hardwareAccelerated="true" android:icon="@drawable/uz_icon" android:label="@string/app_name" android:largeHeap="true" android:name="com.uzmap.pkg.uzapp.UZApplication">
+        <meta-data android:name="uz_version" android:value="1.2.43"/>
+        <meta-data android:name="android.max_aspect" android:value="2.1"/>
+        <activity android:configChanges="keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.uzmap.pkg.EntranceActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="adjustUnspecified|stateUnspecified">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tbopen24727510"/>
+            </intent-filter>
+        </activity>
+        <provider android:authorities="com.tonnyc.grz.ups" android:exported="false" android:label="udmg" android:name="com.uzmap.pkg.uzapp.UProvider"/>
+        <service android:enabled="true" android:label="upns" android:name="com.uzmap.pkg.uzsocket.UPnsService" android:process=":remote"/>
+        <receiver android:enabled="true" android:label="upns" android:name="com.uzmap.pkg.uzapp.UPExtraBridge" android:process=":remote">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+                <action android:name="android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.apicloud.notification"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.ali.auth.third.ui.webview.BaseWebViewActivity" android:screenOrientation="portrait" android:theme="@style/AliTradeTheme"/>
+        <activity android:name="com.ali.auth.third.ui.LoginWebViewActivity" android:screenOrientation="portrait" android:theme="@style/AliTradeTheme"/>
+        <activity android:name="com.ali.auth.third.ui.LoginActivity" android:screenOrientation="portrait" android:theme="@style/AliTradeTheme"/>
+        <activity android:name="com.ali.auth.third.accountlink.ui.BindResultActivity" android:screenOrientation="portrait" android:theme="@style/AliTradeTheme"/>
+        <activity android:name="com.ali.auth.third.accountlink.ui.UnbindWebViewActivity" android:screenOrientation="portrait" android:theme="@style/AliTradeTheme"/>
+        <activity android:name="com.alibaba.baichuan.android.trade.ui.activity.AlibcWebViewActivity" android:screenOrientation="portrait" android:theme="@style/AliTradeTheme">
+            <intent-filter>
+                <action android:name="COM_TAOBAO_TAE_SDK_TRADE_WEB_VIEW_ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:launchMode="singleTask" android:name="com.alibaba.baichuan.android.trade.ui.activity.AlibcNativeTaobaoActivity" android:theme="@style/AliTradeTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="alisdk"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:name="com.alibaba.baichuan.android.auth.AlibcAuthActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation|screenSize" android:exported="false" android:name="com.alipay.sdk.app.H5PayActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:exported="false" android:name="com.alipay.sdk.auth.AuthActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:icon="@drawable/ysf_action_bar_icon_transparent" android:name="com.qiyukf.unicorn.ui.activity.ServiceMessageActivity" android:screenOrientation="portrait" android:theme="@style/ysf_window_theme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.qiyukf.nim.uikit.session.activity.WatchMessagePictureActivity" android:screenOrientation="portrait" android:theme="@style/ysf_window_theme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.qiyukf.nim.uikit.session.activity.PickImageActivity" android:screenOrientation="portrait" android:theme="@style/ysf_window_theme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.qiyukf.nim.uikit.common.media.picker.activity.PickerAlbumActivity" android:screenOrientation="portrait" android:theme="@style/ysf_window_theme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.qiyukf.nim.uikit.common.media.picker.activity.PickerAlbumPreviewActivity" android:screenOrientation="portrait" android:theme="@style/ysf_window_theme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ysf_input_panel_take" android:name="com.qiyukf.nim.uikit.common.media.picker.activity.PreviewImageFromCameraActivity" android:screenOrientation="portrait" android:theme="@style/ysf_window_theme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/ysf_activity_file_download" android:name="com.qiyukf.unicorn.ui.activity.FileDownloadActivity" android:screenOrientation="portrait" android:theme="@style/ysf_window_theme"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.uzmap.pkg.uzmodules.uzVideoPlayer.VideoActivity" android:screenOrientation="sensorLandscape" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+        <activity android:alwaysRetainTaskState="true" android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.tencent.smtt.sdk.VideoActivity">
+            <intent-filter>
+                <action android:name="com.tencent.smtt.tbs.video.PLAY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:alwaysRetainTaskState="true" android:configChanges="keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize" android:exported="false" android:name="com.uzmap.pkg.uzmodules.browser.BrowserActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:exported="true" android:name="com.tonnyc.grz.wxapi.WXEntryActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <service android:exported="false" android:name="anetwork.channel.aidl.NetworkService">
+            <intent-filter>
+                <action android:name="anetwork.channel.aidl.IRemoteNetworkGetter"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="mtopsdk.xstate.XStateService">
+            <intent-filter>
+                <action android:name="mtopsdk.xstate.aidl.IXState"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.qiyukf.nimlib.service.NimService" android:process=":core"/>
+        <service android:name="com.qiyukf.nimlib.service.NimService$Aux" android:process=":core"/>
+        <service android:name="com.qiyukf.unicorn.analytics.AnalyticsService" android:process=":core"/>
+        <service android:name="com.qiyukf.nimlib.service.WakeupService"/>
+        <receiver android:exported="false" android:name="com.qiyukf.nimlib.service.NimReceiver" android:process=":core">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+    </application>
+    <uses-feature android:name="android.hardware.microphone" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.RUN_INSTRUMENTATION"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_SETTINGS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+</manifest>

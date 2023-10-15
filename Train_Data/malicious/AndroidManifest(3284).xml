@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="org.ifootball">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="org.ifootball.allen.permission.READ_FOOTBALL_DATA"/>
+    <uses-permission android:name="org.ifootball.allen.permission.WRITE_FOOTBALL_DATA"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <application android:icon="@drawable/app_icon" android:label="@string/app_name" android:name="org.ifootball.activity.Football">
+        <meta-data android:name="DOMOB_PID" android:value="56OJz0VYuM4pqHfIj4"/>
+        <activity android:name="cn.domob.android.ads.DomobActivity" android:theme="@android:style/Theme.Translucent"/>
+        <meta-data android:name="cooId" android:value="d84ef17af4b04d41905f745158e0b1dc"/>
+        <meta-data android:name="channelId" android:value="appchina"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.kuguo.ad.MainActivity" android:theme="@android:style/Theme.Dialog"/>
+        <service android:name="com.kuguo.ad.MainService"/>
+        <receiver android:name="com.kuguo.ad.MainReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name=".activity.HomeActivity" android:screenOrientation="portrait" android:theme="@style/FootballTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.LeagueSelect" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".activity.TeamSelect" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".activity.PlayerSelect" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".activity.SearchAndFavirateSelect" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".activity.TeamShow" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".activity.PlayerShow" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name=".activity.PlayerClassify" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name=".activity.PlayerPKShow" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name=".activity.PlayerCompare" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name=".activity.MatchGuide" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name=".activity.MatchInfoShow" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name=".activity.AppMain" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name=".activity.PlayerRecordsList" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name=".activity.PlayerCreate" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name=".activity.TestSuitableTeam" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name=".activity.TestSimilarPlayer" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name=".activity.TestSuitableCloth" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name=".activity.MatchLive" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name=".activity.AlarmActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:name=".activity.NoteActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Dialog"/>
+        <receiver android:name=".receiver.AlarmReceiver">
+            <intent-filter>
+                <action android:name="org.ifootball.intent.action.alarm"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="org.ifootball.providers.football" android:multiprocess="true" android:name=".providers.FootballProvider" android:readPermission="org.ifootball.allen.permission.READ_FOOTBALL_DATA" android:writePermission="org.ifootball.allen.permission.WRITE_FOOTBALL_DATA"/>
+        <provider android:authorities="org.ifootball.providers.app" android:multiprocess="true" android:name=".providers.AppProvider" android:readPermission="org.ifootball.allen.permission.READ_FOOTBALL_DATA" android:writePermission="org.ifootball.allen.permission.WRITE_FOOTBALL_DATA"/>
+    </application>
+    <permission android:name="org.ifootball.allen.permission.READ_FOOTBALL_DATA" android:protectionLevel="dangerous"/>
+    <permission android:name="org.ifootball.allen.permission.WRITE_FOOTBALL_DATA" android:protectionLevel="dangerous"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true"/>
+</manifest>

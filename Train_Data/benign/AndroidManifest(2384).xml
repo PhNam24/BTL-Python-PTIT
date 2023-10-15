@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.sohutv.tv">
+    <uses-feature android:name="android.hardware.type.television" android:required="true"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <application android:icon="@drawable/icon" android:label="@string/app_name" android:largeHeap="true" android:name=".application.SohuApplication">
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:label="@string/app_name" android:name=".activity.WelcomeActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:label="@string/app_name" android:name=".activity.UserGuideActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:label="@string/app_name" android:launchMode="singleTop" android:name=".work.homepage.HomePageActivity" android:screenOrientation="landscape" android:theme="@style/Theme.PageIndicatorDefaults" android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="com.sohu.tvremote.home"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:label="@string/app_name" android:name=".activity.UserCenterActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:label="@string/app_name" android:name=".activity.SearchResultActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:launchMode="singleTask" android:name=".work.classification.activity.CategoryVideoListActivity" android:screenOrientation="landscape" android:theme="@style/Theme.PageIndicatorDefaults" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:name=".work.rank.RankingActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="rank_start"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenSize" android:label="@string/app_name" android:name="com.sohutv.tv.work.videodetail.activity.VideoDetailActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="com.sohutv.tv.videodetail"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="sohutv"/>
+                <data android:host="com.sohutv.tv.videodetail"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenSize" android:label="@string/app_name" android:name="com.sohutv.tv.work.videodetail.fourk.activity.VideoDetail4Kactivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:label="@string/app_name" android:name=".activity.SearchActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:label="@string/app_name" android:name=".activity.CommentWallActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:label="@string/app_name" android:name=".activity.NewsPlayActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenSize" android:label="@string/app_name" android:name=".activity.PlayerActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="com.sohu.tvremote.startplay"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:launchMode="singleTask" android:name=".work.special.SpecialRecommendActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="special_start"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="false" android:name="com.sohutv.tv.work.recommend.RecommendLoadingService">
+            <intent-filter>
+                <action android:name="com.sohutv.tv.work.recommend.RecommendLoadingService"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.sohutv.tv.work.recommend.RecommendCommentsUpdateService">
+            <intent-filter>
+                <action android:name="com.sohutv.tv.work.recommend.RecommendCommentsUpdateService"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.sohutv.tv.work.service.NewAdvLoadingService">
+            <intent-filter>
+                <action android:name="com.sohu.tv.newadvloading"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.sohutv.tv" android:name=".db.PlayHistoryContentProvider" android:readPermission="com.sohutv.tv.permission.READ" android:writePermission="com.sohutv.tv.permission.WRITE"/>
+        <provider android:authorities="com.sohutv.tv" android:name=".db.SearchHistoryContentProvider" android:readPermission="com.sohutv.tv.permission.READ" android:writePermission="com.sohutv.tv.permission.WRITE"/>
+        <provider android:authorities="com.sohutv.tv" android:name=".db.SohuUserContentProvider" android:readPermission="com.sohutv.tv.permission.READ" android:writePermission="com.sohutv.tv.permission.WRITE"/>
+        <provider android:authorities="com.sohutv.tv.haierhistoryprovider" android:exported="true" android:name=".work.partner.db.HaierHistoryProvider"/>
+        <provider android:authorities="com.sohutv.tv.haiersearchprovider" android:exported="true" android:name=".work.partner.db.HaierSearchProvider"/>
+        <service android:name="com.sohutv.tv.work.service.TimerQueryMessageService"/>
+        <service android:name="com.sohutv.foxplayer.service.TimerChannelDataLoadingService"/>
+        <service android:name="com.sohutv.foxplayer.service.TimerProgramDataLoadingService"/>
+        <service android:name="com.sohutv.foxplayer.service.Timer3DayAllChannelProgramDataLoadingService"/>
+        <service android:exported="false" android:name="com.sohutv.tv.util.logsystem.LogService" android:process=":log_service"/>
+        <service android:exported="false" android:name="com.sohutv.tv.work.foxplay.service.ChannelProgramTimerRefreshService">
+            <intent-filter>
+                <action android:name="com.sohutv.tv.work.foxplay.service.ChannelProgramTimerRefreshService"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.sohutv.foxplayer.service.TimerChannelDataLoadingService">
+            <intent-filter>
+                <action android:name="com.sohutv.foxplayer.service.LiveChannelTimerLoadingService"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.sohutv.foxplayer.service.TimerProgramDataLoadingService">
+            <intent-filter>
+                <action android:name="com.sohutv.foxplayer.service.ProgramTimerLoadingService"/>
+            </intent-filter>
+        </service>
+        <activity android:name="com.sohutv.foxplayer.activity.FoxPlayMainActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.sohutv.tv.work.usercenter.activity.WebViewActivity"/>
+        <service android:name="com.sohu.tvremote.upnp.RenderingService"/>
+        <receiver android:name="com.sohu.tvremote.avtransport.AlarmReceiver"/>
+        <receiver android:name="com.sohutv.tv.work.partner.base.PartnerBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.sohutv.tv"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.sohutv.tv.utils.BootBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.sohutv.tv.work.dlna.PushBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.sohutv.tv.action.push"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.sohu.ott.ads.sdk.iterface.TaskService">
+            <intent-filter>
+                <action android:name="com.sohu.app.ads.sdk.service"/>
+            </intent-filter>
+        </service>
+        <activity android:name="com.sohu.ott.ads.sdk.core.PadDetailsActivity">
+            <intent-filter>
+                <action android:name="com.ott.sdk.pad.details"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

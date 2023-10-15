@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.wish">
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_GPS"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <application android:icon="@drawable/icon_android" android:label="@string/app_name" android:name="com.wish.Application" android:theme="@android:style/Theme.NoTitleBar">
+        <meta-data android:name="com.amap.api.v2.apikey" android:value="adbd8889d84676d9e1dfc3b6ec893ebe"/>
+        <activity android:label="@string/app_name" android:name=".activity.WelcomeActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.UnloginActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.RegisterActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.EmailLoginActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name=".activity.LatestWishActivity" android:screenOrientation="portrait" android:theme="@style/ThemeNoAnim"/>
+        <activity android:launchMode="singleTask" android:name=".activity.PopularWishActivity" android:screenOrientation="portrait" android:theme="@style/ThemeNoAnim"/>
+        <activity android:launchMode="singleTask" android:name=".activity.MyHomePageActivity" android:screenOrientation="portrait" android:theme="@style/ThemeNoAnim"/>
+        <activity android:launchMode="singleTask" android:name=".activity.NotificationActivity" android:screenOrientation="portrait" android:theme="@style/ThemeNoAnim"/>
+        <activity android:launchMode="singleTask" android:name=".activity.CreateWishActivity" android:screenOrientation="portrait" android:theme="@style/ThemeNoAnim"/>
+        <activity android:name=".activity.DetailWishActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.PhotoAlbumActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.DetailMapActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.MyChatActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleInstance" android:name=".activity.NewWishActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.SelectWishImageActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.TaHomePageActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.HomePageImagePickActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:launchMode="singleInstance" android:name=".activity.SelectWishLocationActivity" android:noHistory="true" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.LikerListActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.WishAchieveActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.MyInfoSetActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.HeartRankingActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.SettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.AdviceActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.AboutActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.UserAgreementActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.HelpActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.GetHeartActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.MobileBindActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.umeng.fb.ConversationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.umeng.fb.ContactActivity" android:screenOrientation="portrait"/>
+        <service android:enabled="true" android:name="com.baidu.location.f" android:process=":remote"/>
+        <meta-data android:name="appid" android:value="HgmeUkPfTN6LqX13sJaMH9"/>
+        <meta-data android:name="appkey" android:value="RIKHHKDJOX7gwkZSiFmuU5"/>
+        <meta-data android:name="appsecret" android:value="BLfNGaJQgR8fhWZoWpiLv5"/>
+        <activity android:excludeFromRecents="true" android:name="com.igexin.sdk.SdkActivity" android:process="com.wish.pushservice" android:taskAffinity="android.task.SdkActivityTask" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="com.igexin.action.popupact.com.wish"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="true" android:label="NotifyCenterAIDL" android:name="com.igexin.sdk.coordinator.SdkMsgService" android:process="com.wish.pushservice"/>
+        <receiver android:name="com.igexin.sdk.coordinator.NotificationCenterAIDLReceiver">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.refreshls"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:label="NotifyCenter" android:name="com.igexin.sdk.SdkMainService" android:process="com.wish.pushservice"/>
+        <receiver android:name="com.igexin.sdk.SdkReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="sdk.download.DownloadService" android:process="com.wish.pushservice"/>
+        <receiver android:exported="false" android:name="sdk.download.DownloadReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.wish.receiver.GexinSdkMsgReceiver">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.HgmeUkPfTN6LqX13sJaMH9"/>
+            </intent-filter>
+　　　	</receiver>
+        <provider android:authorities="sdk.download.com.wish" android:name="sdk.download.DownloadProvider" android:process="com.wish.pushservice"/>
+        <meta-data android:name="UMENG_APPKEY" android:value="51ac49df56240b1825071126"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="googleplay"/>
+        <service android:exported="true" android:name="com.umeng.common.net.DownloadingService" android:process=":DownloadingService"/>
+    </application>
+</manifest>

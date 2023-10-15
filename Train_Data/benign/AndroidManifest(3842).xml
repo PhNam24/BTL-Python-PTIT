@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.qisarsowar.abdelbasset">
+    <supports-screens android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="true" android:icon="@drawable/ic_launcher_icon" android:label="@string/app_name" android:name="com.qisarsowar.abdelbasset.AndromoApplication" android:supportsRtl="true">
+        <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing" android:value="true"/>
+        <activity android:label="@string/app_name" android:name="com.qisarsowar.abdelbasset.Dashboard_000" android:screenOrientation="unspecified" android:theme="@style/DashboardTheme_000">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.qisarsowar.abdelbasset.Audio367455" android:parentActivityName="com.qisarsowar.abdelbasset.Dashboard_000" android:screenOrientation="unspecified" android:theme="@style/ActivityTheme_Audio367455">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.qisarsowar.abdelbasset.Dashboard_000"/>
+        </activity>
+        <service android:exported="false" android:name="com.qisarsowar.abdelbasset.AudioService"/>
+        <receiver android:name="com.qisarsowar.abdelbasset.AudioIntentReceiver">
+            <intent-filter>
+                <action android:name="android.media.AUDIO_BECOMING_NOISY"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.qisarsowar.abdelbasset.Audio367455_PlaylistManager"/>
+        <service android:exported="false" android:name="com.qisarsowar.abdelbasset.SetRingtoneService"/>
+        <activity android:label="@string/app_name" android:name="com.qisarsowar.abdelbasset.Market267342" android:parentActivityName="com.qisarsowar.abdelbasset.Dashboard_000" android:screenOrientation="unspecified" android:theme="@style/ActivityTheme_Market267342">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.qisarsowar.abdelbasset.Dashboard_000"/>
+        </activity>
+        <activity android:name="com.qisarsowar.abdelbasset.AndromoAboutActivity" android:theme="@style/AppTheme"/>
+        <meta-data android:name="com.qisarsowar.abdelbasset.GlideConfiguration" android:value="GlideModule"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="android.support.VERSION" android:value="26.1.0"/>
+    </application>
+</manifest>

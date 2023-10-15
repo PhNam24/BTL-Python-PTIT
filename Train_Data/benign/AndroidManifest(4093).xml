@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="br.com.icarros.androidapp" platformBuildVersionCode="200" platformBuildVersionName="4.12.2">
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps"/>
+    <supports-screens android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:hardwareAccelerated="true" android:icon="@drawable/app_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="br.com.icarros.androidapp.app.ICarrosApplication" android:supportsRtl="true" android:theme="@style/Theme.Androidapp">
+        <meta-data android:name="DATABASE" android:value="icarrosdb.db"/>
+        <meta-data android:name="VERSION" android:value="4"/>
+        <meta-data android:name="QUERY_LOG" android:value="true"/>
+        <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="br.com.icarros.androidapp"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyAIPg0BPz8crC-h_WtyKoXoUqhempDIlwg"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="59fd6d7d5317d90096b7154267e0c1e3f040aefc"/>
+        <meta-data android:name="br.com.icarros.androidapp.graphics.GlideConfiguration" android:value="GlideModule"/>
+        <meta-data android:name="com.google.android.gms.ads.AD_MANAGER_APP" android:value="true"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/ic_notification"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/blue"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="true" android:name="br.com.icarros.androidapp.ui.SplashActivity" android:screenOrientation="user" android:theme="@style/NoActionBarTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="br.com.icarros.androidapp.START_APP"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:launchMode="singleTop" android:name="br.com.icarros.androidapp.ui.home.MainActivity" android:screenOrientation="user" android:windowSoftInputMode="adjustResize">
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.icarros.com.br" android:pathPattern="/principal/" android:scheme="https"/>
+                <data android:host="www.icarros.com.br" android:pathPattern="/vender/" android:scheme="https"/>
+                <data android:host="www.icarros.com.br" android:pathPattern="/noticias/index.jsp" android:scheme="https"/>
+                <data android:host="www.icarros.com.br" android:pathPattern="/tabela-fipe/" android:scheme="https"/>
+                <data android:host="www.icarros.com.br" android:pathPattern="/catalogo/" android:scheme="https"/>
+                <data android:host="www.icarros.com.br" android:pathPattern="/financiamento/" android:scheme="https"/>
+                <data android:host="www.icarros.com.br" android:pathPattern="/financiamento/" android:scheme="icarros"/>
+                <data android:host="www.icarros.com.br" android:pathPattern="/principal/index.jsp" android:scheme="icarros"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.search.DealerInventoryActivity" android:screenOrientation="user"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/deals" android:name="br.com.icarros.androidapp.ui.search.DealsActivity" android:parentActivityName="br.com.icarros.androidapp.ui.home.MainActivity" android:screenOrientation="user">
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.home.MainActivity"/>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.catalog.ModelCatalogActivity" android:screenOrientation="user" android:theme="@style/WhiteActionMode" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/deal" android:name="br.com.icarros.androidapp.ui.search.DealActivity" android:screenOrientation="user">
+            <intent-filter android:autoVerify="true" android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.icarros.com.br" android:pathPrefix="/ache/detalhes.jsp" android:scheme="https"/>
+                <data android:host="www.icarros.com.br" android:pathPrefix="/ache/detalhes.jsp" android:scheme="icarros"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="br.com.icarros.androidapp.ui.search.DealImageGalleryActivity" android:screenOrientation="user" android:theme="@style/Transparent.NoTitleBar"/>
+        <activity android:name="br.com.icarros.androidapp.ui.sale.DealImageGalleryActivity" android:screenOrientation="user" android:theme="@style/Theme.TranslucentActionBar.ActionBar.Overlay"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.catalog.ModelPicturesActivity" android:screenOrientation="user"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.fipe.TrimDealsActivity" android:screenOrientation="user"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.fipe.ModelDealsActivity" android:screenOrientation="user"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.sale.UserFormActivity" android:screenOrientation="user" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="br.com.icarros.androidapp.ui.sale.CameraActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.sale.MyDealsActivity" android:screenOrientation="user"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/lead_dealership_title" android:name="br.com.icarros.androidapp.ui.search.LeadDealershipActivity" android:screenOrientation="user"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.sale.UserPicturesGalleryActivity" android:screenOrientation="user"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.sale.MyPicturesGalleryActivity" android:screenOrientation="user" android:theme="@style/PictureGalleryActionMode"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.sale.SaleCarInformationActivity" android:screenOrientation="user" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.sale.ChoosePaymentTypeActivity" android:screenOrientation="user" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.sale.PlanActivity" android:screenOrientation="user" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.sale.FeaturesActivity" android:screenOrientation="user" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.sale.PaymentActivity" android:screenOrientation="user" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/send_lead_title" android:name="br.com.icarros.androidapp.ui.search.lead.LeadActivity" android:screenOrientation="user" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/success_lead_message" android:name="br.com.icarros.androidapp.ui.search.lead.ResultLeadActivity" android:screenOrientation="user" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.news.NewsDetailActivity" android:screenOrientation="user">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.icarros.com.br" android:pathPattern="/noticias/.*\\\\/.*" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.catalog.ModelsActivity" android:screenOrientation="user"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.news.NewsPicturesActivity" android:screenOrientation="user" android:theme="@style/Transparent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.catalog.CompareModelActivity" android:screenOrientation="user"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.catalog.ChooseTrimActivity" android:screenOrientation="user"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.catalog.UserRatingsActivity" android:screenOrientation="user"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.catalog.CompareSearchVehicleActivity" android:screenOrientation="user" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.catalog.ModelPriceTrimsActivity" android:screenOrientation="user"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.catalog.TrimTechSpecsActivity" android:screenOrientation="user"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:hardwareAccelerated="true" android:name="br.com.icarros.androidapp.ui.catalog.DealershipsActivity" android:screenOrientation="user"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.search.WishlistActivity" android:screenOrientation="user"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.app.SettingsActivity" android:screenOrientation="user"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.search.SearchModelFilterActivity" android:screenOrientation="user" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.search.SearchCityFilterActivity" android:screenOrientation="user" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="io.card.payment.CardIOActivity"/>
+        <activity android:name="io.card.payment.DataEntryActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/title_activity_manage_deal" android:name="br.com.icarros.androidapp.ui.sale.ManageDealActivity" android:screenOrientation="user" android:theme="@style/Theme.TranslucentActionBar.ActionBar.Overlay"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/title_activity_deal_leads" android:name="br.com.icarros.androidapp.ui.sale.DealLeadsActivity" android:screenOrientation="user"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.financing.ResultFinancingSimulationActivity" android:screenOrientation="user" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.financing.HomeFinancingSimulationActivity" android:screenOrientation="user" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/title_activity_tutorial" android:name="br.com.icarros.androidapp.ui.tutorial.TutorialActivity" android:screenOrientation="portrait" android:theme="@style/NoActionBarTheme"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.login.LoginActivity" android:screenOrientation="user" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.login.SignupActivity" android:screenOrientation="user" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.login.ResetPasswordActivity" android:screenOrientation="user" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.financing.FinancingVoucherActivity" android:screenOrientation="user" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/deals" android:name="br.com.icarros.androidapp.ui.search.DLDealsActivity" android:screenOrientation="user">
+            <intent-filter android:autoVerify="true" android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.icarros.com.br" android:pathPattern="/comprar/.*" android:scheme="https"/>
+                <data android:host="www.icarros.com.br" android:pathPattern="/ofertas/.*" android:scheme="https"/>
+                <data android:host="www.icarros.com.br" android:pathPattern="/ache/listaanuncios.jsp" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.feirao.HomeFeiraoActivity" android:screenOrientation="user"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.feirao.CityListActivity" android:screenOrientation="user"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.feirao.DealersFeiraoActivity" android:screenOrientation="user"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.financing.DLFinancingVoucherActivity" android:screenOrientation="user"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.fipe.FipeFlowActivity" android:screenOrientation="user"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="br.com.icarros.androidapp.ui.news.SearchNewsActivity" android:screenOrientation="user"/>
+        <service android:name="br.com.icarros.androidapp.ui.sale.intentservice.UploadPictureIntentService"/>
+        <service android:name="br.com.icarros.androidapp.app.location.UserLocationIntentService"/>
+        <receiver android:name="br.com.icarros.androidapp.app.geofence.LocationProviderBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.location.PROVIDERS_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="br.com.icarros.androidapp.app.geofence.NotificationDismissedReceiver"/>
+        <receiver android:exported="false" android:name="br.com.icarros.androidapp.app.geofence.NotificationOpenedReceiver"/>
+        <receiver android:exported="false" android:name="br.com.icarros.androidapp.ui.financing.broadcast.VoucherDismissedReceiver"/>
+        <receiver android:exported="false" android:name="br.com.icarros.androidapp.ui.financing.broadcast.VoucherOpenedReceiver"/>
+        <service android:name="br.com.icarros.androidapp.app.geofence.MeasureUserDistanceService"/>
+        <service android:name="br.com.icarros.androidapp.app.geofence.DealersByGeopositionIntentService"/>
+        <service android:name="br.com.icarros.androidapp.app.geofence.GeofenceTrackingUserLocationIntentService" android:process=":userTracking"/>
+        <service android:name="br.com.icarros.androidapp.app.geofence.SaveGeopointsOnGeofenceIntentService"/>
+        <service android:allowBackup="true" android:name="br.com.icarros.androidapp.app.geofence.GeofenceDealerIntentService"/>
+        <service android:name="br.com.icarros.androidapp.app.geofence.SaveFeiraoDealersOnGeofenceIntentService"/>
+        <service android:name="br.com.icarros.androidapp.app.fcm.FirebaseListenerMessageService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="br.com.icarros.androidapp.app.fcm.FcmInstanceIDListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="br.com.icarros.androidapp.app.fcm.RegistrationIntentService"/>
+        <service android:exported="false" android:name="br.com.icarros.androidapp.app.fcm.UnregistrationIntentService"/>
+        <service android:name="br.com.icarros.androidapp.app.location.IdentifyUserCityIntentService"/>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <receiver android:name="com.google.android.gms.analytics.CampaignTrackingReceiver"/>
+        <receiver android:name="com.google.ads.conversiontracking.InstallReceiver"/>
+        <service android:name="br.com.icarros.androidapp.app.alarm.AlarmFeiraoService"/>
+        <receiver android:name="br.com.icarros.androidapp.app.alarm.AlarmReceiver"/>
+        <receiver android:enabled="false" android:name="br.com.icarros.androidapp.app.alarm.AlarmBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.adjust.sdk.AdjustReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <provider android:authorities="br.com.icarros.androidapp.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="br.com.icarros.androidapp.crashlyticsinitprovider" android:exported="false" android:initOrder="90" android:name="com.crashlytics.android.CrashlyticsInitProvider"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <activity android:exported="true" android:name="com.google.android.gms.appinvite.PreviewActivity" android:theme="@style/Theme.AppInvite.Preview">
+            <intent-filter>
+                <action android:name="com.google.android.gms.appinvite.ACTION_PREVIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="br.com.icarros.androidapp.firebaseperfprovider" android:exported="false" android:initOrder="101" android:name="com.google.firebase.perf.provider.FirebasePerfProvider"/>
+        <service android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.component.FirebasePerfRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="br.com.icarros.androidapp.mobileadsinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.android.gms.ads.MobileAdsInitProvider"/>
+        <provider android:authorities="br.com.icarros.androidapp.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <receiver android:exported="false" android:name="com.inlocomedia.android.engagement.InLocoEngagementReceiver"/>
+        <service android:exported="false" android:name="com.inlocomedia.android.location.InLocoMediaService"/>
+        <receiver android:exported="false" android:name="com.inlocomedia.android.location.LocationReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.AIRPLANE_MODE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.inlocomedia.android.core.InLocoMediaActivity" android:theme="@style/Theme.InLocoMedia.NoActionBar.Fullscreen"/>
+        <receiver android:exported="false" android:name="com.inlocomedia.android.core.schedulers.alarm.AlarmHelperReceiver">
+            <intent-filter>
+                <action android:name="com.inlocomedia.android.core.AlarmTriggeredEvent"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.android.dynamic.apk.fused.modules" android:value="base"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="21"/>
+    </application>
+</manifest>

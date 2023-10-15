@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" package="jp.co.pscsrv.musenavi.kadokawa" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-feature android:name="android.hardware.location.gps"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.landscape" android:required="false"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="jp.co.pscsrv.musenavi.kadokawa.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="jp.co.pscsrv.musenavi.kadokawa.permission.C2D_MESSAGE"/>
+    <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="jp.co.pscsrv.musenavi.app.Musenavi" android:theme="@style/AppTheme">
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <uses-library android:name="org.apache.http.legacy"/>
+        <activity android:name="jp.co.pscsrv.musenavi.activity.SplashActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="locale" android:name="jp.co.pscsrv.musenavi.activity.SelectLanguageActivity" android:screenOrientation="portrait"/>
+        <activity android:name="jp.co.pscsrv.musenavi.activity.TermsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="jp.co.pscsrv.musenavi.activity.QuestionnaireActivity" android:screenOrientation="portrait"/>
+        <activity android:name="jp.co.pscsrv.musenavi.activity.DownloadActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="jp.co.pscsrv.musenavi.activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="jp.co.pscsrv.musenavi.activity.NewsDetailActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="jp.co.pscsrv.musenavi.activity.MainActivity"/>
+        </activity>
+        <activity android:hardwareAccelerated="false" android:name="jp.co.pscsrv.musenavi.activity.WorksDetailActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="jp.co.pscsrv.musenavi.activity.MainActivity"/>
+        </activity>
+        <activity android:name="jp.co.pscsrv.musenavi.activity.FallbackWorksDetailActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="jp.co.pscsrv.musenavi.activity.MainActivity"/>
+        </activity>
+        <activity android:name="jp.co.pscsrv.musenavi.activity.AuthorDetailActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="jp.co.pscsrv.musenavi.activity.WorksDetailActivity"/>
+        </activity>
+        <activity android:name="jp.co.pscsrv.musenavi.activity.ThemeDetailActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="jp.co.pscsrv.musenavi.activity.MainActivity"/>
+        </activity>
+        <activity android:name="jp.co.pscsrv.musenavi.activity.LicenseActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="jp.co.pscsrv.musenavi.activity.MainActivity"/>
+        </activity>
+        <activity android:name="jp.co.pscsrv.musenavi.activity.LocalMapActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="jp.co.pscsrv.musenavi.activity.MainActivity"/>
+        </activity>
+        <activity android:name="jp.co.pscsrv.musenavi.activity.AlertActivity" android:screenOrientation="portrait"/>
+        <activity android:name="jp.co.pscsrv.musenavi.activity.TicketDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="jp.co.pscsrv.musenavi.activity.SelectExhibitActivity" android:screenOrientation="portrait"/>
+        <activity android:name="jp.co.pscsrv.musenavi.activity.QrCodeActivity" android:screenOrientation="portrait"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="@string/google_maps_key"/>
+        <service android:name="jp.co.pscsrv.musenavi.service.SoundService"/>
+        <service android:name="jp.co.pscsrv.musenavi.service.FacilitySoundService"/>
+        <service android:name="jp.co.pscsrv.musenavi.service.ListeningService"/>
+        <service android:name="jp.co.pscsrv.musenavi.broadcastReceiver.FcmIntentService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="jp.co.pscsrv.musenavi.activity.SimpleYoutubePlayerActivity" android:screenOrientation="unspecified"/>
+        <activity android:name="jp.co.pscsrv.musenavi.activity.FocusableLocalMapActivity" android:screenOrientation="portrait"/>
+        <activity android:clearTaskOnLaunch="true" android:name="com.journeyapps.barcodescanner.CaptureActivity" android:screenOrientation="sensorLandscape" android:stateNotNeeded="true" android:theme="@style/zxing_CaptureTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="jp.co.pscsrv.musenavi.kadokawa"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"/>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>

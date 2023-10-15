@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="sogou.mobile.explorer">
+    <original-package android:name="sogou.mobile.explorer"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR"/>
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="gexin.permission.GexinService"/>
+    <permission android:name="sogou.mobile.explorer.permission.ACTIVATION" android:protectionLevel="normal"/>
+    <application android:allowBackup="false" android:configChanges="locale" android:debuggable="false" android:hardwareAccelerated="false" android:icon="@drawable/ic_launcher_browser" android:label="@string/application_install_name" android:largeHeap="true" android:manageSpaceActivity=".ManageSpaceActivity" android:name=".BrowserApp">
+        <provider android:authorities="sogou.mobile.explorer" android:exported="false" android:multiprocess="true" android:name=".provider.BrowserProvider">
+            <path-permission android:path="/bookmarks/search_suggest_query" android:readPermission="android.permission.GLOBAL_SEARCH"/>
+        </provider>
+        <provider android:authorities="sogou.mobile.base.cloud.db" android:exported="false" android:name="sogou.mobile.base.protobuf.cloud.db.provider.CloudProvider"/>
+        <provider android:authorities="sogou.mobile.base.cloud.sync.db" android:exported="false" android:name="sogou.mobile.base.protobuf.cloud.db.provider.CloudSyncProvider"/>
+        <activity android:alwaysRetainTaskState="true" android:configChanges="fontScale|keyboardHidden|orientation|screenSize" android:label="@string/application_name" android:launchMode="standard" android:name="NoDisplayActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoDisplay" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:alwaysRetainTaskState="true" android:configChanges="fontScale|keyboardHidden|orientation|screenSize" android:label="@string/application_name" android:launchMode="singleTask" android:name="BrowserActivity" android:screenOrientation="portrait" android:theme="@style/BrowserTheme" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.speech.action.VOICE_SEARCH_RESULTS"/>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter android:label="@string/url_intent_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="category.sogou.mobile.explorer.shortcut"/>
+                <category android:name="category.sogou.mobile.explorer.feichuan"/>
+                <category android:name="category.sogou.mobile.explorer.qrcode"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:scheme="about"/>
+                <data android:scheme="javascript"/>
+                <data android:scheme="sogoumse"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="category.sogou.mobile.explorer.feichuan"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:scheme="content"/>
+                <data android:scheme="file"/>
+                <data android:scheme="inline"/>
+                <data android:mimeType="text/html"/>
+                <data android:mimeType="application/xhtml+xml"/>
+                <data android:mimeType="application/vnd.wap.xhtml+xml"/>
+            </intent-filter>
+            <intent-filter android:icon="@drawable/open_read" android:label="@string/open_read_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="content"/>
+                <data android:scheme="file"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.WEB_SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme=""/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter android:icon="@drawable/open_read" android:label="@string/open_read_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="application/epub+zip"/>
+                <data android:host="" android:scheme="file"/>
+                <data android:pathPattern=".*\\.epub"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:label="" android:launchMode="singleTop" android:name=".download.DownloadPage" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:label="" android:name="WebsiteSettingsActivity"/>
+        <activity android:exported="false" android:name=".cloud.user.ui.CloudLoginActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:name=".cloud.user.ui.CloudNavtiveLoginActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:name=".cloud.user.ui.UserCentreActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:name=".cloud.ui.CloudCombineActivity" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:exported="false" android:name=".videosniffer.ui.VideoSnifferPageActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme" android:windowSoftInputMode="adjustPan"/>
+        <meta-data android:name="android.app.default_searchable" android:value=".BrowserActivity"/>
+        <provider android:authorities="sogoudownloads" android:name=".download.DownloadProvider"/>
+        <service android:exported="false" android:name=".download.DownloadService"/>
+        <service android:exported="false" android:name=".novel.offline.NovelOfflineDownloadService"/>
+        <service android:exported="false" android:name=".readcenter.offline.OfflineService"/>
+        <receiver android:exported="false" android:name=".download.DownloadReceiver">
+            <intent-filter>
+                <action android:name="sogoumse.intent.action.DOWNLOAD_NOTIFICATION_CLICKED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name=".novel.NovelReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="sogou.mobile.explorer.ConnectionChangeReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name="sogou.mobile.explorer.quicklaunch.add.QuickLaunchAddPage" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name=".quicklaunch.add.AddQuicklaunchActivity" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan|stateHidden" style="@style/GlobalScrollBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:name=".wallpaper.SkinActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:label="@string/menu_preferences" android:name=".preference.BrowserPreferences2" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:label="@string/menu_preferences" android:name=".preference.AboutUsActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:label="@string/menu_preferences" android:name=".readcenter.offline.ChannelOfflineSettingActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name=".qrcode.CaptureActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name=".novel.content.NovelContentActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name=".novel.page.NovelPageActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name=".novel.page.NovelPageSettingActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name=".novel.page.NovelCatogoryActivity" android:screenOrientation="portrait" android:theme="@style/NovelCatogoryFastScroll" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name=".ManageSpaceActivity"/>
+        <meta-data android:name="appid" android:value="JvyYAiz4Wc6zbiCJP40DU3"/>
+        <meta-data android:name="appkey" android:value="S99IqwWRsJ7VqdD1aEGQM5"/>
+        <meta-data android:name="appsecret" android:value="cmWZTpEKGh77zurLe1RwE5"/>
+        <meta-data android:name="mastersecret" android:value="wUPWw8mrZJ6mnNPM7dySX8"/>
+        <meta-data android:name="sg_passport_sdk_version" android:value="1.2"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:label="" android:launchMode="singleTop" android:name=".feichuan.FeiChuanActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <receiver android:exported="true" android:name=".feichuan.FeiChuanMsgReceiver">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.JvyYAiz4Wc6zbiCJP40DU3"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="sogou.mobile.explorer.feichuan.notification"/>
+                <action android:name="sogou.mobile.explorer.custom.push.notification"/>
+                <action android:name="sogou.mobile.explorer.custom.version.upgrade.notification"/>
+                <action android:name="sogou.mobile.explorer.custom.version.upgrade.button.action"/>
+                <data android:scheme="semob"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name=".feichuan.PushAlarmReceiver"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.igexin.sdk.SdkActivity" android:process="sogou.mobile.explorer.pushservice" android:taskAffinity="android.task.SdkActivityTask" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="com.igexin.action.popupact.sogou.mobile.explorer"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|orientation" android:exported="false" android:launchMode="singleTask" android:name=".readcenter.offline.OfflineDownloadPage" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboard|orientation" android:exported="false" android:launchMode="singleTask" android:name=".readcenter.offline.TimerSettingPage"/>
+        <activity android:configChanges="keyboard|orientation|screenSize" android:exported="false" android:name="sogou.mobile.explorer.file.FileBrowseActivity" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:name="sogou.mobile.explorer.readcenter.information.article.ShowJokePicActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Black.NoTitleBar"/>
+        <service android:exported="false" android:label="NotifyCenter" android:name="com.igexin.sdk.SdkMainService" android:process="sogou.mobile.explorer.pushservice"/>
+        <receiver android:name="com.igexin.sdk.SdkReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:label="NotifyCenterAIDL" android:name="com.igexin.sdk.coordinator.SdkMsgService" android:process="sogou.mobile.explorer.pushservice"/>
+        <service android:name="com.sogou.passportsdk.service.PassportUploadService"/>
+        <receiver android:name="com.igexin.sdk.coordinator.NotificationCenterAIDLReceiver">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.refreshls"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="sdk.download.DownloadService" android:process="sogou.mobile.explorer.pushservice"/>
+        <receiver android:exported="false" android:name="sdk.download.DownloadReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="sogou.mobile.explorer.version.VersionNotificationReceiver">
+            <intent-filter>
+                <action android:name="sogou.mobile.explorer.version.notification"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name=".readcenter.offline.DownloadReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="sdk.download.sogou.mobile.explorer" android:name="sdk.download.DownloadProvider" android:process="sogou.mobile.explorer.pushservice"/>
+        <activity android:exported="false" android:name="sogou.mobile.explorer.share.ShareDetailActivity" android:screenOrientation="portrait" android:theme="@style/Theme.ShareDetailDialog"/>
+        <activity android:exported="false" android:name="sogou.mobile.explorer.share.ShareAuthoActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Black.NoTitleBar"/>
+        <activity android:exported="false" android:name=".share.ShowPicActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Black.NoTitleBar"/>
+        <activity android:exported="true" android:launchMode="singleTop" android:name=".wxapi.WXEntryActivity" android:theme="@android:style/Theme.Dialog"/>
+        <receiver android:exported="false" android:name="sogou.mobile.explorer.share.ShareBroadcastReceiver">
+            <intent-filter>
+                <action android:name="sogou.mobile.explorer.action.share"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="sogou.mobile.explorer.SearchBroadcastReceiver">
+            <intent-filter>
+                <action android:name="sogou.mobile.explorer.action.search"/>
+            </intent-filter>
+        </receiver>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencent100423383"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.connect.common.AssistActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:exported="true" android:launchMode="singleTask" android:name=".wxapi.WXLoginEntryActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoDisplay"/>
+        <activity android:name="com.sogou.passportsdk.activity.WebViewLoginActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.sogou.passportsdk.activity.RegistActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.sogou.passportsdk.activity.FindPasswordActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.sogou.passportsdk.activity.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sogou.passportsdk.activity.SogouAssistActivity" android:theme="@android:style/Theme.NoDisplay"/>
+        <receiver android:exported="false" android:name=".ActivationBrowserReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:name="com.sogou.map.loc.SGLocService"/>
+        <service android:exported="true" android:name=".ActivateBrowserService" android:permission="sogou.mobile.explorer.permission.ACTIVATION">
+            <intent-filter>
+                <action android:name="sogou.mobile.explorer.permission.ACTIVATION"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name=".extension.UpdatePluginService"/>
+        <service android:exported="false" android:name=".util.wifi.WifiVerificationService"/>
+        <receiver android:exported="false" android:name="sogou.mobile.explorer.file.SDCardReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BAD_REMOVAL"/>
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <data android:scheme="file"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

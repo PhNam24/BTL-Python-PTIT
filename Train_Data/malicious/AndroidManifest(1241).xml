@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="cn.dictcn.android.digitize.wjs_sc60">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <application android:icon="@drawable/app_icon" android:label="@string/application_name" android:name="com.qihoo.util.StubApplication">
+        <receiver android:name="cn.dictcn.android.digitize.wjs_sc.receiver.DownLoadBroadcastReceiver">
+            <intent-filter>
+                <action android:name="cn.dictcn.android.digitize.wjs_sc60.receiver.DownLoadBroadcastReceiver"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="cn.dictcn.android.digitize.wjs_sc.receiver.RemindReceiver">
+            <intent-filter>
+                <action android:name="cn.dictcn.android.digitize.wjs_sc60.receiver.RemindReceiver"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="cn.dictcn.android.digitize.wjs_sc.receiver.NetChangeReceiver">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="cn.dictcn.android.digitize.wjs_sc60.contentprovider_searchword" android:exported="true" android:name="cn.dictcn.android.digitize.contentprovider.SearchWordContentProvider"/>
+        <meta-data android:name="UMENG_APPKEY" android:value="53a3cbf056240b5c8009e3c0"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.StartActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTask" android:name="cn.dictcn.android.digitize.activity.BottomTabActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.HomeActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.QuickSearchActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_two" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.UserGuidanceActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.CameraOCRActivity" android:screenOrientation="landscape" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.MemoCategoryActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.EditCatergloryActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.MemoWordActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.EditWordActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="cn.dictcn.android.digitize.activity.LoginActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.AccountManagerActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.RecommendActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.SettingActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.ShareSetActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.FeedbackActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.HelpOrAboutActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.ShareActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.GetPwdActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.ModifyPasswordActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.NewOffLineDownActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.BindPhoneActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.ProductActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.TradeActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.LicenseActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.WordIndexActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.WordReviewActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.WordPlanActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.WordReadyPlanActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.WordReviewSummaryActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.WordPrgressFamiliarActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="cn.dictcn.android.digitize.activity.WordDetailActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="cn.dictcn.android.digitize.activity.NotifySettingActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="cn.dictcn.android.digitize.activity.WordDetailQzActivity" android:screenOrientation="portrait" android:theme="@style/activity_theme_one" android:windowSoftInputMode="adjustPan"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencent100379154"/>
+            </intent-filter>
+        </activity>
+        <service android:name="cn.dictcn.android.digitize.wjs_sc.service.DictService"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="miui"/>
+    </application>
+</manifest>

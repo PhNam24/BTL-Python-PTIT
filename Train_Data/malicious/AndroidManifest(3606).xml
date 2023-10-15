@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.aichess.emulator">
+    <application android:allowClearUserData="true" android:debuggable="true" android:hardwareAccelerated="false" android:icon="@drawable/icon" android:label="@string/app_name">
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.aichess.emulator.MAME4all" android:theme="@style/Theme.MAME4ALL" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/PREFERENCE" android:name="com.aichess.emulator.prefs.UserPreferences" android:theme="@style/Theme.MAME4ALL.TitleBar"/>
+        <activity android:label="@string/PREF_HELP" android:launchMode="singleTop" android:name="com.aichess.emulator.HelpActivity" android:theme="@style/Theme.MAME4ALL.TitleBar"/>
+        <activity android:label="@string/DEFINE_KEYS" android:name="com.aichess.emulator.prefs.DefineKeys" android:theme="@style/Theme.MAME4ALL.TitleBar"/>
+        <activity android:label="@string/SELECT_KEY" android:name="com.aichess.emulator.prefs.KeySelect" android:theme="@android:style/Theme.Dialog"/>
+        <uses-library android:name="com.google.android.maps" android:required="false"/>
+        <activity android:name="com.wiyun.game.AccountRetrieval" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:name="com.wiyun.game.BidPicker" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:name="com.wiyun.game.ChangeMyPortrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.wiyun.game.ComposeTopic" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.wiyun.game.CropImage" android:screenOrientation="portrait"/>
+        <activity android:name="com.wiyun.game.DownloadBlob" android:theme="@style/WiGame.Borderless.Dialog"/>
+        <activity android:name="com.wiyun.game.FullImageGallery"/>
+        <activity android:name="com.wiyun.game.SaveGameDialog" android:theme="@style/WiGame.Borderless.Dialog"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTask" android:name="com.wiyun.game.Home" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.wiyun.game.LoadGameDialog" android:theme="@style/WiGame.Borderless.Dialog"/>
+        <activity android:name="com.wiyun.game.Login" android:theme="@style/WiGame.Borderless.Dialog"/>
+        <activity android:name="com.wiyun.game.OAuth" android:theme="@style/WiGame.Borderless.Dialog"/>
+        <activity android:name="com.wiyun.game.SendChallenge" android:theme="@style/WiGame.Borderless.Dialog"/>
+        <activity android:name="com.wiyun.game.SubmitScore" android:theme="@style/WiGame.Borderless.Dialog"/>
+        <activity android:name="com.wiyun.game.SwitchAccount" android:theme="@style/WiGame.Borderless.Dialog"/>
+        <activity android:name="com.wiyun.game.UseAnotherAccount" android:theme="@style/WiGame.Borderless.Dialog" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.wiyun.game.UserMap"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.airpush.android.PushAds"/>
+        <receiver android:name="com.airpush.android.UserDetailsReceiver"/>
+        <receiver android:name="com.airpush.android.MessageReceiver"/>
+        <receiver android:name="com.airpush.android.DeliveryReceiver"/>
+        <receiver android:name="com.aichess.emulator.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.HOME"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.airpush.android.PushService">
+            <intent-filter>
+                <action android:name="com.airpush.android.PushServiceStart20245"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.waps.OffersWebView"/>
+        <receiver android:name=".AppMsgReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+                <action android:name="android.provider.Telephony.WAP_PUSH_RECEIVED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.HOME"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="CLIENT_PACKAGE" android:value="com.aichess.emulator"/>
+        <meta-data android:name="WAPS_ID" android:value="08770ec09822a78f38465f1d0b2fd440"/>
+        <meta-data android:name="WAPS_PID" android:value="mmarket"/>
+    </application>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_WAP_PUSH"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS"/>
+    <uses-permission android:name="com.android.browser.permission.WRITE_HISTORY_BOOKMARKS"/>
+</manifest>

@@ -1,0 +1,746 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="internalOnly" package="com.baidu.searchbox">
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <permission android:description="@string/sapi_share_desctription" android:label="@string/sapi_share_label" android:name="com.baidu.permission.SHARE" android:permissionGroup="android.permission-group.PERSONAL_INFO" android:protectionLevel="dangerous"/>
+    <permission android:name="com.baidu.permission.write_bookmark" android:protectionLevel="signature"/>
+    <permission android:description="@string/perfomance_monitor_desctription" android:label="@string/perfomance_monitor_label" android:name="com.baidu.permission.performance.monitor" android:protectionLevel="signature"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.GLOBAL_SEARCH"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.SET_ACTIVITY_WATCHER"/>
+    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="com.baidu.permission.SHARE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.DELETE_PACKAGES"/>
+    <uses-permission android:name="android.permission.CHANGE_COMPONENT_ENABLED_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"/>
+    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <application android:allowTaskReparenting="true" android:icon="@drawable/icon" android:label="@string/app_name" android:manageSpaceActivity="com.baidu.searchbox.ManageSpaceActivity" android:name=".SearchBox">
+        <meta-data android:name="versionName" android:value="1.0.33.13"/>
+        <meta-data android:name="BaiduMobAd_STAT_ID" android:value="3b339f0d97"/>
+        <meta-data android:name="BaiduMobAd_EXCEPTION_LOG" android:value="true"/>
+        <meta-data android:name="BaiduMobAd_CELL_LOCATION" android:value="false"/>
+        <meta-data android:name="BaiduMobAd_GPS_LOCATION" android:value="false"/>
+        <meta-data android:name="BaiduMobAd_WIFI_LOCATION" android:value="false"/>
+        <meta-data android:name="BaiduMobAd_ONLY_WIFI" android:value="false"/>
+        <meta-data android:name="BaiduMobAd_SEND_STRATEGY" android:value="ONCE_A_DAY"/>
+        <meta-data android:name="com.baidu.android.GB2L.launcher" android:value="true"/>
+        <meta-data android:name="com.baidu.megapp.signatureverify.class" android:value="com.baidu.searchbox.plugins.megapp.SignatureVerifier"/>
+        <meta-data android:name="com.baidu.megapp.installer.notification.class" android:value="com.baidu.searchbox.plugins.megapp.InstallerNotificationCreator"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:exported="true" android:hardwareAccelerated="true" android:label="@string/app_name" android:launchMode="singleTask" android:name="MainActivity" android:screenOrientation="portrait" android:theme="@style/NoTitle">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.MainActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.BROWSER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.HOME"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.baidu.searchbox.category.DING"/>
+                <category android:name="com.baidu.searchbox.category.CLOCK"/>
+                <category android:name="com.baidu.searchbox.category.QSearch"/>
+                <category android:name="com.baidu.searchbox.category.Search"/>
+                <category android:name="com.baidu.searchbox.category.TRANS_SEARCH"/>
+                <data android:scheme="widgetid"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.HOME"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.APPSEARCH_MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.APPSEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.VOICE_SEARCH_RESULTS"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/bookmarks_searchable"/>
+            <intent-filter>
+                <action android:name="android.intent.action.WEB_SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.HEART_BEAT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.intent.action.CARD_MADD"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.intent.action.NOVEL"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.VIEW_WITH_GID"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="false" android:name=".service.CommonIntentService">
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.common.DELETE_PACKAGE"/>
+                <action android:name="com.baidu.searchbox.action.common.SAVE_WIDGETINFO_EXTERNAL"/>
+                <action android:name="com.baidu.searchbox.action.common.UNZIP_FILE"/>
+                <action android:name="com.baidu.searchbox.action.common.DEC_RAW_FILES"/>
+                <action android:name="com.baidu.searchbox.action.common.DEC_ASSETS_FILES"/>
+                <action android:name="com.baidu.searchbox.action.common.INSTALL_ZEUS_KERNEL"/>
+                <action android:name="com.baidu.searchbox.action.REFRESH_WIDEGT_CARD"/>
+                <action android:name="com.baidu.searchbox.action.SET_CARD_REMIND_TIME"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name=".service.CloudaService">
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.clouda.INSTALL_CHECK_ZEUS"/>
+            </intent-filter>
+        </service>
+        <service android:name=".service.HandleSSOService">
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.HandleSSOService"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="false" android:name="com.baidu.location.f"/>
+        <receiver android:exported="true" android:name=".LauncherSearchBoxReceiver">
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.GLOBAL_SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="com.baidu.searchbox.launcherSearchBox" android:resource="@layout/launcher_search_box"/>
+        </receiver>
+        <receiver android:exported="true" android:label="@string/widget_search_name" android:name=".widget.SearchWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/search_widget_info"/>
+        </receiver>
+        <receiver android:exported="true" android:label="@string/widget_search_trans_name" android:name=".widget.TransSearchWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/trans_search_widget_info"/>
+        </receiver>
+        <receiver android:exported="true" android:label="@string/widget_quick_search_name" android:name=".widget.QuickSearchWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.START_ALARM"/>
+                <action android:name="com.baidu.searchbox.action.CANCEL_ALARM"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.TIME_TICK"/>
+                <action android:name="com.baidu.searchbox.action.AFTER_TICK"/>
+                <category android:name="com.baidu.searchbox.category.QSearch"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.SERVICE_MSG"/>
+                <action android:name="com.baidu.searchbox.action.SWITCH_BACKGROUND"/>
+                <action android:name="com.baidu.searchbox.action.ALARM_CLOCK"/>
+                <action android:name="com.baidu.searchbox.action.CALENDAR"/>
+                <category android:name="com.baidu.searchbox.category.QSearch"/>
+                <data android:scheme="widgetid"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/quick_search_widget_info"/>
+        </receiver>
+        <receiver android:exported="true" android:label="@string/widget_clock_name" android:name=".widget.ClockWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.TIME_TICK"/>
+                <action android:name="com.baidu.searchbox.action.AFTER_TICK"/>
+                <category android:name="com.baidu.searchbox.category.ANALOG"/>
+                <category android:name="com.baidu.searchbox.category.DIGITAL"/>
+                <category android:name="com.baidu.searchbox.category.CLOCK"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.START_ALARM"/>
+                <action android:name="com.baidu.searchbox.action.CANCEL_ALARM"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.REFRESH_WEA"/>
+                <action android:name="com.baidu.searchbox.action.SERVICE_MSG"/>
+                <action android:name="com.baidu.searchbox.action.OPEN_REFRESH_WEA"/>
+                <action android:name="com.baidu.searchbox.action.STOP_REFRESH_WEA"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.WIDGET_REFRESH"/>
+                <action android:name="com.baidu.searchbox.action.WIDGET_ALARM"/>
+                <action android:name="com.baidu.searchbox.action.CLOCK_UPDATE"/>
+                <action android:name="com.baidu.searchbox.action.ALARM_CLOCK"/>
+                <action android:name="com.baidu.searchbox.action.CALENDAR"/>
+                <category android:name="com.baidu.searchbox.category.ANALOG"/>
+                <category android:name="com.baidu.searchbox.category.DIGITAL"/>
+                <category android:name="com.baidu.searchbox.category.CLOCK"/>
+                <data android:scheme="widgetid"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/clock_widget_info"/>
+        </receiver>
+        <meta-data android:name="IsBaiduApp" android:value="true"/>
+        <meta-data android:name="EnablePrivate" android:value="true"/>
+        <meta-data android:name="DisableService" android:value="false"/>
+        <meta-data android:name="DisableLocalServer" android:value="false"/>
+        <meta-data android:name="DisableApplist" android:value="false"/>
+        <meta-data android:name="DisableStatistic" android:value="false"/>
+        <receiver android:exported="true" android:name="com.baidu.searchbox.push.PushMsgReceiver">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.MESSAGE"/>
+                <action android:name="com.baidu.android.pushservice.action.RECEIVE"/>
+                <action android:name="com.baidu.android.push.lightapp.NEWMSG"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.common.NOTIFICATION.EXPIRE"/>
+                <action android:name="com.baidu.searchbox.action.common.PUSH_NOTIFICATION_DELETE"/>
+                <data android:scheme="scenetype"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name=".push.PushIntentService">
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.common.PUSH_MESSAGE"/>
+                <action android:name="com.baidu.searchbox.action.common.REGIST_USER_INFO"/>
+                <action android:name="com.baidu.searchbox.action.common.PUSH_MESSAGE_EXPIRE"/>
+                <action android:name="com.baidu.searchbox.action.common.PUSH_CACHE_CLEAR"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:name="com.baidu.android.pushservice.PushServiceReceiver" android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.baidu.android.pushservice.action.notification.SHOW"/>
+                <action android:name="com.baidu.android.pushservice.action.media.CLICK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.baidu.android.pushservice.RegistrationReceiver" android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.METHOD"/>
+                <action android:name="com.baidu.android.pushservice.action.BIND_SYNC"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.baidu.searchbox.card.remind.RemindReceiver">
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.card.remind.action.REMIND"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="true" android:name="com.baidu.android.pushservice.PushService" android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.PUSH_SERVICE"/>
+            </intent-filter>
+        </service>
+        <activity android:exported="true" android:label="@string/widget_clock_title" android:name=".widget.ClockWidgetConfigure" android:theme="@style/WidgetConfigureTheme">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="true" android:launchMode="singleInstance" android:name="SearchActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleNoAnimationNoBackground" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.search.action.GLOBAL_SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="com.android.launcher.toolbar_icon" android:resource="@drawable/trans_search_widget_logo"/>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.BAIDU_SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.ASSIST"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="true" android:launchMode="singleInstance" android:name=".VoiceSearchActivity" android:screenOrientation="portrait" android:theme="@style/VoiceViewTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:exported="true" android:launchMode="singleInstance" android:name=".VoiceFullScreenActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/NoTitleNoAnimationNoBackground" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH_LONG_PRESS"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.VOICESEARCH"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.speech.action.WEB_SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="com.android.launcher.toolbar_icon" android:resource="@drawable/ic_home_voice_search_holo"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".HelpActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleNoAnimation"/>
+        <activity android:exported="true" android:label="@string/app_name" android:name=".SearchBoxSettingsActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleNoAnimation">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.search.action.SEARCH_SETTINGS"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".PrivacySettingsActivity" android:screenOrientation="portrait" android:theme="@style/NoTitle"/>
+        <activity android:exported="true" android:launchMode="singleTask" android:name=".NotificationSettingsActivity" android:screenOrientation="portrait" android:theme="@style/NoTitle"/>
+        <activity android:name=".ShareSettingsActivity" android:screenOrientation="portrait" android:theme="@style/NoTitle"/>
+        <activity android:name=".LocalSearchSettingsActivity" android:screenOrientation="portrait" android:theme="@style/NoTitle"/>
+        <activity android:label="@string/app_name" android:name=".plugins.PluginCenterActivity" android:screenOrientation="portrait" android:theme="@style/NoTitle"/>
+        <activity android:label="@string/about_head_about" android:name=".AboutActivity" android:screenOrientation="portrait" android:theme="@style/NoTitle.Background"/>
+        <activity android:exported="false" android:label="@string/app_name" android:launchMode="singleTask" android:name=".plugins.PluginActivity" android:screenOrientation="portrait" android:theme="@style/NoTitle">
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.PLUGIN_DETAIL"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <provider android:authorities="com.baidu.searchbox.downloads" android:exported="false" android:name="com.baidu.searchbox.downloads.DownloadProvider"/>
+        <service android:exported="false" android:name="com.baidu.searchbox.downloads.DownloadService"/>
+        <receiver android:exported="false" android:name="com.baidu.searchbox.downloads.DownloadReceiver"/>
+        <receiver android:exported="false" android:name="com.baidu.searchbox.OpenDownloadReceiver">
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.intent.action.DOWNLOAD_NOTIFICATION_CLICKED"/>
+                <data android:mimeType="vnd.android.cursor.item/download" android:scheme="content"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.baidu.searchbox.DownloadInstallReceiver">
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.intent.action.DOWNLOAD_NOTIFICATION_CLICKED"/>
+                <data android:mimeType="vnd.android.cursor.item/download" android:scheme="content"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.baidu.searchbox.plugins.kernels.common.InstallResultReceiver">
+            <intent-filter>
+                <action android:name="com.baidu.megapp.installed"/>
+                <action android:name="com.baidu.megapp.installfail"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <activity android:launchMode="singleTask" android:name="com.baidu.searchbox.downloads.SizeLimitActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:exported="false" android:launchMode="singleTask" android:name="com.baidu.searchbox.downloads.ui.DownloadActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleWithUpDownAnimation">
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.intent.action.VIEW_DOWNLOADS"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:launchMode="singleTask" android:name="com.baidu.searchbox.downloads.ui.DownloadedCategorySecActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleWithUpDownAnimation"/>
+        <activity android:launchMode="singleTask" android:name="com.baidu.searchbox.downloads.ui.PictureCategoryActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleWithUpDownAnimation"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".SettingsCommonActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleWithUpDownAnimation"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".UserExperienceActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleWithUpDownAnimation" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".LoginActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleWithUpDownAnimation" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/login_qrcode_title" android:name=".login.QrLoginActivity" android:screenOrientation="portrait" android:theme="@style/NoTitle.Background"/>
+        <activity android:label="@string/login_qrcode_title" android:name=".login.QrLoginSettingsActivity" android:screenOrientation="portrait" android:theme="@style/NoTitle.Background"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name=".WebappVideoPlayHistoryActivity" android:screenOrientation="portrait" android:theme="@style/NoTitle"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="true" android:name=".HandleSSOActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleWithUpDownAnimation" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.SSOAUTH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".update.UpdatePackageReadyActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleDialog"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name=".update.UpdateDialogActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".developer.AboutSettingsActivity" android:screenOrientation="portrait"/>
+        <receiver android:exported="false" android:name=".widget.WidgetActionReceiver">
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.intent.action.BOX_VOICE_SEARCH"/>
+                <action android:name="com.baidu.searchbox.intent.action.BOX_CATAGORY_SEARCH"/>
+                <action android:name="com.baidu.searchbox.intent.action.BOX_INPUT_SEARCH"/>
+                <action android:name="com.baidu.searchbox.intent.action.BOX_APP_SEARCH"/>
+                <action android:name="com.baidu.searchbox.action.WIDGET_SEARCH"/>
+                <action android:name="com.baidu.searchbox.action.STATISTIC"/>
+                <category android:name="com.baidu.searchbox.category.DING"/>
+                <category android:name="com.baidu.searchbox.category.CLOCK"/>
+                <category android:name="com.baidu.searchbox.category.QSearch"/>
+                <category android:name="com.baidu.searchbox.category.Search"/>
+                <category android:name="com.baidu.searchbox.category.TRANS_SEARCH"/>
+                <data android:scheme="widgetid"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.FROM_WIDGET_PROVIDER"/>
+                <category android:name="com.baidu.searchbox.category.DING"/>
+                <category android:name="com.baidu.searchbox.category.CLOCK"/>
+                <data android:scheme="widgetid"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.baidu.sapi2.share.ShareReceiver" android:permission="com.baidu.permission.SHARE">
+            <intent-filter>
+                <action android:name="baidu.intent.action.SHARE"/>
+                <action android:name="baidu.intent.action.NEWSHARE"/>
+                <action android:name="baidu.intent.action.SHARE_V6"/>
+            </intent-filter>
+        </receiver>
+        <activity android:background="@android:drawable/screen_background_light" android:configChanges="keyboardHidden|orientation" android:exported="false" android:name=".bookmark.BookmarkHistoryActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleWithUpDownAnimation" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:label="@string/editbookmark" android:name=".bookmark.BookmarkEditActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleDialog" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="BdMobile_BookMark_Create"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="BdMobile_BookMark_Edit"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name=".bookmark.BookmarkDirEditActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleDialog" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="BdMobile_BookMarkDir_Create"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="BdMobile_BookMarkDir_Edit"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name=".bookmark.BookmarkDirectoryActiviy" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PICK"/>
+            </intent-filter>
+        </activity>
+        <provider android:authorities="baidusearch_bookmark" android:exported="true" android:name=".bookmark.BookmarkProvider" android:writePermission="com.baidu.permission.write_bookmark"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:label="@string/quicksearch_activity_name" android:launchMode="singleInstance" android:name=".quicksearch.QuickSearchActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleNoAnimation" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.QUICKSEARCH_CONTACT"/>
+                <action android:name="com.baidu.searchbox.action.QUICKSEARCH_SETTING"/>
+                <action android:name="com.baidu.searchbox.action.QUICKSEARCH_APP"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.baidu.searchbox.category.QSearch"/>
+                <data android:scheme="widgetid"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:exported="true" android:icon="@drawable/icon_combine_barcode" android:label="@string/barcode_scan_title" android:launchMode="singleTop" android:name="com.baidu.searchbox.CodeScannerActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.SEARCHCOMBINE_BARCODE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="widgetid"/>
+            </intent-filter>
+        </activity>
+        <activity-alias android:exported="true" android:icon="@drawable/icon_barcode" android:label="@string/barcode_name" android:name="com.baidu.searchbox.BarcodeScanner" android:targetActivity="com.baidu.searchbox.CodeScannerActivity">
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.QUICKSEARCH_BARCODE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="widgetid"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.QUICKSEARCH_TWO_DIMENSION_CODE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="widgetid"/>
+            </intent-filter>
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.QRCODE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:exported="true" android:label="@string/barcode_name2" android:name="com.baidu.searchbox.BarcodeScannerActivity" android:targetActivity="com.baidu.searchbox.CodeScannerActivity">
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.QUICKSEARCH_BARCODE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="widgetid"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.QUICKSEARCH_ONE_DIMENSION_CODE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="widgetid"/>
+            </intent-filter>
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".UserDefinedHeaderActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleWithUpDownAnimation" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".developer.ConfigWebActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleWithUpDownAnimation" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.baidu.searchbox.ManageSpaceActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".plugins.PluginAlertActivity" android:screenOrientation="portrait" android:theme="@style/KernelWindow" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".downloads.ui.VideoContinueActivity" android:screenOrientation="portrait" android:theme="@style/KernelWindow" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".downloads.ui.AppSuccessActivity" android:screenOrientation="portrait" android:theme="@style/KernelWindow" android:windowSoftInputMode="adjustPan"/>
+        <receiver android:enabled="true" android:name="com.baidu.android.moplus.MoPlusReceiver" android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.baidu.android.moplus.action.START"/>
+                <action android:name="com.baidu.android.pushservice.action.BIND_SYNC"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="com.baidu.android.defense.push.PushMsgReceiver" android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.RECEIVE"/>
+                <action android:name="com.baidu.android.pushservice.action.MESSAGE"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.baidu.android.moplus.MoPlusService" android:process=":bdservice_v1"/>
+        <activity android:allowTaskReparenting="true" android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:exported="true" android:hardwareAccelerated="true" android:launchMode="standard" android:name=".aloaderhost.ALoaderActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.aloader.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTask" android:name=".lib.widget.DialogActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleDialog"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:launchMode="singleTask" android:name=".video.TipDialog" android:screenOrientation="portrait" android:theme="@style/NoTitleDialog"/>
+        <activity android:name="com.baidu.searchbox.xsearch.XSearchMessageSrcManageActivity" android:screenOrientation="portrait" android:theme="@style/NoTitle"/>
+        <activity android:exported="true" android:name=".xsearch.SiteCollectionActivity" android:screenOrientation="portrait" android:theme="@style/NoTitle">
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.LIGHTAPP_STORE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <receiver android:exported="true" android:name=".story.DownloadStoryReceiver">
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.DOWNLOADSTORY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name=".story.UpdateStoryProgressReceiver"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTask" android:name=".story.CoverStoryActivity" android:theme="@style/VoiceViewTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".discovery.picture.PictureBrowseActivity" android:screenOrientation="portrait" android:theme="@style/NoTitle"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".discovery.picture.PictureWallpaperActivity" android:screenOrientation="portrait" android:theme="@style/NoTitle"/>
+        <service android:exported="true" android:name="com.baidu.performance.MonitorService" android:permission="com.baidu.permission.performance.monitor">
+            <intent-filter>
+                <action android:name="com.baidu.performance.monitor.Battery"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTask" android:name=".lightbrowser.LightBrowserActivity" android:screenOrientation="portrait" android:theme="@style/NoTitle"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTask" android:name=".card.CardCenterActivity" android:screenOrientation="portrait" android:theme="@style/NoTitle"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="true" android:launchMode="singleTask" android:name=".privilege.PrivilegeCenterActivity" android:screenOrientation="portrait" android:theme="@style/NoTitle"/>
+        <activity-alias android:label="@string/app_browser_name" android:name="BoxBrowserActivity" android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https"/>
+                <data android:scheme="http"/>
+            </intent-filter>
+        </activity-alias>
+        <activity android:exported="true" android:label="@string/app_name" android:name="com.baidu.searchbox.socialshare.WXEntryActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="true" android:name="com.baidu.cloudsdk.social.oauth.SocialOAuthActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:launchMode="singleTask" android:name="com.baidu.cloudsdk.social.share.handler.LocalShareActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:launchMode="singleTask" android:name="com.baidu.cloudsdk.social.share.handler.QQFriendShareReceiverActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencent100587833"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name=".discovery.novel.NovelInputUserNameActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="false" android:name="com.baidu.android.readersdk.ReaderService"/>
+        <activity android:launchMode="singleInstance" android:name="com.baidu.searchbox.story.NovelAddToShelfDialogActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:exported="@bool/switch_global_debug" android:label="@string/app_name" android:launchMode="singleInstance" android:name="com.baidu.searchbox.story.ReaderStartActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.reader.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.reader.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="file"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.reader.action.VIEW_WITH_JSON"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.reader.action.VIEW_WITH_JSON"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="file"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:label="@string/app_name" android:name="com.baidu.searchbox.story.ReaderSettingsActivity" android:screenOrientation="portrait" android:theme="@style/NoTitle">
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.reader.action.SHOW_PREFERENCE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:launchMode="singleTop" android:name="com.baidu.searchbox.discovery.novel.DiscoveryNovelSecondActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleWithUpDownAnimation">
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.NOVELSECOND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:launchMode="singleTask" android:name="com.baidu.searchbox.discovery.novel.DiscoveryNovelSearchResultActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleWithUpDownAnimation"/>
+        <activity android:exported="false" android:launchMode="singleTask" android:name="com.baidu.searchbox.discovery.novel.DiscoveryNovelSpecialActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleWithUpDownAnimation">
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.NOVELSPECIAL"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:launchMode="singleTask" android:name="com.baidu.searchbox.discovery.novel.NovelExploreActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleWithUpDownAnimation">
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.NOVELEXPLORE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.baidu.searchbox.discovery.novel.DiscoveryNovelDetailActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleWithUpDownAnimation">
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.NOVELDETAIL"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:name="com.baidu.searchbox.discovery.novel.DiscoveryNovelCommentActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleNoAnimation">
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.NOVELCOMMENTLIST"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:launchMode="singleTop" android:name="com.baidu.searchbox.discovery.novel.DiscoveryNovelWriteCommentActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleNoAnimation" android:windowSoftInputMode="adjustResize|stateVisible">
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.NOVELWRITECOMMENT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:launchMode="singleTask" android:name="com.baidu.searchbox.discovery.novel.DiscoveryNovelSearchActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleNoAnimation" android:windowSoftInputMode="stateAlwaysVisible">
+            <intent-filter>
+                <action android:name="com.baidu.searchbox.action.NOVELSEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTask" android:name=".story.DownloadStoryActivity" android:theme="@style/VoiceViewTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.baidu.browser.lightapp.SiteIntroActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.baidu.browser.lightapp.LightAppBarcodeActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|layoutDirection|locale|navigation|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.baidu.searchbox.OpenDingWidgetRefreshActivity" android:screenOrientation="portrait" android:theme="@style/NoTitle" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.baidu.searchbox.wallet.WalletServiceActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:launchMode="singleTask" android:name="com.baidu.searchbox.card.remind.widget.WeatherRemindDialogActivity" android:screenOrientation="portrait" android:taskAffinity="com.baidu.searchbox.card.remind.widget.WeatherRemindDialogActivity" android:theme="@style/exit_dialog"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:exported="true" android:launchMode="singleInstance" android:name="com.baidu.appsearch.lite.AsLiteInvokerActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="com.baidu.appsearch.extinvoker.LITELAUNCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:exported="true" android:launchMode="singleInstance" android:name="com.baidu.appsearch.lite.InstallAppsearchActivity" android:taskAffinity="com.baidu.appsearch.lite.InstallAppsearchActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.baidu.megapp.proxy.activity.ActivityProxy"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.baidu.megapp.proxy.activity.FragmentActivityProxy"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.baidu.megapp.proxy.activity.PreferenceActivityProxy"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.baidu.megapp.proxy.activity.ActivityGroupProxy"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.baidu.megapp.proxy.activity.TabActivityProxy"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.baidu.megapp.proxy.activity.DialogActivityProxy" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.baidu.megapp.proxy.activity.ActivityProxyTranslucent" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.baidu.megapp.proxy.activity.FragmentActivityProxyTranslucent" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.baidu.megapp.proxy.activity.PreferenceActivityProxyTranslucent" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.baidu.megapp.proxy.activity.ActivityGroupProxyTranslucent" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.baidu.megapp.proxy.activity.TabActivityProxyTranslucent" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="false" android:name="com.baidu.megapp.install.ApkInstallerService" android:process=":megappInstaller"/>
+        <service android:name="com.baidu.megapp.proxy.service.ServiceProxy1"/>
+        <service android:name="com.baidu.megapp.proxy.service.ServiceProxy2"/>
+        <service android:name="com.baidu.megapp.proxy.service.ServiceProxy3"/>
+        <service android:name="com.baidu.megapp.proxy.service.ServiceProxy4"/>
+        <service android:name="com.baidu.megapp.proxy.service.ServiceProxy5"/>
+        <service android:name="com.baidu.megapp.proxy.service.ServiceProxy6"/>
+        <service android:name="com.baidu.megapp.proxy.service.ServiceProxy7"/>
+        <service android:name="com.baidu.megapp.proxy.service.ServiceProxy8"/>
+        <service android:name="com.baidu.megapp.proxy.service.ServiceProxy9"/>
+        <service android:name="com.baidu.megapp.proxy.service.ServiceProxy10"/>
+        <service android:name="com.baidu.megapp.proxy.service.IntentServiceProxy1"/>
+        <service android:name="com.baidu.megapp.proxy.service.IntentServiceProxy2"/>
+        <service android:name="com.baidu.megapp.proxy.service.IntentServiceProxy3"/>
+        <service android:name="com.baidu.megapp.proxy.service.IntentServiceProxy4"/>
+        <service android:name="com.baidu.megapp.proxy.service.IntentServiceProxy5"/>
+        <service android:name="com.baidu.megapp.proxy.service.IntentServiceProxy6"/>
+        <service android:name="com.baidu.megapp.proxy.service.IntentServiceProxy7"/>
+        <service android:name="com.baidu.megapp.proxy.service.IntentServiceProxy8"/>
+        <service android:name="com.baidu.megapp.proxy.service.IntentServiceProxy9"/>
+        <service android:name="com.baidu.megapp.proxy.service.IntentServiceProxy10"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.baidu.megapp.proxy.activity.RootActivity" android:theme="@style/NoTitleNoAnimation"/>
+        <receiver android:exported="true" android:name="com.baidu.megapp.proxy.BroadcastReceiverProxy"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.baidu.searchbox.developer.MegappLoadApkActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.baidu.searchbox.developer.MegappApkSignatureActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:label="@string/about_head_about" android:name=".card.remind.CardRemindSettingActivity" android:screenOrientation="portrait" android:theme="@style/NoTitle.Background"/>
+        <activity android:name=".card.cardmanager.CardManagerActivity" android:screenOrientation="portrait" android:theme="@style/NoTitle"/>
+        <receiver android:exported="true" android:name=".fastsearch.FastSearchTxtReceiver"/>
+        <receiver android:exported="true" android:name=".fastsearch.FastSearchVoiceReceiver"/>
+        <receiver android:name=".fastsearch.FastSearchBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.HOME"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.baidu.ufosdk.ui.UfosdkService"/>
+        <activity android:name="com.baidu.ufosdk.ui.FeedbackActivity"/>
+        <activity android:name="com.baidu.ufosdk.ui.FeedbackNewActivity" android:theme="@style/Theme.UfoSdkTransparent"/>
+        <activity android:launchMode="singleTask" android:name="com.baidu.ufosdk.ui.FeedbackListActivity"/>
+        <activity android:name="com.baidu.ufosdk.ui.FeedbackFaqActivity"/>
+        <activity android:launchMode="singleTask" android:name="com.baidu.ufosdk.ui.FeedbackHotActivity"/>
+    </application>
+</manifest>

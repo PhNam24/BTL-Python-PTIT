@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.shuwtech.salon">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BATTERY_STATS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="com.stub.StubApp" android:qihoo="activity" android:supportsRtl="true" android:theme="@style/common_AppTheme.NoActionBar">
+        <activity android:launchMode="singleTask" android:name="com.shuwtech.salon.ui.activity.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.shuwtech.salon.ui.activity.WebActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shuwtech.salon.ui.activity.WeexActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="com.shuwtech.salon.weex.pager"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.shuwtech.salon.wxapi.WXEntryActivity" android:theme="@style/common_AppTheme.FullScreen.Translucent"/>
+        <provider android:authorities="com.shuwtech.salon.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_path"/>
+        </provider>
+        <activity android:name="com.shuwtech.login.ui.activity.SplashActivity" android:screenOrientation="portrait" android:theme="@style/common_AppTheme.FullScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.shuwtech.login.ui.activity.LoginActivity" android:screenOrientation="portrait" android:theme="@style/common_AppTheme.FullScreen"/>
+        <activity android:label="" android:name="com.shuwtech.login.ui.activity.VerifyCodeActivity" android:screenOrientation="portrait" android:theme="@style/common_AppTheme.NoActionBar"/>
+        <activity android:name="com.shuwtech.login.ui.activity.GuideActivity" android:screenOrientation="portrait" android:theme="@style/common_AppTheme.FullScreen"/>
+        <activity android:label="@string/marketing_label_diffluence" android:launchMode="singleTop" android:name="com.shuwtech.marketing.ui.activity.DiffluenceActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/marketing_label_goods_detail" android:launchMode="singleTop" android:name="com.shuwtech.marketing.ui.activity.GoodsDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/marketing_label_cart" android:launchMode="singleTop" android:name="com.shuwtech.marketing.ui.activity.CartActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/marketing_label_order_pay" android:launchMode="singleTop" android:name="com.shuwtech.marketing.ui.activity.OrderPayActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/team_label_rank" android:launchMode="singleTop" android:name="com.shuwtech.team.ui.activity.RankActivity" android:screenOrientation="portrait"/>
+        <activity android:label=" " android:launchMode="singleTop" android:name="com.shuwtech.team.ui.activity.MemberDetailActivity" android:screenOrientation="portrait" android:theme="@style/common_AppTheme.FullScreen"/>
+        <activity android:label="" android:launchMode="singleTop" android:name="com.shuwtech.team.ui.activity.SharePosterActivity" android:theme="@style/common_AppTheme.DialogActivity"/>
+        <activity android:label="@string/team_label_batch_recharge" android:launchMode="singleTop" android:name="com.shuwtech.team.ui.activity.BatchRechargeActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/team_label_pay_vip" android:launchMode="singleTop" android:name="com.shuwtech.team.ui.activity.PayVipActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/mine_label_setting" android:launchMode="singleTask" android:name="com.shuwtech.mine.ui.activity.SettingActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/mine_label_change_mobile" android:launchMode="singleTop" android:name="com.shuwtech.mine.ui.activity.ChangeMobileActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/mine_label_change_mobile_warn" android:launchMode="singleTop" android:name="com.shuwtech.mine.ui.activity.ChangeMobileWarnActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/mine_label_my_orders" android:launchMode="singleTop" android:name="com.shuwtech.mine.ui.activity.MyOrdersActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/mine_label_order_detail" android:launchMode="singleTop" android:name="com.shuwtech.mine.ui.activity.OrderDetailActivity" android:screenOrientation="portrait"/>
+        <meta-data android:name="XG_V2_ACCESS_ID" android:value="2100302523"/>
+        <meta-data android:name="XG_V2_ACCESS_KEY" android:value="A3XNJN228Y4S"/>
+        <receiver android:exported="true" android:name="com.shuwtech.push.receiver.XGPushReceiver">
+            <intent-filter>
+                <action android:name="com.tencent.android.tpush.action.PUSH_MESSAGE"/>
+                <action android:name="com.tencent.android.tpush.action.FEEDBACK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.tencent.android.tpush.XGPushReceiver" android:process=":xg_service_v3">
+            <intent-filter android:priority="0x7FFFFFFF">
+                <action android:name="com.tencent.android.tpush.action.SDK"/>
+                <action android:name="com.tencent.android.tpush.action.INTERNAL_PUSH_MESSAGE"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+            <intent-filter android:priority="0x7FFFFFFF">
+                <action android:name="android.intent.action.MEDIA_UNMOUNTED"/>
+                <action android:name="android.intent.action.MEDIA_REMOVED"/>
+                <action android:name="android.intent.action.MEDIA_CHECKING"/>
+                <action android:name="android.intent.action.MEDIA_EJECT"/>
+                <data android:scheme="file"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.tencent.android.tpush.XGPushActivity" android:theme="@android:style/Theme.Translucent">
+            <intent-filter>
+                <action android:name="android.intent.action"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="true" android:name="com.tencent.android.tpush.service.XGPushServiceV3" android:persistent="true" android:process=":xg_service_v3"/>
+        <service android:exported="true" android:name="com.tencent.android.tpush.rpc.XGRemoteService">
+            <intent-filter>
+                <action android:name="com.shuwtech.salon.PUSH_ACTION"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.shuwtech.salon.AUTH_XGPUSH" android:exported="true" android:name="com.tencent.android.tpush.XGPushProvider"/>
+        <provider android:authorities="com.shuwtech.salon.TPUSH_PROVIDER" android:exported="false" android:name="com.tencent.android.tpush.SettingsContentProvider"/>
+        <provider android:authorities="com.shuwtech.salon.TENCENT.MID.V3" android:exported="true" android:name="com.tencent.mid.api.MidProvider"/>
+        <activity android:name="com.shuwtech.photo.activity.IDCameraActivity" android:screenOrientation="landscape" android:theme="@style/common_AppTheme.FullScreen"/>
+        <activity android:name="com.shuwtech.photo.activity.ImageCropActivity" android:theme="@style/common_AppTheme.FullScreen"/>
+        <activity android:name="com.shuwtech.photo.activity.GalleryActivity" android:theme="@style/common_AppTheme.NoActionBar"/>
+        <activity android:label=" " android:name="com.shuwtech.photo.activity.ReUploaderActivity" android:theme="@style/photo_AppTheme.ReUploader"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shuwtech.commonsdk.ui.activity.CommonWebActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shuwei.weex.ui.WeexPagerActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="com.shuwtech.weex.pager"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.shuwei.weex.ui.EditHostActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <meta-data android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule" android:value="GlideModule"/>
+        <activity android:hardwareAccelerated="false" android:name="com.alguojian.imagegesture.ImageGesture"/>
+        <activity android:exported="false" android:name="com.taobao.weex.devtools.toolbox.PerformanceActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Performance"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation|screenSize" android:exported="false" android:name="com.alipay.sdk.app.H5PayActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:exported="false" android:name="com.alipay.sdk.app.H5AuthActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <provider android:authorities="com.shuwtech.salon.com.liulishuo.okdownload" android:exported="false" android:name="com.liulishuo.okdownload.OkDownloadProvider"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.taobao.weex.WXGlobalEventReceiver"/>
+        <activity android:name="com.taobao.weex.analyzer.view.SettingsActivity" android:screenOrientation="portrait"/>
+    </application>
+</manifest>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" package="com.observint.alibi.cloudvs.android" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <queries>
+        <intent>
+            <action android:name="android.speech.action.RECOGNIZE_SPEECH"/>
+        </intent>
+    </queries>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.landscape" android:required="false"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:hardwareAccelerated="true" android:icon="@mipmap/application_icon" android:isSplitRequired="true" android:label="@string/app_name" android:largeHeap="true" android:name="com.pcmseu.nubo.application.M2Application" android:networkSecurityConfig="@xml/network_security_config" android:roundIcon="@mipmap/application_icon_round" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDQmG1cxL3vyooQ9ye-hm6sZIZpRsiGM6o"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:launchMode="singleTask" android:name="com.pcmseu.nubo.feature.splash.SplashActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="" android:scheme="cameramanagerapp"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.pcmseu.nubo.feature.noconnection.NoInternetConnectionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pcmseu.nubo.feature.retryconnection.ServerUnavailableActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.pcmseu.nubo.feature.login.LoginActivity" android:parentActivityName="com.pcmseu.nubo.feature.welcome.WelcomeActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.pcmseu.nubo.feature.welcome.WelcomeActivity"/>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="login" android:scheme="nuboapp"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.pcmseu.nubo.feature.camerawifi.WifiListActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".feature.camerasettings.CameraSettingsActivity"/>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.pcmseu.nubo.feature.welcome.WelcomeActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|layoutDirection|locale|orientation|screenSize" android:launchMode="singleTask" android:name="com.pcmseu.nubo.feature.zones.activity.ZonesDashboardActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|layoutDirection|locale|orientation|screenSize" android:name="com.pcmseu.nubo.feature.home.view.HomeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".feature.zones.activity.ZonesDashboardActivity"/>
+        </activity>
+        <activity android:name="com.pcmseu.nubo.feature.camerasettings.CameraSettingsActivity" android:parentActivityName="com.pcmseu.nubo.feature.home.view.HomeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".feature.home.view.HomeActivity"/>
+        </activity>
+        <activity android:name="com.pcmseu.nubo.feature.setup.cloud_camera.WizardCameraActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pcmseu.nubo.feature.setup.cloud_camera.qr_scanner.CapturePortraitActivity" android:screenOrientation="portrait" android:stateNotNeeded="true" android:theme="@style/zxing_CaptureTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.pcmseu.nubo.feature.setup.zone.ZoneWizardActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.pcmseu.nubo.feature.setup.SetupActivity" android:parentActivityName="com.pcmseu.nubo.feature.welcome.WelcomeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.pcmseu.nubo.feature.welcome.WelcomeActivity"/>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="wizard" android:scheme="nuboapp"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.pcmseu.nubo.feature.resetpassword.ResetPasswordActivity" android:parentActivityName="com.pcmseu.nubo.feature.login.LoginActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.pcmseu.nubo.feature.login.LoginActivity"/>
+        </activity>
+        <activity android:name="com.pcmseu.nubo.feature.nocameralinked.NoCameraLinkedActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pcmseu.nubo.feature.firmware.changelog.FirmwareChangeLogActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pcmseu.nubo.feature.walkthrough.WalkthroughActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pcmseu.nubo.feature.microphone.MicrophoneActivity"/>
+        <activity android:name="com.pcmseu.nubo.feature.accountsettings.password.ChangePasswordActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pcmseu.nubo.feature.accountsettings.support.AllowSupportAccessWithEndTimeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pcmseu.nubo.feature.accountsettings.details.UserDetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pcmseu.nubo.feature.accountsettings.email.ChangeEmailActivity" android:screenOrientation="portrait"/>
+        <service android:name="com.pcmseu.nubo.data.push.CmFcmListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.pcmseu.nubo.feature.geofencing.service.GeofenceTransitionsIntentService"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.pcmseu.nubo.receivers.NetworkChangeReceiver">
+            <intent-filter android:priority="999">
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.pcmseu.nubo.OnBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.pcmseu.nubo.data.push.ActionClickedReceiver">
+            <intent-filter>
+                <action android:name="action.DECLINE_CALL"/>
+                <action android:name="action.ACCEPT_CALL"/>
+                <action android:name="action.NO_ANSWER"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="@string/file_provider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_provider_paths"/>
+        </provider>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:name="com.pcmseu.nubo.feature.camerasettings.removecamera.password.RemoveCameraPasswordActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.pcmseu.nubo.feature.accountsettings.AccountSettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pcmseu.nubo.feature.zonesettings.ZoneSettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|layoutDirection|locale|orientation|screenSize" android:launchMode="singleTop" android:name="com.pcmseu.nubo.feature.timeline.TimelineActivity"/>
+        <activity android:name="com.pcmseu.nubo.feature.arm_mode.SwitchArmModeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pcmseu.nubo.feature.zonesettings.ZoneSettingNewCameraActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pcmseu.nubo.feature.wizardnubo.WizardNuboActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pcmseu.nubo.feature.summary.DailySummaryActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pcmseu.nubo.feature.firmware.settings.FirmwareSettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pcmseu.nubo.feature.detections.SmartDetectionsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pcmseu.nubo.feature.detections.CameraDetectionsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pcmseu.nubo.feature.geofencing.ui.GeofencingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pcmseu.nubo.feature.zonesettings.NoCameraSlotsAvailableActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pcmseu.nubo.feature.camerasettings.advanced.AdvancedCameraInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pcmseu.nubo.feature.camerasettings.advanced.AdvancedVideoSettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pcmseu.nubo.feature.camerasettings.advanced.VideoSettingDetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pcmseu.nubo.feature.setup.doorbell.DoorbellWizardActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="layoutDirection|orientation|screenSize" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.pcmseu.nubo.feature.doorbell.DoorbellRingingActivity" android:screenOrientation="portrait" android:showOnLockScreen="true"/>
+        <activity android:exported="false" android:label="@string/places_autocomplete_label" android:name="com.google.android.libraries.places.widget.AutocompleteActivity" android:theme="@style/PlacesAutocompleteOverlay" android:windowSoftInputMode="adjustResize"/>
+        <service android:name="com.cameramanager.mobile_sdk.sniffer_client.upnp.SnifferUpnpService"/>
+        <activity android:clearTaskOnLaunch="true" android:name="com.journeyapps.barcodescanner.CaptureActivity" android:screenOrientation="sensorLandscape" android:stateNotNeeded="true" android:theme="@style/zxing_CaptureTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <service android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <service android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.observint.alibi.cloudvs.android.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.observint.alibi.cloudvs.android.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="3"/>
+    </application>
+</manifest>

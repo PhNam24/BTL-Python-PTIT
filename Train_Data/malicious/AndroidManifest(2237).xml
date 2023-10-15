@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.kwkx.yishanjiekuan" platformBuildVersionCode="27" platformBuildVersionName="8.1.0">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.BATTERY_STATS"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-feature android:name="android.hardware.camera" android:required="true"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="getui.permission.GetuiService.com.kwkx.yishanjiekuan"/>
+    <permission android:name="getui.permission.GetuiService.com.kwkx.yishanjiekuan" android:protectionLevel="normal"/>
+    <uses-permission android:maxSdkVersion="22" android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:allowBackup="false" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="com.kwkx.yishanjiekuan.base.BaseApplication" android:supportsRtl="true" android:theme="@style/AppTheme.NoActionBar">
+        <meta-data android:name="android.max_aspect" android:value="2.1"/>
+        <meta-data android:name="UMENG_APPKEY" android:value="@string/umeng_appkey"/>
+        <meta-data android:name="PARTNER_CODE" android:value="zhenrongbao"/>
+        <service android:exported="true" android:label="PushService" android:name="com.kwkx.yishanjiekuan.igexin.GeTuiPushService" android:process=":pushservice"/>
+        <receiver android:name="com.kwkx.yishanjiekuan.receiver.SmsReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.kwkx.yishanjiekuan.receiver.AppReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.kwkx.yishanjiekuan.igexin.PushIntentService"/>
+        <activity android:alwaysRetainTaskState="true" android:clearTaskOnLaunch="false" android:name="com.kwkx.yishanjiekuan.view.splash.SplashActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Launcher">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <data android:scheme="@string/growingio_url_scheme"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.zhijiand.com" android:path="/entry" android:scheme="icxx"/>
+                <data android:host="www.zhijiand.com" android:path="/home" android:scheme="icxx"/>
+                <data android:host="www.zhijiand.com" android:path="/account" android:scheme="icxx"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.feedback.FeedbackActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.login.LoginActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.login.LoginWithoutPasswdActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.register.RegisterStep1Activity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.register.RegisterStep2Activity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.register.RegisterStep3Activity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing|stateVisible"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.forgetpassword.ForgetPasswdStep1Activity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.forgetpassword.ForgetPasswdStep2Activity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.authsystem.baseuserinfo.IdentityAuthActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.authsystem.baseuserinfo.BankCardAuthActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.kwkx.yishanjiekuan.view.authsystem.baseuserinfo.JobInfoActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.kwkx.yishanjiekuan.view.authsystem.baseuserinfo.ContactsInfoActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.authsystem.baseuserinfo.PersonalInfoActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.authsystem.authorization.mobile.MobileAuthActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.authsystem.authorization.AuthDoingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.authsystem.authorization.AuthVerifySmsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.authsystem.authorization.internet.TaoBaoAuthActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.authsystem.authorization.internet.JdAuthActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.login.LoginSecureActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.authsystem.authorization.internet.InternetOutlineActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.authsystem.authorization.AuthorizationFrameActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.kwkx.yishanjiekuan.view.authsystem.baseuserinfo.BankListActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.authsystem.baseuserinfo.FaceAuthActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.authsystem.authorization.AuthSuccessActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.repayment.RepaymentActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.zhijiand.com" android:path="/repay" android:scheme="icxx"/>
+                <data android:host="www.zhijiand.com" android:path="/repay/" android:scheme="icxx"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.kwkx.yishanjiekuan.view.repayment.RepaySmsCodeActivity" android:screenOrientation="portrait" android:theme="@style/pay_dialog" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.authsystem.baseuserinfo.FaceDetectWaitingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.loan.LoanFormActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.zhijiand.com" android:path="/doloan" android:scheme="icxx"/>
+                <data android:host="www.zhijiand.com" android:path="/doloan/" android:scheme="icxx"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.repayment.RepayDoingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.repayment.RepaySuccessActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.repayment.RepayFailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.loan.OrderConfirmActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.loan.OrderDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.loan.LoanListActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.zhijiand.com" android:path="/loanrecord" android:scheme="icxx"/>
+                <data android:host="www.zhijiand.com" android:path="/loanrecord/" android:scheme="icxx"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.loan.LoanItemDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.kwkx.yishanjiekuan.view.security.SecurityImageCodeActivity" android:screenOrientation="portrait" android:theme="@style/imagecode_dialog" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.account.AccountSettingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.account.ModifyPasswdStep1Activity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.account.ModifyPasswdStep2Activity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing|stateHidden"/>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.kwkx.yishanjiekuan.wxapi.WXPayEntryActivity" android:theme="@style/transprent"/>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.switfpass.pay.activity.PayResultActivity"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.moreinfo.MoreServiceActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.authsystem.authorization.IncreaseLimitActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.authsystem.credit.CreditAuthActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.kwkx.yishanjiekuan.view.authsystem.credit.CreditBankListActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.kwkx.yishanjiekuan.view.authsystem.credit.CreditBillActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.authsystem.authorization.internet.BaiduAuthActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.authsystem.authorization.internet.QQAuthActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.splash.GuideActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.webview.CommonWebViewActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.zhijiand.com" android:path="/web" android:scheme="icxx"/>
+                <data android:host="www.zhijiand.com" android:path="/web/" android:scheme="icxx"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.authsystem.housefund.CityListActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.authsystem.housefund.HouseFundAuthActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.authsystem.peoplebank.PeopleBankAuthActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.authsystem.education.EducationAuthActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.authsystem.socialsecurity.SocialSecurityAuthActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.authsystem.authorization.AuthFailActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.message.MyMessageActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.loan.LoanProtocolActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.kwkx.yishanjiekuan.view.loan.LoanPurposeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.authsystem.authorization.AuthVerifyImageActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.coupon.CouponActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.register.RegisterSuccessActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.kwkx.yishanjiekuan.view.share.ShareActivity" android:screenOrientation="portrait" android:theme="@style/MyDialogStyleBottom"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:name="com.kwkx.yishanjiekuan.wxapi.WXEntryActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="PUSH_APPID" android:value="WHwC5LNd3s7PFhg0eHf3i"/>
+        <meta-data android:name="PUSH_APPKEY" android:value="jnBeLJpUjbAE223NC5goOA"/>
+        <meta-data android:name="PUSH_APPSECRET" android:value="joMaF1ycuI704vcn1T3ZF3"/>
+        <service android:exported="true" android:label="NotificationCenter" android:name="com.igexin.sdk.PushService" android:process=":pushservice">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.service.message"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.igexin.sdk.PushReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.igexin.sdk.action.refreshls"/>
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.igexin.sdk.PushActivity" android:process=":pushservice" android:taskAffinity="com.igexin.sdk.PushActivityTask" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:excludeFromRecents="true" android:exported="true" android:name="com.igexin.sdk.GActivity" android:process=":pushservice" android:taskAffinity="com.igexin.sdk.PushActivityTask" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:name="com.igexin.download.DownloadService" android:process=":pushservice"/>
+        <receiver android:name="com.igexin.download.DownloadReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="downloads.com.kwkx.yishanjiekuan" android:exported="true" android:name="com.igexin.download.DownloadProvider" android:process=":pushservice"/>
+        <activity android:name="com.module.liveness.linkface.ui.LivenessActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.module.liveness.sensetime.MotionLivenessActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.module.ocr.bankcard.BankCardActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.module.ocr.idcard.IdCardActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.module.toolbox.ui.ToolboxActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.module.toolbox.ui.LogActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.module.toolbox.ui.SettingToggleActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.module.toolbox.ui.NetCheckActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.module.toolbox.ui.ProtocolRouterActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.module.toolbox.ui.HostChangeActivity" android:screenOrientation="portrait"/>
+        <provider android:authorities="com.kwkx.yishanjiekuan.bga_update.file_provider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/bga_upgrade_file_paths"/>
+        </provider>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:multiprocess="true" android:name="com.module.permission.PermissionAgent$PermissionActivity" android:theme="@style/ActivityTranslucent" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:launchMode="singleTop" android:name="com.baidu.fsg.face.liveness.activity.LivenessRecogGuidActivity" android:screenOrientation="portrait" android:theme="@style/SapiTheme"/>
+        <activity android:launchMode="singleTop" android:name="com.baidu.fsg.face.liveness.activity.LivenessRecogActivity" android:screenOrientation="portrait" android:theme="@style/SapiBio.App.Theme.NoTitleBar.Fullscreen"/>
+        <activity android:launchMode="singleTop" android:name="com.baidu.fsg.face.liveness.activity.LivenessLoadingActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:launchMode="singleTop" android:name="com.baidu.fsg.face.liveness.activity.LivenessVideoLoadingActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:launchMode="singleTop" android:name="com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity" android:screenOrientation="portrait" android:theme="@style/SapiTheme"/>
+        <activity android:launchMode="singleTop" android:name="com.baidu.fsg.face.liveness.activity.LivenessVideoActivity" android:screenOrientation="portrait" android:theme="@style/SapiBio.App.Theme.NoTitleBar.Fullscreen"/>
+    </application>
+</manifest>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="quanzhixian.kingfw.com" platformBuildVersionCode="17" platformBuildVersionName="4.2.2-1425461">
+    <application android:allowBackup="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:name=".App" android:theme="@style/AppTheme">
+        <activity android:label="@string/app_name" android:name="quanzhixian.kingfw.com.act.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="quanzhixian.kingfw.com.act.PicTouchAct"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="wwq.activity.WwqActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:name="wwq.service.WwqService"/>
+        <receiver android:name="wwq.receiver.WwqReceiver">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="UMENG_APPKEY" android:value="54645893fd98c5659a001bad"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="anzhi"/>
+    </application>
+    <supports-screens android:anyDensity="true"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+</manifest>
