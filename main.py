@@ -13,7 +13,6 @@ def process(file_path):
         tmp = []
         for item in root.iter('uses-permission'):
             x = item.get("{http://schemas.android.com/apk/res/android}name")
-            # permission is of the form android.permission.PERMISSION_NAME(so using split to get the permission name only)
             x = x.split('.')[-1]
             tmp.append(x)
         if len(tmp) > 0:
